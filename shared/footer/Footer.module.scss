@@ -1,0 +1,157 @@
+@import "@/styles/imports";
+
+.footer {
+	padding: 4rem 11.2rem;
+	// @include screenMax("tablet") {
+	// 	padding: 5rem 5.4rem 5.3rem;
+	// }
+	@include screenMax("mobile") {
+		padding: 5rem 2.4rem;
+	}
+}
+
+.footer_body {
+	@include flex(space-between, flex-start, wrap);
+	@include screenMax("mobile") {
+		// flex-direction: column-reverse;
+		align-items: flex-start;
+	}
+}
+
+.footer_navSection {
+	@include flex();
+	// @include screenMax("tablet") {
+	// 	width: 100%;
+	// 	order: 3;
+	// }
+	@include screenMax("mobile") {
+		// justify-content: space-between;
+		order: 2;
+	}
+}
+.footer_logo {
+	margin-bottom: 2rem;
+	@include screenMax("mobile") {
+		order: 1;
+	}
+}
+.footer_nav {
+	&:not(:last-child) {
+		margin-right: 7.5rem;
+		// @include screenMax("tablet") {
+		// 	margin-right: 1rem;
+		// }
+	}
+	.footer_navTitle {
+		padding-bottom: 1.2rem;
+		h3 {
+			color: $col-blue-500;
+			font-size: 1.8rem;
+			font-family: $font;
+			font-weight: 600;
+			@include screenMax("mobile") {
+				font-size: 2rem;
+			}
+		}
+	}
+	.footer_navBody {
+		ul {
+			li {
+				padding: 1.2rem 0;
+				a {
+					font-family: $font;
+					font-size: 1.6rem;
+					font-weight: 600;
+					color: $col-white;
+					text-transform: capitalize;
+					&:hover {
+						color: $col-white;
+					}
+				}
+			}
+		}
+	}
+	@include screenMax("mobile") {
+		margin-top: 5rem;
+	}
+}
+
+.footer_divider {
+	background-color: $col-grey-600;
+	height: 0.2rem;
+	width: 100%;
+	margin: 4.3rem 0;
+}
+
+.footer_footer {
+	@include flex(space-between, center, wrap);
+	.footer_copyWrite {
+		@include flex(flex-start, center);
+		p {
+			font-family: $font;
+			font-size: 1.8rem;
+			color: $col-secondary;
+			@include screenMax("mobile") {
+				font-size: 1.4rem;
+				text-align: center;
+			}
+		}
+	}
+	.footer_socials {
+		@include flex(flex-end, center, nowrap);
+		@include screenMax("tablet") {
+			margin: 5rem auto;
+		}
+	}
+	@include screenMax("tablet") {
+		flex-direction: column-reverse;
+	}
+}
+.text_container {
+	max-width: 65rem;
+	p {
+		@extend %text-16;
+	}
+}
+
+.row {
+	@include flex(flex-start, center);
+	margin-top: 4rem;
+	.small_row {
+		@include flex(flex-start, center);
+		span {
+			@extend %text-16;
+			font-weight: 600;
+			color: $col-white;
+		}
+		.small_icon {
+			position: relative;
+			width: 2rem;
+			height: 2rem;
+			margin-left: 0.8rem;
+		}
+		// align-self: flex-end;
+		&:first-child {
+			margin-right: 3.2rem;
+		}
+	}
+	a {
+		display: flex;
+	}
+}
+
+.text {
+	p {
+		@extend %text-16;
+		color: $col-white;
+		font-family: $font;
+		@include screenMax("tablet") {
+			font-size: 1.4rem;
+			line-height: 1.8rem;
+		}
+		@include screenMax("mobile") {
+			font-size: 1.2rem;
+			line-height: 1.8rem;
+		}
+	}
+}
