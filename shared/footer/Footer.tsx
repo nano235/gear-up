@@ -15,35 +15,9 @@ const Footer = () => {
 					<Logo type="footer" className={styles.footer_logo} />
 					<div className={styles.text_container}>
 						<p>
-							PSWAP offers you the power to transform your portfolio with
-							ease. Whether it&apos;s whitelisted or non-whitelisted tokens,
-							our swapping lets you trade in underperforming assets for
-							valuable PSWAP tokens.
+							Rent, buy and sell gears and studio spaces with ease within
+							your country
 						</p>
-					</div>
-					<div className={styles.row}>
-						<div className={styles.small_row}>
-							<span>Read whitepaper</span>
-							<div className={styles.small_icon}>
-								<Image
-									src={`/svgs/external-white.svg`}
-									alt=""
-									sizes="100vw"
-									fill
-								/>
-							</div>
-						</div>
-						<div className={styles.small_row}>
-							<span>Join our community</span>
-							<div className={styles.small_icon}>
-								<Image
-									src={`/svgs/external-white.svg`}
-									alt=""
-									sizes="100vw"
-									fill
-								/>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div className={styles.footer_navSection}>
@@ -81,10 +55,9 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
-			<div className={styles.footer_divider}></div>
 			<div className={styles.footer_footer}>
 				<div className={styles.footer_copyWrite}>
-					<p>&copy; 2023 PSWAP. All rights reserved</p>
+					<p>&copy; 2024 Gearup. All rights reserved</p>
 				</div>
 			</div>
 		</footer>

@@ -1,7 +1,7 @@
 @import "@/styles/imports";
 
 .header {
-	position: sticky;
+	position: fixed;
 	top: 0;
 	width: 100%;
 	transition: $all-transition;
@@ -155,6 +155,24 @@
 		}
 	}
 }
+
+.button_container {
+	@include flex();
+	gap: 1.6rem;
+	.small_icon {
+		width: 4rem;
+		height: 4rem;
+		padding: 1.2rem;
+		div {
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+		border-radius: 50%;
+		border-color: $col-white;
+	}
+}
+
 .header_wrapper,
 .header_wrapper__collapsed {
 	margin-left: 4rem;
@@ -181,15 +199,6 @@
 .header_wrapper__collapsed {
 	@include screenMax("tablet") {
 		transform: translateX(101vw);
-	}
-}
-
-.header_scrolled {
-	padding: 1.4rem 4.4rem 1rem;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-	transition: $all-transition;
-	@include screenMax("tablet") {
-		padding: 2.4rem 1.4rem;
 	}
 }
 
@@ -240,14 +249,5 @@
 	.header_hamburgerBar:last-child {
 		margin-top: -1px;
 		transform: rotate(-45deg);
-	}
-}
-
-@keyframes scroll {
-	0% {
-		transform: translateX(100%);
-	}
-	100% {
-		transform: translateX(-200%);
 	}
 }

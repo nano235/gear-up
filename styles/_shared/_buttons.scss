@@ -1,6 +1,6 @@
 %btn {
 	transition: all 0.2s ease-out;
-	border: 0.2rem;
+	border: 0.1rem;
 	border-style: solid;
 	outline: none;
 	cursor: pointer;
@@ -29,6 +29,7 @@
 	@extend %btn;
 	border-radius: 10rem;
 	background: $orange-grad;
+	border: none;
 	&:disabled {
 		opacity: 0.5;
 		cursor: not-allowed;
@@ -37,16 +38,7 @@
 }
 %btn-transparent {
 	@extend %btn;
-	width: 16rem;
-	height: 7.2rem;
 	border-radius: 10rem;
-	background-color: $col-background-shade;
-}
-%btn-secondary {
-	@extend %btn;
-	width: 21.7rem;
-	height: 7.2rem;
-	border-radius: 10rem;
-	background: $col-purple-4;
-	color: $col-white;
+	background-color: transparent;
+	border-color: #ffb30f;
 }

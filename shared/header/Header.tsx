@@ -27,11 +27,8 @@ const Header = () => {
 					<ul className={styles.header_navList}>
 						{navLinks.map((link: NavLink, index: number) => {
 							return (
-								<li
-									key={index}
-									className={`${styles.header_navLink} ${link.label}`}
-								>
-									{external ? (
+								<li key={index} className={styles.header_navLink}>
+									{link.external ? (
 										<a
 											href={link.href}
 											rel="noreferrer"
@@ -113,6 +110,24 @@ const Header = () => {
 					</ul>
 				</nav>
 				<div className={styles.button_container}>
+					<Button buttonType="transparent" className={styles.small_icon}>
+						<div>
+							<Image
+								src="/svgs/icon-search.svg"
+								fill
+								alt=""
+								sizes="100vw"
+							/>
+						</div>
+					</Button>
+					<Button buttonType="transparent" className={styles.small_icon}>
+						<div>
+							<Image src="/svgs/icon-cart.svg" fill alt="" sizes="100vw" />
+						</div>
+					</Button>
+					<Button buttonType="transparent">
+						<Link href={"/login"}>Login</Link>
+					</Button>
 					<Button>
 						<Link href={"/sign-up"}>Sign Up</Link>
 					</Button>
