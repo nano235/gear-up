@@ -3,7 +3,7 @@ import styles from "./Pagination.module.scss";
 
 const DOTS = "...";
 
-const Pagination = props => {
+const Pagination = (props: any) => {
 	const {
 		onPageChange,
 		totalCount,
@@ -51,7 +51,10 @@ const Pagination = props => {
 					// If the pageItem is a DOT, render the DOTS unicode character
 					if (pageNumber === DOTS) {
 						return (
-							<li className={`${styles.pagination_item} ${styles.dots} `}>
+							<li
+								className={`${styles.pagination_item} ${styles.dots} `}
+								key={index}
+							>
 								&#8230;
 							</li>
 						);

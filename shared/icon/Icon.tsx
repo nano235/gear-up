@@ -13,7 +13,7 @@ const Icon = ({ src, className, title = "" }: Props) => {
 		<>
 			{src ? (
 				<div className={`${styles.icon} ${className && className}`}>
-					<Image src={src} alt={title} title={title} layout="fill" />
+					<Image src={src} alt={title} title={title} fill sizes="100vw" />
 				</div>
 			) : (
 				<div className={`${styles.container} ${className && className}`}>
@@ -24,7 +24,8 @@ const Icon = ({ src, className, title = "" }: Props) => {
 							src={"/images/unknown.png"}
 							alt={title}
 							title={title}
-							layout="fill"
+							fill
+							sizes="100vw"
 						/>
 					</div>
 				</div>
