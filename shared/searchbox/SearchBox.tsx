@@ -42,7 +42,7 @@ const SearchBox = ({ className, onClick }: Props) => {
 			<div className={styles.row}>
 				<div className={styles.small_row}>
 					<InputField
-						icon="/svgs/icon-search.svg"
+						icon="/svgs/icon-search-normal.svg"
 						// onChange={e => onOptionChange!(e.target.value)}
 						placeholder="Try e.g Nikon SR ..."
 						className={styles.input}

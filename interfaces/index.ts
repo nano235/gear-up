@@ -24,3 +24,21 @@ export interface NavLink {
 	description?: string;
 	button?: string;
 }
+
+// platform
+
+export interface Platfom {
+	title: string;
+	description: string;
+	url: string;
+	urlLabel: string;
+	id: number;
+}
+
+// categories
+
+export interface Categories {
+	title: string;
+	image: string;
+	url: string;
+}

@@ -32,7 +32,12 @@ const Hero = () => {
 			</div>
 			<div className={styles.hero_image_container}>
 				<div className={styles.hero_image}>
-					<Image src="/images/camera.png" alt="hero" fill sizes="100vw" />
+					<Image
+						src="/images/background-camera.png"
+						alt="hero"
+						fill
+						sizes="100vw"
+					/>
 				</div>
 			</div>
 		</div>

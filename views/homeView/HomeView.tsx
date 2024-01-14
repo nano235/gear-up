@@ -1,11 +1,14 @@
 import React from "react";
 import styles from "./Home.module.scss";
-import { Hero } from "@/components/home";
+import { Hero, HomeInfo, Platform, Categories } from "@/components/home";
 
 const HomeView = () => {
 	return (
 		<>
 			<Hero />
+			<HomeInfo />
+			<Platform />
+			<Categories />
 		</>
 	);
 };
