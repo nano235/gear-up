@@ -4,5 +4,6 @@ import Footer from "./footer/Footer";
 import Header from "./header/Header";
 import Icon from "./icon/Icon";
 import Logo from "./logo/Logo";
+import SearchBox from "./searchbox/SearchBox";
 
-export { Header, Footer, Logo, CustomLink, Button, Icon };
+export { Header, Footer, Logo, CustomLink, Button, Icon, SearchBox };

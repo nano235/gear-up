@@ -53,7 +53,7 @@ const InputField = ({
 			<div className={styles.input_wrapper}>
 				{!!icon && (
 					<figure className={styles.input_icon}>
-						<Image src={icon} layout="fill" alt="" />
+						<Image src={icon} fill sizes="100vw" alt="" />
 					</figure>
 				)}
 				<input

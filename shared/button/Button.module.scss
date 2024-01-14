@@ -8,6 +8,10 @@
 	@extend %btn-transparent;
 }
 
+.secondary {
+	@extend %btn-secondary;
+}
+
 .button_icon {
 	position: relative;
 	width: 1.5rem;

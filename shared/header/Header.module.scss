@@ -157,7 +157,7 @@
 }
 
 .button_container {
-	@include flex();
+	@include flex(flex-start, center);
 	gap: 1.6rem;
 	.small_icon {
 		width: 4rem;
@@ -170,6 +170,17 @@
 		}
 		border-radius: 50%;
 		border-color: $col-white;
+		&:hover {
+			background-color: rgba($col-white, 0.12);
+		}
+	}
+	.trans_button {
+		transition: background 0.8s linear;
+		color: $col-white;
+		&:hover {
+			background: $orange-grad;
+			transition: background 0.8s linear;
+		}
 	}
 }
 

@@ -139,7 +139,7 @@ export const navLinks: NavLink[] = [
 					{
 						label: "gimbals",
 						href: "/gimbals",
-						icon: "/svgs/icon-gimbals.svg",
+						icon: "/svgs/icon-camera.svg",
 						external: false,
 					},
 					{

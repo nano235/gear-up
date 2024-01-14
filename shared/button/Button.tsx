@@ -4,7 +4,7 @@ import styles from "./Button.module.scss";
 import Image from "next/image";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-	buttonType?: "primary" | "transparent";
+	buttonType?: "primary" | "secondary" | "transparent";
 	children: React.ReactNode;
 	iconPrefix?: string;
 	iconSuffix?: string;

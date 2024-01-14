@@ -6,9 +6,9 @@
 	// @include screenMax("tablet") {
 	// 	padding: 5rem 5.4rem 5.3rem;
 	// }
-	@include screenMax("mobile") {
-		padding: 5rem 2.4rem;
-	}
+	// @include screenMax("mobile") {
+	// 	padding: 5rem 2.4rem;
+	// }
 }
 
 .footer_body {
@@ -17,6 +17,7 @@
 	padding: 4rem 11.2rem;
 	@include screenMax("mobile") {
 		// flex-direction: column-reverse;
+		padding: 5.6rem 1.6rem;
 		align-items: flex-start;
 	}
 }
@@ -28,6 +29,7 @@
 	// 	order: 3;
 	// }
 	@include screenMax("mobile") {
+		display: block;
 		// justify-content: space-between;
 		order: 2;
 	}
