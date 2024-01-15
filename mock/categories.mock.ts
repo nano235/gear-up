@@ -27,8 +27,8 @@ export const categories: Categories[] = [
 		url: "#",
 	},
 	{
-		title: "360 camera",
-		image: "/images/camera-360.png",
+		title: "studio spaces",
+		image: "/images/studio.png",
 		url: "#",
 	},
 	{

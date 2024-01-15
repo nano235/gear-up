@@ -42,3 +42,15 @@ export interface Categories {
 	image: string;
 	url: string;
 }
+
+// listings
+
+export interface Listings {
+	label: string;
+	type: "rent" | "buy";
+	image: string;
+	user: string;
+	avatar: string;
+	reviews: number;
+	price: number;
+}

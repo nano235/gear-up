@@ -37,7 +37,7 @@
 			margin-bottom: 5rem;
 		}
 		.row {
-			grid-template-columns: repeat(2, 1fr);
+			@include grid(repeat(2, 1fr), 2rem, 2.4rem);
 			.box {
 				.small_title {
 					h3 {

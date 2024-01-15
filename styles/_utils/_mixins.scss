@@ -35,8 +35,8 @@
 // grid
 @mixin grid(
 	$columns: repeat(auto-fit, minmax(20%, 1fr)),
-	$column-gap: 1rem,
-	$row-gap: 1rem
+	$column-gap: 2.4rem,
+	$row-gap: 3.2rem
 ) {
 	display: grid;
 	grid-template-columns: $columns;
