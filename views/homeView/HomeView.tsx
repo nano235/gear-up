@@ -9,6 +9,7 @@ import {
 	Gears,
 	Equipments,
 	Courses,
+	Reviews,
 } from "@/components/home";
 
 const HomeView = () => {
@@ -22,6 +23,7 @@ const HomeView = () => {
 			<Gears />
 			<Equipments />
 			<Courses />
+			<Reviews />
 		</>
 	);
 };
