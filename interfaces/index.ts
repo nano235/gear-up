@@ -54,3 +54,14 @@ export interface Listings {
 	reviews: number;
 	price: number;
 }
+
+// courses
+
+export interface Courses {
+	label: string;
+	image: string;
+	user: string;
+	avatar: string;
+	reviews: number;
+	price: number;
+}

@@ -148,6 +148,11 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.6.1.tgz#9ab8f811930d7af3e3d549183a50884f9eb83f36"
   integrity sha512-UY+FGM/2jjMkzQLn8pxcHGMaVLh9aEitG3zY2CiY7XHdLiz3bZOwa6oDxNqEMv7zZkV+cj5DOdz0cQ1BP5Hjgw==
 
+"@smastrom/react-rating@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@smastrom/react-rating/-/react-rating-1.4.0.tgz#7668572f2303bd289e523a5192b0d8a6eb690807"
+  integrity sha512-C4tf9nlikmFTECs3dLn/meQFqkA+toNpmtGIswethEZhGRuGTM5gVGauvqIN0tO2JF5weaKHwAwvEmjrnJkIYg==
+
 "@swc/helpers@0.5.2":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.5.2.tgz#85ea0c76450b61ad7d10a37050289eded783c27d"

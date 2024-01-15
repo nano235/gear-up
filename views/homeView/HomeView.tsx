@@ -1,6 +1,15 @@
 import React from "react";
 import styles from "./Home.module.scss";
-import { Hero, HomeInfo, Platform, Categories, Listings, Gears } from "@/components/home";
+import {
+	Hero,
+	HomeInfo,
+	Platform,
+	Categories,
+	Listings,
+	Gears,
+	Equipments,
+	Courses,
+} from "@/components/home";
 
 const HomeView = () => {
 	return (
@@ -11,6 +20,8 @@ const HomeView = () => {
 			<Categories />
 			<Listings />
 			<Gears />
+			<Equipments />
+			<Courses />
 		</>
 	);
 };

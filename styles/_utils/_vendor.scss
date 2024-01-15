@@ -35,6 +35,29 @@
 .swiper-pagination-bullet-active {
 	background: $orange-grad !important;
 }
+.rr--group {
+	display: flex;
+}
+.rr--box {
+	width: 1.6rem;
+	height: 1.6rem;
+}
+
+.rr--svg {
+	cursor: pointer;
+}
+
+.rr--off {
+	svg {
+		fill: #d9d9d9;
+	}
+}
+
+.rr--on {
+	svg {
+		fill: #fec84b;
+	}
+}
 
 img {
 	width: 100%;
