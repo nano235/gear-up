@@ -40,11 +40,11 @@
 %btn-secondary {
 	@extend %btn;
 	border-radius: 10rem;
-	background-color: transparent;
+	background-color: #fff7e7;
 	border-color: #ffb30f;
 }
 %btn-transparent {
 	@extend %btn;
 	background-color: transparent;
-	border: none;
+	border-color: transparent;
 }

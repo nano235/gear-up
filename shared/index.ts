@@ -1,3 +1,4 @@
+import BackgroundBox from "./backgroundBox/BackgroundBox";
 import Button from "./button/Button";
 import CustomLink from "./customLink/CustomLink";
 import Footer from "./footer/Footer";
@@ -8,4 +9,15 @@ import Logo from "./logo/Logo";
 import SearchBox from "./searchbox/SearchBox";
 import Title from "./title/Title";
 
-export { Header, Footer, Logo, CustomLink, Button, Icon, SearchBox, Title, Listing };
+export {
+	Header,
+	Footer,
+	Logo,
+	CustomLink,
+	Button,
+	Icon,
+	SearchBox,
+	Title,
+	Listing,
+	BackgroundBox,
+};

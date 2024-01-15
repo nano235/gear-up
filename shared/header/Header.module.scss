@@ -176,6 +176,8 @@
 	}
 	.trans_button {
 		transition: background 0.8s linear;
+		border-color: #ffb30f;
+		border-radius: 10rem;
 		color: $col-white;
 		&:hover {
 			background: $orange-grad;

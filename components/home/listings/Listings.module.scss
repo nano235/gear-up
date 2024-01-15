@@ -17,14 +17,15 @@
 			height: 1.6rem;
 		}
 		p {
-			background: $orange-grad;
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
+			color: #1b1e21;
 		}
 	}
 	@include screenMax("mobile") {
 		.row {
 			grid-template-columns: 1fr;
+		}
+		.button {
+			display: none;
 		}
 	}
 }

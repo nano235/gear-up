@@ -110,7 +110,7 @@ const Header = () => {
 					</ul>
 				</nav>
 				<div className={styles.button_container}>
-					<Button buttonType="secondary" className={styles.small_icon}>
+					<Button buttonType="transparent" className={styles.small_icon}>
 						<div>
 							<Image
 								src="/svgs/icon-search.svg"
@@ -120,12 +120,12 @@ const Header = () => {
 							/>
 						</div>
 					</Button>
-					<Button buttonType="secondary" className={styles.small_icon}>
+					<Button buttonType="transparent" className={styles.small_icon}>
 						<div>
 							<Image src="/svgs/icon-cart.svg" fill alt="" sizes="100vw" />
 						</div>
 					</Button>
-					<Button buttonType="secondary" className={styles.trans_button}>
+					<Button buttonType="transparent" className={styles.trans_button}>
 						<Link href={"/login"}>Login</Link>
 					</Button>
 					<Button>

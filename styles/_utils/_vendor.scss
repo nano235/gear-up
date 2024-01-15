@@ -28,6 +28,13 @@
 	left: inherit !important;
 	right: 21rem !important;
 }
+.swiper-pagination {
+	position: static !important;
+	margin-top: 2.4rem;
+}
+.swiper-pagination-bullet-active {
+	background: $orange-grad !important;
+}
 
 img {
 	width: 100%;

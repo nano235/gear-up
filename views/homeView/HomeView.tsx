@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Home.module.scss";
-import { Hero, HomeInfo, Platform, Categories, Listings } from "@/components/home";
+import { Hero, HomeInfo, Platform, Categories, Listings, Gears } from "@/components/home";
 
 const HomeView = () => {
 	return (
@@ -10,6 +10,7 @@ const HomeView = () => {
 			<Platform />
 			<Categories />
 			<Listings />
+			<Gears />
 		</>
 	);
 };
