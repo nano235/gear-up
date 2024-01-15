@@ -15,7 +15,7 @@
 	}
 	.input {
 		@include flex(flex-start, center);
-		min-width: 40rem;
+		width: 40rem;
 		padding: 2rem 2.4rem;
 		&:first-child {
 			border-right: 0.1rem solid #dedfe0;
