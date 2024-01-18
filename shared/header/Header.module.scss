@@ -306,6 +306,17 @@
 		background-color: $col-white;
 		transition: $all-transition;
 		border-bottom: 0.1rem solid #dedfe0;
+		.header_nav {
+			.header_navList {
+				.header_navLink {
+					a,
+					p {
+						color: #1b1e21;
+						transition: $all-transition;
+					}
+				}
+			}
+		}
 		.button_container {
 			.small_icon {
 				border-color: #dedfe0;

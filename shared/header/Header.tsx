@@ -250,7 +250,7 @@ const Header = () => {
 					<div>
 						<Image
 							src={
-								!collapsed
+								!collapsed || scroll === Scroll.FinalScroll
 									? "/svgs/icon-search-dark.svg"
 									: "/svgs/icon-search.svg"
 							}
@@ -264,7 +264,7 @@ const Header = () => {
 					<div>
 						<Image
 							src={
-								!collapsed
+								!collapsed || scroll === Scroll.FinalScroll
 									? "/svgs/icon-cart-dark.svg"
 									: "/svgs/icon-cart.svg"
 							}
