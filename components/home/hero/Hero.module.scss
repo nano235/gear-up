@@ -60,7 +60,7 @@
 		}
 	}
 	@include screenMax("mobile") {
-		padding: 8rem 1.6rem;
+		padding: 8rem 1.6rem 0;
 		.search {
 			width: 100%;
 		}

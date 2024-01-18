@@ -3,6 +3,7 @@ import { scrollTo } from "@/utils";
 import Link from "next/link";
 import styles from "./Footer.module.scss";
 import Image from "next/image";
+import { footerNavLink } from "@/mock";
 
 const Footer = () => {
 	const handleNavClick = (id: string) => {
@@ -12,7 +13,7 @@ const Footer = () => {
 		<footer className={styles.footer}>
 			<div className={styles.footer_body}>
 				<div className={`${styles.footer_logo} ${styles.footer_logo_noMob}`}>
-					<Logo type="footer" className={styles.footer_logo} />
+					<Logo className={styles.footer_logo} />
 					<div className={styles.text_container}>
 						<p>
 							Rent, buy and sell gears and studio spaces with ease within
@@ -21,38 +22,32 @@ const Footer = () => {
 					</div>
 				</div>
 				<div className={styles.footer_navSection}>
-					<div className={styles.footer_nav}>
-						<div className={styles.footer_navTitle}>
-							<h3>Company</h3>
+					{footerNavLink.map((link: any, index: number) => (
+						<div className={styles.footer_nav} key={index}>
+							<div className={styles.footer_navTitle}>
+								<h3>{link.label}</h3>
+							</div>
+							<nav className={styles.footer_navBody}>
+								<ul>
+									{link.links.map((menu: any, index: number) => (
+										<li key={index}>
+											{menu.external ? (
+												<a
+													href={menu.href}
+													rel="noreferrer"
+													target="_blank"
+												>
+													{menu.label}
+												</a>
+											) : (
+												<Link href={menu.href}>{menu.label}</Link>
+											)}
+										</li>
+									))}
+								</ul>
+							</nav>
 						</div>
-						<nav className={styles.footer_navBody}>
-							<ul></ul>
-						</nav>
-					</div>
-					<div className={styles.footer_nav}>
-						<div className={styles.footer_navTitle}>
-							<h3>Products</h3>
-						</div>
-						<nav className={styles.footer_navBody}>
-							<ul></ul>
-						</nav>
-					</div>
-					<div className={styles.footer_nav}>
-						<div className={styles.footer_navTitle}>
-							<h3>Support</h3>
-						</div>
-						<nav className={styles.footer_navBody}>
-							<ul></ul>
-						</nav>
-					</div>
-					<div className={styles.footer_nav}>
-						<div className={styles.footer_navTitle}>
-							<h3>Help</h3>
-						</div>
-						<nav className={styles.footer_navBody}>
-							<ul></ul>
-						</nav>
-					</div>
+					))}
 				</div>
 			</div>
 			<div className={styles.footer_footer}>

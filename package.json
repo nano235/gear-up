@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@smastrom/react-rating": "^1.4.0",
+    "gsap": "^3.12.4",
     "lodash": "^4.17.21",
     "next": "14.0.4",
     "nprogress": "^0.2.0",

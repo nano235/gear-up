@@ -10,6 +10,7 @@ import showDollar from "./showDollar";
 import copyText from "./copyText";
 import convertEpochToFormattedDate from "./convertEpoch";
 import { scrollTo } from "./scrollTo";
+import { eventEmitter } from "./eventEmitter";
 
 export {
 	formatNumber,
@@ -25,4 +26,5 @@ export {
 	convertEpochToFormattedDate,
 	shortenTitle,
 	scrollTo,
+	eventEmitter,
 };

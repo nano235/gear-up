@@ -4,15 +4,15 @@ import React from "react";
 import Image from "next/image";
 
 interface Props {
-	type?: "footer" | "default";
+	type?: "light" | "dark";
 	className?: string;
 }
 
-const Logo = ({ type, className }: Props) => {
+const Logo = ({ type = "light", className }: Props) => {
 	return (
 		<div className={`${styles.logo} ${className}`}>
 			<Image
-				src="/svgs/logo.svg"
+				src={type === "light" ? "/svgs/logo.svg" : "/svgs/logo-dark.svg"}
 				loading="eager"
 				priority={true}
 				alt="Gear Up"

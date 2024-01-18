@@ -6,6 +6,7 @@ export const navLinks: NavLink[] = [
 		href: "/rent",
 		external: false,
 		videoUrl: "#",
+		icon: "/svgs/icon-rent-gear.svg",
 		subMenu: [
 			{
 				label: "categories",
@@ -102,6 +103,7 @@ export const navLinks: NavLink[] = [
 		href: "/buy",
 		external: false,
 		videoUrl: "#",
+		icon: "/svgs/icon-buy-gear.svg",
 		subMenu: [
 			{
 				label: "categories",
@@ -202,6 +204,7 @@ export const navLinks: NavLink[] = [
 		description:
 			"Sell your gears with confidence. Our secure escrow system ensures worry-free transaction with verified buyers only",
 		button: "Create a listing",
+		icon: "/svgs/icon-sell-gear.svg",
 		subMenu: [
 			{
 				label: "get started",
@@ -226,12 +229,6 @@ export const navLinks: NavLink[] = [
 					},
 					{
 						label: "How do I get verified?",
-						href: "/",
-						id: "faq-how-it-works",
-						external: false,
-					},
-					{
-						label: "How much fee do I pay?",
 						href: "/",
 						id: "faq-how-it-works",
 						external: false,
@@ -248,6 +245,7 @@ export const navLinks: NavLink[] = [
 		description:
 			"Earn money renting out your gears. We ensured all renters are 100% ID verified!",
 		button: "Create a listing",
+		icon: "/svgs/icon-rent-out.svg",
 		subMenu: [
 			{
 				label: "get started",
@@ -276,12 +274,6 @@ export const navLinks: NavLink[] = [
 						id: "faq-how-it-works",
 						external: false,
 					},
-					{
-						label: "How much fee do I pay?",
-						href: "/",
-						id: "faq-how-it-works",
-						external: false,
-					},
 				],
 			},
 		],
@@ -289,11 +281,121 @@ export const navLinks: NavLink[] = [
 	{
 		label: "courses",
 		href: "/courses",
+		icon: "/svgs/icon-courses.svg",
 		external: false,
 	},
 	{
 		label: "blog",
 		href: "/",
+		icon: "/svgs/icon-courses.svg",
 		external: true,
+	},
+];
+
+export const footerNavLink = [
+	{
+		label: "Rent gear",
+		links: [
+			{
+				label: "How it works",
+				href: "#",
+				external: false,
+			},
+			{
+				label: "Escrow Payment",
+				href: "#",
+				external: false,
+			},
+			{
+				label: "Insurance coverage",
+				href: "#",
+				external: false,
+			},
+			{
+				label: "Cancellation",
+				href: "#",
+				external: false,
+			},
+		],
+	},
+	{
+		label: "Buy gear",
+		links: [
+			{
+				label: "How it works",
+				href: "#",
+				external: false,
+			},
+			{
+				label: "Buyer Protection",
+				href: "#",
+				external: false,
+			},
+		],
+	},
+	{
+		label: "Sell gear",
+		links: [
+			{
+				label: "How it works",
+				href: "#",
+				external: false,
+			},
+			{
+				label: "Create listing",
+				href: "#",
+				external: false,
+			},
+			{
+				label: "Seller protection",
+				href: "#",
+				external: false,
+			},
+		],
+	},
+	{
+		label: "Rent out",
+		links: [
+			{
+				label: "How it works",
+				href: "#",
+				external: false,
+			},
+			{
+				label: "Create listing",
+				href: "#",
+				external: false,
+			},
+			{
+				label: "Insurance coverage",
+				href: "#",
+				external: false,
+			},
+		],
+	},
+	{
+		label: "Courses",
+		links: [
+			{
+				label: "Masterclass",
+				href: "#",
+				external: false,
+			},
+			{
+				label: "Learn film-making",
+				href: "#",
+				external: false,
+			},
+			{
+				label: "Learn photography",
+				href: "#",
+				external: false,
+			},
+			{
+				label: "Learn cinematography",
+				href: "#",
+				external: false,
+			},
+		],
 	},
 ];

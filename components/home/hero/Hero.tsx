@@ -1,11 +1,20 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef } from "react";
 import styles from "./Hero.module.scss";
 import Image from "next/image";
 import { SearchBox } from "@/shared";
+import { useGlobalContext } from "@/contexts/AppContext";
 
 const Hero = () => {
+	const { setHeroHeight }: any = useGlobalContext();
+	const heroRef: any = useRef(null);
+	useEffect(() => {
+		const heroHeight = heroRef.current?.offsetHeight;
+		setHeroHeight(heroHeight);
+	}, []);
 	return (
-		<div className={styles.hero}>
+		<div className={styles.hero} ref={heroRef}>
 			<div className={styles.text}>
 				<h1>The Marketplace For African Creators to Rent, Buy & Sell Gears</h1>
 				<p>
