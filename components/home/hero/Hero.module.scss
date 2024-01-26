@@ -66,18 +66,6 @@
 			border-right: 0.1rem solid #38393a;
 		}
 	}
-	@keyframes slideUp {
-		0% {
-			transform: translateY(0);
-		}
-		100% {
-			transform: translateY(-100%);
-		}
-	}
-
-	.word {
-		animation: slideUp 1s ease-out;
-	}
 
 	@include screenMax("tablet") {
 		display: grid;
@@ -114,6 +102,9 @@
 		.row {
 			display: block;
 		}
+		.text {
+			max-width: 85%;
+		}
 		.textbox {
 			width: 100%;
 			text-align: center;
@@ -135,6 +126,11 @@
 		}
 		.search {
 			margin-bottom: 2.4rem;
+		}
+	}
+	@include screenMax("ssm-mobile") {
+		.text {
+			max-width: 98%;
 		}
 	}
 }

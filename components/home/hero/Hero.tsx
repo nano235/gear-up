@@ -12,7 +12,6 @@ const Hero = () => {
 	const { setHeroHeight }: any = useGlobalContext();
 	const heroRef: any = useRef(null);
 	const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
-	const [animatedWord, setAnimatedWord] = useState<string | null>(null);
 
 	useEffect(() => {
 		const animateNextWord = () => {
@@ -45,9 +44,7 @@ const Hero = () => {
 				<div className={styles.text}>
 					<h1>
 						The Marketplace For African Creators to Rent, Buy & Sell{" "}
-						<span id="animated-word" className={styles.word}>
-							{words[currentWordIndex]}
-						</span>
+						<span id="animated-word">{words[currentWordIndex]}</span>
 					</h1>
 					<p>
 						Rent, buy, or sell gears with ease within your country. Our secure
