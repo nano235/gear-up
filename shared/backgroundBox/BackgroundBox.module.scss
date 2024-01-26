@@ -33,7 +33,7 @@
 			transition: $all-transition;
 		}
 	}
-	@include screenMax("mobile") {
+	@include screenMax("tablet") {
 		.box {
 			background-size: cover;
 		}

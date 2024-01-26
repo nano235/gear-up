@@ -65,4 +65,5 @@ export interface Courses {
 	avatar: string;
 	reviews: number;
 	price: number;
+	type: "ebook" | "live" | "audio" | "video";
 }

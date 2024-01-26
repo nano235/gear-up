@@ -32,13 +32,14 @@
 		}
 		h3 {
 			font-weight: 600;
-			margin-bottom: 0.8rem;
+			margin-bottom: 2.4rem;
 		}
 		h4 {
 			@extend %text-14;
 		}
 		p {
 			@extend %text-12;
+			font-family: $font-cera;
 			text-transform: capitalize;
 		}
 		span {

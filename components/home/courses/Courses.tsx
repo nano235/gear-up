@@ -30,7 +30,7 @@ const Courses = () => {
 			</div>
 			<div className={styles.row}>
 				{courses.slice(0, 4).map((listing: Courses, index: number) => (
-					<Course props={listing} key={index} />
+					<Course className={styles.course} props={listing} key={index} />
 				))}
 			</div>
 		</section>

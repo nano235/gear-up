@@ -399,3 +399,26 @@ export const footerNavLink = [
 		],
 	},
 ];
+
+export const socialMediaLinks = [
+	{
+		label: "twitter",
+		href: "#",
+		icon: "/svgs/icon-twitter.svg",
+	},
+	{
+		label: "linkedIn",
+		href: "#",
+		icon: "/svgs/icon-linkedin.svg",
+	},
+	{
+		label: "facebook",
+		href: "#",
+		icon: "/svgs/icon-facebook.svg",
+	},
+	{
+		label: "github",
+		href: "#",
+		icon: "/svgs/icon-github.svg",
+	},
+];

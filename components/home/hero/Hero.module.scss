@@ -7,6 +7,8 @@
 	background-color: #060606;
 	left: 0;
 	padding: 14.4rem 8rem 6.8rem;
+	display: grid;
+	place-items: center;
 	.hero_image_container {
 		position: absolute;
 		right: 0;
@@ -20,16 +22,21 @@
 			height: 100%;
 		}
 	}
-	.search {
+	.center {
 		z-index: 1;
+		position: relative;
+		width: 100%;
+	}
+	.search {
 		width: 95.4rem;
 		position: relative;
 		margin-top: 4rem;
 		margin-bottom: 5.6rem;
 	}
 	.text {
-		max-width: 66rem;
-		h1 {
+		max-width: 64rem;
+		h1,
+		span {
 			@extend %title-56;
 			font-family: $font-good;
 			color: $col-white;
@@ -59,8 +66,38 @@
 			border-right: 0.1rem solid #38393a;
 		}
 	}
+	@keyframes slideUp {
+		0% {
+			transform: translateY(0);
+		}
+		100% {
+			transform: translateY(-100%);
+		}
+	}
+
+	.word {
+		animation: slideUp 1s ease-out;
+	}
+
+	@include screenMax("tablet") {
+		display: grid;
+		place-items: center;
+		padding: 1.6rem;
+		.search {
+			width: 100%;
+		}
+		.text {
+			max-width: 100%;
+		}
+		.hero_image_container {
+			width: 50rem;
+		}
+		.row {
+			justify-content: center;
+		}
+	}
 	@include screenMax("mobile") {
-		padding: 8rem 1.6rem 0;
+		padding: 8rem 1.7rem 0;
 		.search {
 			width: 100%;
 		}
@@ -68,7 +105,8 @@
 			// all: unset;
 			position: static;
 			margin-top: 4rem;
-			width: calc(100% + 3.2rem);
+			width: calc(100% + 4.8rem);
+			// width: 100vw;
 			margin-left: -1.6rem;
 			height: 48rem;
 			z-index: 1;
@@ -79,6 +117,16 @@
 		.textbox {
 			width: 100%;
 			text-align: center;
+			max-width: unset;
+			padding-right: 0;
+			padding-left: 0;
+			h2 {
+				font-size: 2.4rem;
+				line-height: 3.2rem;
+			}
+			p {
+				font-size: 1.2rem;
+			}
 			// display: grid;
 			// place-content: center;
 			&:not(:last-child) {

@@ -91,14 +91,16 @@ const Header = () => {
 										</div>
 										<p>{link.label}</p>
 									</div>
-									<div className={styles.mob_chevron}>
-										<Image
-											src="/svgs/chevron.svg"
-											fill
-											alt=""
-											sizes="100vw"
-										/>
-									</div>
+									{link.subMenu && (
+										<div className={styles.mob_chevron}>
+											<Image
+												src="/svgs/chevron.svg"
+												fill
+												alt=""
+												sizes="100vw"
+											/>
+										</div>
+									)}
 									{link.subMenu && (
 										<div
 											className={styles.subMenu_container}

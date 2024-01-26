@@ -42,6 +42,17 @@
 			}
 		}
 	}
+	@include screenMax("tablet") {
+		.row {
+			justify-content: center;
+			.box_container {
+				width: 100%;
+			}
+			.image {
+				margin-top: 4.4rem;
+			}
+		}
+	}
 	@include screenMax("mobile") {
 		.row {
 			.image {

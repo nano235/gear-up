@@ -22,6 +22,8 @@
 			@include flex(space-between, center, nowrap);
 			padding: 0;
 			margin: 0;
+			// position: relative;
+			// z-index: 1;
 			.header_navLink {
 				padding: 1rem 0;
 				margin: 0 2.5rem;
@@ -57,7 +59,8 @@
 					padding: 10rem;
 					top: 0;
 					left: 0;
-					backdrop-filter: blur(8px);
+					background-color: rgba(2, 1, 6, 0.58);
+					backdrop-filter: blur(6px);
 					z-index: -1;
 					display: none;
 					.subMenu {
@@ -170,7 +173,7 @@
 					}
 				}
 
-				@include screenMax("tablet") {
+				@include screenMax("mobile") {
 					@include flex(flex-start, center, nowrap);
 				}
 			}
@@ -214,7 +217,7 @@
 		transition: transform 0.3s ease-out;
 		@include flex(space-between, center);
 
-		@include screenMax("tablet") {
+		@include screenMax("mobile") {
 			order: 3;
 			width: 100%;
 			height: 100%;
@@ -233,7 +236,7 @@
 	}
 
 	.header_wrapper__collapsed {
-		@include screenMax("tablet") {
+		@include screenMax("mobile") {
 			transform: translateX(101vw);
 		}
 	}
@@ -248,7 +251,7 @@
 		border: none;
 		width: 45px;
 
-		@include screenMax("tablet") {
+		@include screenMax("mobile") {
 			order: 2;
 			@include flex(center, flex-end, column nowrap);
 		}
@@ -329,6 +332,22 @@
 		}
 	}
 	@include screenMax("tablet") {
+		padding: 1.6rem;
+		.header_nav {
+			.header_navList {
+				.header_navLink {
+					margin: 0 1rem;
+				}
+			}
+		}
+		.button_container {
+			.trans_button,
+			.button {
+				padding: 1.2rem;
+			}
+		}
+	}
+	@include screenMax("mobile") {
 		.mob_buttons {
 			@include flex(flex-start, center);
 			gap: 1.6rem;
@@ -356,9 +375,8 @@
 		}
 	}
 	@include screenMax("mobile") {
-		padding: 0;
 		overflow: hidden;
-		padding: 2rem 2.3rem;
+		padding: 2rem 1.6rem;
 		.header_nav {
 			width: 100%;
 			.header_navList {
@@ -366,7 +384,7 @@
 				padding: 0;
 				margin: 0;
 				.header_navLink {
-					padding: 1.6rem;
+					// padding: 1.6rem;
 					margin: 0;
 					margin-bottom: 1.6rem;
 					border: 0.1rem solid #dedfe0;
@@ -378,6 +396,7 @@
 					.small_row {
 						@include flex(flex-start, center);
 						gap: 0.8rem;
+						margin-left: 1.6rem;
 					}
 					.link_icon {
 						position: relative;
@@ -390,6 +409,8 @@
 						width: 1.6rem;
 						height: 1.6rem;
 						display: block;
+						margin-right: 1.6rem;
+						transition: rotate 0.5s ease-in-out;
 					}
 					a,
 					p {
@@ -403,7 +424,12 @@
 						position: relative;
 						width: 100%;
 						height: auto;
-						padding: 0;
+						padding-block: 0;
+						padding-inline: 1.6rem;
+						margin-top: 2rem;
+						border-top: 0.1rem solid #dedfe0;
+						background-color: transparent;
+						backdrop-filter: unset;
 						.subMenu {
 							padding: 0;
 							.subMenu_title {
@@ -417,6 +443,9 @@
 							.subMenu_navlist {
 								padding-top: 1.6rem;
 								width: 100%;
+								h2 {
+									margin-bottom: 0;
+								}
 								.subMenu_link {
 									padding: 1.4rem 0;
 								}
@@ -441,6 +470,10 @@
 					&[data-active="true"] {
 						max-height: 1000rem;
 						transition: all 0.5s ease-in-out;
+						.mob_chevron {
+							rotate: 180deg;
+							transition: rotate 0.5s ease-in-out;
+						}
 					}
 				}
 			}

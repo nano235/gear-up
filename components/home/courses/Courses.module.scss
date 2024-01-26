@@ -24,12 +24,31 @@
 	.row {
 		@include grid(repeat(4, 1fr), 2.4rem);
 	}
+	@include screenMax("tablet") {
+		.title {
+			max-width: 65.8rem;
+		}
+		.row {
+			@include grid(repeat(3, 1fr), 2.4rem);
+			.course {
+				&:last-child {
+					display: none;
+				}
+			}
+		}
+	}
 	@include screenMax("mobile") {
 		.title {
 			max-width: 100%;
+			margin-bottom: 4rem;
 		}
 		.row {
 			grid-template-columns: 1fr;
+			.course {
+				&:last-child {
+					display: block;
+				}
+			}
 		}
 		.button {
 			display: none;

@@ -44,6 +44,7 @@
 			background-color: #171717;
 			color: $col-white;
 			padding: 1.4rem 2.3rem;
+			font-weight: 400;
 			&:first-child {
 				border-top-left-radius: 1.6rem;
 			}
@@ -53,7 +54,13 @@
 			&[data-active="true"] {
 				background: $orange-grad;
 				color: #1b1e21;
+				font-weight: 700;
 			}
+		}
+	}
+	@include screenMax("tablet") {
+		.input {
+			width: 30rem;
 		}
 	}
 	@include screenMax("mobile") {

@@ -20,15 +20,15 @@ html {
 		scrollbar-width: none; /* Firefox */
 	}
 	@include flex(stretch, stretch, column);
-	// @include screenMax('tablet') {
-	//   font-size: calc(100vw / 950 * 10);
-	// }
+	@include screenMax("tablet") {
+		font-size: calc(100vw / 950 * 10);
+	}
 
 	@include screenMax("mobile") {
-		font-size: calc(100vw / 650 * 10);
+		font-size: calc(100vw / 450 * 10);
 	}
 	@include screenMax("ssm-mobile") {
-		font-size: calc(100vw / 425 * 10);
+		font-size: calc(100vw / 375 * 10);
 	}
 }
 

@@ -3,7 +3,7 @@ import { scrollTo } from "@/utils";
 import Link from "next/link";
 import styles from "./Footer.module.scss";
 import Image from "next/image";
-import { footerNavLink } from "@/mock";
+import { footerNavLink, socialMediaLinks } from "@/mock";
 
 const Footer = () => {
 	const handleNavClick = (id: string) => {
@@ -53,6 +53,24 @@ const Footer = () => {
 			<div className={styles.footer_footer}>
 				<div className={styles.footer_copyWrite}>
 					<p>&copy; 2024 Gearup. All rights reserved</p>
+				</div>
+				<div className={styles.footer_socials}>
+					{socialMediaLinks.map((social: any, index: number) => (
+						<a
+							href={social.href}
+							target="_blank"
+							rel="noreferrer"
+							className={styles.footer_social}
+							key={index}
+						>
+							<Image
+								src={social.icon}
+								alt={social.label}
+								fill
+								sizes="100vw"
+							/>
+						</a>
+					))}
 				</div>
 			</div>
 		</footer>

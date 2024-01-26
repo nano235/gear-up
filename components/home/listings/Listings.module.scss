@@ -8,6 +8,12 @@
 	.flex_row {
 		@include flex(space-between, center);
 	}
+	.desk {
+		display: block;
+	}
+	.mob {
+		display: none;
+	}
 	.button {
 		@include flex(flex-start, center);
 		gap: 0.8rem;
@@ -23,8 +29,17 @@
 	@include screenMax("mobile") {
 		.row {
 			grid-template-columns: 1fr;
+			margin-top: 4rem;
 		}
 		.button {
+			width: 100%;
+			margin-top: 4rem;
+			justify-content: center;
+		}
+		.mob {
+			display: block;
+		}
+		.desk {
 			display: none;
 		}
 	}

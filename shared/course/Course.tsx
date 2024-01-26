@@ -6,18 +6,20 @@ import { Button, Ratings } from "..";
 
 interface Props {
 	props: Courses;
+	className?: string;
 }
 
-const Course = ({ props }: Props) => {
+const Course = ({ props, className }: Props) => {
 	return (
-		<div className={styles.container}>
+		<div className={`${styles.container} ${className}`}>
 			<div className={styles.image}>
 				<Image src={props.image} alt={props.label} fill sizes="100vw" />
+				<Button className={styles.button}>{props.type}</Button>
 			</div>
 			<div className={styles.text}>
 				<h2>{props.label}</h2>
 			</div>
-			<div className={styles.small_row}>
+			<div className={styles.small_row} style={{ marginBottom: "1.2rem" }}>
 				<div className={styles.text}>
 					<h4>4.54</h4>
 				</div>
@@ -29,7 +31,7 @@ const Course = ({ props }: Props) => {
 			<div className={styles.text}>
 				<h3>${props.price}</h3>
 			</div>
-			<div className={styles.divider}></div>
+			{/* <div className={styles.divider}></div> */}
 			<div className={styles.row}>
 				<div className={styles.small_row}>
 					<div className={styles.avatar}>

@@ -4,14 +4,22 @@
 	position: relative;
 	height: 300vh;
 	width: 100%;
+	.row {
+		@include flex();
+		flex-wrap: nowrap;
+		gap: 2.4rem;
+		overflow-x: scroll;
+		position: sticky;
+		top: 12.6rem;
+		@include noScrollBar();
+	}
 	.card,
 	.mob_card {
 		width: 100%;
 		border-radius: 1.6rem;
 		padding: 4rem 6.4rem 6.4rem;
 		background-color: #1b1e21;
-		position: sticky;
-		top: 9.6rem;
+		flex-shrink: 0;
 		.header {
 			width: 100%;
 			border-bottom: 0.1rem solid #484848;
@@ -57,7 +65,7 @@
 					&:last-child {
 						height: 100%;
 						width: 0.8rem;
-						left: 26.1rem;
+						left: calc(50% - 0.4rem);
 						top: 0;
 					}
 				}
@@ -142,9 +150,23 @@
 	.mob_card {
 		display: none;
 	}
+	@include screenMax("tablet") {
+		.card {
+			padding: 4rem;
+			.body {
+				.image {
+					width: 35rem;
+					height: 30rem;
+				}
+				.details {
+					max-width: 40rem;
+				}
+			}
+		}
+	}
 	@include screenMax("mobile") {
 		height: auto;
-		.card {
+		.row {
 			display: none;
 		}
 		.mob_card {
@@ -158,10 +180,12 @@
 					height: 23.1rem;
 					width: 100%;
 					.line {
+						height: 0.4rem;
+						top: calc(50% - 0.2rem);
 						&:last-child {
 							height: 100%;
-							width: 0.8rem;
-							left: calc(50% - 0.4rem);
+							width: 0.4rem;
+							left: calc(50% - 0.2rem);
 							top: 0;
 						}
 					}
@@ -170,7 +194,9 @@
 					width: 100%;
 				}
 			}
-			margin-bottom: 12.8rem;
+			&:not(:last-child) {
+				margin-bottom: 12.8rem;
+			}
 		}
 	}
 }

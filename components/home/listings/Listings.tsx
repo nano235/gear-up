@@ -10,17 +10,12 @@ const Listings = () => {
 	return (
 		<section className={styles.section}>
 			<div className={styles.flex_row}>
-				<Title title="Newly listed Gears" />
-				<Link href="#">
+				<Title title="Newly listed Gears" className={styles.title} />
+				<Link href="#" className={styles.desk}>
 					<Button buttonType="secondary" className={styles.button}>
 						<p>See All Listings</p>
 						<div className={styles.icon}>
-							<Image
-								src="/svgs/chevron-yellow.svg"
-								fill
-								alt=""
-								sizes="100vw"
-							/>
+							<Image src="/svgs/arrow.svg" fill alt="" sizes="100vw" />
 						</div>
 					</Button>
 				</Link>
@@ -30,6 +25,14 @@ const Listings = () => {
 					<Listing props={listing} key={index} />
 				))}
 			</div>
+			<Link href="#" className={styles.mob}>
+				<Button buttonType="secondary" className={styles.button}>
+					<p>See All Listings</p>
+					<div className={styles.icon}>
+						<Image src="/svgs/arrow.svg" fill alt="" sizes="100vw" />
+					</div>
+				</Button>
+			</Link>
 		</section>
 	);
 };

@@ -12,15 +12,19 @@
 	line-height: 2.7rem;
 	font-size: 1.8rem;
 
-	// @include screenMax("mobile") {
-	//   font-size: 1.4rem;
-	//   line-height: 2.4rem;
-	// }
+	@include screenMax("mobile") {
+		font-size: 1.4rem;
+		line-height: 2.4rem;
+	}
 }
 
 %text-16 {
 	line-height: 2.4rem;
 	font-size: 1.6rem;
+	@include screenMax("mobile") {
+		font-size: 1.4rem;
+		line-height: 2.4rem;
+	}
 }
 
 %text-14 {

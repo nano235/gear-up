@@ -39,6 +39,9 @@
 		.row {
 			@include grid(repeat(2, 1fr), 2rem, 2.4rem);
 			.box {
+				.image {
+					height: 15rem;
+				}
 				.small_title {
 					h3 {
 						font-size: 1.8rem;

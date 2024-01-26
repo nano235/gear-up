@@ -8,6 +8,7 @@ export const courses: Courses[] = [
 		reviews: 100,
 		avatar: "/svgs/avatar.svg",
 		image: "/images/course.png",
+		type: "ebook",
 	},
 	{
 		label: "The Complete Cinematography course : From Zero To Expert",
@@ -16,6 +17,7 @@ export const courses: Courses[] = [
 		reviews: 100,
 		avatar: "/svgs/avatar.svg",
 		image: "/images/course.png",
+		type: "live",
 	},
 	{
 		label: "The Complete Cinematography course : From Zero To Expert",
@@ -24,6 +26,7 @@ export const courses: Courses[] = [
 		reviews: 100,
 		avatar: "/svgs/avatar.svg",
 		image: "/images/course.png",
+		type: "audio",
 	},
 	{
 		label: "The Complete Cinematography course : From Zero To Expert",
@@ -32,6 +35,7 @@ export const courses: Courses[] = [
 		reviews: 100,
 		avatar: "/svgs/avatar.svg",
 		image: "/images/course.png",
+		type: "video",
 	},
 	{
 		label: "The Complete Cinematography course : From Zero To Expert",
@@ -40,6 +44,7 @@ export const courses: Courses[] = [
 		reviews: 100,
 		avatar: "/svgs/avatar.svg",
 		image: "/images/course.png",
+		type: "ebook",
 	},
 	{
 		label: "The Complete Cinematography course : From Zero To Expert",
@@ -48,6 +53,7 @@ export const courses: Courses[] = [
 		reviews: 100,
 		avatar: "/svgs/avatar.svg",
 		image: "/images/course.png",
+		type: "ebook",
 	},
 	{
 		label: "The Complete Cinematography course : From Zero To Expert",
@@ -56,6 +62,7 @@ export const courses: Courses[] = [
 		reviews: 100,
 		avatar: "/svgs/avatar.svg",
 		image: "/images/course.png",
+		type: "ebook",
 	},
 	{
 		label: "The Complete Cinematography course : From Zero To Expert",
@@ -64,6 +71,7 @@ export const courses: Courses[] = [
 		reviews: 100,
 		avatar: "/svgs/avatar.svg",
 		image: "/images/course.png",
+		type: "ebook",
 	},
 	{
 		label: "The Complete Cinematography course : From Zero To Expert",
@@ -72,6 +80,7 @@ export const courses: Courses[] = [
 		reviews: 100,
 		avatar: "/svgs/avatar.svg",
 		image: "/images/course.png",
+		type: "ebook",
 	},
 	{
 		label: "The Complete Cinematography course : From Zero To Expert",
@@ -80,6 +89,7 @@ export const courses: Courses[] = [
 		reviews: 100,
 		avatar: "/svgs/avatar.svg",
 		image: "/images/course.png",
+		type: "ebook",
 	},
 	{
 		label: "The Complete Cinematography course : From Zero To Expert",
@@ -88,6 +98,7 @@ export const courses: Courses[] = [
 		reviews: 100,
 		avatar: "/svgs/avatar.svg",
 		image: "/images/course.png",
+		type: "ebook",
 	},
 	{
 		label: "The Complete Cinematography course : From Zero To Expert",
@@ -96,6 +107,7 @@ export const courses: Courses[] = [
 		reviews: 100,
 		avatar: "/svgs/avatar.svg",
 		image: "/images/course.png",
+		type: "ebook",
 	},
 	{
 		label: "The Complete Cinematography course : From Zero To Expert",
@@ -104,6 +116,7 @@ export const courses: Courses[] = [
 		reviews: 100,
 		avatar: "/svgs/avatar.svg",
 		image: "/images/course.png",
+		type: "ebook",
 	},
 	{
 		label: "The Complete Cinematography course : From Zero To Expert",
@@ -112,6 +125,7 @@ export const courses: Courses[] = [
 		reviews: 100,
 		avatar: "/svgs/avatar.svg",
 		image: "/images/course.png",
+		type: "ebook",
 	},
 	{
 		label: "The Complete Cinematography course : From Zero To Expert",
@@ -120,5 +134,6 @@ export const courses: Courses[] = [
 		reviews: 100,
 		avatar: "/svgs/avatar.svg",
 		image: "/images/course.png",
+		type: "ebook",
 	},
 ];

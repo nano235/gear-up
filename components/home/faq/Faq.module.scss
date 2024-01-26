@@ -22,7 +22,6 @@
 
 	.accordion {
 		width: 100%;
-		background-color: $col-grey-200;
 		border-radius: 1.6rem;
 		padding: 2.4rem 3.2rem;
 		//   height: 7.7rem;
@@ -45,6 +44,8 @@
 		}
 		&[data-active="true"] {
 			transition: all 0.5s ease-in-out;
+			background-color: $col-grey-200;
+
 			height: auto;
 			.body {
 				max-height: 100rem;
