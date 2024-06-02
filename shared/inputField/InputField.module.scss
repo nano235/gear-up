@@ -7,21 +7,22 @@
 }
 
 .input_label {
-	font-size: 1.6rem;
-	line-height: 152.2%;
-	// color: $col-grey-50;
-	// font-family: $font-medium;
-	font-weight: 500;
+	@extend %text-14;
+	color: #1b1e21;
+}
+.error {
+	color: #ff3729;
+	@extend %text-12;
 }
 
 .input_wrapper {
 	position: relative;
+	padding: 1.6rem 1.2rem;
 	width: 100%;
-	// padding: 1.4rem 1.6rem 0.8rem;
-	column-gap: 1rem;
+	column-gap: 0.4rem;
 	background-color: transparent;
-	// border: 1px solid $col-black-200;
-	border-radius: 9.04453px;
+	border: 0.1rem solid #dedfe0;
+	border-radius: 0.8rem;
 	transition: all 0.1s ease-in;
 
 	@include flex(flex-start, center, row nowrap);
@@ -30,13 +31,17 @@
 		transition: all 0.3s linear;
 		// border-color: $col-gold-500;
 	}
+	&[data-error="true"] {
+		border-color: #ff3729;
+		transition: all 0.1s ease-in;
+	}
 }
 
 .input_icon {
 	position: relative;
-	bottom: 0.3rem;
-	width: 2.4rem;
-	height: 2.4rem;
+	// bottom: 0.3rem;
+	width: 1.6rem;
+	height: 1.6rem;
 	flex-shrink: 0;
 }
 
@@ -46,13 +51,14 @@
 	height: 100%;
 	font-size: 1.4rem;
 	line-height: 2.5rem;
+	font-weight: 500;
 	font-family: $font;
-	color: $col-text-secondary;
+	// color: $col-primary-darken2;
 	width: 100%;
 	&::placeholder {
 		font-size: 1.4rem;
 		line-height: 2.5rem;
-		color: $col-text-secondary;
+		color: #a3a7ab;
 	}
 }
 

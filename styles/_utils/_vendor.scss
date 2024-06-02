@@ -72,6 +72,40 @@
 		height: 2rem;
 	}
 }
+.listing-smaller-slide {
+	margin-top: 2rem;
+	.swiper-wrapper {
+		flex-wrap: wrap;
+		gap: 0.8rem;
+		.swiper-slide {
+			width: 8rem !important;
+			height: 8rem !important;
+			border-radius: 0.8rem;
+			overflow: hidden;
+			cursor: pointer !important;
+		}
+		.swiper-slide-thumb-active {
+			border: 0.3rem solid #ffb30f !important;
+		}
+	}
+	@include screenMax("mobile") {
+		.swiper-wrapper {
+			.swiper-slide {
+				width: 5rem !important;
+				height: 5rem !important;
+			}
+		}
+	}
+}
+
+// Date picker
+
+.rdrDateRangeWrapper {
+	width: 100%;
+	.rdrMonth {
+		width: 100%;
+	}
+}
 
 img {
 	width: 100%;

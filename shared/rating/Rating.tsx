@@ -6,14 +6,21 @@ import styles from "./Rating.module.scss";
 
 interface Props {
 	readOnly?: boolean;
+	rating?: number;
+	showRatingNumber?: boolean;
 }
 
-const Ratings = ({ readOnly = false }: Props) => {
-	const [rating, setRating] = useState<number>(5);
+const Ratings = ({ readOnly = false, rating = 5, showRatingNumber = false }: Props) => {
+	const [localRating, setLocalRating] = useState<number>(rating);
 
 	return (
 		<div className={styles.container}>
-			<Rating value={rating} onChange={setRating} readOnly={readOnly} />
+			<Rating value={localRating} onChange={setLocalRating} readOnly={readOnly} />
+			{showRatingNumber && (
+				<div className={styles.text}>
+					<h5>{localRating}</h5>
+				</div>
+			)}
 		</div>
 	);
 };

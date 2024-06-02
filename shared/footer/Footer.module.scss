@@ -104,6 +104,7 @@
 	}
 	@include screenMax("mobile") {
 		padding: 4rem 1.6rem;
+		flex-direction: column;
 		.footer_socials {
 			margin-top: 3.2rem;
 		}

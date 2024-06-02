@@ -11,6 +11,8 @@ import copyText from "./copyText";
 import convertEpochToFormattedDate from "./convertEpoch";
 import { scrollTo } from "./scrollTo";
 import { eventEmitter } from "./eventEmitter";
+import { formatLink } from "./formatLink";
+import { arraysAreEqual } from "./compareArrays";
 
 export {
 	formatNumber,
@@ -27,4 +29,6 @@ export {
 	shortenTitle,
 	scrollTo,
 	eventEmitter,
+	formatLink,
+	arraysAreEqual,
 };

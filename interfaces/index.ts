@@ -67,3 +67,8 @@ export interface Courses {
 	price: number;
 	type: "ebook" | "live" | "audio" | "video";
 }
+
+export enum ListingType {
+	Buy = "buy",
+	Rent = "rent",
+}

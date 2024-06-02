@@ -1,4 +1,5 @@
 import useCopy from "./useCopy";
+import useFetch from "./useFetch";
 import { usePagination } from "./usePagination";
 
-export { usePagination, useCopy };
+export { usePagination, useCopy, useFetch };

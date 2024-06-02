@@ -3,12 +3,11 @@
 import { navLinks } from "@/mock";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
-import { Logo, Button, CustomLink } from "@/shared";
+import { Logo, Button } from "@/shared";
 import styles from "./Header.module.scss";
-import { scrollTo } from "@/utils";
 import Image from "next/image";
 import { NavLink, NavLinkMenu, NavLinkSub } from "@/interfaces";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useGlobalContext } from "@/contexts/AppContext";
 
 enum Scroll {
@@ -23,17 +22,25 @@ const Header = () => {
 	const [scroll, setScroll] = useState<Scroll>(Scroll.Idle);
 	const headerRef: any = useRef(null);
 	const router = useRouter();
+	const pathName = usePathname();
+	const homePath = pathName === "/";
 	useEffect(() => {
 		const headerHeight: any = headerRef.current?.offsetHeight;
 		const scrollCheck = () => {
 			const currentScrollY = window.scrollY;
-
-			if (currentScrollY > headerHeight) {
-				setScroll(Scroll.InitialScroll);
+			if (homePath) {
+				if (currentScrollY > headerHeight) {
+					setScroll(Scroll.InitialScroll);
+				}
+				if (currentScrollY <= headerHeight) setScroll(Scroll.Idle);
+				if (currentScrollY >= heroHeight) setScroll(Scroll.FinalScroll);
 			}
-			if (currentScrollY <= headerHeight) setScroll(Scroll.Idle);
-			if (currentScrollY >= heroHeight) setScroll(Scroll.FinalScroll);
 		};
+		if (!homePath) {
+			setScroll(Scroll.FinalScroll);
+		} else {
+			setScroll(Scroll.Idle);
+		}
 		window.addEventListener("scroll", scrollCheck, { passive: true });
 
 		return () => window.removeEventListener("scroll", scrollCheck);

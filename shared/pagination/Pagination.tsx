@@ -3,16 +3,25 @@ import styles from "./Pagination.module.scss";
 
 const DOTS = "...";
 
-const Pagination = (props: any) => {
-	const {
-		onPageChange,
-		totalCount,
-		siblingCount = 1,
-		currentPage,
-		pageSize,
-		className,
-	} = props;
+interface Props {
+	currentPage: number;
+	onPageChange: any;
+	totalCount: number;
+	siblingCount?: number;
+	pageSize: number;
+	startNumber?: number;
+	endNumber?: number;
+}
 
+const Pagination: React.FC<Props> = ({
+	onPageChange,
+	totalCount,
+	siblingCount = 1,
+	currentPage,
+	pageSize,
+	startNumber,
+	endNumber,
+}) => {
 	const paginationRange = usePagination({
 		currentPage,
 		totalCount,
@@ -36,54 +45,64 @@ const Pagination = (props: any) => {
 	let lastPage = paginationRange![paginationRange!.length - 1];
 	return (
 		<ul className={styles.pagination_container}>
-			{/* Left navigation arrow */}
-			<li
-				className={`${styles.pagination_item} ${
-					currentPage === 1 && styles.disabled
-				} ${styles.container}`}
-				onClick={onPrevious}
-			>
-				<div className={`${styles.arrow} ${styles.left}`} />
-				Previous
-			</li>
-			<ul className={styles.sub_list}>
-				{paginationRange?.map((pageNumber, index) => {
-					// If the pageItem is a DOT, render the DOTS unicode character
-					if (pageNumber === DOTS) {
+			<div className={styles.text}>
+				{/* <p>
+					Showing {startNumber} - {endNumber} out of {totalCount}
+				</p> */}
+				<p>
+					Page {currentPage} of {Math.ceil(totalCount / pageSize)}
+				</p>
+			</div>
+			<div className={styles.row}>
+				{/* Left navigation arrow */}
+				<li
+					className={`${styles.pagination_item} ${
+						currentPage === 1 && styles.disabled
+					} ${styles.container}`}
+					onClick={onPrevious}
+				>
+					<div className={`${styles.arrow} ${styles.left}`} />
+					<p>Previous</p>
+				</li>
+				<ul className={styles.sub_list}>
+					{paginationRange?.map((pageNumber, index) => {
+						// If the pageItem is a DOT, render the DOTS unicode character
+						if (pageNumber === DOTS) {
+							return (
+								<li
+									className={`${styles.pagination_item} ${styles.dots} `}
+									key={index}
+								>
+									&#8230;
+								</li>
+							);
+						}
+
+						// Render our Page Pills
 						return (
 							<li
-								className={`${styles.pagination_item} ${styles.dots} `}
+								className={`${styles.pagination_item} ${
+									pageNumber === currentPage && styles.selected
+								}`}
+								onClick={() => onPageChange(pageNumber)}
 								key={index}
 							>
-								&#8230;
+								{pageNumber}
 							</li>
 						);
-					}
-
-					// Render our Page Pills
-					return (
-						<li
-							className={`${styles.pagination_item} ${
-								pageNumber === currentPage && styles.selected
-							}`}
-							onClick={() => onPageChange(pageNumber)}
-							key={index}
-						>
-							{pageNumber}
-						</li>
-					);
-				})}
-			</ul>
-			{/*  Right Navigation arrow */}
-			<li
-				className={`${styles.pagination_item} ${
-					currentPage === lastPage && styles.disabled
-				} ${styles.container}`}
-				onClick={onNext}
-			>
-				Next
-				<div className={`${styles.arrow} ${styles.right} `} />
-			</li>
+					})}
+				</ul>
+				{/*  Right Navigation arrow */}
+				<li
+					className={`${styles.pagination_item} ${
+						currentPage === lastPage && styles.disabled
+					} ${styles.container}`}
+					onClick={onNext}
+				>
+					<p>Next</p>
+					<div className={`${styles.arrow} ${styles.right} `} />
+				</li>
+			</div>
 		</ul>
 	);
 };

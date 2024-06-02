@@ -7,6 +7,7 @@ import { Pagination } from "swiper/modules";
 import styles from "./Reviews.module.scss";
 import "swiper/css";
 import "swiper/css/pagination";
+
 import Image from "next/image";
 
 const reviews = [

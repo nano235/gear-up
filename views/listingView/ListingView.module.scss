@@ -1,0 +1,45 @@
+@import "@/styles/imports";
+
+.section {
+	padding-block: 14rem !important;
+	.row {
+		width: 100%;
+		// @include grid(73.7rem 1fr, 2.4rem, 3.2rem);
+		@include flex(space-between);
+		gap: 2.4rem;
+	}
+	.large_block {
+		width: 73.7rem;
+	}
+	.block_desk {
+		width: 51.9rem;
+	}
+	.block_mob {
+		display: none;
+	}
+	.text {
+		margin-bottom: 4rem;
+		h1 {
+			font-family: $font-good;
+			@extend %title-28;
+		}
+	}
+	.divider {
+		width: 100%;
+		height: 0.1rem;
+		background-color: #dedfe0;
+		margin-block: 5.6rem;
+	}
+	@include screenMax("mobile") {
+		.block_mob {
+			display: block;
+			margin-top: 2.4rem;
+		}
+		.block_desk {
+			display: none;
+		}
+		.large_block {
+			width: 100%;
+		}
+	}
+}

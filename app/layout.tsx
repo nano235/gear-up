@@ -3,7 +3,8 @@ import { Source_Sans_3 } from "next/font/google";
 import "@/styles/index.scss";
 import styles from "./layout.module.scss";
 import { Footer, Header } from "@/shared";
-import { AppContext, AppProvider } from "@/contexts/AppContext";
+
+import Providers from "@/Providers";
 
 const sourceSans = Source_Sans_3({ subsets: ["latin"] });
 
@@ -12,15 +13,16 @@ export const metadata: Metadata = {
 	description: "Marketplace to get everything gears",
 };
 
+// function GlobalHooks() {
+// 	useFetchAll();
+// 	return null;
+// }
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
 			<body className={sourceSans.className}>
-				<AppProvider>
-					<Header />
-					<main className={styles.main}>{children}</main>
-					<Footer />
-				</AppProvider>
+				<Providers>{children}</Providers>
 			</body>
 		</html>
 	);

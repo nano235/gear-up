@@ -40,7 +40,7 @@ export class Summary extends Component {
 		}
 
 		const cards = this.children.cards[0];
-		cards.style.overflow = "visible";
+		cards!.style.overflow = "visible";
 
 		// const end = cards.clientWidth + 64 + 64 + 64;
 		const vpW = window.innerWidth;

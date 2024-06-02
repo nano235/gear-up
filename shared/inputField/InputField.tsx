@@ -1,3 +1,5 @@
+"use client";
+
 import React, { InputHTMLAttributes, useState } from "react";
 import styles from "./InputField.module.scss";
 
@@ -6,13 +8,13 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	icon?: string;
 	name?: string;
 	label?: string;
-	password?: boolean;
+	isPassword?: boolean;
 	className?: string;
-	// onChange?: (e: any) => void;
-	// onBlur?: (e: any) => void;
-	// onFocus?: (e: any) => void;
-	// min?: number;
-	// max?: number;
+	iconPosition?: "prefix" | "suffix";
+	prefix?: string;
+	suffix?: string;
+	iconTitle?: string;
+	error?: string;
 }
 
 const InputField = ({
@@ -20,26 +22,23 @@ const InputField = ({
 	type = "text",
 	icon,
 	label,
-	placeholder,
-	onChange,
-	onBlur,
-	onFocus,
-	value,
 	className,
-	password,
-	disabled,
-	required,
-	min,
-	max,
+	isPassword,
+	iconPosition = "prefix",
+	prefix,
+	suffix,
+	iconTitle,
+	error,
 	...options
 }: Props) => {
-	const [inputType, setInputType] = useState<string>(type);
+	let localType = isPassword ? (type = "password") : type;
+	const [inputType, setInputType] = useState<string>(localType);
 	const handleShowPassword = () => {
-		if (inputType === "password") {
-			setInputType("text");
-		}
 		if (inputType === "text") {
 			setInputType("password");
+		}
+		if (inputType === "password") {
+			setInputType("text");
 		}
 	};
 	return (
@@ -50,41 +49,48 @@ const InputField = ({
 				</label>
 			)}
 
-			<div className={styles.input_wrapper}>
-				{!!icon && (
+			<div className={styles.input_wrapper} data-error={!!error}>
+				{!!icon && iconPosition === "prefix" && (
 					<figure className={styles.input_icon}>
-						<Image src={icon} fill sizes="100vw" alt="" />
+						<Image src={icon} fill sizes="100vw" title={iconTitle} alt="" />
 					</figure>
 				)}
+				{!!prefix && <label className={styles.input_label}>{prefix}</label>}
 				<input
 					className={styles.input_field}
 					type={inputType}
 					data-icon={!!icon}
-					placeholder={placeholder}
-					disabled={disabled}
-					onChange={onChange}
-					onBlur={onBlur}
-					onFocus={onFocus}
-					value={value}
-					required={required}
-					min={min}
-					max={max}
+					name={name}
+					autoComplete="off"
 					{...options}
 				/>
-				{password && (
+				{isPassword && (
 					<div className={styles.icon} onClick={handleShowPassword}>
 						<Image
 							src={
 								inputType !== "password"
-									? "/svgs/eye-close.svg"
-									: "/svgs/eye.svg"
+									? "/svgs/eye.svg"
+									: "/svgs/eye-off.svg"
 							}
-							layout="fill"
+							fill
+							sizes="100vw"
 							alt=""
+							title="password"
 						/>
 					</div>
 				)}
+				{!!icon && iconPosition === "suffix" && (
+					<figure className={styles.input_icon}>
+						<Image src={icon} fill sizes="100vw" alt="" title={iconTitle} />
+					</figure>
+				)}
+				{!!suffix && (
+					<label className={styles.input_label} htmlFor={name}>
+						{suffix}
+					</label>
+				)}
 			</div>
+			{!!error && <label className={styles.error}>{error}</label>}
 		</div>
 	);
 };
