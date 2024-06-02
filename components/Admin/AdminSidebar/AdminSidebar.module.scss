@@ -1,0 +1,17 @@
+@import "@/styles/imports";
+
+.sidebar_container {
+    background-color: $col-white;
+
+    .logo_icon {
+        height: 1rem;
+        width: 5rem;
+    }
+
+
+    &__header {
+        padding: 3.5rem;
+        height: 10rem;
+        border-bottom: 1px solid $col-border;
+    }
+}
