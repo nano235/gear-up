@@ -3,8 +3,9 @@
 .main {
 	// padding: 0 8rem;
 	background-color: $col-white;
-	min-height: 100vh;
+	height: 100vh;
 	width: 100%;
+	box-sizing: border-box;
 
 	.body {
 		display: flex;
@@ -14,8 +15,10 @@
 		&__left {
 			min-width: 22rem;
 			flex: 1 1 auto;
-			min-height: 100vh;
+			height: 100vh;
 			border: 1px solid $col-border;
+			box-sizing: border-box;
+			overflow: auto;
 		}
 
 

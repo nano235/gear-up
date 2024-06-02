@@ -2,6 +2,10 @@
 
 .sidebar_container {
     background-color: $col-white;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 
     .logo_icon {
         height: 1rem;
@@ -14,4 +18,48 @@
         height: 10rem;
         border-bottom: 1px solid $col-border;
     }
+
+    .navlinks_wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        justify-content: space-between;
+
+        .navlinks_container {
+            display: flex;
+            flex-direction: column;
+            padding: 3rem 0;
+
+            &__item {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+                padding: 1rem;
+                cursor: pointer;
+
+                &[data-active='true'] {
+                    background: $col-active-nav-bg;
+                    font-weight: 700;
+                }
+
+                .icon {
+                    height: 2.4rem;
+                    width: 2.4rem;
+                }
+
+                .title {
+                    font-size: 1rem;
+                    color: $col-high-emphasis-text;
+                    font-weight: 600;
+                }
+            }
+
+        }
+
+        .btn_container {
+            padding: 0;
+        }
+
+    }
+
 }
