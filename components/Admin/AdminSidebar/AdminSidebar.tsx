@@ -39,7 +39,7 @@ const AdminSidebar = () => {
             link: '/admin/wallet',
         },
     ]
-    const [active, setActive] = useState('Dashboard')
+    const [active, setActive] = useState('/admin/dashboard')
 
     useEffect(() => {
         setActive(pathname)
@@ -75,7 +75,7 @@ const AdminSidebar = () => {
                         <span>
                             <LogoutNavIcon />
                         </span>
-                        <p>Logout</p>
+                        <p className={styles.logout_text}>Logout</p>
                     </div>
                 </ul>
             </div>

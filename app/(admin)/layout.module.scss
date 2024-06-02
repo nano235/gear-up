@@ -25,7 +25,9 @@
 		&__right {
 			width: 80%;
 			flex: 1 1 auto;
-			min-height: 100vh;
+			height: 100vh;
+			background-color: $col-grey-50;
+			overflow-y: auto;
 		}
 	}
 

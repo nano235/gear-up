@@ -1,0 +1,22 @@
+@import '@/styles/imports';
+
+
+.container{
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    border: 1px solid $col-border;
+    margin-top: 2rem;
+
+    &__type_container{
+        display: flex  ;
+        align-items: center;
+        gap: 0.5rem;
+        height: 100%;
+        font-weight: 400;
+        font-size: 1.2rem;
+    }
+    
+}

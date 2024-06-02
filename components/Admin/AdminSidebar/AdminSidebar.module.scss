@@ -36,6 +36,8 @@
                 align-items: center;
                 padding: 1rem;
                 cursor: pointer;
+                box-sizing: border-box;
+
 
                 &[data-active='true'] {
                     background: $col-active-nav-bg;
@@ -52,14 +54,21 @@
                     color: $col-high-emphasis-text;
                     font-weight: 600;
                 }
+
+                .logout_text {
+                    color: $col-error;
+                }
+
             }
-
-        }
-
-        .btn_container {
-            padding: 0;
         }
 
     }
+
+    .btn_container {
+        padding: 0;
+
+    }
+
+
 
 }
