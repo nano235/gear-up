@@ -56,14 +56,14 @@ const Listing = ({ props, className }: Props) => {
 				<div className={styles.small_row}>
 					<div className={styles.avatar}>
 						<Image
-							src={props.author.image}
+							src={props.author?.image}
 							alt={props.user}
 							fill
 							sizes="100vw"
 						/>
 					</div>
 					<div className={styles.text} style={{ marginBottom: 0 }}>
-						<p>{props.author.name}</p>
+						<p>{props.author?.name}</p>
 					</div>
 					<div className={styles.verified}>
 						<Image src="/svgs/icon-verify.svg" alt="" fill sizes="100vw" />

@@ -1,10 +1,8 @@
 'use client';
 import React, { use, useState } from 'react'
-import styles from './TransactionFilters.module.scss'
-import { set } from 'lodash';
 import ReuseableFilters from '@/components/Admin/ReuseableFilter/ReuseableFilter';
 
-const TransactionFilters = () => {
+const ListingFilters = () => {
     const [activeFilterId, setActiveFilterId] = useState(1)
     const [activeSubFilterId, setActiveSubFilterId] = useState(1)
     const parentFilters = [
@@ -14,19 +12,19 @@ const TransactionFilters = () => {
             subFilters: [
                 {
                     id: 1,
-                    name: 'Requested'
+                    name: 'All categories'
                 },
                 {
                     id: 2,
-                    name: 'Accepted/Ongoing'
+                    name: 'Cameras'
                 },
                 {
                     id: 3,
-                    name: 'Completed'
+                    name: 'Lenses'
                 },
                 {
                     id: 4,
-                    name: 'Canceled/declined'
+                    name: 'Drones'
                 }
             ]
         },
@@ -36,19 +34,19 @@ const TransactionFilters = () => {
             subFilters: [
                 {
                     id: 1,
-                    name: 'Requested'
+                    name: 'All categories'
                 },
                 {
                     id: 2,
-                    name: 'Accepted/Ongoing'
+                    name: 'Cameras'
                 },
                 {
                     id: 3,
-                    name: 'Completed'
+                    name: 'Lenses'
                 },
                 {
                     id: 4,
-                    name: 'Canceled/declined'
+                    name: 'Drones'
                 }
             ]
         },
@@ -80,4 +78,4 @@ const TransactionFilters = () => {
     )
 }
 
-export default TransactionFilters
+export default ListingFilters
