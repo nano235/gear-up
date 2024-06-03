@@ -35,7 +35,7 @@
         color: $col-grey-1;
     }
 
-    &__status_container{
+    &__availability_container, &__status_container, &__action_cell{
         display: flex;
         align-items: center;
         gap: 0.5rem;
@@ -44,7 +44,6 @@
         font-size: 1.2rem;
 
         &__status{
-            padding: 0.5rem;
             border-radius: 0.5rem;
             font-weight: 600;
             &[data-status="awaiting approval"]{
@@ -62,6 +61,27 @@
             &[data-status="declined"]{
                 background-color: #FEF3F2;
                 color: #B42318;
+            }
+
+        }
+
+        &__availability{
+            border-radius: 0.5rem;
+            font-weight: 400;
+            font-size: 1.2rem;
+            border-radius: 1rem;
+            padding: 0.1rem 0.5rem;
+            &[data-status="rented out"]{
+                background-color: #F0F9FF;
+                color: #026AA2;
+            }
+            &[data-status="hidden"]{
+                background-color: #F2F4F7;
+                color: #344054;
+            }
+            &[data-status="active listing"]{
+                background-color:#FFF7E7;
+                color:#FFB30F;
             }
 
         }
@@ -144,6 +164,13 @@
             margin-top: 2rem;
             border-radius: 1.6rem;
         }
+    }
+
+    &__action_cell{
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: visible;
     }
     
 &__grid{
