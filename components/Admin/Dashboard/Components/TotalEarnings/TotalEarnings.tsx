@@ -18,32 +18,33 @@ const TotalEarnings = () => {
     const COLORS = ['#FFB30F', '#B57F0B', '#FFE7B5',];
 
     const rows: GridRowsProp = [
-        { id: 1, no_of_products: 1, type: 'Gear rental', revenue_percentage: 'World', value: 'Hello World' },
-        { id: 2, no_of_products: 2, type: 'Gear sales', revenue_percentage: 'is Awesome', value: 'Hello World' },
-        { id: 3, no_of_products: 3, type: 'Course sales', revenue_percentage: 'is Amazing', value: 'Hello World' },
+        { id: 1, no_of_products: 1, type: 'Gear rental', revenue_percentage: 23, value: 530 },
+        { id: 2, no_of_products: 2, type: 'Gear sales', revenue_percentage: 7, value: 700 },
+        { id: 3, no_of_products: 3, type: 'Course sales', revenue_percentage: 10, value: 400 },
     ];
 
     const columns: GridColDef[] = [
         {
-            field: 'type', headerName: 'Type', minWidth: 150, renderCell: ({ value }) => (
+            field: 'type', cellClassName: styles.table_cell, headerName: 'Type',  headerClassName: styles.table_header, minWidth: 150, renderCell: ({ value }) => (
                 <div className={styles.container__type_container}>
                     <EllipseIcon color={value === 'Gear rental' ? '#FFB30F' : value === 'Gear sales' ? '#B57F0B' : '#FFE7B5'} />
-                    <p>{value}</p>
+                    <p style={{ fontSize: '1.2rem' }}>{value}</p>
                 </div>
             ),
         },
-        { field: 'no_of_products', headerName: 'No of Products', minWidth: 200 },
-        { field: 'revenue_percentage', headerName: '% of Revenue', minWidth: 150 },
-        { field: 'value', headerName: 'Value', minWidth: 150 },
+        { field: 'no_of_products', cellClassName: styles.table_cell, headerName: 'No of Products',  headerClassName: styles.table_header, minWidth: 200 },
+        { field: 'revenue_percentage', cellClassName: styles.table_cell, headerName: '% of Revenue',  headerClassName: styles.table_header, minWidth: 150 },
+        { field: 'value', cellClassName: styles.table_cell, headerName: 'Value',  headerClassName: styles.table_header, minWidth: 150 },
     ];
 
     return (
         <div className={styles.container}>
-            <div  className={styles.container__pie_chart_container}>
+            <div className={styles.container__pie_chart_container}>
                 <PieChartComponent data={data} colors={COLORS} />
             </div>
-            <div  style={{ width: '100%' }} className={styles.container__table}>
-                <DataGrid rows={rows} columns={columns}  pagination={undefined} />
+            <div style={{ width: '100%' }} className={styles.container__table}>
+                <DataGrid rows={rows} columns={columns} hideFooterPagination={true} paginationMode="server"
+                />
             </div>
             <ul className={styles.container__cards}>
                 {

@@ -1,13 +1,15 @@
 'use client';
 import React, { useState } from 'react'
 import styles from './CardsSection.module.scss'
-import { InputField, Select } from '@/shared'
+import { DatePicker, InputField, Select } from '@/shared'
 import { DashboardCard } from '..';
 import Image from 'next/image';
 import { ArrowUpIcon } from '@/shared/svgs/dashboard';
+import { DateRange } from 'react-date-range';
 const CardsSection = () => {
-    const [allTime, setAllTime] = useState<string>('12 Dec, 2023 - 14 Dec, 2023')
-
+    const [allTime, setAllTime] = useState<DateRange>()
+    const [isDateSelected, setIsDateSelected] = useState<boolean>(false)
+    const [openModal, setOpenModal] = useState<boolean>(false)
     const cardsList = [
         {
             id: 1,
@@ -38,12 +40,16 @@ const CardsSection = () => {
             amount: 0,
         }
     ]
+    console.log(allTime)
     return (
         <div className={styles.container}>
             <div className={styles.container__date_container}>
-                <InputField type='date' placeholder='All time' className={styles.container__date_container__date_input} />
                 <div className={styles.container__date_container__date_display}>
-                    <p>{allTime}</p>
+                    {
+                        openModal &&
+                        <DatePicker setOpenModal={setOpenModal} setInputDate={setAllTime} openModal={openModal} inputDate={allTime} setIsDateSelected={setIsDateSelected} />
+                    }
+                    {/* <p>{allTime}</p> */}
                 </div>
             </div>
             <div>

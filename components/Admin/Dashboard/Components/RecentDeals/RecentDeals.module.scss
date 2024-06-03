@@ -9,7 +9,8 @@
         align-items: center;
         gap: 0.5rem;
         height: 100%;
-
+        font-size: 1.2rem;
+        
         img{
             width: 2.5rem;
             height: 2.5rem;
@@ -17,7 +18,7 @@
         }
 
         &__name{
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: $col-grey-1;
             overflow: hidden;
@@ -106,8 +107,51 @@
             color: $col-grey-1;
             background-color: $col-grey-50;
         }
+
+        @include screenMax("mobile") {
+            display: none;
+        }
     }
 
+    &__table{
+        overflow: auto;
+        @include screenMax("mobile") {
+            display: none;
+        }
+
+        
+        .table_header{
+            background: $col-grey-50;
+            width: 100%;
+            font-weight: 900;
+        }
+
+        .table_cell{
+            font-size: 1.2rem;
+            background-color: $col-white;
+        }
+
+        .dataGridOverlay {
+            background-color: $col-grey-50;
+            color: #333;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+          }
+    }
+
+    &__cards_container{
+        display: none;
+
+        @include screenMax("mobile") {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 2rem;
+            border-radius: 1.6rem;
+        }
+    }
     
 
 }
