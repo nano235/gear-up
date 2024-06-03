@@ -5,6 +5,7 @@ import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
 import { customisedTableClasses } from '@/utils/classes';
 import { EllipseIcon } from '@/shared/svgs/dashboard';
 import { PieChartComponent } from '@/shared';
+import TotalEarningsCard from './Components/TotalEarningsCard/TotalEarningsCard';
 
 const TotalEarnings = () => {
 
@@ -38,12 +39,19 @@ const TotalEarnings = () => {
 
     return (
         <div className={styles.container}>
-            <div style={{ height: 300, width: '300px' }}>
-                <PieChartComponent data={data} colors={COLORS}/>
+            <div  className={styles.container__pie_chart_container}>
+                <PieChartComponent data={data} colors={COLORS} />
             </div>
-            <div style={{ width: '700px' }}>
-                <DataGrid rows={rows} columns={columns} sx={customisedTableClasses} pagination={undefined} />
+            <div  style={{ width: '100%' }} className={styles.container__table}>
+                <DataGrid rows={rows} columns={columns}  pagination={undefined} />
             </div>
+            <ul className={styles.container__cards}>
+                {
+                    rows.map((item) => (
+                        <TotalEarningsCard item={item} key={item.id} />
+                    ))
+                }
+            </ul>
         </div>
     )
 }

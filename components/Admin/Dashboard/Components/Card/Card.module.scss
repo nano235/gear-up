@@ -9,6 +9,11 @@
     transition: box-shadow 0.2s ease-in-out;
     min-width: 25rem;
 
+    @include screenMax("mobile") {
+        min-width: 100%;
+        width: 100%;
+    }
+
     &:hover {
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
