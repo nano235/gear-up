@@ -21,6 +21,7 @@ import AdvanceSelect from "./selects/advancedSelect/AdvancedSelect";
 import MultipleSelect from "./selects/multipleSelect/MultipleSelect";
 import Select from "./selects/select/Select";
 import Title from "./title/Title";
+import PieChartComponent from "./Charts/PieChart/PieChart";
 
 export {
 	Header,
@@ -46,4 +47,5 @@ export {
 	TextArea,
 	MultipleSelect,
 	RangeInput,
+	PieChartComponent
 };
