@@ -22,6 +22,8 @@ import MultipleSelect from "./selects/multipleSelect/MultipleSelect";
 import Select from "./selects/select/Select";
 import Title from "./title/Title";
 import PieChartComponent from "./Charts/PieChart/PieChart";
+import ToggleSwitch from "./Switch/Switch";
+import RadioInput from './Radio/Radio';
 
 export {
 	Header,
@@ -47,5 +49,7 @@ export {
 	TextArea,
 	MultipleSelect,
 	RangeInput,
-	PieChartComponent
+	PieChartComponent,
+	ToggleSwitch,
+	RadioInput,
 };

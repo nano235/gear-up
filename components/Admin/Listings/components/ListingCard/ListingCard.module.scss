@@ -9,33 +9,17 @@
 		overflow: hidden;
 		border-radius: 0.4rem;
 		margin-bottom: 1.2rem;
-		.button_container {
+		.more_icon {
 			position: absolute;
-			z-index: 1;
-			left: 0.8rem;
-			bottom: 0.8rem;
-			.button {
-				border-radius: 10rem;
-				text-transform: capitalize;
-				// padding: 0.4rem 1.2rem;
-				padding: 0;
-				width: 5.4rem;
-				height: 2.4rem;
-				@extend %center;
-				@extend %text-14;
-				&:nth-child(2) {
-					margin-top: 0.8rem;
-				}
-			}
-			&[data-active="true"] {
-				.button {
-					&:first-child {
-						background: unset;
-						background-color: #072ac8;
-						color: #ffffff;
-					}
-				}
-			}
+			z-index: 10;
+			right: 0.8rem;
+			top: 0.8rem;
+            background-color: $col-white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: .5rem;
 		}
 	}
 	.text {
@@ -65,9 +49,6 @@
 		@include flex();
 		gap: 0.8rem;
 		.pricing {
-			padding: 0.2rem 0.8rem;
-			border-radius: 10rem;
-			background: $orange-grad;
 			color: #1b1e21;
 			p {
 				font-weight: 700;
