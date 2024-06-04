@@ -51,28 +51,18 @@ const CardsSection = () => {
             amount: 0,
         }
     ]
-    console.log(allTime)
 
-    const timeOptions = [
-        { label: 'Today', value: 'today' },
-        { label: 'Yesterday', value: 'yesterday' },
-        { label: 'This week', value: 'this week' },
-        { label: 'Last week', value: 'last week' },
-        { label: 'This month', value: 'this month' },
-        { label: 'Last month', value: 'last month' },
-        { label: 'All time', value: 'all time' },
-    ]
+    const timeOptions = ['yesterday', 'this week', 'last week', 'this month', 'last month', 'all time']
 
     const onOptionChange = (option: any) => {
         setSelectedTime(option.value)
     }
 
-    console.log(openModal)
     return (
         <div className={styles.container}>
             <div className={styles.container__date_container}>
                 <Select options={timeOptions} onOptionChange={onOptionChange} />
-                <div className={styles.container__date_container__date_display} onClick={() => setOpenModal(true)}>
+                <div className={styles.container__date_container__date_display}>
                     {openModal && (
                         <DatePicker
                             openModal={openModal}
@@ -82,15 +72,15 @@ const CardsSection = () => {
                             setIsDateSelected={setIsDateSelected}
                         />
                     )}
-                    <div className={styles.input_field}>
-                        <div className={styles.text}>
-                            <p>
-                                {format(
-                                        inputDate[0].startDate,
-                                        "MM/dd/yyyy"
-                                    )} to ${format(inputDate[0].endDate, "MM/dd/yyyy")}`
-                            </p>
-                        </div>
+                    <div className={styles.input_field} onClick={() => setOpenModal(true)}>
+
+                        <p>
+                            {format(
+                                inputDate[0].startDate,
+                                "MM/dd/yyyy"
+                            )} - {format(inputDate[0].endDate, "MM/dd/yyyy")}`
+                        </p>
+
                     </div>
                 </div>
             </div>
