@@ -6,7 +6,12 @@ import Image from 'next/image';
 import { InputField } from '@/shared';
 import RecentDealsCard from './components/RecentDealsCard/RecentDealsCard';
 import { MoreIcon } from '@/shared/svgs/dashboard';
-
+import { customisedTableClasses } from '@/utils/classes';
+const sharedColDef: GridColDef = {
+    field: "",
+    sortable: true,
+    flex: 1,
+};
 const RecentDeals = () => {
     const rows: GridRowsProp = [
         { id: 1, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Declined', actions: 'View', image: "" },
@@ -18,9 +23,10 @@ const RecentDeals = () => {
 
     ];
 
-   
+
     const columns: GridColDef[] = [
         {
+            ...sharedColDef,
             field: 'name',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
@@ -36,6 +42,7 @@ const RecentDeals = () => {
             ),
         },
         {
+            ...sharedColDef,
             field: 'amount',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
@@ -43,6 +50,7 @@ const RecentDeals = () => {
             minWidth: 200,
         },
         {
+            ...sharedColDef,
             field: 'transaction_date',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
@@ -50,6 +58,7 @@ const RecentDeals = () => {
             minWidth: 150,
         },
         {
+            ...sharedColDef,
             field: 'type',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
@@ -57,6 +66,7 @@ const RecentDeals = () => {
             minWidth: 150,
         },
         {
+            ...sharedColDef,
             field: 'status',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
@@ -71,6 +81,7 @@ const RecentDeals = () => {
             ),
         },
         {
+            ...sharedColDef,
             field: 'id',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
@@ -99,16 +110,11 @@ const RecentDeals = () => {
                 </div>
             </div>
 
-            <div className={styles.container__table} style={{width:'100%'}}>
+            <div className={styles.container__table} style={{ width: '100%' }}>
                 <DataGrid rows={rows} columns={columns}
-                    hideFooterPagination={true} paginationMode="server"  sx={{
-                        height: '100%',
-                        width: 'fit-content',
-                        
-                      }}
-                      classes={{
-                        overlay: styles.dataGridOverlay,
-                    }}/>
+                    hideFooterPagination={true} hideFooter paginationMode="server"
+                    sx={customisedTableClasses}
+                />
             </div>
 
             <ul className={styles.container__cards_container}>

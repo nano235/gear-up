@@ -8,6 +8,11 @@ import { PieChartComponent } from '@/shared';
 import TotalEarningsCard from './Components/TotalEarningsCard/TotalEarningsCard';
 
 const TotalEarnings = () => {
+    const sharedColDef: GridColDef = {
+        field: "",
+        sortable: true,
+        flex: 1,
+    };
 
     const data = [
         { name: 'Group A', value: 400 },
@@ -25,16 +30,17 @@ const TotalEarnings = () => {
 
     const columns: GridColDef[] = [
         {
-            field: 'type', cellClassName: styles.table_cell, headerName: 'Type',  headerClassName: styles.table_header, minWidth: 150, renderCell: ({ value }) => (
+            ...sharedColDef,
+            field: 'type', cellClassName: styles.table_cell, headerName: 'Type', headerClassName: styles.table_header, minWidth: 150, renderCell: ({ value }) => (
                 <div className={styles.container__type_container}>
                     <EllipseIcon color={value === 'Gear rental' ? '#FFB30F' : value === 'Gear sales' ? '#B57F0B' : '#FFE7B5'} />
                     <p style={{ fontSize: '1.2rem' }}>{value}</p>
                 </div>
             ),
         },
-        { field: 'no_of_products', cellClassName: styles.table_cell, headerName: 'No of Products',  headerClassName: styles.table_header, minWidth: 200 },
-        { field: 'revenue_percentage', cellClassName: styles.table_cell, headerName: '% of Revenue',  headerClassName: styles.table_header, minWidth: 150 },
-        { field: 'value', cellClassName: styles.table_cell, headerName: 'Value',  headerClassName: styles.table_header, minWidth: 150 },
+        { ...sharedColDef, field: 'no_of_products', cellClassName: styles.table_cell, headerName: 'No of Products', headerClassName: styles.table_header, minWidth: 200 },
+        { ...sharedColDef, field: 'revenue_percentage', cellClassName: styles.table_cell, headerName: '% of Revenue', headerClassName: styles.table_header, minWidth: 150 },
+        { ...sharedColDef, field: 'value', cellClassName: styles.table_cell, headerName: 'Value', headerClassName: styles.table_header, minWidth: 150 },
     ];
 
     return (
@@ -42,8 +48,8 @@ const TotalEarnings = () => {
             <div className={styles.container__pie_chart_container}>
                 <PieChartComponent data={data} colors={COLORS} />
             </div>
-            <div style={{ width: '100%' }} className={styles.container__table}>
-                <DataGrid rows={rows} columns={columns} hideFooterPagination={true} paginationMode="server"
+            <div style={{ width: '100%', height: "100%", }} className={styles.container__table}>
+                <DataGrid rows={rows} sx={customisedTableClasses} columns={columns} hideFooterPagination={true} paginationMode="server"
                 />
             </div>
             <ul className={styles.container__cards}>

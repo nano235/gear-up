@@ -8,13 +8,18 @@ import { MoreIcon } from '@/shared/svgs/dashboard';
 import RecentDealsCard from '@/components/Admin/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
 import { GridIcon, ListIcon } from '@/shared/svgs/dashboard'
 import ListingCard from '../ListingCard/ListingCard';
-import { Switch } from '@mui/material';
 import MoreModal from '../MoreModal/MoreModal';
+import { customisedTableClasses } from '@/utils/classes';
 
 const ListingTable = () => {
     const [activeLayout, setActiveLayout] = useState('list')
     const [activeRow, setActiveRow] = useState<number | null>(null)
     const [showMoreModal, setShowMoreModal] = useState(false)
+    const sharedColDef: GridColDef = {
+        field: "",
+        sortable: true,
+        flex: 1,
+    };
     const rows: GridRowsProp = [
         { id: 1, title: 'Canon EOS R5 Camera Kit', price: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Declined', actions: 'View', image: "https://images.unsplash.com/photo-1608538770329-65941f62f9f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D", availability: "rented out", date: "15 Dec, 2023", category: "Microphone" },
         { id: 2, title: 'Canon EOS R5 Camera Kit', price: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'ongoing', actions: 'View', image: "https://images.unsplash.com/photo-1608538770329-65941f62f9f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D", availability: "Active listing", date: "15 Dec, 2023", category: "Camera" },
@@ -28,6 +33,8 @@ const ListingTable = () => {
 
     const columns: GridColDef[] = [
         {
+            ...sharedColDef,
+
             field: 'title',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
@@ -43,6 +50,8 @@ const ListingTable = () => {
             ),
         },
         {
+            ...sharedColDef,
+
             field: 'category',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
@@ -50,6 +59,8 @@ const ListingTable = () => {
             minWidth: 200,
         },
         {
+            ...sharedColDef,
+
             field: 'date',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
@@ -57,6 +68,8 @@ const ListingTable = () => {
             minWidth: 150,
         },
         {
+            ...sharedColDef,
+
             field: 'status',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
@@ -72,6 +85,8 @@ const ListingTable = () => {
             ),
         },
         {
+            ...sharedColDef,
+
             field: 'price',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
@@ -79,6 +94,8 @@ const ListingTable = () => {
             minWidth: 150,
         },
         {
+            ...sharedColDef,
+
             field: 'availability',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
@@ -93,6 +110,8 @@ const ListingTable = () => {
             ),
         },
         {
+            ...sharedColDef,
+
             field: 'actions',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
@@ -138,7 +157,7 @@ const ListingTable = () => {
                 <div className={styles.layout_icons}>
                     {
                         listData.map((data) => (
-                            <span key={data.id} onClick={() => setActiveLayout(data.value)} data-active={activeLayout === data.value} className={styles.layout_icons__icon}>
+                            <span key={data.id} onClick={() => setActiveLayout(data.value)} data-active={activeLayout === data.value} data-type={data.value} className={styles.layout_icons__icon}>
                                 {data.icon}
                             </span>
                         ))
@@ -148,16 +167,9 @@ const ListingTable = () => {
             {
                 activeLayout === 'list' ? (
                     <>
-                        <div className={styles.container__table}>
+                        <div className={styles.container__table} style={{ width: '100%', height: "100%", }}>
                             <DataGrid rows={rows} columns={columns}
-                                hideFooterPagination={true} paginationMode="server" sx={{
-                                    height: '100%',
-                                    width: '100%',
-
-                                }}
-                                classes={{
-                                    overlay: styles.dataGridOverlay,
-                                }} />
+                                hideFooterPagination={true} paginationMode="server"  sx={customisedTableClasses} />
                         </div>
 
                         <ul className={styles.container__cards_container}>

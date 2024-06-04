@@ -5,10 +5,21 @@ import { DatePicker, InputField, Select } from '@/shared'
 import { DashboardCard } from '..';
 import Image from 'next/image';
 import { ArrowUpIcon } from '@/shared/svgs/dashboard';
-import { DateRange } from 'react-date-range';
+import { DateRange, DateRangePicker } from 'react-date-range';
+import { addDays } from 'date-fns';
+import format from "date-fns/format";
+
 const CardsSection = () => {
-    const [allTime, setAllTime] = useState<DateRange>()
-    const [isDateSelected, setIsDateSelected] = useState<boolean>(false)
+    const [selectedTime, setSelectedTime] = useState<string>()
+    const [allTime, setAllTime] = useState()
+    const [isDateSelected, setIsDateSelected] = useState<boolean>(false);
+    const [inputDate, setInputDate] = useState<any>([
+        {
+            startDate: new Date(),
+            endDate: addDays(new Date(), 0),
+            key: "selection",
+        },
+    ]);
     const [openModal, setOpenModal] = useState<boolean>(false)
     const cardsList = [
         {
@@ -41,15 +52,46 @@ const CardsSection = () => {
         }
     ]
     console.log(allTime)
+
+    const timeOptions = [
+        { label: 'Today', value: 'today' },
+        { label: 'Yesterday', value: 'yesterday' },
+        { label: 'This week', value: 'this week' },
+        { label: 'Last week', value: 'last week' },
+        { label: 'This month', value: 'this month' },
+        { label: 'Last month', value: 'last month' },
+        { label: 'All time', value: 'all time' },
+    ]
+
+    const onOptionChange = (option: any) => {
+        setSelectedTime(option.value)
+    }
+
+    console.log(openModal)
     return (
         <div className={styles.container}>
             <div className={styles.container__date_container}>
-                <div className={styles.container__date_container__date_display}>
-                    {
-                        openModal &&
-                        <DatePicker setOpenModal={setOpenModal} setInputDate={setAllTime} openModal={openModal} inputDate={allTime} setIsDateSelected={setIsDateSelected} />
-                    }
-                    {/* <p>{allTime}</p> */}
+                <Select options={timeOptions} onOptionChange={onOptionChange} />
+                <div className={styles.container__date_container__date_display} onClick={() => setOpenModal(true)}>
+                    {openModal && (
+                        <DatePicker
+                            openModal={openModal}
+                            setInputDate={setInputDate}
+                            setOpenModal={setOpenModal}
+                            inputDate={inputDate}
+                            setIsDateSelected={setIsDateSelected}
+                        />
+                    )}
+                    <div className={styles.input_field}>
+                        <div className={styles.text}>
+                            <p>
+                                {format(
+                                        inputDate[0].startDate,
+                                        "MM/dd/yyyy"
+                                    )} to ${format(inputDate[0].endDate, "MM/dd/yyyy")}`
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div>
