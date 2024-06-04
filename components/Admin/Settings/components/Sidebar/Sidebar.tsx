@@ -21,7 +21,7 @@ const Sidebar = ({ settingsLists, active }: Props) => {
 
     return (
         <div className={styles.wrapper}>
-           
+ 
             <div className={styles.sidebar_container}>
                 <ul className={styles.navlinks_container}>
                     {settingsLists.map((item, index) => (
