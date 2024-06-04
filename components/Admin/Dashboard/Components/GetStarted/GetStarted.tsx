@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './GetStarted.module.scss'
 import { Button, CheckBox } from '@/shared'
+import ProgressBar from '@/shared/progressBar/ProgressBar'
 
 const GetStarted = () => {
     const verificationSteps = [
@@ -33,6 +34,7 @@ const GetStarted = () => {
                 <p  className={styles.container__subtext_container__percentage}>0% Complete</p>
             </div>
             <p  className={styles.container__description}>We want to keep our community safe, you’ll need to complete the verification process to rent or rent out</p>
+            <ProgressBar percent={30} height={8} radius={8}/>
             <div >
                 <ul className={styles.container__steps_container}>
                     {verificationSteps.map((step, index) => (

@@ -17,6 +17,7 @@
         padding: 3.5rem;
         height: 10rem;
         border-bottom: 1px solid $col-border;
+        box-sizing:border-box;
     }
 
     .navlinks_wrapper {
@@ -42,6 +43,7 @@
                 &[data-active='true'] {
                     background: $col-active-nav-bg;
                     font-weight: 700;
+                    border-left: 4px solid $col-orange;
                 }
 
                 .icon {

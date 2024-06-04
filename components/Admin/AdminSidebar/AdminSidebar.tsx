@@ -4,6 +4,7 @@ import styles from './AdminSidebar.module.scss'
 import { CategoriesNavIcon, DashboardNavIcon, ListingsNavIcon, LogoIcon, LogoutNavIcon, MessagesNavIcon, SettingsNavIcon, TransactionNavIcon, WalletNavIcon } from '@/shared/svgs/dashboard'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { Logo } from '@/shared'
 
 const AdminSidebar = () => {
     const pathname = usePathname()
