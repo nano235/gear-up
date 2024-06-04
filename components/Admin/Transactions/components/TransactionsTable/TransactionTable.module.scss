@@ -35,6 +35,15 @@
         color: $col-grey-1;
     }
 
+    &__action_btn{
+        border:1px solid $col-grey-300;
+        padding: 0.5rem 1rem;
+        border-radius: 10rem;
+        font-size:1.4rem;
+        font-weight: 700;
+        color: #4B525A;
+    }
+
     &__status_container{
         display: flex;
         align-items: center;

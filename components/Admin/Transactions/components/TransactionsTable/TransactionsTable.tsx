@@ -3,10 +3,11 @@ import React from 'react'
 import styles from './TransactionTable.module.scss'
 import { DataGrid, GridColDef, GridRowsProp } from '@mui/x-data-grid';
 import Image from 'next/image';
-import { InputField } from '@/shared';
+import { Button, InputField } from '@/shared';
 import { MoreIcon } from '@/shared/svgs/dashboard';
 import RecentDealsCard from '@/components/Admin/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
 import { customisedTableClasses } from '@/utils/classes';
+import Link from 'next/link';
 
 const TransactionTable = () => {
 
@@ -108,10 +109,10 @@ const TransactionTable = () => {
             headerClassName: styles.table_header,
             headerName: 'Actions',
             minWidth: 150,
-            renderCell: ({ value }) => (
-                <span onClick={() => handleClickMore(value)} className={styles.container__status_container}>
-                    <MoreIcon />
-                </span>
+            renderCell: ({ row, value }) => (
+                <Link href={`/admin/transaction/${row.id}`} className={styles.container__action_btn} >
+                    view details
+                </Link>
             ),
         },
     ];
