@@ -11,4 +11,21 @@
         color: $col-grey-1;
     }
 
+    &__download_filter{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        &__download_btn{
+            text-decoration: underline;
+            font-size:1.6rem;
+            font-weight: 700;
+            color: #4B525A;
+            padding: 1rem 0;
+            transform: translateY(-3rem);
+            text-underline-offset: 0.2rem;
+            cursor: pointer;
+        }
+    }
+
 }

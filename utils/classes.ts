@@ -3,8 +3,8 @@ export const customisedTableClasses = {
       // display: "none",
     },
     "& .MuiDataGrid-columnHeaderTitle": {
-      color: "#838799",
-      background: '',
+      color: "#1B1E21",
+      background: '#FDFDFD',
       fontWeight:700
     },
     "& .MuiDataGrid-columnHeader:focus": {
