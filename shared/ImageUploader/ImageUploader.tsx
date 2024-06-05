@@ -35,7 +35,7 @@ const ImageUpload: React.FC = () => {
           />
    
             <span className={styles.icon}>
-              <Image src="/svgs/icon-camera.svg" alt="Upload" width={20} height={20} />
+              <Image src="/svgs/camera.svg" alt="Upload" width={20} height={20} />
             </span>
         
         </label>
