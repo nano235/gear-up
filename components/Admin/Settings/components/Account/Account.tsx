@@ -1,8 +1,12 @@
 import React from 'react'
 import styles from './Account.module.scss'
+import { AccountPinSet, PasswordResetForm } from './Components'
 const Account = () => {
   return (
-    <div>Account</div>
+    <div className={styles.container}>
+      <PasswordResetForm />
+      <AccountPinSet />
+    </div>
   )
 }
 

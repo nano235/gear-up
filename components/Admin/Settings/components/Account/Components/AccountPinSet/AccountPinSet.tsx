@@ -1,9 +1,9 @@
 // components/PayoutForm.tsx
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import styles from './Payments.module.scss';
-import { Button, InputField, Select } from '@/shared';
+import styles from './AccountPinSet.module.scss';
+import { Button, InputField, Select, TextArea } from '@/shared';
 
 interface PayoutFormValues {
     firstName: string;
@@ -12,7 +12,7 @@ interface PayoutFormValues {
     accountNumber: string;
 }
 
-const Payments: React.FC = () => {
+const AccountPinSet: React.FC = () => {
     const initialValues: PayoutFormValues = {
         firstName: '',
         lastName: '',
@@ -33,24 +33,11 @@ const Payments: React.FC = () => {
         // Handle form submission
         console.log(values);
     };
-    const banksOptions = [
-        'GTBank',
-        'Access Bank',
-        'Zenith Bank',
-        'First Bank',
-        'UBA',
-        'FCMB',
-        'Sterling Bank',
-        'Union Bank',
-        'Wema Bank',
-        'Polaris Bank',
-        'Keystone Bank',
-    ]
 
     return (
         <div className={styles.container}>
-            <h3 className={styles.title}>Payout preferences</h3>
-            <p className={styles.description}>We need some information about you to be able to send you money</p>
+            <h3 className={styles.title}>Set up account pin</h3>
+            <p className={styles.description}>Please use a pin you can remember easily</p>
             <div className={styles.container__form_container}>
                 <Formik
                     initialValues={initialValues}
@@ -60,16 +47,10 @@ const Payments: React.FC = () => {
                     <Form >
                         <div className={styles.container__form_container__form}>
                             <div className={styles.form_field}>
-                                <InputField label='First name' />
+                                <InputField label='New account pin' placeholder='Enter 6 digit pin' isPassword/>
                             </div>
                             <div className={styles.form_field}>
-                                <InputField label='Last name' />
-                            </div>
-                            <div className={styles.form_field}>
-                                <Select options={banksOptions} label='Bank' />
-                            </div>
-                            <div className={styles.form_field}>
-                                <InputField label='Account number' />
+                                <InputField label='Confirm pin' placeholder='Repeat pin' isPassword />
                             </div>
                         </div>
                         <div className={styles.submit_btn_container}>
@@ -82,4 +63,4 @@ const Payments: React.FC = () => {
     );
 };
 
-export default Payments;
+export default AccountPinSet;
