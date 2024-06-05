@@ -4,6 +4,7 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import styles from './SocialsForm.module.scss';
 import { Button, InputField, Select, TextArea } from '@/shared';
+import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText';
 
 interface PayoutFormValues {
     firstName: string;
@@ -36,8 +37,7 @@ const SocialForm: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <h3 className={styles.title}>Socials</h3>
-            <p className={styles.description}>Provide links to your social media pages</p>
+            <HeaderSubText title="Socials" description='Provide links to your social media pages' />
             <div className={styles.container__form_container}>
                 <Formik
                     initialValues={initialValues}

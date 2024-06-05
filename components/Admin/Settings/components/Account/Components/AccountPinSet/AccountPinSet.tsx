@@ -4,6 +4,7 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import styles from './AccountPinSet.module.scss';
 import { Button, InputField, Select, TextArea } from '@/shared';
+import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText';
 
 interface PayoutFormValues {
     firstName: string;
@@ -36,8 +37,7 @@ const AccountPinSet: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <h3 className={styles.title}>Set up account pin</h3>
-            <p className={styles.description}>Please use a pin you can remember easily</p>
+            <HeaderSubText title="Set up account pin" description='Please use a pin you can remember easily' />
             <div className={styles.container__form_container}>
                 <Formik
                     initialValues={initialValues}
@@ -47,7 +47,7 @@ const AccountPinSet: React.FC = () => {
                     <Form >
                         <div className={styles.container__form_container__form}>
                             <div className={styles.form_field}>
-                                <InputField label='New account pin' placeholder='Enter 6 digit pin' isPassword/>
+                                <InputField label='New account pin' placeholder='Enter 6 digit pin' isPassword />
                             </div>
                             <div className={styles.form_field}>
                                 <InputField label='Confirm pin' placeholder='Repeat pin' isPassword />

@@ -4,6 +4,7 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import styles from './HelpCenter.module.scss';
 import { Button, InputField, TextArea } from '@/shared';
+import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText';
 
 interface PayoutFormValues {
     firstName: string;
@@ -36,8 +37,7 @@ const HelpCenter: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <h3 className={styles.title}>Help center</h3>
-            <p className={styles.description}>How can we hep you?</p>
+            <HeaderSubText title="Help center" description='How can we hep you?' />
             <div className={styles.container__form_container}>
                 <Formik
                     initialValues={initialValues}

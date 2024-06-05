@@ -4,6 +4,7 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import styles from './PasswordReset.module.scss';
 import { Button, InputField, Select, TextArea } from '@/shared';
+import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText';
 
 interface PayoutFormValues {
     firstName: string;
@@ -36,8 +37,7 @@ const PasswordResetForm: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <h3 className={styles.title}>Reset your password</h3>
-            <p className={styles.description}>Please follow the steps below to reset your password</p>
+            <HeaderSubText title="Reset your password" description="Please follow the steps below to reset your password" />
             <div className={styles.container__form_container}>
                 <Formik
                     initialValues={initialValues}

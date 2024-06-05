@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import styles from './PersonalInfo.module.scss';
 import { Button, ImageUploader, InputField, Select, TextArea } from '@/shared';
+import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText';
 
 interface PayoutFormValues {
     firstName: string;
@@ -49,8 +50,7 @@ const PersonalInfoForm: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <h3 className={styles.title}>Profile information</h3>
-            <p className={styles.description}>Please provide the necessary personal information</p>
+            <HeaderSubText title="Profile information" description="Please provide the necessary personal information" />
             <div className={styles.container__form_container}>
                 <Formik
                     initialValues={initialValues}
@@ -74,7 +74,15 @@ const PersonalInfoForm: React.FC = () => {
                                 <InputField label='Display name' />
                             </div>
                             <div className={styles.phone_field}>
-                                <InputField label='Phone number' />
+                                <InputField
+                                    label='Phone number'
+                                    customPrefix={
+                                        <p className={styles.prefix_container}>
+                                            +234 <span className={styles.prefix_divider}></span>
+                                        </p>
+                                    }
+                                    type='number'
+                                />
                             </div>
                             <div className={styles.address_field}>
                                 <InputField label='Address' placeholder='enter address' />

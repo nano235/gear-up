@@ -1,4 +1,3 @@
-export {default as SettingsWrapper} from './SettingsWrapper/SettingsWrapper'
 export {default as Verification} from './Verification/Verification'
 export {default as Profile} from './Profile/Profile'
 export {default as HelpCenter} from './HelpCenter/HelpCenter'

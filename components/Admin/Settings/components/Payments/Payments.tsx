@@ -3,7 +3,8 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import styles from './Payments.module.scss';
-import { Button, InputField, Select } from '@/shared';
+import { Button, Header, InputField, Select } from '@/shared';
+import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText';
 
 interface PayoutFormValues {
     firstName: string;
@@ -49,8 +50,7 @@ const Payments: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <h3 className={styles.title}>Payout preferences</h3>
-            <p className={styles.description}>We need some information about you to be able to send you money</p>
+            <HeaderSubText title="Payout preferences" description="We need some information about you to be able to send you money" />
             <div className={styles.container__form_container}>
                 <Formik
                     initialValues={initialValues}

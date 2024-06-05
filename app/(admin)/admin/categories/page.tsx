@@ -1,8 +1,11 @@
+import { CategoriesView } from '@/views/AdminViews'
 import React from 'react'
 
 const Page = () => {
     return (
-        <div>Page</div>
+        <div>
+            <CategoriesView/>
+        </div>
     )
 }
 
