@@ -24,6 +24,7 @@ import Title from "./title/Title";
 import PieChartComponent from "./Charts/PieChart/PieChart";
 import ToggleSwitch from "./Switch/Switch";
 import RadioInput from './Radio/Radio';
+import ImageUploader from "./ImageUploader/ImageUploader";
 
 export {
 	Header,
@@ -52,4 +53,5 @@ export {
 	PieChartComponent,
 	ToggleSwitch,
 	RadioInput,
+	ImageUploader,
 };

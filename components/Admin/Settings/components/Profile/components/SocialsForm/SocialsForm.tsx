@@ -1,9 +1,9 @@
 // components/PayoutForm.tsx
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import styles from './Payments.module.scss';
-import { Button, InputField, Select } from '@/shared';
+import styles from './SocialsForm.module.scss';
+import { Button, InputField, Select, TextArea } from '@/shared';
 
 interface PayoutFormValues {
     firstName: string;
@@ -12,7 +12,7 @@ interface PayoutFormValues {
     accountNumber: string;
 }
 
-const Payments: React.FC = () => {
+const SocialForm: React.FC = () => {
     const initialValues: PayoutFormValues = {
         firstName: '',
         lastName: '',
@@ -33,24 +33,11 @@ const Payments: React.FC = () => {
         // Handle form submission
         console.log(values);
     };
-    const banksOptions = [
-        'GTBank',
-        'Access Bank',
-        'Zenith Bank',
-        'First Bank',
-        'UBA',
-        'FCMB',
-        'Sterling Bank',
-        'Union Bank',
-        'Wema Bank',
-        'Polaris Bank',
-        'Keystone Bank',
-    ]
 
     return (
         <div className={styles.container}>
-            <h3 className={styles.title}>Payout preferences</h3>
-            <p className={styles.description}>We need some information about you to be able to send you money</p>
+            <h3 className={styles.title}>Socials</h3>
+            <p className={styles.description}>Provide links to your social media pages</p>
             <div className={styles.container__form_container}>
                 <Formik
                     initialValues={initialValues}
@@ -60,20 +47,20 @@ const Payments: React.FC = () => {
                     <Form >
                         <div className={styles.container__form_container__form}>
                             <div className={styles.form_field}>
-                                <InputField label='First name' />
+                                <InputField label='Linkedin' placeholder='Enter url' />
                             </div>
                             <div className={styles.form_field}>
-                                <InputField label='Last name' />
+                                <InputField label='Facebook' placeholder='Enter url'/>
                             </div>
                             <div className={styles.form_field}>
-                                <Select options={banksOptions} label='Bank' />
+                                <InputField label='Instagram' placeholder='Enter url' />
                             </div>
-                            <div className={styles.form_field}>
-                                <InputField label='Account number' />
+                            <div className={styles.phone_field}>
+                                <InputField label='Twitter' placeholder='Enter url'/>
                             </div>
                         </div>
                         <div className={styles.submit_btn_container}>
-                            <Button disabled buttonType='primary' type="submit">Submit</Button>
+                            <Button disabled buttonType='primary' type="submit">Save changes</Button>
                         </div>
                     </Form>
                 </Formik>
@@ -82,4 +69,4 @@ const Payments: React.FC = () => {
     );
 };
 
-export default Payments;
+export default SocialForm;

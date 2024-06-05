@@ -2,8 +2,8 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import styles from './Payments.module.scss';
-import { Button, InputField, Select } from '@/shared';
+import styles from './PersonalInfo.module.scss';
+import { Button, ImageUploader, InputField, Select, TextArea } from '@/shared';
 
 interface PayoutFormValues {
     firstName: string;
@@ -12,7 +12,7 @@ interface PayoutFormValues {
     accountNumber: string;
 }
 
-const Payments: React.FC = () => {
+const PersonalInfoForm: React.FC = () => {
     const initialValues: PayoutFormValues = {
         firstName: '',
         lastName: '',
@@ -49,8 +49,8 @@ const Payments: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <h3 className={styles.title}>Payout preferences</h3>
-            <p className={styles.description}>We need some information about you to be able to send you money</p>
+            <h3 className={styles.title}>Profile information</h3>
+            <p className={styles.description}>Please provide the necessary personal information</p>
             <div className={styles.container__form_container}>
                 <Formik
                     initialValues={initialValues}
@@ -58,6 +58,11 @@ const Payments: React.FC = () => {
                     onSubmit={handleSubmit}
                 >
                     <Form >
+                        <div className={styles.uploader_container}>
+                            <ImageUploader />
+                            <h3 className={styles.name}>Einstein130</h3>
+                            <p className={styles.email}>Einstein.oyakhilome1@gmail.com</p>
+                        </div>
                         <div className={styles.container__form_container__form}>
                             <div className={styles.form_field}>
                                 <InputField label='First name' />
@@ -66,14 +71,23 @@ const Payments: React.FC = () => {
                                 <InputField label='Last name' />
                             </div>
                             <div className={styles.form_field}>
-                                <Select options={banksOptions} label='Bank' />
+                                <InputField label='Display name' />
                             </div>
-                            <div className={styles.form_field}>
-                                <InputField label='Account number' />
+                            <div className={styles.phone_field}>
+                                <InputField label='Phone number' />
+                            </div>
+                            <div className={styles.address_field}>
+                                <InputField label='Address' placeholder='enter address' />
+                            </div>
+                            <div className={styles.map_container}>
+                                map
+                            </div>
+                            <div className={styles.text_area_container}>
+                                <TextArea rows={6} className={styles.text_area} label='About' placeholder='Tell us about yorself...' />
                             </div>
                         </div>
                         <div className={styles.submit_btn_container}>
-                            <Button disabled buttonType='primary' type="submit">Submit</Button>
+                            <Button disabled buttonType='primary' type="submit">Save changes</Button>
                         </div>
                     </Form>
                 </Formik>
@@ -82,4 +96,4 @@ const Payments: React.FC = () => {
     );
 };
 
-export default Payments;
+export default PersonalInfoForm;
