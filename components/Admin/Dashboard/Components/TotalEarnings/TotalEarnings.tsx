@@ -49,7 +49,7 @@ const TotalEarnings = () => {
                 <PieChartComponent data={data} colors={COLORS} />
             </div>
             <div style={{ width: '100%', height: "100%", }} className={styles.container__table}>
-                <DataGrid rows={rows} sx={customisedTableClasses} columns={columns} hideFooterPagination={true} paginationMode="server"
+                <DataGrid rows={rows} sx={customisedTableClasses} columns={columns} hideFooter autoHeight paginationMode="server"
                 />
             </div>
             <ul className={styles.container__cards}>

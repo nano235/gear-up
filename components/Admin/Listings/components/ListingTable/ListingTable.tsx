@@ -169,7 +169,7 @@ const ListingTable = () => {
                     <>
                         <div className={styles.container__table} style={{ width: '100%', height: "100%", }}>
                             <DataGrid rows={rows} columns={columns}
-                                hideFooterPagination={true} paginationMode="server"  sx={customisedTableClasses} />
+                                hideFooterPagination={true} paginationMode="server" hideFooter autoHeight  sx={customisedTableClasses} />
                         </div>
 
                         <ul className={styles.container__cards_container}>

@@ -113,7 +113,7 @@ const RecentDeals = () => {
             <div className={styles.container__table} style={{ width: '100%' }}>
                 <DataGrid rows={rows} columns={columns}
                     hideFooterPagination={true} hideFooter paginationMode="server"
-                    sx={customisedTableClasses}
+                    sx={customisedTableClasses}  autoHeight
                 />
             </div>
 

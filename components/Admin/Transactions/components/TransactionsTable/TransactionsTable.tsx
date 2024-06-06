@@ -129,7 +129,7 @@ const TransactionTable = () => {
 
             <div className={styles.container__table} style={{ width: '100%', height: "100%", }}>
                 <DataGrid rows={rows} columns={columns}
-                    hideFooterPagination={true} paginationMode="server" sx={customisedTableClasses} disableRowSelectionOnClick />
+                    paginationMode="server" sx={customisedTableClasses} hideFooter autoHeight />
             </div>
 
             <ul className={styles.container__cards_container}>
