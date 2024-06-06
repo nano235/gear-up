@@ -1,0 +1,32 @@
+@import "@/styles/imports";
+
+.container{
+    &__main_content{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 100%;
+        
+        &__left_side{
+            height: 100%;
+            padding: 5rem  8rem;
+            padding-right:4rem ;
+        }
+
+        &__right_side{
+            background: #FBFBFD;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            flex: 1;
+            height: 100%;
+
+            .img_container{
+                width: 60rem;
+                height: 60rem;
+                position: relative;
+            }
+
+        }
+    }
+
+}

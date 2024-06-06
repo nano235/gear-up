@@ -1,0 +1,5 @@
+export {default as FaceMatch} from './FaceMatch/FaceMatch'
+export {default as PhoneVerification} from './PhoneVerification/PhoneVerification'
+export {default as PersonalIdentification} from './PersonalIdentification/PersonalIdentification'
+export {default as IdVerification} from './IdVerification/IdVerification'
+export {default as GetStartedNav} from './GetStartedNav/GetStartedNav'

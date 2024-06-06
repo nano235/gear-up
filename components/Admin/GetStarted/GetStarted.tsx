@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './GetStarted.module.scss'
 import { Button, CheckBox, RadioInput } from '@/shared'
 import ProgressBar from '@/shared/progressBar/ProgressBar'
+import Link from 'next/link';
 
 interface Props {
     title: string;
@@ -51,7 +52,9 @@ const GetStarted = ({ title = 'Let’s help you get verified', description = '' 
                 </ul>
             </div>
             <Button buttonType='transparent' iconSuffix='/svgs/color-arrow.svg' className={styles.container__btn_started}>
-                Get Started
+                <Link href='/admin/verification'>
+                    Get Started
+                </Link>
             </Button>
         </div>
     )
