@@ -6,6 +6,7 @@ import styles from './PersonalIdentification.module.scss';
 import { Button, InputField, Select, TextArea } from '@/shared';
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText';
 import countryList from 'react-select-country-list';
+import RevealDetails from '../RevealDetails/RevealDetails';
 
 interface PayoutFormValues {
   firstName: string;
@@ -70,6 +71,7 @@ const PersonalIdentification: React.FC = () => {
               <div className={styles.field}>
                 <InputField label='Bvn' placeholder='Enter Bvn' />
               </div>
+              <RevealDetails question='Why do we need your BVN?' answer='We need your BVN in order to verify your identity. Your BVN does not give us access to your bank accounts or transactions' />
               <div className={styles.field}>
                 <InputField label='First name' placeholder='Enter first name' />
               </div>
@@ -101,9 +103,6 @@ const PersonalIdentification: React.FC = () => {
                   <InputField label='City' placeholder='Enter city' />
                 </div>
               </div>
-            </div>
-            <div className={styles.submit_btn_container}>
-              <Button disabled buttonType='primary' type="submit">Continue</Button>
             </div>
           </Form>
         </Formik>

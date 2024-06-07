@@ -29,4 +29,16 @@
         }
     }
 
+    .button_container{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 2rem 5rem;
+        border-top: 1px solid $col-border;
+
+        &[data-page='1']{
+            justify-content: center;
+        }
+    }
+
 }

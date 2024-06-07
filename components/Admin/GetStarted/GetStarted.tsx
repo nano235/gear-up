@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './GetStarted.module.scss'
-import { Button, CheckBox, RadioInput } from '@/shared'
+import { Button, RadioInput } from '@/shared'
 import ProgressBar from '@/shared/progressBar/ProgressBar'
 import Link from 'next/link';
 
@@ -52,7 +52,7 @@ const GetStarted = ({ title = 'Let’s help you get verified', description = '' 
                 </ul>
             </div>
             <Button buttonType='transparent' iconSuffix='/svgs/color-arrow.svg' className={styles.container__btn_started}>
-                <Link href='/admin/verification'>
+                <Link href='/verification'>
                     Get Started
                 </Link>
             </Button>
