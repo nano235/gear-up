@@ -43,7 +43,7 @@ const UploadedDetails = ({ item }: Props) => {
                 {
                     item.status === 'uploading' && (
                         <div className={`${styles.uploading} ${styles.icon}`}>
-                           <CloseIcon />
+                           <CloseIcon color="#A4A6A7"/>
                         </div>
                     )
                 }
