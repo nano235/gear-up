@@ -5,17 +5,24 @@ import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import { ConfirmToken, InputField } from '@/shared'
 import RevealDetails from '../RevealDetails/RevealDetails'
 
-const PhoneVerification = () => {
-  const [isTokenVerified, setIsTokenVerified] = useState(false)
-  const [isVerification, setIsVerification] = useState()
+interface Props {
+  isTokenVerified?: boolean;
+  setIsTokenVerified: (value: boolean) => void;
+  isTokenVerification?: boolean;
+  setIsTokenVerification?: (value: boolean) => void;
+}
+
+const PhoneVerification = ({ isTokenVerified, setIsTokenVerified, isTokenVerification, setIsTokenVerification }:Props) => {
+
 
   const handleComplete = () => {
     setIsTokenVerified(true)
   }
+
   return (
     <div className={styles.container}>
       {
-        isVerification ?
+        !isTokenVerification ?
           <>
             <HeaderSubText title="Verify your phone number" description='We use this to notify you of information relating to your rentals. We will not use your number for promotions. This number can be changed later on the dashboard' />
 

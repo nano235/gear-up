@@ -8,6 +8,8 @@ import { Button } from '@/shared'
 const VerificationViews = () => {
   const [stepCount, setStepCount] = useState(4)
   const [currentStep, setCurrentStep] = useState(1)
+  const [isTokenVerified, setIsTokenVerified] = useState(false)
+  const [isTokenVerification, setIsTokenVerification] = useState(false)
 
   const onClose = () => {
     console.log('Close')
@@ -21,14 +23,19 @@ const VerificationViews = () => {
   ]
 
   const handleNextStep = () => {
-    if(currentStep === stepCount) return
+    if (currentStep === stepCount) return
+    if (currentStep === 2 && !isTokenVerified) {
+      setIsTokenVerification(true)
+      return
+    }
     setCurrentStep(currentStep + 1)
   }
 
   const handlePrevStep = () => {
-    if(currentStep === 1) return
+    if (currentStep === 1) return
     setCurrentStep(currentStep - 1)
   }
+
   return (
     <div className={styles.container}>
       <GetStartedNav stepCount={verificationSteps.length} currentStep={currentStep} steps={verificationSteps} onClose={onClose} />
@@ -38,7 +45,7 @@ const VerificationViews = () => {
             currentStep === 1 && <PersonalIdentification />
           }
           {
-            currentStep === 2 && <PhoneVerification />
+            currentStep === 2 && <PhoneVerification isTokenVerification={isTokenVerification} isTokenVerified={isTokenVerified} setIsTokenVerified={setIsTokenVerified} setIsTokenVerification={setIsTokenVerification} />
           }
           {
             currentStep === 3 && <IdVerification />
