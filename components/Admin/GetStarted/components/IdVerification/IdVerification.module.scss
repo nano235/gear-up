@@ -1,1 +1,40 @@
+/* components/PayoutForm.module.scss */
 @import "@/styles/imports";
+
+.container {
+
+    &__form_container{
+
+        &__form{
+            display: grid;
+            gap: 2rem;
+
+            .flex_fields{
+                display: flex;
+                align-items: center;
+                gap: 1.6rem;
+                width: 100%;
+            }
+
+            .field{
+                width: 100%;
+            }
+
+            .upload_box{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                border: 2px dashed #ccc;
+                border-radius: 4px;
+                padding: 1rem;
+                width: 100%;
+                height: 25.5rem;
+            }
+
+        }
+
+    }
+
+ 
+}
