@@ -4,6 +4,8 @@ import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import { InputField, Select } from '@/shared'
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import { LogoutNavIcon } from '@/shared/svgs/dashboard';
+import { UploadDetails } from './components';
 
 interface IdentificationProps {
   identification: string;
@@ -35,6 +37,24 @@ const IdVerification = () => {
     identification: '',
     identificationNumber: ''
   }
+
+  const uploadedFiles = [
+    {
+      name: 'NIN',
+      size: '2.5mb',
+      status: 'success'
+    },
+    {
+      name: 'Voter’s Card',
+      size: '2.5mb',
+      status: 'error'
+    },
+    {
+      name: 'National ID Card',
+      size: '2.5mb',
+      status: 'uploading'
+    },
+  ]
   return (
     <div className={styles.container}>
       <HeaderSubText title="ID verification" description='Please provide a valid means of identification' />
@@ -53,9 +73,20 @@ const IdVerification = () => {
                 <Select label='Identification' options={identificationOptions} />
               </div>
               <div className={styles.upload_box}>
-                <span></span>
+                <span className={styles.rotate_icon}>
+                  <LogoutNavIcon color='#7B8086' />
+                </span>
                 <p className={styles.drop_document_text}>Drop your documents here, or <span className={styles.click_to_upload}>click to upload</span></p>
               </div>
+            </div>
+            <div className={styles.documents_container}>
+              {
+                uploadedFiles.map((item, index) => (
+                  <div key={index}>
+                    <UploadDetails item={item} />
+                  </div>
+                ))
+              }
             </div>
           </Form>
         </Formik>
