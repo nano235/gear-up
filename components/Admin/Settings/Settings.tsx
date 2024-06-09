@@ -4,6 +4,7 @@ import { Account, HelpCenter, Payments, Profile, Sidebar, Verification } from '.
 import styles from './Settings.module.scss'
 
 import { useSearchParams } from 'next/navigation'
+import HeaderSubText from '../HeaderSubText/HeaderSubText'
 
 
 const Settings = () => {
@@ -50,7 +51,7 @@ const Settings = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h2 className={styles.title}>Settings</h2>
+        <HeaderSubText title='Settings' variant='main' />
       <div className={styles.container}>
         <Sidebar settingsLists={settingsLists} active={active} />
         <div className={styles.content}>
