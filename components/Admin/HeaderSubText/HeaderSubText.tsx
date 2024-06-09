@@ -7,7 +7,7 @@ interface HeaderSubTextProps {
     description?: string
     variant?: 'main' | 'normal';
 }
-const HeaderSubText = ({ title, description,variant='normal' }: HeaderSubTextProps) => {
+const HeaderSubText = ({ title, description, variant = 'normal' }: HeaderSubTextProps) => {
     return (
         <div className={styles.container}>
             <h2 className={styles.title} data-variant={variant}>{title}</h2>
