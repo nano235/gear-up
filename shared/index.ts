@@ -26,6 +26,7 @@ import ToggleSwitch from "./Switch/Switch";
 import RadioInput from './Radio/Radio';
 import ImageUploader from "./ImageUploader/ImageUploader";
 import ConfirmToken from "./ConfirmToken/ConfirmToken";
+import CustomBreadCrumb from "./customBreadCrumb/customBreadCrumb";
 
 export {
 	Header,
@@ -56,4 +57,5 @@ export {
 	RadioInput,
 	ImageUploader,
 	ConfirmToken,
+	CustomBreadCrumb,
 };

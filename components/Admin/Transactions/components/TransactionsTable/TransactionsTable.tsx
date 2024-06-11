@@ -1,15 +1,17 @@
 'use client';
-import React from 'react'
+import React,{useState} from 'react'
 import styles from './TransactionTable.module.scss'
 import { DataGrid, GridColDef, GridRowsProp } from '@mui/x-data-grid';
 import Image from 'next/image';
-import { Button, InputField } from '@/shared';
+import { Button, InputField, Pagination } from '@/shared';
 import { MoreIcon } from '@/shared/svgs/dashboard';
 import RecentDealsCard from '@/components/Admin/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
 import { customisedTableClasses } from '@/utils/classes';
 import Link from 'next/link';
 
 const TransactionTable = () => {
+    
+    const [page, setPage] = useState(1)
 
     const sharedColDef: GridColDef = {
         field: "",
@@ -130,6 +132,7 @@ const TransactionTable = () => {
             <div className={styles.container__table} style={{ width: '100%', height: "100%", }}>
                 <DataGrid rows={rows} columns={columns}
                     paginationMode="server" sx={customisedTableClasses} hideFooter autoHeight />
+                    <Pagination currentPage={1} onPageChange={setPage} totalCount={rows.length} pageSize={5} />
             </div>
 
             <ul className={styles.container__cards_container}>

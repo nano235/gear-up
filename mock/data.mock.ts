@@ -457,7 +457,7 @@ export const allCategories = [
 	},
 ];
 
-const _category = [
+export const _category = [
 	{
 		id: 1,
 		name: "Camera",

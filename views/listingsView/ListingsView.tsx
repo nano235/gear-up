@@ -3,19 +3,21 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./ListingsView.module.scss";
 import { Listings } from "@/interfaces";
-import { Button, Listing, Pagination } from "@/shared";
+import { Button, CustomBreadCrumb, Listing, Pagination } from "@/shared";
 import { usePathname, useRouter } from "next/navigation";
 import { BreadCrumbSelect, Filter } from "@/components/listings";
 import gsap from "gsap";
 import { useGlobalContext } from "@/contexts/AppContext";
 import { PageLoader } from "@/shared/loaders";
 import { useFetch } from "@/hooks";
-
+import { useSearchParams } from "next/navigation";
 const ListingsView = () => {
 	const { listings, setListings }: any = useGlobalContext();
 	const pathName = usePathname();
 	const router = useRouter();
 	const pagePathName = pathName.split("/")[1];
+	const search = useSearchParams()
+	const category = search.get('category')
 
 	const [hideFilters, setHideFilters] = useState<boolean>(false);
 	// const [listings, setListings] = useState<any[]>([]);
@@ -116,7 +118,17 @@ const ListingsView = () => {
 	// }, [hideFilters]);
 	return (
 		<section className={styles.section} data-hidden={hideFilters} ref={elementRef}>
-			{/* <BreadCrumbSelect className={styles.desk_breadcrumb} isMobile={isMobile} /> */}
+			<div className={styles.breadcrumb_container}>
+				{
+					!!category &&
+					<CustomBreadCrumb path1="categories" path2="gears" />
+				}
+				<BreadCrumbSelect className={styles.desk_breadcrumb} isMobile={isMobile} />
+				{
+					!!category &&
+					<p>Showing <span className={styles.items_count}>20</span> results for <span className={styles.category_name}>{category}</span></p>
+				}
+			</div>
 			<div className={styles.section_grid}>
 				<Filter
 					hideFilters={hideFilters}

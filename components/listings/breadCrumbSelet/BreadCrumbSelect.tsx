@@ -3,7 +3,7 @@
 import React, { useMemo, useState } from "react";
 import styles from "./BreadCrumbSelect.module.scss";
 import { Select, AdvanceSelect } from "@/shared";
-import { category } from "@/mock/data.mock";
+import { _category } from "@/mock/data.mock";
 
 interface Props {
 	isMobile?: boolean;
@@ -12,15 +12,16 @@ interface Props {
 
 const BreadCrumbSelect = ({ isMobile, className }: Props) => {
 	const [filter, setFilter] = useState<any>({
-		category: "Cameras",
+		category: "Camera",
 	});
+
 	const [subFilters, setSubFilters] = useState<any>();
 	const subCategoryArr = useMemo(
-		() => category.filter((item: any) => item.name === filter.category),
+		() => _category?.filter((item: any) => item.name === filter.category),
 		[filter]
 	);
 	// const subCategoryArr = category.filter((item: any) => item.name === filter.category);
-	const subCategory = subCategoryArr[0].subCategories;
+	const subCategory = subCategoryArr[0]?.subCategories;
 	// console.log(filter, subCategory, subFilters);
 	return (
 		<div className={`${styles.container} ${className}`}>
@@ -39,16 +40,16 @@ const BreadCrumbSelect = ({ isMobile, className }: Props) => {
 							isTransparent={isMobile ? false : true}
 							className={styles.select}
 						/>
-						<div className={styles.slash}>/</div>
 					</div>
 				</div>
+				<div className={styles.slash}>/</div>
 				<div className={styles.select_container}>
 					<div className={styles.text_light}>
 						<p>Category</p>
 					</div>
 					<div className={styles.row}>
 						<AdvanceSelect
-							options={category}
+							options={_category}
 							defaultOptionIndex={0}
 							titleClassName={styles.titleClassName_light}
 							bodyClassName={styles.select_body}
@@ -59,9 +60,9 @@ const BreadCrumbSelect = ({ isMobile, className }: Props) => {
 							objectOption={"category"}
 							valueType="name"
 						/>
-						<div className={styles.slash}>/</div>
 					</div>
 				</div>
+				<div className={styles.slash}>/</div>
 				<div className={styles.select_container}>
 					<div className={styles.text}>
 						<p>Sub-category</p>
