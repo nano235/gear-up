@@ -1,0 +1,46 @@
+@import "@/styles/imports";
+
+.navbar_container {
+    padding: 3rem;
+    height: 10rem;
+    border-bottom: 1px solid $col-border;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    width: 100%;
+    box-sizing: border-box;
+
+    &__details {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        background: $col-profile-container-bg;
+        border-radius: 50px;
+        padding: 1rem ;
+        width: auto;
+        flex-shrink: 0;
+
+
+        .name {
+            font-size: 1.5rem;
+            display: flex;
+            flex-wrap: nowrap;
+            color: $col-high-emphasis-text;
+            font-weight: 600;
+        }
+
+        .avatar {
+            height: 4rem;
+            width: 4rem;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid $col-border;
+            img{
+                
+                border-radius: 50%;
+            }
+        }
+
+    }
+
+}

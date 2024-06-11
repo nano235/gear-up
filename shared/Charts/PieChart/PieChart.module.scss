@@ -1,0 +1,26 @@
+@import '@/styles/imports.scss';
+
+.container{
+    display: flex;
+
+    &__type_container{
+        display: flex  ;
+        align-items: center;
+        gap: 0.5rem;
+        height: 100%;
+        font-weight: 400;
+        font-size: 1.2rem;
+    }
+
+    .color_details{
+        display: none;
+        @include screenMax("mobile") {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        
+        }
+    }
+    
+
+}
