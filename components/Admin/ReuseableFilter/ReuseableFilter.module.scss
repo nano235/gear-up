@@ -14,14 +14,16 @@
     &__filters{
         display: flex;
         gap: 2rem;
-    flex-direction: column;
+        flex-direction: column;
 
     &__parent_container{
         display: flex;
         gap: 2rem;
         padding: 1rem 0.5rem;
         border-radius: 10rem;
-        background-color: $col-white;
+        background-color: white;
+        border: 1px solid $col-border;
+        width:fit-content;
 
         &__filter{
             display: flex;

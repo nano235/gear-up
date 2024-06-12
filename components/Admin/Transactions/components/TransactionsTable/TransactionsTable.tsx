@@ -19,7 +19,7 @@ const TransactionTable = () => {
         flex: 1,
     };
 
-    const rows: GridRowsProp = [
+     const rows: GridRowsProp = [
         {
 
             id: 1, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Declined', actions: 'View', image: ""
@@ -46,7 +46,6 @@ const TransactionTable = () => {
         },
 
     ];
-
 
     const columns: GridColDef[] = [
         {
@@ -112,7 +111,7 @@ const TransactionTable = () => {
             headerName: 'Actions',
             minWidth: 150,
             renderCell: ({ row, value }) => (
-                <Link href={`/admin/transaction/${row.id}`} className={styles.container__action_btn} >
+                <Link href={`/admin/transactions/${row.id}`} className={styles.container__action_btn} >
                     view details
                 </Link>
             ),

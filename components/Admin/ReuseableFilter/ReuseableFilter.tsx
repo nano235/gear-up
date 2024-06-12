@@ -1,15 +1,15 @@
 'use client';
 import styles from './ReuseableFilter.module.scss'
 
-interface Props{
-    parentFilters: {id:number,name:string,subFilters:{id:number,name:string}[]}[]
-    activeFilterId:number
-    setActiveFilterId:(id:number)=>void
-    setActiveSubFilterId:(id:number)=>void
-    activeSubFilterId:number
+interface Props {
+    parentFilters: { id: number, name: string, subFilters: { id: number, name: string }[] }[]
+    activeFilterId: number
+    setActiveFilterId: (id: number) => void
+    setActiveSubFilterId: (id: number) => void
+    activeSubFilterId: number
 
 }
-const ReuseableFilters = ({parentFilters,activeFilterId,setActiveFilterId,setActiveSubFilterId,activeSubFilterId}:Props) => {
+const ReuseableFilters = ({ parentFilters, activeFilterId, setActiveFilterId, setActiveSubFilterId, activeSubFilterId }: Props) => {
 
     return (
         <div className={styles.container}>

@@ -16,7 +16,7 @@ const CustomBreadCrumb = ({ path1, path2 }: Props) => {
                     {path1}
                 </Link>
                 <span className={styles.icon}>
-                    <ChevronIcon />
+                    <ChevronIcon color='#4E5054'/>
                 </span>
                 <p className={styles.path2}>
                     {path2}

@@ -126,7 +126,7 @@ const ListingsView = () => {
 				<BreadCrumbSelect className={styles.desk_breadcrumb} isMobile={isMobile} />
 				{
 					!!category &&
-					<p>Showing <span className={styles.items_count}>20</span> results for <span className={styles.category_name}>{category}</span></p>
+					<p>Showing <span className={styles.items_count}>20</span> results for <span className={styles.category_name}>{" "}{`"${category}"`}</span></p>
 				}
 			</div>
 			<div className={styles.section_grid}>
