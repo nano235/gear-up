@@ -41,8 +41,12 @@ const AdminSidebar = () => {
     ]
     const [active, setActive] = useState('/admin/dashboard')
 
+    console.log(pathname)
+
     useEffect(() => {
-        setActive(pathname)
+        const absPath = pathname.split('?')[0].split('/').slice(0,3).join('/')
+        console.log(absPath)
+        setActive(absPath)
     }, [pathname])
 
     return (

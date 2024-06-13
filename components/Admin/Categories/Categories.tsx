@@ -9,7 +9,7 @@ import Link from 'next/link'
 const Categories = () => {
   return (
     <div className={styles.container}>
-      <HeaderSubText title="Categories" description='Select a catergory that you have interest in and view gears in those categories specifically' />
+      <HeaderSubText title="Categories" description='Select a catergory that you have interest in and view gears in those categories specifically' variant='main'/>
 
       <div className={styles.container__categories_container}>
         {

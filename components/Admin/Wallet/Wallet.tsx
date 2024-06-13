@@ -102,7 +102,7 @@ const Wallet = () => {
         }
       </ul>
       <div className={styles.table_section}>
-        <HeaderSubText title='Transaction History' variant='normal' />
+        <HeaderSubText title='Transaction History' variant='main' />
         <WalletTransactionsTable />
       </div>
       {

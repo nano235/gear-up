@@ -35,6 +35,7 @@
 			height: 100vh;
 			background-color: $col-bg;
 			overflow-y: auto;
+			@include noScrollBar;
 		}
 	}
 

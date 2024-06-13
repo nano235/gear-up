@@ -8,39 +8,15 @@ import TransactionOngoing from './components/TransactionOngoing/TransactionOngoi
 import ConfirmReturn from './components/ConfirmReturn/ConfirmReturn'
 import ReviewFeedback from './components/ReviewFeedback/ReviewFeedback'
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
-import { LineIcon } from '@/shared/svgs/dashboard'
+import { CheckmarkIcon, LineIcon } from '@/shared/svgs/dashboard'
 
-const DetailsTimeline = () => {
+interface Props {
+    timelines: any
+}
+
+const DetailsTimeline = ({ timelines }: Props) => {
     const [steps, setSteps] = useState(1)
     const [active, setActive] = useState(1)
-
-
-    const timeLines = [
-        {
-            id: 1,
-            name: "Accept/Decline transaction"
-        },
-        {
-            id: 2,
-            name: "Confirm handover"
-        },
-        {
-            id: 3,
-            name: "Awaiting confirmation"
-        },
-        {
-            id: 4,
-            name: "Transaction ongoing"
-        },
-        {
-            id: 5,
-            name: "Confirm return"
-        },
-        {
-            id: 6,
-            name: "Review & Feedback"
-        },
-    ]
 
     const handlePrev = () => {
         if (steps > 1) {
@@ -49,14 +25,14 @@ const DetailsTimeline = () => {
     }
 
     const handleNext = () => {
-        if (steps < 6) {
+        if (steps < timelines.length) {
             setSteps(steps + 1)
         }
     }
 
     return (
         <>
-           {/*  <div>
+         {/*    <div>
                 <button onClick={handlePrev}>prev</button>
                 <button onClick={handleNext}> next</button>
             </div> */}
@@ -65,13 +41,17 @@ const DetailsTimeline = () => {
                     <HeaderSubText title="Transaction timeline" />
                     <ul className={styles.timelines_container}>
                         {
-                            timeLines.map((timeline) => {
+                            timelines?.map((timeline: any) => {
                                 return (
                                     <li key={timeline.id} className={styles.timeline}>
                                         <div className={styles.span_container}>
-                                            <span className={styles.id_container} data-active={timeline.id <= steps}>{timeline.id}</span>
+                                            <span className={styles.id_container} data-active={timeline.id <= steps}>
+                                                {
+                                                    steps - 1 < timeline.id ? timeline.id : <span className={styles.check_icon}><CheckmarkIcon /></span>
+                                                }
+                                            </span>
                                             {
-                                                timeline.id < 6 &&  <div data-active={timeline.id <= steps -1 } className={styles.line_icon}>
+                                                timeline.id < 6 && <div data-active={timeline.id <= steps - 1} className={styles.line_icon}>
                                                 </div>
                                             }
                                         </div>

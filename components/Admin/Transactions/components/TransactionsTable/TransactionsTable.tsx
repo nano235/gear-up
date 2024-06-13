@@ -1,5 +1,5 @@
 'use client';
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import styles from './TransactionTable.module.scss'
 import { DataGrid, GridColDef, GridRowsProp } from '@mui/x-data-grid';
 import Image from 'next/image';
@@ -9,8 +9,12 @@ import RecentDealsCard from '@/components/Admin/Dashboard/Components/RecentDeals
 import { customisedTableClasses } from '@/utils/classes';
 import Link from 'next/link';
 
-const TransactionTable = () => {
-    
+interface Props {
+    transactionType: string
+}
+
+const TransactionTable = ({ transactionType }: Props) => {
+
     const [page, setPage] = useState(1)
 
     const sharedColDef: GridColDef = {
@@ -19,30 +23,30 @@ const TransactionTable = () => {
         flex: 1,
     };
 
-     const rows: GridRowsProp = [
+    const rows: GridRowsProp = [
         {
 
-            id: 1, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Declined', actions: 'View', image: ""
+            id: 1, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Declined', actions: 'View', image: "", user_transaction_type:'buyer'
         },
         {
 
-            id: 2, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Awaiting approval', actions: 'View', image: ""
+            id: 2, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Awaiting approval', actions: 'View', image: "", user_transaction_type:'seller'
         },
         {
 
-            id: 3, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Completed', actions: 'View', image: ""
+            id: 3, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Completed', actions: 'View', image: "", user_transaction_type:'renter'
         },
         {
 
-            id: 4, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Ongoing', actions: 'View', image: ""
+            id: 4, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Ongoing', actions: 'View', image: "", user_transaction_type:'renter'
         },
         {
 
-            id: 5, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Declined', actions: 'View', image: ""
+            id: 5, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Declined', actions: 'View', image: "", user_transaction_type:'buyer'
         },
         {
 
-            id: 6, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Completed', actions: 'View', image: ""
+            id: 6, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Completed', actions: 'View', image: "", user_transaction_type:'seller'
         },
 
     ];
@@ -111,7 +115,7 @@ const TransactionTable = () => {
             headerName: 'Actions',
             minWidth: 150,
             renderCell: ({ row, value }) => (
-                <Link href={`/admin/transactions/${row.id}`} className={styles.container__action_btn} >
+                <Link href={`/admin/transactions/${row.id}?transaction_type=${transactionType}`} className={styles.container__action_btn} >
                     view details
                 </Link>
             ),
@@ -131,7 +135,7 @@ const TransactionTable = () => {
             <div className={styles.container__table} style={{ width: '100%', height: "100%", }}>
                 <DataGrid rows={rows} columns={columns}
                     paginationMode="server" sx={customisedTableClasses} hideFooter autoHeight />
-                    <Pagination currentPage={1} onPageChange={setPage} totalCount={rows.length} pageSize={5} />
+                <Pagination currentPage={1} onPageChange={setPage} totalCount={rows.length} pageSize={5} />
             </div>
 
             <ul className={styles.container__cards_container}>

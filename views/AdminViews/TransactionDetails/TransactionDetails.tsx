@@ -9,30 +9,31 @@ interface Props {
 export const transactionRows = [
     {
 
-        id: 1, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Declined', actions: 'View', image: ""
+        id: 1, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Declined', actions: 'View', image: "", user_transaction_type: 'buyer'
     },
     {
 
-        id: 2, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Awaiting approval', actions: 'View', image: ""
+        id: 2, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Awaiting approval', actions: 'View', image: "", user_transaction_type: 'seller'
     },
     {
 
-        id: 3, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Completed', actions: 'View', image: ""
+        id: 3, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Completed', actions: 'View', image: "", user_transaction_type: 'renter'
     },
     {
 
-        id: 4, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Ongoing', actions: 'View', image: ""
+        id: 4, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Ongoing', actions: 'View', image: "", user_transaction_type: 'renter'
     },
     {
 
-        id: 5, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Declined', actions: 'View', image: ""
+        id: 5, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Declined', actions: 'View', image: "", user_transaction_type: 'buyer'
     },
     {
 
-        id: 6, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Completed', actions: 'View', image: ""
+        id: 6, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Completed', actions: 'View', image: "", user_transaction_type: 'seller'
     },
 
 ];
+
 const TransactionDetails = ({ slug }: Props) => {
     const [item, setItem] = React.useState<any>()
 
@@ -42,7 +43,7 @@ const TransactionDetails = ({ slug }: Props) => {
     return (
         <div className={styles.container}>
             <TransactionDetailsHeader slug={slug} item={item} />
-            <TransactionDetailsBody item={item}/>
+            <TransactionDetailsBody item={item} />
         </div>
     )
 }
