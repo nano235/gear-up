@@ -27,6 +27,7 @@ import RadioInput from './Radio/Radio';
 import ImageUploader from "./ImageUploader/ImageUploader";
 import ConfirmToken from "./ConfirmToken/ConfirmToken";
 import CustomBreadCrumb from "./customBreadCrumb/customBreadCrumb";
+import StarRating from "./starRating/StarRating";
 
 export {
 	Header,
@@ -58,4 +59,5 @@ export {
 	ImageUploader,
 	ConfirmToken,
 	CustomBreadCrumb,
+	StarRating,
 };

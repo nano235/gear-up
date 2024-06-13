@@ -32,10 +32,10 @@ const DetailsTimeline = ({ timelines }: Props) => {
 
     return (
         <>
-         {/*    <div>
+            <div>
                 <button onClick={handlePrev}>prev</button>
                 <button onClick={handleNext}> next</button>
-            </div> */}
+            </div>
             <div className={styles.container}>
                 <div className={styles.left}>
                     <HeaderSubText title="Transaction timeline" />
@@ -64,10 +64,10 @@ const DetailsTimeline = ({ timelines }: Props) => {
                 </div>
                 <div className={styles.right}>
                     {
-                        steps == 1 && <AcceptDecline />
+                        steps == 1 && <AcceptDecline handleNext={handleNext} />
                     }
                     {
-                        steps === 2 && <ConfirmHandover />
+                        steps === 2 && <ConfirmHandover handleNext={handleNext} />
                     }
                     {
                         steps === 3 && <AwaitingConfirmation />
@@ -76,7 +76,7 @@ const DetailsTimeline = ({ timelines }: Props) => {
                         steps === 4 && <TransactionOngoing />
                     }
                     {
-                        steps === 5 && <ConfirmReturn />
+                        steps === 5 && <ConfirmReturn handleNext={handleNext} />
                     }
                     {
                         steps === 6 && <ReviewFeedback />

@@ -8,16 +8,16 @@ export const rentRentersTimeline = [
         name: "Confirm handover"
     },
     {
-        id: 4,
-        name: "Transaction ongoing"
-    },
-    {
-        id: 5,
-        name: "Initiate return"
-    },
-    {
         id: 3,
         name: "Awaiting confirmation"
+        },
+        {
+            id: 4,
+            name: "Initiate return"
+            },
+            {
+                id: 5,
+                name: "Transaction ongoing"
     },
     {
         id: 6,
