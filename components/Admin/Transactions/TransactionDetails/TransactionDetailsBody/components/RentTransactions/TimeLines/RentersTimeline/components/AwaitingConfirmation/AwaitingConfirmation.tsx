@@ -1,13 +1,23 @@
 import React from 'react'
 import styles from './AwaitingConfirmation.module.scss'
+import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 
-interface Props {
-    handleNext: () => void
-}
 
-const AwaitingConfirmation = ({handleNext}:Props) => {
+const AwaitingConfirmation = () => {
     return (
-        <div>AwaitingConfirmation</div>
+        <div className={styles.container}>
+            <HeaderSubText title="Awaiting Confirmation" />
+
+            <div className={styles.details_container}>
+                <p className={styles.details}>
+                    Awaiting the lender to confirm they’ve received the gear in a good condition</p>
+            </div>
+            <div className={styles.details_container}>
+                <p className={styles.details}>
+                    After your client confirmed handover, the transaction will be completed
+                </p>
+            </div>
+        </div>
     )
 }
 

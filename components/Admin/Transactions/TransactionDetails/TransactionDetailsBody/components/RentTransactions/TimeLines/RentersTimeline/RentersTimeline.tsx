@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import styles from './DetailsTimeline.module.scss'
+import styles from './RentersTimeline.module.scss'
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import { CheckmarkIcon } from '@/shared/svgs/dashboard'
 import { AwaitingApproval, AwaitingConfirmation, ConfirmHandover, InitiateReturn, ReviewFeedback, TransactionOngoing } from './components'
@@ -21,17 +21,17 @@ const RentersTimeline = ({ timelines }: Props) => {
     }
 
     const handleNext = () => {
-        if (steps < timelines.length) {
+        if (steps < rentRentersTimeline.length) {
             setSteps(steps + 1)
         }
     }
 
     return (
         <>
-            <div>
+            {/*    <div>
                 <button onClick={handlePrev}>prev</button>
                 <button onClick={handleNext}> next</button>
-            </div>
+            </div> */}
             <div className={styles.container}>
                 <div className={styles.left}>
                     <HeaderSubText title="Transaction timeline" />
@@ -43,7 +43,7 @@ const RentersTimeline = ({ timelines }: Props) => {
                                         <div className={styles.span_container}>
                                             <span className={styles.id_container} data-active={timeline.id <= steps}>
                                                 {
-                                                    steps - 1 < timeline.id ? timeline.id : <span className={styles.check_icon}><CheckmarkIcon /></span>
+                                                    steps - 1 < timeline.id ? timeline.id : <span className={styles.check_icon} data-active={timeline.id <= steps}><CheckmarkIcon /></span>
                                                 }
                                             </span>
                                             {
@@ -66,13 +66,13 @@ const RentersTimeline = ({ timelines }: Props) => {
                         steps === 2 && <ConfirmHandover handleNext={handleNext} />
                     }
                     {
-                        steps === 3 && <TransactionOngoing />
+                        steps === 3 && <TransactionOngoing handleNext={handleNext} />
                     }
                     {
-                        steps === 4 && <InitiateReturn />
+                        steps === 4 && <InitiateReturn handleNext={handleNext} />
                     }
                     {
-                        steps === 5 && <AwaitingConfirmation handleNext={handleNext} />
+                        steps === 5 && <AwaitingConfirmation />
                     }
                     {
                         steps === 6 && <ReviewFeedback />

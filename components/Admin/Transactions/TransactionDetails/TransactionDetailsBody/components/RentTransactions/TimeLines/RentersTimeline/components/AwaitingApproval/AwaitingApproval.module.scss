@@ -18,6 +18,12 @@
             color: #7B8086;
             font-size: 1.4rem;
 
+            .learn_more{
+                color: #FFB30F;
+                cursor: pointer;
+                font-weight: 700;
+            }
+
             .bold{
                 font-weight: 700;
                 color: #1B1E21;
@@ -26,5 +32,25 @@
         }
     }
 
+}
+
+.btn_container{
+    @include flex;
+    justify-content: space-between;
+    gap: 3rem;
+    border-top: 1px solid $col-border;
+    padding: 2rem;
+    align-items: center;
+    height: 100%;
+    .cancel_btn{
+        background: transparent;
+        color: #FF3729;
+        border: 1px solid $col-border;
+    }
+
+    button{
+        padding: 1.3rem;
+        font-weight: 700;
+    }
 }
 }

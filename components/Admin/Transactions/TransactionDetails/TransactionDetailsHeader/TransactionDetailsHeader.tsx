@@ -36,14 +36,14 @@ const TransactionDetailsHeader = ({ slug, item }: Props) => {
             <HeaderSubText title='Transactions details' variant='main' />
             <div className={styles.item_details}>
                 <div className={styles.left}>
-                    <Image src="/images/admin-img.jpg" alt={item?.name} width={16} height={16} />
+                    <Image src="/images/admin-img.jpg" alt={item?.gear_name} width={16} height={16} />
                     <span className={styles.right}>
-                        <h2>{item?.name}</h2>
+                        <h2>{item?.gear_name}</h2>
                         <p>{item?.amount}</p>
                     </span>
                 </div>
-                <div className={styles.status} data-status={item?.status.toLowerCase()}>
-                    {item?.status}
+                <div className={styles.status} data-status={item?.transaction_status}>
+                    {item?.transaction_status}
                 </div>
             </div>
             <ul className={styles.container__children_container}>

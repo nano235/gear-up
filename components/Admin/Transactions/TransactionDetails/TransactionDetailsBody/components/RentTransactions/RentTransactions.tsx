@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './RecentTransactions.module.scss'
+import styles from './RentTransactions.module.scss'
 import DetailsSummary from '../DetailsSummary/DetailsSummary'
 import { rentLendersTimeLine, rentRentersTimeline } from '../utils/data'
 import { LendersTimeline, RentersTimeline } from './TimeLines'

@@ -4,18 +4,19 @@ import styles from './TransactionTable.module.scss'
 import { DataGrid, GridColDef, GridRowsProp } from '@mui/x-data-grid';
 import Image from 'next/image';
 import { Button, InputField, Pagination } from '@/shared';
-import { MoreIcon } from '@/shared/svgs/dashboard';
 import RecentDealsCard from '@/components/Admin/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
 import { customisedTableClasses } from '@/utils/classes';
 import Link from 'next/link';
+import { transactions } from '@/mock/transactions.mock';
 
 interface Props {
     transactionType: string
 }
 
 const TransactionTable = ({ transactionType }: Props) => {
-
     const [page, setPage] = useState(1)
+    const [limit, setLimit] = useState(10)
+    const [paginatedTransactions, setPaginatedTransactions] = useState<GridRowsProp>(transactions.slice(0, limit));
 
     const sharedColDef: GridColDef = {
         field: "",
@@ -23,45 +24,24 @@ const TransactionTable = ({ transactionType }: Props) => {
         flex: 1,
     };
 
-    const rows: GridRowsProp = [
-        {
-
-            id: 1, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Declined', actions: 'View', image: "", user_role:'buyer'
-        },
-        {
-
-            id: 2, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Awaiting approval', actions: 'View', image: "", user_role:'seller'
-        },
-        {
-
-            id: 3, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Completed', actions: 'View', image: "", user_role:'renter'
-        },
-        {
-
-            id: 4, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Ongoing', actions: 'View', image: "", user_role:'lender'
-        },
-        {
-
-            id: 5, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Declined', actions: 'View', image: "", user_role:'buyer'
-        },
-        {
-
-            id: 6, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Completed', actions: 'View', image: "", user_role:'seller'
-        },
-
-    ];
+    const handlePagination = (page: number) => {
+        const start = (page - 1) * limit;
+        const end = start + limit;
+        setPaginatedTransactions(transactions.slice(start, end));
+        setPage(page)
+    }
 
     const columns: GridColDef[] = [
         {
             ...sharedColDef,
-            field: 'name',
+            field: 'gear_name',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
             headerName: 'Name',
             minWidth: 250,
-            renderCell: ({ value }) => (
+            renderCell: ({ row,value }) => (
                 <div className={styles.container__name_container}>
-                    <Image src="/images/admin-img.jpg" alt={value} width={16} height={16} />
+                    <Image src={row.gear_image} alt={value} width={16} height={16} />
                     <p className={styles.container__name} style={{ fontSize: '1.2rem' }}>
                         {value}
                     </p>
@@ -86,7 +66,7 @@ const TransactionTable = ({ transactionType }: Props) => {
         },
         {
             ...sharedColDef,
-            field: 'type',
+            field: 'transaction_type',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
             headerName: 'Type',
@@ -94,7 +74,7 @@ const TransactionTable = ({ transactionType }: Props) => {
         },
         {
             ...sharedColDef,
-            field: 'status',
+            field: 'transaction_status',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
             headerName: 'Status',
@@ -115,16 +95,12 @@ const TransactionTable = ({ transactionType }: Props) => {
             headerName: 'Actions',
             minWidth: 150,
             renderCell: ({ row, value }) => (
-                <Link href={`/admin/transactions/${row.id}?transaction_type=${transactionType}`} className={styles.container__action_btn} >
+                <Link href={`/admin/transactions/${row.id}?transaction_type=${transactionType}&user_role=${row.user_role}`} className={styles.container__action_btn} >
                     view details
                 </Link>
             ),
         },
     ];
-
-    const handleClickMore = (id: number) => {
-        console.log('More clicked', id)
-    };
 
     return (
         <div className={styles.container}>
@@ -133,14 +109,14 @@ const TransactionTable = ({ transactionType }: Props) => {
             </div>
 
             <div className={styles.container__table} style={{ width: '100%', height: "100%", }}>
-                <DataGrid rows={rows} columns={columns}
+                <DataGrid rows={paginatedTransactions} columns={columns}
                     paginationMode="server" sx={customisedTableClasses} hideFooter autoHeight />
-                <Pagination currentPage={1} onPageChange={setPage} totalCount={rows.length} pageSize={5} />
+                <Pagination currentPage={page} onPageChange={handlePagination} totalCount={transactions.length} pageSize={limit} />
             </div>
 
             <ul className={styles.container__cards_container}>
                 {
-                    rows.map((item) => (
+                    transactions.map((item) => (
                         <RecentDealsCard key={item.id} item={item} />
                     ))
                 }

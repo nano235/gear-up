@@ -9,7 +9,7 @@ export const rentRentersTimeline = [
     },
     {
         id: 3,
-        name: "Awaiting confirmation"
+        name: "Transaction ongoing"
         },
         {
             id: 4,
@@ -17,7 +17,7 @@ export const rentRentersTimeline = [
             },
             {
                 id: 5,
-                name: "Transaction ongoing"
+                name: "Awaiting confirmation"
     },
     {
         id: 6,

@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import styles from './DetailsTimeline.module.scss'
+import styles from './LendersTimeline.module.scss'
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import { CheckmarkIcon, LineIcon } from '@/shared/svgs/dashboard'
 import { AcceptDecline, AwaitingConfirmation, ConfirmHandover, ConfirmReturn, ReviewFeedback, TransactionOngoing } from './components'
@@ -21,7 +21,7 @@ const LendersTimeline = ({ timelines }: Props) => {
     }
 
     const handleNext = () => {
-        if (steps < timelines.length) {
+        if (steps < rentLendersTimeLine.length) {
             setSteps(steps + 1)
         }
     }
@@ -43,7 +43,7 @@ const LendersTimeline = ({ timelines }: Props) => {
                                         <div className={styles.span_container}>
                                             <span className={styles.id_container} data-active={timeline.id <= steps}>
                                                 {
-                                                    steps - 1 < timeline.id ? timeline.id : <span className={styles.check_icon}><CheckmarkIcon /></span>
+                                                    steps - 1 < timeline.id ? timeline.id : <span className={styles.check_icon} data-active={timeline.id <= steps} ><CheckmarkIcon /></span>
                                                 }
                                             </span>
                                             {

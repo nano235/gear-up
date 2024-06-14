@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import styles from './DetailsTimeline.module.scss'
+import styles from './SellersTimeline.module.scss'
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import { CheckmarkIcon, LineIcon } from '@/shared/svgs/dashboard'
 import {  AcceptDecline, AwaitingConfirmation, RatingFeedback, Shipment } from './components'
