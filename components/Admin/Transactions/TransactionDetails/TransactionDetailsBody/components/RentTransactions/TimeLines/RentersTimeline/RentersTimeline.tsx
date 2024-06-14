@@ -1,20 +1,16 @@
 'use client'
 import React, { useState } from 'react'
 import styles from './DetailsTimeline.module.scss'
-import AcceptDecline from './components/AcceptDecline/AcceptDecline'
-import ConfirmHandover from './components/ConfirmHandover/ConfirmHandover'
-import AwaitingConfirmation from './components/AwaitingConfirmation/AwaitingConfirmation'
-import TransactionOngoing from './components/TransactionOngoing/TransactionOngoing'
-import ConfirmReturn from './components/ConfirmReturn/ConfirmReturn'
-import ReviewFeedback from './components/ReviewFeedback/ReviewFeedback'
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
-import { CheckmarkIcon, LineIcon } from '@/shared/svgs/dashboard'
+import { CheckmarkIcon } from '@/shared/svgs/dashboard'
+import { AwaitingApproval, AwaitingConfirmation, ConfirmHandover, InitiateReturn, ReviewFeedback, TransactionOngoing } from './components'
+import { rentRentersTimeline } from '../../../utils/data'
 
 interface Props {
-    timelines: any
+    timelines?: any
 }
 
-const DetailsTimeline = ({ timelines }: Props) => {
+const RentersTimeline = ({ timelines }: Props) => {
     const [steps, setSteps] = useState(1)
     const [active, setActive] = useState(1)
 
@@ -41,7 +37,7 @@ const DetailsTimeline = ({ timelines }: Props) => {
                     <HeaderSubText title="Transaction timeline" />
                     <ul className={styles.timelines_container}>
                         {
-                            timelines?.map((timeline: any) => {
+                            rentRentersTimeline?.map((timeline: any) => {
                                 return (
                                     <li key={timeline.id} className={styles.timeline}>
                                         <div className={styles.span_container}>
@@ -64,28 +60,27 @@ const DetailsTimeline = ({ timelines }: Props) => {
                 </div>
                 <div className={styles.right}>
                     {
-                        steps == 1 && <AcceptDecline handleNext={handleNext} />
+                        steps == 1 && <AwaitingApproval handleNext={handleNext} />
                     }
                     {
                         steps === 2 && <ConfirmHandover handleNext={handleNext} />
                     }
                     {
-                        steps === 3 && <AwaitingConfirmation />
+                        steps === 3 && <TransactionOngoing />
                     }
                     {
-                        steps === 4 && <TransactionOngoing />
+                        steps === 4 && <InitiateReturn />
                     }
                     {
-                        steps === 5 && <ConfirmReturn handleNext={handleNext} />
+                        steps === 5 && <AwaitingConfirmation handleNext={handleNext} />
                     }
                     {
                         steps === 6 && <ReviewFeedback />
                     }
-
                 </div>
             </div>
         </>
     )
 }
 
-export default DetailsTimeline
+export default RentersTimeline

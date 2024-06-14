@@ -1,11 +1,8 @@
 import React from 'react'
 import styles from './TransactionDetailsBody.module.scss'
-import DetailsTimeline from './components/DetailsTimeline/DetailsTimeline'
-import DetailsSummary from './components/DetailsSummary/DetailsSummary'
 import { useSearchParams } from 'next/navigation'
-import { saleBuyersTimeline, saleSellersTimeline, rentLendersTimeLine, rentRentersTimeline } from './components/utils/data'
 import RentTransactions from './components/RentTransactions/RentTransactions'
-import BuyTransactions from './components/BuyTransactions/BuyTransactions'
+import BuyTransactions from './components/BuySaleTransactions/BuySaleTransactions'
 import CourseTransactions from './components/CoursesTransactions/CourseTransactions'
 interface Props {
     item: any
