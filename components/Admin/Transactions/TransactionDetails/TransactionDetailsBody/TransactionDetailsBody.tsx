@@ -16,7 +16,7 @@ const TransactionDetailsBody = ({ item }: Props) => {
                 transactionType === 'rent' && <RentTransactions item={item} />
             }
             {
-                transactionType === 'sale' && <BuyTransactions item={item}/>
+                transactionType === 'buy' && <BuyTransactions item={item}/>
             }
             {
                 transactionType === 'courses' && <CourseTransactions item={item}/>

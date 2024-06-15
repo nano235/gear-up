@@ -81,7 +81,7 @@ export const saleBuyersTimeline = [
         name: "Confirm Shipment"
     },
     {
-        id: 6,
+        id: 3,
         name: "Rating & Feedback"
     },
 ]
