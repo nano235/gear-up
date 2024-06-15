@@ -13,7 +13,7 @@ const RatingFeedback = () => {
   return (
     <div className={styles.container}>
       <div className={styles.container_top}>
-        <HeaderSubText title="Review and feedback" description='Please tell us about your lending experience and rate the services' />
+        <HeaderSubText title="Rating and feedback" description='Please tell us about your lending experience and rate the services' />
         <StarRating onRatingChange={handleRatingChange} />
         <TextArea placeholder="Write your feedback here..." rows={7} className={styles.textarea}/>
       </div>

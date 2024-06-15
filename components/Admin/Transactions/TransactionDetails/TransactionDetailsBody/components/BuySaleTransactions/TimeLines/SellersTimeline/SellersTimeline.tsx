@@ -21,7 +21,7 @@ const SellersTimeline = ({ timelines }: Props) => {
     }
 
     const handleNext = () => {
-        if (steps < timelines.length) {
+        if (steps < saleSellersTimeline.length) {
             setSteps(steps + 1)
         }
     }
@@ -43,11 +43,11 @@ const SellersTimeline = ({ timelines }: Props) => {
                                         <div className={styles.span_container}>
                                             <span className={styles.id_container} data-active={timeline.id <= steps}>
                                                 {
-                                                    steps - 1 < timeline.id ? timeline.id : <span className={styles.check_icon}><CheckmarkIcon /></span>
+                                                    steps - 1 < timeline.id ? timeline.id : <span className={styles.check_icon}  data-active={timeline.id <= steps}><CheckmarkIcon /></span>
                                                 }
                                             </span>
                                             {
-                                                timeline.id < 6 && <div data-active={timeline.id <= steps - 1} className={styles.line_icon}>
+                                                timeline.id < saleSellersTimeline.length && <div data-active={timeline.id <= steps - 1} className={styles.line_icon}>
                                                 </div>
                                             }
                                         </div>
@@ -69,7 +69,7 @@ const SellersTimeline = ({ timelines }: Props) => {
                         steps === 3 && <AwaitingConfirmation />
                     }
                     {
-                        steps === 3 && <RatingFeedback />
+                        steps === 4 && <RatingFeedback />
                     }
                 </div>
             </div>
