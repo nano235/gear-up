@@ -1,9 +1,12 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import styles from './DetailsSummary.module.scss'
 import { ChevronIcon, CopyIcon, LocationEllipse, VerifyIcon, WarningIcon } from '@/shared/svgs/dashboard'
 import { Button } from '@/shared'
 
 const DetailsSummary = () => {
+    const [showReceiptBtns, setShowReceiptBtns] = useState(false)
+
     return (
         <div className={styles.container}>
             <div className={styles.container__summary_container}>
@@ -53,6 +56,23 @@ const DetailsSummary = () => {
                 <div className={styles.btn_container}>
                     <Button buttonType='secondary' className={styles.btn}>View Profile</Button>
                 </div>
+            </div>
+            <div className={styles.container__receipt_container}>
+                <div className={styles.receipt_header}>
+                    <h4 className={styles.receipt_title}>Receipt</h4>
+                    <span data-active={showReceiptBtns} className={styles.icon} onClick={() => setShowReceiptBtns((prev) => !prev)}>
+                        <ChevronIcon />
+                    </span>
+                </div>
+                {
+                    showReceiptBtns &&
+                    <>
+                        <div className={styles.btn_container}>
+                            <Button buttonType='secondary' className={styles.btn}>View Receipt</Button>
+                            <Button buttonType='secondary' className={styles.btn}>Resend receipt</Button>
+                        </div>
+                    </>
+                }
             </div>
             <div className={styles.container__report_container}>
                 <span className={`${styles.warning} ${styles.icon}`}>
