@@ -4,7 +4,7 @@ import styles from './TransactionDetailsHeader.module.scss'
 import { ChevronIcon } from '@/shared/svgs/dashboard'
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 interface Props {
     slug: string
@@ -20,6 +20,8 @@ const list = [
 const TransactionDetailsHeader = ({ slug, item }: Props) => {
     const [activeId, setActiveId] = useState(1)
     const router = useRouter()
+    const search = useSearchParams()
+    const transaction_type = search.get('transaction_type')
 
     const handleBack = () => {
         router.back()
@@ -46,15 +48,18 @@ const TransactionDetailsHeader = ({ slug, item }: Props) => {
                     {item?.transaction_status}
                 </div>
             </div>
-            <ul className={styles.container__children_container}>
-                {
-                    list.map((item) => (
-                        <li onClick={() => setActiveId(item.id)} key={item.id} className={styles.container__children_container__filter} data-active={activeId === item.id}>
-                            <p>{item.name}</p>
-                        </li>
-                    ))
-                }
-            </ul>
+            {
+                transaction_type !== 'courses' &&
+                <ul className={styles.container__children_container}>
+                    {
+                        list.map((item) => (
+                            <li onClick={() => setActiveId(item.id)} key={item.id} className={styles.container__children_container__filter} data-active={activeId === item.id}>
+                                <p>{item.name}</p>
+                            </li>
+                        ))
+                    }
+                </ul>
+            }
         </div>
     )
 }

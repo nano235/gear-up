@@ -1,11 +1,10 @@
 'use client'
 import React, { useState } from 'react'
 import styles from './DetailsSummary.module.scss'
-import { ChevronIcon, CopyIcon, LocationEllipse, VerifyIcon, WarningIcon } from '@/shared/svgs/dashboard'
-import { Button } from '@/shared'
+import {  CopyIcon } from '@/shared/svgs/dashboard'
+import { PersonalDetails, ReceiptDetails, WarningContainer } from './components'
 
 const DetailsSummary = () => {
-    const [showReceiptBtns, setShowReceiptBtns] = useState(false)
 
     return (
         <div className={styles.container}>
@@ -37,56 +36,9 @@ const DetailsSummary = () => {
                     </span>
                 </div>
             </div>
-            <div className={styles.container__customer_container}>
-                <h3 className={styles.title}>Customer</h3>
-                <div className={styles.location_details}>
-                    <span className={styles.location_icon}>
-                        <LocationEllipse />
-                    </span>
-                    <div>
-                        <h4>
-                            Wade Warren
-                        </h4>
-                        <p>Lagos, Nigeria</p>
-                    </div>
-                    <span className={styles.verfiy_icon}>
-                        <VerifyIcon />
-                    </span>
-                </div>
-                <div className={styles.btn_container}>
-                    <Button buttonType='secondary' className={styles.btn}>View Profile</Button>
-                </div>
-            </div>
-            <div className={styles.container__receipt_container}>
-                <div className={styles.receipt_header}>
-                    <h4 className={styles.receipt_title}>Receipt</h4>
-                    <span data-active={showReceiptBtns} className={styles.icon} onClick={() => setShowReceiptBtns((prev) => !prev)}>
-                        <ChevronIcon />
-                    </span>
-                </div>
-                {
-                    showReceiptBtns &&
-                    <>
-                        <div className={styles.btn_container}>
-                            <Button buttonType='secondary' className={styles.btn}>View Receipt</Button>
-                            <Button buttonType='secondary' className={styles.btn}>Resend receipt</Button>
-                        </div>
-                    </>
-                }
-            </div>
-            <div className={styles.container__report_container}>
-                <span className={`${styles.warning} ${styles.icon}`}>
-                    <WarningIcon />
-                </span>
-                <div>
-                    <h4>Report transaction</h4>
-                    <p>report an issue with this transaction</p>
-                </div>
-                <span className={`${styles.chevron} ${styles.icon}`}>
-                    <ChevronIcon />
-                </span>
-            </div>
-
+            <PersonalDetails name='Wade Warren' subText='Lagos, Nigeria' profileLink='/admin/settings/profile' />
+            <ReceiptDetails />
+            <WarningContainer />
         </div>
     )
 }
