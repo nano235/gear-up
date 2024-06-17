@@ -71,6 +71,29 @@ export const saleSellersTimeline = [
     },
 ]
 
+export const saleSellersTimelineThirdParty = [
+    {
+        id: 1,
+        name: "Accept/Decline transaction"
+    },
+    {
+        id: 2,
+        name: "Shipment"
+    },
+    {
+        id: 3,
+        name: "Awaiting confirmation"
+    },
+    {
+        id: 4,
+        name: "Status Report"
+    },
+    {
+        id: 5,
+        name: "Rating & Feedback"
+    },
+]
+
 export const saleBuyersTimeline = [
     {
         id: 1,

@@ -93,9 +93,9 @@ align-items: center;
 
     .right{
         background: #FBFBFD;
-        width: 100%;
         border-top-right-radius:1.6rem ;
         border-bottom-right-radius:1.6rem ;
+        box-sizing: border-box;
     }
 
 }

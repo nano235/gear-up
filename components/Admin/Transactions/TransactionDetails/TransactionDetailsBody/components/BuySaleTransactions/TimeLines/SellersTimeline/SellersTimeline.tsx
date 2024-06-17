@@ -1,18 +1,26 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './SellersTimeline.module.scss'
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import { CheckmarkIcon, LineIcon } from '@/shared/svgs/dashboard'
-import {  AcceptDecline, AwaitingConfirmation, RatingFeedback, Shipment } from './components'
-import { saleSellersTimeline } from '../../../utils/data'
+import { AcceptDecline, AwaitingConfirmation, RatingFeedback, Shipment, StatusReport } from './components'
+import { saleSellersTimeline, saleSellersTimelineThirdParty } from '../../../utils/data'
+import { useSearchParams } from 'next/navigation'
 
 interface Props {
     timelines?: any
 }
 
+interface Timeline {
+    id: number
+    name: string
+}
+
 const SellersTimeline = ({ timelines }: Props) => {
     const [steps, setSteps] = useState(1)
-    const [active, setActive] = useState(1)
+    const [newTimelines, setNewTimelines] = useState<Timeline[]>([])
+    const search = useSearchParams()
+    const thirdPartyVerification = search.get('third_party')
 
     const handlePrev = () => {
         if (steps > 1) {
@@ -21,10 +29,18 @@ const SellersTimeline = ({ timelines }: Props) => {
     }
 
     const handleNext = () => {
-        if (steps < saleSellersTimeline.length) {
+        if (steps < newTimelines.length) {
             setSteps(steps + 1)
         }
     }
+
+    useEffect(() => {
+        if (thirdPartyVerification) {
+            setNewTimelines(saleSellersTimelineThirdParty)
+        } else {
+            setNewTimelines(saleSellersTimeline)
+        }
+    }, [thirdPartyVerification])
 
     return (
         <>
@@ -37,17 +53,17 @@ const SellersTimeline = ({ timelines }: Props) => {
                     <HeaderSubText title="Transaction timeline" />
                     <ul className={styles.timelines_container}>
                         {
-                            saleSellersTimeline?.map((timeline: any) => {
+                            newTimelines?.map((timeline: any) => {
                                 return (
                                     <li key={timeline.id} className={styles.timeline}>
                                         <div className={styles.span_container}>
                                             <span className={styles.id_container} data-active={timeline.id <= steps}>
                                                 {
-                                                    steps - 1 < timeline.id ? timeline.id : <span className={styles.check_icon}  data-active={timeline.id <= steps}><CheckmarkIcon /></span>
+                                                    steps - 1 < timeline.id ? timeline.id : <span className={styles.check_icon} data-active={timeline.id <= steps}><CheckmarkIcon /></span>
                                                 }
                                             </span>
                                             {
-                                                timeline.id < saleSellersTimeline.length && <div data-active={timeline.id <= steps - 1} className={styles.line_icon}>
+                                                timeline.id < newTimelines.length && <div data-active={timeline.id <= steps - 1} className={styles.line_icon}>
                                                 </div>
                                             }
                                         </div>
@@ -68,9 +84,25 @@ const SellersTimeline = ({ timelines }: Props) => {
                     {
                         steps === 3 && <AwaitingConfirmation />
                     }
-                    {
-                        steps === 4 && <RatingFeedback />
-                    }
+                    <>
+                        {
+                            thirdPartyVerification ?
+                                <>
+                                    {
+                                        steps === 4 && <StatusReport />
+                                    }
+                                    {
+                                        steps === 5 && <RatingFeedback />
+                                    }
+                                </>
+                                :
+                                <>
+                                    {
+                                        steps === 4 && <RatingFeedback />
+                                    }
+                                </>
+                        }
+                    </>
                 </div>
             </div>
         </>

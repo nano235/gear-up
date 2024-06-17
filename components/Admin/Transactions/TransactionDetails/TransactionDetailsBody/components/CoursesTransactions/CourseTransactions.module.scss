@@ -29,15 +29,11 @@
             justify-content: space-between;
             gap: 3rem;
             margin-bottom: 1.2rem;
-            flex-wrap: nowrap;
 
             h4{
                 font-size: 1.4rem;
                 font-weight: 400;
                 color: #7B8086;
-                width: auto;
-                white-space: nowrap;
-                text-overflow:ellipsis;
                 }
                 
                 p{
@@ -45,14 +41,13 @@
                 font-size: 1.4rem;
                 font-weight: 700;
                 color: #1B1E21;
-                width: auto;
-                white-space: nowrap;
-                text-overflow:ellipsis;
             }
 
             .ellipse_container{
+                white-space: nowrap;
                 overflow: hidden;
-                width: auto;
+                text-overflow: ellipsis;
+                max-width: 22rem;
             }
         }
 
