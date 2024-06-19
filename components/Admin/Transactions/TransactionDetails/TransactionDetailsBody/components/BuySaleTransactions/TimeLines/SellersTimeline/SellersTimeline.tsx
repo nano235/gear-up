@@ -3,24 +3,25 @@ import React, { useEffect, useState } from 'react'
 import styles from './SellersTimeline.module.scss'
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import { CheckmarkIcon, LineIcon } from '@/shared/svgs/dashboard'
-import { AcceptDecline, AwaitingConfirmation, RatingFeedback, Shipment, StatusReport } from './components'
-import { saleSellersTimeline, saleSellersTimelineThirdParty } from '../../../utils/data'
+import { AcceptDecline, AwaitingConfirmation, AwaitingShipment, ConfirmShipment, RatingFeedback, Shipment, StatusReport } from './components'
+import { saleSellersTimeline, saleSellersTimelineThirdParty, sellersReturnTimeline } from '../../../utils/data'
 import { useSearchParams } from 'next/navigation'
+interface Timeline {
+    id: number
+    name: string
+}
 
 interface Props {
     timelines?: any
 }
 
-interface Timeline {
-    id: number
-    name: string
-}
 
 const SellersTimeline = ({ timelines }: Props) => {
     const [steps, setSteps] = useState(1)
     const [newTimelines, setNewTimelines] = useState<Timeline[]>([])
     const search = useSearchParams()
     const thirdPartyVerification = search.get('third_party')
+    const returnGoods = search.get('return_goods')
 
     const handlePrev = () => {
         if (steps > 1) {
@@ -41,6 +42,16 @@ const SellersTimeline = ({ timelines }: Props) => {
             setNewTimelines(saleSellersTimeline)
         }
     }, [thirdPartyVerification])
+
+
+    useEffect(() => {
+        if (Boolean(returnGoods)) {
+            setSteps(1)
+            setNewTimelines(sellersReturnTimeline)
+        }
+    }, [returnGoods])
+
+
 
     return (
         <>
@@ -76,33 +87,50 @@ const SellersTimeline = ({ timelines }: Props) => {
                 </div>
                 <div className={styles.right}>
                     {
-                        steps == 1 && <AcceptDecline handleNext={handleNext} />
-                    }
-                    {
-                        steps === 2 && <Shipment handleNext={handleNext} />
-                    }
-                    {
-                        steps === 3 && <AwaitingConfirmation />
-                    }
-                    <>
-                        {
-                            thirdPartyVerification ?
+                        Boolean(returnGoods) ?
+                            <>
+                                {
+                                    steps == 1 && <AwaitingShipment handleNext={handleNext} />
+                                }
+                                {
+                                    steps === 2 && <ConfirmShipment handleNext={handleNext} />
+                                }
+                                {
+                                    steps === 3 && <RatingFeedback />
+                                }
+                            </>
+                            :
+                            <>
+                                {
+                                    steps == 1 && <AcceptDecline handleNext={handleNext} />
+                                }
+                                {
+                                    steps === 2 && <Shipment handleNext={handleNext} />
+                                }
+                                {
+                                    steps === 3 && <AwaitingConfirmation />
+                                }
                                 <>
                                     {
-                                        steps === 4 && <StatusReport />
-                                    }
-                                    {
-                                        steps === 5 && <RatingFeedback />
+                                        thirdPartyVerification ?
+                                            <>
+                                                {
+                                                    steps === 4 && <StatusReport />
+                                                }
+                                                {
+                                                    steps === 5 && <RatingFeedback />
+                                                }
+                                            </>
+                                            :
+                                            <>
+                                                {
+                                                    steps === 4 && <RatingFeedback />
+                                                }
+                                            </>
                                     }
                                 </>
-                                :
-                                <>
-                                    {
-                                        steps === 4 && <RatingFeedback />
-                                    }
-                                </>
-                        }
-                    </>
+                            </>
+                    }
                 </div>
             </div>
         </>

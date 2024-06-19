@@ -4,6 +4,7 @@ import Modal from '@/shared/modals/modal/Modal'
 import { Form, Formik } from 'formik'
 import { Button, InputField } from '@/shared'
 import * as Yup from 'yup'
+import { useRouter } from 'next/navigation'
 
 interface Props {
     showShippingDetailsForm: boolean
@@ -22,6 +23,8 @@ interface ShippingDetailsProps {
 }
 
 const ShippingForm = ({ showShippingDetailsForm, setShowShippingDetailsForm }: Props) => {
+    const router = useRouter();
+
     const closeModal = () => {
         console.log("closed")
         setShowShippingDetailsForm(false)
@@ -38,17 +41,18 @@ const ShippingForm = ({ showShippingDetailsForm, setShowShippingDetailsForm }: P
     };
 
     const validationSchema = Yup.object().shape({
-        firstName: Yup.string().required('First name is required'),
-        lastName: Yup.string().required('Last name is required'),
-        bank: Yup.string().required('Bank is required'),
+        firstName: Yup.string(),
+        lastName: Yup.string(),
+        bank: Yup.string(),
         accountNumber: Yup.string()
-            .required('Account number is required')
-            .matches(/^\d+$/, 'Account number must be numeric'),
     });
 
     const handleSubmit = (values: ShippingDetailsProps) => {
         // Handle form submission
         console.log(values);
+        const currentPath = window.location.pathname;
+        // Navigate to the new URL with the updated query parameters
+        router.push(`${currentPath}?return_goods=true`);
     };
 
     return (
@@ -88,7 +92,7 @@ const ShippingForm = ({ showShippingDetailsForm, setShowShippingDetailsForm }: P
                             </div>
                         </div>
                         <div className={styles.submit_btn_container}>
-                            <Button disabled buttonType='primary' type="submit">Submit</Button>
+                            <Button buttonType='primary' type="submit">Submit</Button>
                         </div>
                     </Form>
                 </Formik>

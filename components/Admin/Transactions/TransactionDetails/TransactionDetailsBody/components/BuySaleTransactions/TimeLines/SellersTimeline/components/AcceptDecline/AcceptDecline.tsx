@@ -2,9 +2,9 @@
 import React, { useState } from 'react'
 import styles from './AcceptDecline.module.scss'
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
-import Link from 'next/link'
 import { Button } from '@/shared'
 import {useSearchParams} from 'next/navigation'
+
 interface Props {
     handleNext: () => void
 }

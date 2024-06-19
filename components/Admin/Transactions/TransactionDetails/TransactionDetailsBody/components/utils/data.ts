@@ -108,3 +108,38 @@ export const saleBuyersTimeline = [
         name: "Rating & Feedback"
     },
 ]
+
+export const saleBuyersTimelineThirdParty=[
+    {
+        id: 1,
+        name: "Awaiting approval"
+    },
+    {
+        id: 2,
+        name: "Awaiting Status Report"
+    },
+    {
+        id: 3,
+        name: "Confirm Shipment"
+    },
+    {
+        id: 4,
+        name: "Rating & Feedback"
+    },
+
+]
+
+export const sellersReturnTimeline = [
+    {
+        id: 1,
+        name: "Awaiting shipment"
+    },
+    {
+        id: 2,
+        name: "Confirm Shipment"
+    },
+    {
+        id: 3,
+        name: "Rating & Feedback"
+    },
+]
