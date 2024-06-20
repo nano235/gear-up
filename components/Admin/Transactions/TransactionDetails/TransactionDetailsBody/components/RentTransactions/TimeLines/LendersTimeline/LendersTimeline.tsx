@@ -12,7 +12,6 @@ interface Props {
 
 const LendersTimeline = ({ timelines }: Props) => {
     const [steps, setSteps] = useState(1)
-    const [active, setActive] = useState(1)
     const isTimeElapsed = true
 
     const handlePrev = () => {

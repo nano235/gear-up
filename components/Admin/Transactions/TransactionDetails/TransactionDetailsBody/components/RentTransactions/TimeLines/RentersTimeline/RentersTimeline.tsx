@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './RentersTimeline.module.scss'
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import { CheckmarkIcon } from '@/shared/svgs/dashboard'
@@ -12,7 +12,8 @@ interface Props {
 
 const RentersTimeline = ({ timelines }: Props) => {
     const [steps, setSteps] = useState(1)
-    const [active, setActive] = useState(1)
+    const isTimeElapsed = true
+   
 
     const handlePrev = () => {
         if (steps > 1) {
@@ -26,12 +27,18 @@ const RentersTimeline = ({ timelines }: Props) => {
         }
     }
 
+    useEffect(() => {
+        if (isTimeElapsed) {
+            setSteps(3)
+        }
+    }, [isTimeElapsed])
+
     return (
-        <>
-            {/*    <div>
+        <div>
+            <div>
                 <button onClick={handlePrev}>prev</button>
                 <button onClick={handleNext}> next</button>
-            </div> */}
+            </div>
             <div className={styles.container}>
                 <div className={styles.left}>
                     <HeaderSubText title="Transaction timeline" />
@@ -66,7 +73,7 @@ const RentersTimeline = ({ timelines }: Props) => {
                         steps === 2 && <ConfirmHandover handleNext={handleNext} />
                     }
                     {
-                        steps === 3 && <TransactionOngoing handleNext={handleNext} />
+                        steps === 3 && <TransactionOngoing handleNext={handleNext} isTimeElapsed={isTimeElapsed} />
                     }
                     {
                         steps === 4 && <InitiateReturn handleNext={handleNext} />
@@ -79,7 +86,7 @@ const RentersTimeline = ({ timelines }: Props) => {
                     }
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
