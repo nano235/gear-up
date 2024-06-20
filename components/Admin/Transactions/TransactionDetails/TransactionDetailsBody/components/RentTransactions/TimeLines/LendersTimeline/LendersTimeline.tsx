@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './LendersTimeline.module.scss'
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import { CheckmarkIcon, LineIcon } from '@/shared/svgs/dashboard'
@@ -13,6 +13,7 @@ interface Props {
 const LendersTimeline = ({ timelines }: Props) => {
     const [steps, setSteps] = useState(1)
     const [active, setActive] = useState(1)
+    const isTimeElapsed = true
 
     const handlePrev = () => {
         if (steps > 1) {
@@ -26,8 +27,14 @@ const LendersTimeline = ({ timelines }: Props) => {
         }
     }
 
+    useEffect(() => {
+        if (isTimeElapsed) {
+            setSteps(4)
+        }
+    }, [isTimeElapsed])
+
     return (
-        <>
+        <div>
             <div>
                 <button onClick={handlePrev}>prev</button>
                 <button onClick={handleNext}> next</button>
@@ -69,7 +76,7 @@ const LendersTimeline = ({ timelines }: Props) => {
                         steps === 3 && <AwaitingConfirmation />
                     }
                     {
-                        steps === 4 && <TransactionOngoing />
+                        steps === 4 && <TransactionOngoing isTimeElapsed={isTimeElapsed} />
                     }
                     {
                         steps === 5 && <ConfirmReturn handleNext={handleNext} />
@@ -80,7 +87,7 @@ const LendersTimeline = ({ timelines }: Props) => {
 
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
