@@ -10,6 +10,41 @@
     width: 100%;
     box-sizing: border-box;
 
+    .icons_container{
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        justify-content: center;
+
+        .search_icon{
+            display: none;
+            @include screenMax("mobile") {
+                display: flex;
+            }
+        }
+
+        .menu_icon{
+            display: none;
+            @include screenMax("mobile") {
+                display: flex;
+        }
+        }
+    }
+    
+
+    .logo_icon{
+        display: none;
+        @include screenMax("mobile") {
+            display: flex;
+        }
+    }
+
+    .input_container{
+        @include screenMax("mobile") {
+            display: none;
+        }
+    }
+
     &__details {
         display: flex;
         gap: 1.5rem;
@@ -41,6 +76,16 @@
             }
         }
 
+        @include screenMax("mobile") {
+            display: none;
+        }
+
+    }
+
+    @include screenMax("mobile") {
+        justify-content: space-between;
+        padding: 2rem 1.6rem;
+        height: auto;
     }
 
 }

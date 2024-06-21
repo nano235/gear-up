@@ -4,6 +4,7 @@ import styles from './AdminSidebar.module.scss'
 import { CategoriesNavIcon, DashboardNavIcon, ListingsNavIcon, LogoIcon, LogoutNavIcon, MessagesNavIcon, SettingsNavIcon, TransactionNavIcon, WalletNavIcon } from '@/shared/svgs/dashboard'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { Logo } from '@/shared'
 
 const AdminSidebar = () => {
     const pathname = usePathname()
@@ -44,7 +45,7 @@ const AdminSidebar = () => {
     console.log(pathname)
 
     useEffect(() => {
-        const absPath = pathname.split('?')[0].split('/').slice(0,3).join('/')
+        const absPath = pathname.split('?')[0].split('/').slice(0, 3).join('/')
         console.log(absPath)
         setActive(absPath)
     }, [pathname])
@@ -52,9 +53,7 @@ const AdminSidebar = () => {
     return (
         <div className={styles.sidebar_container}>
             <div className={styles.sidebar_container__header}>
-                <span className={styles.logo_icon}>
-                    <LogoIcon />
-                </span>
+                <Logo type='dark' />
             </div>
             <div className={styles.navlinks_wrapper}>
                 <ul className={styles.navlinks_container}>

@@ -45,7 +45,7 @@ const GetStarted = ({ title = 'Let’s help you get verified', description = '' 
                 <ul className={styles.container__steps_container}>
                     {verificationSteps.map((step, index) => (
                         <li key={index} className={styles.container__steps_container__step}>
-                            <RadioInput checked={step.completed} disabled={step.completed} />
+                            <RadioInput checked={true} disabled={true} />
                             <span>{step.title}</span>
                         </li>
                     ))}
