@@ -9,7 +9,7 @@ const DashboardHeader = () => {
                 <h2 className={styles.container__left__welcome}>Goodmorning Einstein👋🏾</h2>
                 <p className={styles.container__left__question}>What are you doing today?</p>
             </div>
-            <div>
+            <div className={styles.create_listing}>
                 <Button iconPrefix='/svgs/add.svg'>
                     Create a Listing
                 </Button>

@@ -1,11 +1,11 @@
 'use client';
 import React from 'react'
 import styles from './RecentDeals.module.scss'
-import { DataGrid, GridColDef, GridRowsProp } from '@mui/x-data-grid';
+import { DataGrid, GridAddIcon, GridColDef, GridRowsProp } from '@mui/x-data-grid';
 import Image from 'next/image';
 import { InputField } from '@/shared';
 import RecentDealsCard from './components/RecentDealsCard/RecentDealsCard';
-import { MoreIcon } from '@/shared/svgs/dashboard';
+import { MoreIcon, TransactionNavIcon } from '@/shared/svgs/dashboard';
 import { customisedTableClasses } from '@/utils/classes';
 const sharedColDef: GridColDef = {
     field: "",
@@ -110,13 +110,26 @@ const RecentDeals = () => {
                 </div>
             </div>
 
+            {
+                rows.length > 1 ?
+                <div className={styles.empty_rows}>
+                    <span className={styles.transaction_icon}>
+                    <TransactionNavIcon color='#FFB30F'/>
+                    </span>
+                    No data available
+
+                    <span className={styles.add_btn}>
+                        <GridAddIcon sx={{height:'3rem',width:'3rem'}}/>
+                    </span>
+                </div>
+                :
+                <>
             <div className={styles.container__table} style={{ width: '100%' }}>
                 <DataGrid rows={rows} columns={columns}
                     hideFooterPagination={true} hideFooter paginationMode="server"
                     sx={customisedTableClasses}  autoHeight
                 />
             </div>
-
             <ul className={styles.container__cards_container}>
                 {
                     rows.map((item) => (
@@ -124,6 +137,8 @@ const RecentDeals = () => {
                     ))
                 }
             </ul>
+                </>
+                }
         </div>
     )
 }

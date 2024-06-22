@@ -29,13 +29,12 @@ const AdminNavbar = () => {
       <div className={styles.logo_icon}>
         <Logo type="dark" />
       </div>
-      {
-        showSearchBar &&
-      <div className={styles.input_container}>
+     
+      <div className={styles.input_container} data-show={showSearchBar}>
         <InputField placeholder="Try e.g Nikon SR ..." icon="/svgs/icon-search-dark.svg" iconTitle="search-icon" className={`${styles.search_field}`} onChange={handleSearchTerm} data-focus={!!searchTerm}/>
 		<span className={styles.close} onClick={toggleSearchBar}>Close</span>
       </div>
-      }
+      
       <div className={styles.icons_container}>
         <div className={styles.mob_buttons}>
           <Button buttonType="transparent" onClick={toggleSearchBar} className={`${styles.small_icon} ${styles.circle_border}`}>

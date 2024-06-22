@@ -2,4 +2,8 @@
 
 .container {
     padding: 4rem 3rem;
+
+    @include screenMax("tablet") {
+        padding: 4rem 1.6rem;
+    }
 }

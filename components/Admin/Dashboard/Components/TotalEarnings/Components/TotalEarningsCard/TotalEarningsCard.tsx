@@ -9,7 +9,7 @@ const TotalEarningsCard = ({ item }: Props) => {
         <DashboardCard>
             <div className={styles.container}>
                 <p className={styles.container__type}>Type</p>
-                <p className={styles.container__type__value}>{item.type}</p>
+                <p className={styles.container__type__value}><span data-type={item?.type?.toLowerCase()} className={styles.circle}></span> {item.type}</p>
             </div>
             <div className={styles.container}>
                 <p className={styles.container__type}>No of Product</p>

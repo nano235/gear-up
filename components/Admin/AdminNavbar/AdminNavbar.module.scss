@@ -18,7 +18,7 @@
     justify-content: center;
 
     .search_icon {
-      display: none;
+      
       @include screenMax("mobile") {
         display: flex;
       }
@@ -100,11 +100,15 @@
       z-index: 4;
       background-color: $col-white;
       height: 8rem;
-      display: flex;
       align-items: center;
       padding: 1rem;
       gap: 1.6rem;
       animation: slide-down 0.5s ease-out forwards;
+      display: none;
+
+      &[data-show="true"] {
+        display: flex;
+      }
 
       .search_field{
         border-radius: 50%;

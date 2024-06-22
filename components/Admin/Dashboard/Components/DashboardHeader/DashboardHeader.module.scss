@@ -20,6 +20,7 @@
         &__question {
             color: $col-mid-emphasis-text;
             font-size: 1.6rem;
+            margin-top: 1rem;
         }
     }
 
@@ -27,6 +28,11 @@
         flex-direction: column;
         gap: 1rem;
         align-items: flex-start;
+
+        .create_listing {
+            display: none;
+        }
+
     }
 
 }

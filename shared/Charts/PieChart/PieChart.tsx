@@ -31,7 +31,7 @@ const PieChartComponent = ({ data, colors }: Props) => {
                     </Pie>
                 </PieChart>
             </ResponsiveContainer>
-            <div className={styles.color_details}>
+           {/*  <div className={styles.color_details}>
                 {
                     data.map((entry: any, index: number) => (
                         <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -40,7 +40,7 @@ const PieChartComponent = ({ data, colors }: Props) => {
                         </div>
                     ))
                 }
-            </div>
+            </div> */}
         </div>
     );
 };

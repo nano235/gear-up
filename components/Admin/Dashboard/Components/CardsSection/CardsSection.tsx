@@ -61,7 +61,9 @@ const CardsSection = () => {
     return (
         <div className={styles.container}>
             <div className={styles.container__date_container}>
+                    <div className={styles.date_picker_container}>
                 <Select options={timeOptions} onOptionChange={onOptionChange} />
+                </div>
                 <div className={styles.container__date_container__date_display}>
                     {openModal && (
                         <DatePicker
@@ -70,10 +72,9 @@ const CardsSection = () => {
                             setOpenModal={setOpenModal}
                             inputDate={inputDate}
                             setIsDateSelected={setIsDateSelected}
-                        />
+                            />
                     )}
                     <div className={styles.input_field} onClick={() => setOpenModal(true)}>
-
                         <p>
                             {format(
                                 inputDate[0].startDate,

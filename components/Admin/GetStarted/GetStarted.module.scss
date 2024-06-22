@@ -16,7 +16,6 @@
             font-weight: 700;
         }
 
-        &__percentage {}
     }
 
 
@@ -57,5 +56,9 @@
 
         }
 
+    }
+
+    @include screenMax("tablet") {
+        padding: 1rem;
     }
 }
