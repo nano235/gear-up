@@ -1,28 +1,74 @@
-import React from 'react'
-import styles from './AdminNavbar.module.scss'
-import { InputField, Logo } from '@/shared'
-import { ArrowDownIcon, LogoIcon, NotificationIcon } from '@/shared/svgs/dashboard'
-import Image from 'next/image'
+'use client';
+
+import React, { useState } from 'react';
+import styles from './AdminNavbar.module.scss';
+import { Button, InputField, Logo } from '@/shared';
+import { ArrowDownIcon, LogoIcon, NotificationIcon } from '@/shared/svgs/dashboard';
+import Image from 'next/image';
+import AdminSidebar from '../AdminSidebar/AdminSidebar';
 
 const AdminNavbar = () => {
+  const [collapsed, setCollapsed] = useState<boolean>(false);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [showSearchBar,setShowSearchBar]=useState<boolean>(false)
+  const [showMenubar,setShowMenubar]=useState<boolean>(false)
+  
+
+  const handleSearchTerm = (e: React.ChangeEvent<HTMLInputElement>) => {
+	setSearchTerm(e.target.value);
+  };
+
+  const toggleSearchBar =()=>{
+    setShowSearchBar((prev)=>!prev)
+
+  }
+
+
   return (
     <div className={styles.navbar_container}>
       <div className={styles.logo_icon}>
-        <Logo type='dark' />
+        <Logo type="dark" />
       </div>
+      {
+        showSearchBar &&
       <div className={styles.input_container}>
-        <InputField placeholder='Try e.g Nikon SR ...' icon='/svgs/icon-search-dark.svg' iconTitle='search-icon' />
+        <InputField placeholder="Try e.g Nikon SR ..." icon="/svgs/icon-search-dark.svg" iconTitle="search-icon" className={`${styles.search_field}`} onChange={handleSearchTerm} data-focus={!!searchTerm}/>
+		<span className={styles.close} onClick={toggleSearchBar}>Close</span>
       </div>
+      }
       <div className={styles.icons_container}>
-        <span className={styles.search_icon}>
-          <Image src="/svgs/icon-search-dark.svg" width={50} height={50} alt="search-icon" />
-        </span>
-        <span>
-          <NotificationIcon />
-        </span>
-        <span className={styles.menu_icon}>
-
-        </span>
+        <div className={styles.mob_buttons}>
+          <Button buttonType="transparent" onClick={toggleSearchBar} className={`${styles.small_icon} ${styles.circle_border}`}>
+              <Image
+                src={ "/svgs/icon-search-normal.svg"}
+                height={70}
+                width={70}
+                alt=""
+                sizes="100vw"
+              />
+          </Button>
+          <Button buttonType="transparent"  className={`${styles.small_icon} ${styles.circle_border}`}>
+              <Image
+                src={"/svgs/icon-notification.svg" }
+                height={70}
+                width={70}
+                alt=""
+                sizes="100vw"
+              />
+          </Button>
+          <Button
+            onClick={() => setShowMenubar(!showMenubar)}
+            buttonType="transparent" className={styles.small_icon}
+          >
+             <Image
+                src={!collapsed ? "/svgs/icon-hamburger.svg" : "/svgs/icon-cart.svg"}
+                height={70}
+                width={70}
+                alt=""
+                sizes="100vw"
+              />
+          </Button>
+        </div>
       </div>
       <div className={styles.navbar_container__details}>
         <div className={styles.avatar}>
@@ -33,8 +79,15 @@ const AdminNavbar = () => {
           <ArrowDownIcon />
         </span>
       </div>
-    </div>
-  )
-}
 
-export default AdminNavbar
+      {
+        showMenubar &&
+      <div className={styles.sidemenu_container}>
+        <AdminSidebar isMobile={true} onClose={() => setShowMenubar(!showMenubar)}/>
+      </div>
+      }
+    </div>
+  );
+};
+
+export default AdminNavbar;

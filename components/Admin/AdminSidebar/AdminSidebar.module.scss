@@ -7,6 +7,42 @@
     display: flex;
     flex-direction: column;
 
+    &__customer_container{
+        background: #FBFBFD;
+        padding: 1rem;
+        margin: 2rem 1rem o 1rem;
+
+        .title{
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1B1E21;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .location_details{
+            @include flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+
+            a{
+                font-size: 1.2rem;
+                font-weight: 400;
+                color: #4B525A;
+                text-decoration: underline;
+            }
+
+            h4{
+                font-size: 1.4rem;
+                font-weight: 400;
+                color: #121212;
+            }
+        
+        }
+        
+}
+
 
 
     &__header {
@@ -14,6 +50,15 @@
         height: 10rem;
         border-bottom: 1px solid $col-border;
         box-sizing:border-box;
+        display: flex;
+        align-items: center;
+        width:100%;
+
+        @include screenMax("mobile") {
+            justify-content: space-between;
+            padding: 1.6rem 1.5rem;
+            height: 8rem;
+          }
     }
 
     .navlinks_wrapper {
