@@ -41,16 +41,18 @@ const AdminSidebar = () => {
     ]
     const [active, setActive] = useState('/admin/dashboard')
 
+    console.log(pathname)
+
     useEffect(() => {
-        setActive(pathname)
+        const absPath = pathname.split('?')[0].split('/').slice(0, 3).join('/')
+        console.log(absPath)
+        setActive(absPath)
     }, [pathname])
 
     return (
         <div className={styles.sidebar_container}>
             <div className={styles.sidebar_container__header}>
-                <span className={styles.logo_icon}>
-                    <LogoIcon />
-                </span>
+                <Logo type='dark' />
             </div>
             <div className={styles.navlinks_wrapper}>
                 <ul className={styles.navlinks_container}>

@@ -3,6 +3,16 @@
 .section {
 	padding-top: 13.8rem !important;
 	background-color: #fbfbfd;
+
+	.breadcrumb_container{
+		margin-bottom: 2rem;
+		color: #1B1E21;
+		font-size: 1.6rem;
+
+		.items_count,.category_name{
+			font-weight: 700;
+		}
+	}
 	.section_grid {
 		// @include grid(30.2rem 1fr);
 		@include flex();

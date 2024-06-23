@@ -3,7 +3,6 @@
 .container{
     margin-top: 2rem;
 
-
     &__name_container{
         display: flex;
         align-items: center;
@@ -42,6 +41,11 @@
         height: 100%;
         font-weight: 400;
         font-size: 1.2rem;
+
+        .modal_container{
+            position: relative;
+        }
+      
 
         &__status{
             border-radius: 0.5rem;
@@ -102,7 +106,7 @@
 
             &__icon{
                 padding: 1rem;
-                border-right: 1px solid #FFB30F;
+                
                 &[data-active='true'][data-type='list']{
                     background: #000000;
                     border-top-left-radius: 1rem;
@@ -110,7 +114,8 @@
                 }
                 &[data-active='true'][data-type='grid']{
                     background: #000000;
-                    border-right: 1px solid #FFB30F;
+                    border-top-right-radius: 1rem;
+                    border-bottom-right-radius: 1rem;
                 }
             }
         

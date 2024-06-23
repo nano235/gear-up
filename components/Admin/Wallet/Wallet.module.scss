@@ -1,92 +1,91 @@
 @import "@/styles/imports";
 
-
 .container {
-    padding: 4rem 3rem;
+	padding: 4rem 3rem;
 
-    &__header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 3rem;
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 3rem;
 
-        .btn_container{
-            display: flex;
-            gap: 1.6rem;
-            align-items: center;
-        }
+		.btn_container {
+			display: flex;
+			gap: 1.6rem;
+			align-items: center;
+		}
 
-        .btn{
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+		.btn {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
 
-            .icon{
-               height: 2.5rem;
-                width: 2.5rem;
-            }
+			.icon {
+				height: 2.5rem;
+				width: 2.5rem;
+			}
+		}
 
-        }
+		.transparent_btn {
+			border: 1px solid #dedfe0;
+			background: transparent;
+		}
+	}
 
-        .transparent_btn{
-            border: 1px solid #DEDFE0;
-            background: transparent;
-        }
-    }
+	&__cards_container {
+		display: flex;
+		gap: 2rem;
+		flex-wrap: wrap;
+		margin-top: 2rem;
 
-    &__cards_container {
-        display: flex;
-        gap: 2rem;
-        flex-wrap: wrap;
-        margin-top: 2rem;
+		&__item {
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+			padding: 2rem 1rem;
 
+			&__left {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				flex: 1 1 0;
 
-        &__item {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            padding: 2rem 1rem;
+				.icon_container {
+					height: 4.8rem;
+					width: 4.8rem;
+				}
 
-            &__left {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                flex: 1 1 0;
+				.title {
+					font-size: 1.4rem;
+					color: $col-low-emphasis-text;
+				}
 
-                .icon_container{
-                    height: 4.8rem;
-                    width:  4.8rem;
-                    
-                }
+				.amount {
+					font-weight: 700;
+					color: $col-grey-1;
+					font-size: 2.8rem;
+				}
+			}
 
-                .title {
-                    font-size: 1.4rem;
-                    color: $col-low-emphasis-text;
-                }
+			&__right {
+				display: flex;
+				align-items: flex-end;
 
-                .amount {
-                    font-weight: 700;
-                    color: $col-grey-1;
-                    font-size: 2.8rem;
-                }
-            }
+				.percentage {
+					background-color: #f2f4f7;
+					padding: 0.05rem 0.4rem;
+					display: flex;
+					align-items: center;
+					gap: 0.5rem;
+					font-size: 1.2rem;
+					border-radius: 1rem;
+					font-weight: 700;
+				}
+			}
+		}
+	}
 
-            &__right {
-                display: flex;
-                align-items: flex-end;
-
-                .percentage{
-                    background-color:#F2F4F7;
-                    padding: 0.05rem 0.4rem;
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
-                    font-size: 1.2rem;
-                    border-radius: 1rem;
-                    font-weight: 700;
-                }
-            }
-        }
-    }
-
+	.table_section {
+		margin-top: 4rem;
+	}
 }

@@ -43,6 +43,10 @@
 	width: 1.6rem;
 	height: 1.6rem;
 	flex-shrink: 0;
+
+	&[data-click='true']{
+		cursor: pointer;
+	}
 }
 
 .input_field {
