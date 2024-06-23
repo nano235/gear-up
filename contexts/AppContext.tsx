@@ -3,6 +3,8 @@
 import { useFetch } from "@/hooks";
 import useFetchAll from "@/hooks/useFetchAll";
 import { ListingType } from "@/interfaces";
+import { useAppDispatch } from "@/store/configureStore";
+import { setListings } from "@/store/slices/listingsSlice";
 import React, {
 	useState,
 	useContext,
@@ -15,15 +17,17 @@ const AppContext = createContext<any>(null);
 
 const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const [heroHeight, setHeroHeight] = useState<number>(0);
-	const [listings, setListings] = useState<any[]>([]);
+	// const [listings, setListings] = useState<any[]>([]);
 	const [singleListing, setSingleListing] = useState<any>(null);
 	const [listingType, setListingType] = useState<ListingType>(ListingType.Rent);
 	const [isMobile, setIsMobile] = useState<boolean>(true);
+	const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+	const dispatch = useAppDispatch();
 	const { data }: any = useFetch(`/api`);
 	useEffect(() => {
 		if (!data) return;
-		setListings(data);
-	}, [data]);
+		dispatch(setListings(data));
+	}, [data, dispatch]);
 	useLayoutEffect(() => {
 		if (window.innerWidth > 450) {
 			setIsMobile(false);
@@ -41,13 +45,15 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 			value={{
 				heroHeight,
 				setHeroHeight,
-				listings,
-				setListings,
+				// listings,
+				// setListings,
 				listingType,
 				setListingType,
 				isMobile,
 				singleListing,
 				setSingleListing,
+				isLoggedIn,
+				setIsLoggedIn,
 			}}
 		>
 			{/* <GlobalHooks /> */}

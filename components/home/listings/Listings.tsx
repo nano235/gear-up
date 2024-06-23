@@ -2,14 +2,15 @@
 
 import React from "react";
 import styles from "./Listings.module.scss";
-import { Listings } from "@/interfaces";
+// import { Listings } from "@/interfaces";
 import { Button, Listing, Title } from "@/shared";
 import Image from "next/image";
 import Link from "next/link";
 import { useGlobalContext } from "@/contexts/AppContext";
+import { AppState, useAppSelector } from "@/store/configureStore";
 
 const Listings = () => {
-	const { listings }: any = useGlobalContext();
+	const listings = useAppSelector((state: AppState) => state.listings);
 	return (
 		<section className={styles.section}>
 			<div className={styles.flex_row}>
@@ -24,7 +25,7 @@ const Listings = () => {
 				</Link>
 			</div>
 			<div className={styles.row}>
-				{listings.slice(0, 6).map((listing: Listings, index: number) => (
+				{listings.slice(0, 6).map((listing: any, index: number) => (
 					<Listing props={listing} key={index} />
 				))}
 			</div>

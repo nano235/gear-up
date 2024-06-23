@@ -2,13 +2,16 @@
 
 import React, { useState } from "react";
 import styles from "./NewListingViews.module.scss";
-import { Button, Logo, Select } from "@/shared";
+import { Button, DetailContainer, Logo, Select } from "@/shared";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "@/store/configureStore";
-import { updateNewListing } from "@/store/slices/addListingSlice";
+import { clearNewListing, updateNewListing } from "@/store/slices/addListingSlice";
 import { useRouter } from "next/navigation";
 import { ListingType } from "@/components/newListing";
+import { ImageSlider } from "@/components/listing";
+import { formatNum } from "@/utils";
+import { addListing } from "@/store/slices/listingsSlice";
 
 const SummaryView = () => {
 	const router = useRouter();
@@ -23,7 +26,8 @@ const SummaryView = () => {
 	const nextPage = () => {
 		const newListingData = {};
 		dispatch(updateNewListing(newListingData));
-		router.push("/new-listing/pricing");
+		dispatch(addListing(newListing));
+		router.push("/");
 	};
 
 	const handleToggle = (title: string) => {
@@ -44,14 +48,11 @@ const SummaryView = () => {
 					<Logo type="dark" />
 					<div className={styles.steps}>
 						<div className={styles.text}>
-							<p>Step 4 of 5 : Products</p>
+							<p>Step 6 of 6 : Summary</p>
 						</div>
 					</div>
 				</div>
-				<div
-					className={styles.small_row}
-					style={{ gap: "0.8rem", cursor: "pointer" }}
-				>
+				<div style={{ gap: "0.8rem", cursor: "pointer", display: "flex" }}>
 					<div className={styles.text}>
 						<h6>Exit</h6>
 					</div>
@@ -60,7 +61,7 @@ const SummaryView = () => {
 						<span></span>
 					</div>
 				</div>
-				<span style={{ width: "80%" }}></span>
+				<span style={{ width: "100%" }}></span>
 			</div>
 			<div className={styles.body}>
 				<div className={styles.details}>
@@ -68,7 +69,86 @@ const SummaryView = () => {
 						<h1>Review & Submit</h1>
 						<p>Review your listing, hit submit, and you’re done!</p>
 					</div>
-					<div className={styles.container}></div>
+					<div className={styles.container}>
+						<ImageSlider images={newListing.images} />
+						<div className={styles.block}>
+							<div className={styles.text}>
+								<h2>{newListing.title}</h2>
+							</div>
+							<DetailContainer
+								title="Category"
+								value={newListing.category.name}
+							/>
+							{newListing.fieldValues.map(
+								(fieldValue: any, index: number) => {
+									return fieldValue.fieldType === "single" &&
+										fieldValue.name !== "Brand" ? (
+										<DetailContainer
+											title={fieldValue.name}
+											value={fieldValue.selectedValues[0].name}
+											key={index}
+										/>
+									) : null;
+								}
+							)}
+							<div className={styles.divider}></div>
+							<DetailContainer
+								title="Sub category"
+								value={newListing.subCategory.name}
+							/>
+							<DetailContainer
+								title="Brand"
+								value={
+									newListing.fieldValues.find(
+										(value: any) => value.name === "Brand"
+									).selectedValues[0].name
+								}
+							/>
+							<div className={styles.text} style={{ marginTop: "3.2rem" }}>
+								<p>Use cases</p>
+							</div>
+							<div className={styles.row}>
+								{newListing.fieldValues
+									.find((value: any) => value.name === "Good for")
+									.selectedValues.map((values: any, index: number) => (
+										<Button key={index} className={styles.button}>
+											{values.name}
+										</Button>
+									))}
+							</div>
+							<div className={styles.text} style={{ marginTop: "3.2rem" }}>
+								<p>Mount</p>
+							</div>
+							<div className={styles.row}>
+								{newListing.fieldValues
+									.find((value: any) => value.name === "Mount")
+									.selectedValues.map((values: any, index: number) => (
+										<Button key={index} className={styles.button}>
+											{values.name}
+										</Button>
+									))}
+							</div>
+							<div className={styles.text} style={{ marginTop: "3.2rem" }}>
+								<h6 style={{ marginBottom: "1rem" }}>FOR SALE PERKS</h6>
+								<p style={{ marginBottom: "0.6rem" }}>Accepts offers</p>
+								<p style={{ marginBottom: "0.6rem" }}>Offers shipping</p>
+								<p style={{ marginBottom: "0.6rem" }}>
+									Cover shipping costs
+								</p>
+								<p style={{ marginBottom: "0.6rem" }}>
+									Offer local pick up
+								</p>
+							</div>
+							<div className={styles.text} style={{ marginTop: "3.2rem" }}>
+								<h6 style={{ marginBottom: "1rem" }}>PRICING</h6>
+							</div>
+							<DetailContainer
+								title="Amount(including VAT)"
+								value={formatNum(newListing.buyPrice)}
+								prefix="₦"
+							/>
+						</div>
+					</div>
 				</div>
 				<div className={styles.image_container}>
 					<div className={styles.image}>
@@ -82,14 +162,14 @@ const SummaryView = () => {
 					className={styles.button}
 					onClick={() => router.back()}
 				>
-					Back
+					Edit
 				</Button>
 				<Button
 					className={styles.button}
 					onClick={nextPage}
-					disabled={disabledButton}
+					// disabled={disabledButton}
 				>
-					Continue
+					Submit
 				</Button>
 			</div>
 		</div>

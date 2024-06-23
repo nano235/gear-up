@@ -10,9 +10,11 @@ import gsap from "gsap";
 import { useGlobalContext } from "@/contexts/AppContext";
 import { PageLoader } from "@/shared/loaders";
 import { useFetch } from "@/hooks";
+import { AppState, useAppSelector } from "@/store/configureStore";
 
 const ListingsView = () => {
-	const { listings, setListings }: any = useGlobalContext();
+	// const { listings, setListings }: any = useGlobalContext();
+	const listings = useAppSelector((state: AppState) => state.listings);
 	const pathName = usePathname();
 	const router = useRouter();
 	const pagePathName = pathName.split("/")[1];
@@ -24,6 +26,7 @@ const ListingsView = () => {
 	const [showOnMaps, setShowOnMaps] = useState<boolean>(false);
 	const pageSize: number = 12;
 	const elementRef: any = useRef(null);
+	console.log(listings);
 
 	const checkActive = (url: string) => {
 		let isActive = url === pathName;

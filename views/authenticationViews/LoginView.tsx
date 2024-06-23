@@ -1,10 +1,24 @@
+"use client";
+
 import React from "react";
 import styles from "./Authentication.module.scss";
 import { Button, InputField, Logo } from "@/shared";
 import Image from "next/image";
 import Link from "next/link";
+import { useGlobalContext } from "@/contexts/AppContext";
+import { useRouter } from "next/navigation";
+import { useAppDispatch } from "@/store/configureStore";
+import { updateUser } from "@/store/slices/userSlice";
 
 const LoginView = () => {
+	const router = useRouter();
+	const { setIsLoggedIn } = useGlobalContext();
+	const dispatch = useAppDispatch();
+
+	const signIn = () => {
+		dispatch(updateUser({ isAuthenticated: true }));
+		router.push("/");
+	};
 	return (
 		<div className={styles.row}>
 			<div className={styles.logo_section}>
@@ -55,7 +69,9 @@ const LoginView = () => {
 						</Link>
 					</p>
 				</div>
-				<Button className={styles.button}>Login</Button>
+				<Button className={styles.button} onClick={signIn}>
+					Login
+				</Button>
 			</div>
 		</div>
 	);

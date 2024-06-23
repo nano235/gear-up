@@ -31,7 +31,7 @@ const SignupView = () => {
 					<h3>Get started with Gearup</h3>
 					<p>
 						Let’s get you set up to rent, buy an sell gears and studio spaces
-						or <Link href="/signin">Sign in</Link> Sign in if you already have
+						or <Link href="/login">Sign in</Link> Sign in if you already have
 						an account
 					</p>
 				</div>

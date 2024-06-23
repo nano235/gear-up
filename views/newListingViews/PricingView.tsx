@@ -38,7 +38,6 @@ const PricingView = () => {
 		rent: false,
 		sell: false,
 	});
-	console.log(newListing);
 	const nextPage = () => {
 		// const newListingData = { condition, type };
 		const newListingData = {
@@ -78,7 +77,7 @@ const PricingView = () => {
 		setChecked(prev => ({ ...prev, [title]: !isIncluded }));
 	};
 
-	const disabledButton = !type.length;
+	const disabledButton = !newListing.type.length;
 	return (
 		<div className={styles.section}>
 			<div className={styles.header}>
@@ -86,14 +85,11 @@ const PricingView = () => {
 					<Logo type="dark" />
 					<div className={styles.steps}>
 						<div className={styles.text}>
-							<p>Step 5 of 5 : Products</p>
+							<p>Step 5 of 6 : Pricing</p>
 						</div>
 					</div>
 				</div>
-				<div
-					className={styles.small_row}
-					style={{ gap: "0.8rem", cursor: "pointer" }}
-				>
+				<div style={{ gap: "0.8rem", cursor: "pointer", display: "flex" }}>
 					<div className={styles.text}>
 						<h6>Exit</h6>
 					</div>
@@ -102,12 +98,12 @@ const PricingView = () => {
 						<span></span>
 					</div>
 				</div>
-				<span style={{ width: "80%" }}></span>
+				<span style={{ width: "83.5%" }}></span>
 			</div>
 			<div className={styles.body}>
 				<>
 					{hasBoth && (
-						<div>
+						<div className={styles.details}>
 							<div className={styles.nav_button}>
 								<Button
 									buttonType="transparent"
@@ -182,7 +178,7 @@ export default PricingView;
 const BuyView = ({ amount, setAmount }: any) => {
 	const toggle = () => {};
 	return (
-		<div className={styles.details}>
+		<div>
 			<div className={styles.text}>
 				<h1>Set A Price And Optional Offers</h1>
 				<p>
@@ -277,7 +273,7 @@ const RentView = ({ oneDayRent, setOneDayRent }: any) => {
 	const toggle = () => {};
 
 	return (
-		<div className={styles.details}>
+		<div>
 			<div className={styles.text}>
 				<h1>Set A Daily Price And Optional Offers</h1>
 				<p>

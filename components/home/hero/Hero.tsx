@@ -5,35 +5,45 @@ import gsap from "gsap";
 import styles from "./Hero.module.scss";
 import Image from "next/image";
 import { SearchBox } from "@/shared";
+import TextTransition, { presets } from "react-text-transition";
 import { useGlobalContext } from "@/contexts/AppContext";
 
-const words = ["Gears", "Studio Spaces"];
+const words = ["Gear", "Studio Spaces", "Courses"];
 const Hero = () => {
 	const { setHeroHeight }: any = useGlobalContext();
 	const heroRef: any = useRef(null);
-	const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
+	const [index, setIndex] = useState<number>(0);
 
-	useEffect(() => {
-		const animateNextWord = () => {
-			const wordElement = document.getElementById("animated-word");
+	React.useEffect(() => {
+		const intervalId = setInterval(
+			() => setIndex(index => index + 1),
+			3000 // every 3 seconds
+		);
+		return () => clearTimeout(intervalId);
+	}, []);
+	// const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
 
-			gsap.to(wordElement, {
-				duration: 1,
-				y: "-100%",
-				ease: "ease.out",
-				onComplete: () => {
-					setCurrentWordIndex(prevIndex =>
-						prevIndex === words.length - 1 ? 0 : prevIndex + 1
-					);
-					gsap.to(wordElement, { duration: 1, y: "0%", ease: "ease.out" });
-				},
-			});
-		};
+	// useEffect(() => {
+	// 	const animateNextWord = () => {
+	// 		const wordElement = document.getElementById("animated-word");
 
-		const intervalId = setInterval(animateNextWord, 3000);
+	// 		gsap.to(wordElement, {
+	// 			duration: 1,
+	// 			y: "-100%",
+	// 			ease: "ease.out",
+	// 			onComplete: () => {
+	// 				setCurrentWordIndex(prevIndex =>
+	// 					prevIndex === words.length - 1 ? 0 : prevIndex + 1
+	// 				);
+	// 				gsap.to(wordElement, { duration: 1, y: "0%", ease: "ease.out" });
+	// 			},
+	// 		});
+	// 	};
 
-		return () => clearInterval(intervalId);
-	}, [currentWordIndex]);
+	// 	const intervalId = setInterval(animateNextWord, 3000);
+
+	// 	return () => clearInterval(intervalId);
+	// }, [currentWordIndex]);
 	useEffect(() => {
 		const heroHeight = heroRef.current?.offsetHeight;
 		setHeroHeight(heroHeight);
@@ -44,7 +54,12 @@ const Hero = () => {
 				<div className={styles.text}>
 					<h1>
 						The Marketplace For African Creators to Rent, Buy & Sell{" "}
-						<span id="animated-word">{words[currentWordIndex]}</span>
+						<TextTransition
+							springConfig={presets.wobbly}
+							className={styles.cta_text}
+						>
+							{words[index % words.length]}
+						</TextTransition>
 					</h1>
 					<p>
 						Rent, buy, or sell gears with ease within your country. Our secure
