@@ -30,16 +30,12 @@ const RecentDealsCard = ({ item }: Props) => {
                 showDetails && (
                     <div className={styles.container__details}>
                         <div className={styles.container__details__detail_container}>
-                            <p className={styles.key}>Transaction date</p>
-                            <p className={styles.value}>{item.transaction_date}</p>
+                            <p className={styles.key}>Joined date</p>
+                            <p className={styles.value}>{item.joined_date}</p>
                         </div>
                         <div className={styles.container__details__detail_container}>
-                            <p className={styles.key}>Type</p>
-                            <p className={`${styles.value} ${styles.rental}`}>{item.type}</p>
-                        </div>
-                        <div className={styles.container__details__detail_container}>
-                            <p className={styles.key}>Status</p>
-                            <p className={`${styles.value} ${styles.status}`} data-status={item.status.toLowerCase()}>{item.status}</p>
+                            <p className={styles.key}>Account Status</p>
+                            <p className={`${styles.value} ${styles.account_status}`} data-status={item.status.toLowerCase()}>{item.status}</p>
                         </div>
                         <div className={styles.container__details__btn_container}>
                             <Button buttonType='secondary' className={styles.btn}>

@@ -6,22 +6,15 @@ import { Button, InputField, Logo } from '@/shared';
 import { ArrowDownIcon, LogoIcon, NotificationIcon } from '@/shared/svgs/dashboard';
 import Image from 'next/image';
 import AdminSidebar from '../AdminSidebar/AdminSidebar';
+import { usePathname } from 'next/navigation';
+import HeaderSubText from '../HeaderSubText/HeaderSubText';
 
 const AdminNavbar = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [showSearchBar,setShowSearchBar]=useState<boolean>(false)
-  const [showMenubar,setShowMenubar]=useState<boolean>(false)
-  
+  const pathname = usePathname();
+  const [showMenubar, setShowMenubar] = useState<boolean>(false)
 
-  const handleSearchTerm = (e: React.ChangeEvent<HTMLInputElement>) => {
-	setSearchTerm(e.target.value);
-  };
-
-  const toggleSearchBar =()=>{
-    setShowSearchBar((prev)=>!prev)
-
-  }
+  const newPathname = pathname.split('/')[2];
 
 
   return (
@@ -29,43 +22,38 @@ const AdminNavbar = () => {
       <div className={styles.logo_icon}>
         <Logo type="dark" />
       </div>
-     
-      <div className={styles.input_container} data-show={showSearchBar}>
-        <InputField placeholder="Try e.g Nikon SR ..." icon="/svgs/icon-search-dark.svg" iconTitle="search-icon" className={`${styles.search_field}`} onChange={handleSearchTerm} data-focus={!!searchTerm}/>
-		<span className={styles.close} onClick={toggleSearchBar}>Close</span>
-      </div>
-      
+      <HeaderSubText title={newPathname} variant='main' />
       <div className={styles.icons_container}>
         <div className={styles.mob_buttons}>
-          <Button buttonType="transparent" onClick={toggleSearchBar} className={`${styles.small_icon} ${styles.circle_border}`}>
-              <Image
-                src={ "/svgs/icon-search-normal.svg"}
-                height={70}
-                width={70}
-                alt=""
-                sizes="100vw"
-              />
+          <Button buttonType="transparent" className={`${styles.small_icon} ${styles.circle_border}`}>
+            <Image
+              src={"/svgs/icon-search-normal.svg"}
+              height={70}
+              width={70}
+              alt=""
+              sizes="100vw"
+            />
           </Button>
-          <Button buttonType="transparent"  className={`${styles.small_icon} ${styles.circle_border}`}>
-              <Image
-                src={"/svgs/icon-notification.svg" }
-                height={70}
-                width={70}
-                alt=""
-                sizes="100vw"
-              />
+          <Button buttonType="transparent" className={`${styles.small_icon} ${styles.circle_border}`}>
+            <Image
+              src={"/svgs/icon-notification.svg"}
+              height={70}
+              width={70}
+              alt=""
+              sizes="100vw"
+            />
           </Button>
           <Button
             onClick={() => setShowMenubar(!showMenubar)}
             buttonType="transparent" className={styles.small_icon}
           >
-             <Image
-                src={!collapsed ? "/svgs/icon-hamburger.svg" : "/svgs/icon-cart.svg"}
-                height={70}
-                width={70}
-                alt=""
-                sizes="100vw"
-              />
+            <Image
+              src={!collapsed ? "/svgs/icon-hamburger.svg" : "/svgs/icon-cart.svg"}
+              height={70}
+              width={70}
+              alt=""
+              sizes="100vw"
+            />
           </Button>
         </div>
       </div>
@@ -81,9 +69,9 @@ const AdminNavbar = () => {
 
       {
         showMenubar &&
-      <div className={styles.sidemenu_container}>
-        <AdminSidebar isMobile={true} onClose={() => setShowMenubar(!showMenubar)}/>
-      </div>
+        <div className={styles.sidemenu_container}>
+          <AdminSidebar isMobile={true} onClose={() => setShowMenubar(!showMenubar)} />
+        </div>
       }
     </div>
   );

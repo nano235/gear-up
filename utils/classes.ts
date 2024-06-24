@@ -4,7 +4,11 @@ export const customisedTableClasses = {
     },
     "& .MuiDataGrid-columnHeaderTitle": {
       color: "#1B1E21",
-      background: '#FDFDFD',
+      fontWeight:700
+    },
+    "& .MuiDataGrid-columnHeader": {
+      color: "#1B1E21",
+      background: '#fbfbfd',
       fontWeight:700
     },
     "& .MuiDataGrid-columnHeader:focus": {
