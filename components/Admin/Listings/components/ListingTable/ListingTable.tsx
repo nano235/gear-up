@@ -5,12 +5,12 @@ import { DataGrid, GridColDef, GridRowsProp } from '@mui/x-data-grid';
 import Image from 'next/image';
 import { InputField, ToggleSwitch } from '@/shared';
 import { MoreIcon } from '@/shared/svgs/dashboard';
-import RecentDealsCard from '@/components/Admin/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
 import { GridIcon, ListIcon } from '@/shared/svgs/dashboard'
 import ListingCard from '../ListingCard/ListingCard';
 import MoreModal from '../MoreModal/MoreModal';
 import { customisedTableClasses } from '@/utils/classes';
 import Pagination from '../../../../../shared/pagination/Pagination';
+import RecentDealsCard from '@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
 
 const ListingTable = () => {
     const [activeLayout, setActiveLayout] = useState('list')
@@ -125,7 +125,7 @@ const ListingTable = () => {
                         <MoreIcon />
                     </span>
                     {
-                        showMoreModal && activeRow === row.id && <div className={styles.modal_container}><MoreModal /></div> 
+                        showMoreModal && activeRow === row.id && <div className={styles.modal_container}><MoreModal /></div>
                     }
 
                 </div>
@@ -171,8 +171,8 @@ const ListingTable = () => {
                     <>
                         <div className={styles.container__table} style={{ width: '100%', height: "100%", }}>
                             <DataGrid rows={rows} columns={columns}
-                                hideFooterPagination={true} paginationMode="server" hideFooter autoHeight  sx={customisedTableClasses} />
-                                    <Pagination currentPage={1} onPageChange={setPage} totalCount={rows.length} pageSize={5} />
+                                hideFooterPagination={true} paginationMode="server" hideFooter autoHeight sx={customisedTableClasses} />
+                            <Pagination currentPage={1} onPageChange={setPage} totalCount={rows.length} pageSize={5} />
                         </div>
 
                         <ul className={styles.container__cards_container}>

@@ -4,12 +4,13 @@ export const customisedTableClasses = {
     },
     "& .MuiDataGrid-columnHeaderTitle": {
       color: "#1B1E21",
-      fontWeight:700
+      fontWeight:700,
+      fontSize: '1.4rem',
     },
     "& .MuiDataGrid-columnHeader": {
       color: "#1B1E21",
       background: '#fbfbfd',
-      fontWeight:700
+      fontWeight: 700,
     },
     "& .MuiDataGrid-columnHeader:focus": {
       outline: "none",

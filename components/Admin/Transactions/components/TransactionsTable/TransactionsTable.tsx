@@ -4,10 +4,10 @@ import styles from './TransactionTable.module.scss'
 import { DataGrid, GridColDef, GridRowsProp } from '@mui/x-data-grid';
 import Image from 'next/image';
 import { Button, InputField, Pagination } from '@/shared';
-import RecentDealsCard from '@/components/Admin/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
 import { customisedTableClasses } from '@/utils/classes';
 import Link from 'next/link';
 import { transactions } from '@/mock/transactions.mock';
+import RecentDealsCard from '@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
 
 interface Props {
     transactionType: string
@@ -39,7 +39,7 @@ const TransactionTable = ({ transactionType }: Props) => {
             headerClassName: styles.table_header,
             headerName: 'Name',
             minWidth: 250,
-            renderCell: ({ row,value }) => (
+            renderCell: ({ row, value }) => (
                 <div className={styles.container__name_container}>
                     <Image src={row.gear_image} alt={value} width={16} height={16} />
                     <p className={styles.container__name} style={{ fontSize: '1.2rem' }}>

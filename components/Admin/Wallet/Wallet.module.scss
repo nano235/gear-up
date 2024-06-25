@@ -4,11 +4,36 @@
 .container {
     padding: 4rem 3rem;
 
-    &__header{
+    &__header_container{
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        gap: 2rem;
+
+
+    &__item{
+        display: flex;
+        align-items: flex-start;
         margin-bottom: 3rem;
+        flex-direction: column;
+        gap: 4rem;
+        border: 1px solid $col-border;
+        padding: 1.6rem 2rem;
+        border-radius: 2rem;
+        width: 50%;
+
+        
+
+        p{
+            font-size: 1.4rem;
+            color: #A3A7AB;
+        }
+
+        h3{
+            font-size: 2.8rem;
+            color: $col-grey-1;
+            font-weight: 700;
+        }
+
 
         .btn_container{
             display: flex;
@@ -20,19 +45,49 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            padding: 1rem 2rem;
 
             .icon{
-               height: 2.5rem;
-                width: 2.5rem;
+               height: 2rem;
+                width: 2rem;
             }
 
         }
+    }
 
-        .transparent_btn{
-            border: 1px solid #DEDFE0;
-            background: transparent;
+    .pending_requests{
+        background-color: #FFB30F;
+
+        .title{
+            color: #121212;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .description{
+            color: #1B1E21;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+
+        button{
+            background: #1B1E21; 
+            color: $col-white;
+            padding: 1rem 2rem;
+            display: flex;
+            gap: 1rem;
         }
     }
+
+    .no_requests{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+    }
+
+
+}
 
     &__cards_container {
         display: flex;

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './DashboardUser.module.scss'
+import styles from './UserDetails.module.scss'
 import { About, DashboardUserHeader, Documents } from './components'
 import { TransactionsView } from '@/views/AdminViews'
 import ListingsView from '@/views/AdminViews/Listings'

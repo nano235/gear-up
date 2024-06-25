@@ -1,29 +1,27 @@
 'use client';
 import React from 'react'
-import styles from './RecentUsers.module.scss'
-import { DataGrid, GridAddIcon, GridColDef, GridRowsProp } from '@mui/x-data-grid';
+import styles from './UsersTable.module.scss'
+import { DataGrid, GridColDef, GridRowsProp } from '@mui/x-data-grid';
 import Image from 'next/image';
-import { InputField } from '@/shared';
-import RecentDealsCard from './components/RecentDealsCard/RecentDealsCard';
-import { MoreIcon, TransactionNavIcon, UserIcon } from '@/shared/svgs/dashboard';
+import { MoreIcon, UserIcon } from '@/shared/svgs/dashboard';
 import { customisedTableClasses } from '@/utils/classes';
 import Link from 'next/link';
+import RecentDealsCard from '@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
+import { Pagination } from '@/shared';
 const sharedColDef: GridColDef = {
-
     field: "",
     sortable: true,
     flex: 1,
 };
-const RecentDeals = () => {
-    const rows: GridRowsProp = [
-        { id: 1, username: 'Lionel messi', email: 'leo@worldbest.com', joined_date: '15 Dec, 2023', account_status: 'active', actions: 'View', },
-        { id: 2, username: 'Lionel messi', email: 'leo@worldbest.com', joined_date: '15 Dec, 2023', account_status: 'active', actions: 'View', },
-        { id: 3, username: 'Lionel messi', email: 'leo@worldbest.com', joined_date: '15 Dec, 2023', account_status: 'active', actions: 'View', },
-        { id: 4, username: 'Lionel messi', email: 'leo@worldbest.com', joined_date: '15 Dec, 2023', account_status: 'active', actions: 'View', },
-        { id: 5, username: 'Lionel messi', email: 'leo@worldbest.com', joined_date: '15 Dec, 2023', account_status: 'active', actions: 'View', },
-        { id: 6, username: 'Lionel messi', email: 'leo@worldbest.com', joined_date: '15 Dec, 2023', account_status: 'active', actions: 'View', },
 
-    ];
+interface Props {
+    users?: GridRowsProp
+    page: number
+    limit: number
+    handlePagination: (page: number) => void
+}
+
+const UsersTable = ({ users, page, limit, handlePagination }: Props) => {
 
 
     const columns: GridColDef[] = [
@@ -35,8 +33,8 @@ const RecentDeals = () => {
             headerName: 'Username',
             minWidth: 250,
             renderCell: ({ row, value }) => (
-                <Link href={`/admin/dashboard/${row.id}`} className={styles.container__name_container}>
-                    <Image src="/images/admin-img.jpg" alt={value} width={16} height={16} />
+                <Link href={`/admin/users/${row.id}`} className={styles.container__name_container}>
+                    <Image src={row.image} alt={value} width={16} height={16} />
                     <p className={styles.container__name} style={{ fontSize: '1.2rem' }}>
                         {value}
                     </p>
@@ -95,10 +93,8 @@ const RecentDeals = () => {
 
     return (
         <div className={styles.container}>
-            <h2 className={styles.container__title}> Recent Users</h2>
-
             {
-                rows.length < 1 ?
+                !!users && users?.length < 1 ?
                     <div className={styles.empty_rows}>
                         <span className={styles.transaction_icon}>
                             <UserIcon color='#FFB30F' />
@@ -108,14 +104,15 @@ const RecentDeals = () => {
                     :
                     <>
                         <div className={styles.container__table} style={{ width: '100%' }}>
-                            <DataGrid rows={rows} columns={columns}
+                            <DataGrid rows={users || []} columns={columns}
                                 hideFooterPagination={true} hideFooter paginationMode="server"
                                 sx={customisedTableClasses} autoHeight
                             />
+                            <Pagination currentPage={page} onPageChange={handlePagination} totalCount={users?.length || 0} pageSize={limit} />
                         </div>
                         <ul className={styles.container__cards_container}>
                             {
-                                rows.map((item) => (
+                                users?.map((item) => (
                                     <RecentDealsCard key={item.id} item={item} />
                                 ))
                             }
@@ -126,4 +123,4 @@ const RecentDeals = () => {
     )
 }
 
-export default RecentDeals
+export default UsersTable
