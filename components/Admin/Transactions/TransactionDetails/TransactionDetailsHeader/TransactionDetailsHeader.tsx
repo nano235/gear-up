@@ -11,12 +11,6 @@ interface Props {
     item: any
 }
 
-const list = [
-    { id: 1, name: 'Overview' },
-    { id: 2, name: 'Messages' },
-    { id: 3, name: 'Details' },
-]
-
 const TransactionDetailsHeader = ({ slug, item }: Props) => {
     const [activeId, setActiveId] = useState(1)
     const router = useRouter()
@@ -44,22 +38,10 @@ const TransactionDetailsHeader = ({ slug, item }: Props) => {
                         <p>{item?.amount}</p>
                     </span>
                 </div>
-                <div className={styles.status} data-status={item?.transaction_status}>
+                <div className={styles.status} data-status={item?.transaction_status.toLowerCase()}>
                     {item?.transaction_status}
                 </div>
             </div>
-            {
-                transaction_type !== 'courses' &&
-                <ul className={styles.container__children_container}>
-                    {
-                        list.map((item) => (
-                            <li onClick={() => setActiveId(item.id)} key={item.id} className={styles.container__children_container__filter} data-active={activeId === item.id}>
-                                <p>{item.name}</p>
-                            </li>
-                        ))
-                    }
-                </ul>
-            }
         </div>
     )
 }

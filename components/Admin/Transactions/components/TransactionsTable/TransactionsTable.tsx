@@ -66,14 +66,6 @@ const TransactionTable = ({ transactionType }: Props) => {
         },
         {
             ...sharedColDef,
-            field: 'transaction_type',
-            cellClassName: styles.table_cell,
-            headerClassName: styles.table_header,
-            headerName: 'Type',
-            minWidth: 150,
-        },
-        {
-            ...sharedColDef,
             field: 'transaction_status',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,

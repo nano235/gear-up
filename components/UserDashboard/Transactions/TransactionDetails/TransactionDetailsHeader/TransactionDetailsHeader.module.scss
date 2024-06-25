@@ -63,34 +63,35 @@ gap: 1.6rem;
             }
         }
 
-        .status{
-            @include flex;
-            gap: 1rem;
-            align-items: center;
-            padding: 0.6rem 1.5rem;
-            justify-content: center;
+    }
+    .status{
+        @include flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 0.4rem 1.5rem;
+        justify-content: center;
+        border-radius: 1.6rem;
 
-            &[data-status='pending']{
-                background-color: #FFFAEB;
-                color: #B54708;
-            }
-
-            &[data-status='completed']{
-                background-color: #ECFDF3;
-                color: #2E8540;
-            }
-
-            &[data-status='declined']{
-                background-color: #FEF3F2;
-                color: #B42318;
-            }
-
-            &[data-status='ongoing']{
-                background-color: #F0F9FF;
-                color: #026AA2;
-            }
-        
+        &[data-status='pending']{
+            background-color: #FFFAEB;
+            color: #B54708;
         }
+
+        &[data-status='completed']{
+            background-color: #ECFDF3;
+            color: #2E8540;
+        }
+
+        &[data-status='declined']{
+            background-color: #FEF3F2;
+            color: #B42318;
+        }
+
+        &[data-status='ongoing']{
+            background-color: #F0F9FF;
+            color: #026AA2;
+        }
+    
     }
 }
 

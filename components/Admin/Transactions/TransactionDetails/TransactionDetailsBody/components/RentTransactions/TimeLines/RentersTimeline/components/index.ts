@@ -1,6 +1,0 @@
-export {default as ReviewFeedback} from './ReviewFeedback/ReviewFeedback'
-export {default as TransactionOngoing} from './TransactionOngoing/TransactionOngoing'
-export {default as InitiateReturn} from './InitiateReturn/InitiateReturn'
-export {default as AwaitingApproval} from './AwaitingApproval/AwaitingApproval'
-export {default as AwaitingConfirmation} from './AwaitingConfirmation/AwaitingConfirmation'
-export {default as ConfirmHandover} from './ConfirmHandover/ConfirmHandover'

@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import styles from './Transactions.module.scss'
-import {  TransactionsTable } from './components'
+import { TransactionsTable } from './components'
 import HeaderSubText from '../HeaderSubText/HeaderSubText'
 import ReuseableFilters from '../ReuseableFilter/ReuseableFilter'
 
@@ -79,7 +79,6 @@ const Transactions = () => {
   ]
   return (
     <div className={styles.container}>
-      <HeaderSubText title='Transactions' variant='main' />
       <div className={styles.container__download_filter}>
         <ReuseableFilters parentFilters={parentFilters} activeFilterId={activeFilterId} setActiveFilterId={setActiveFilterId} setActiveSubFilterId={setActiveSubFilterId} activeSubFilterId={activeSubFilterId} />
         <span className={styles.container__download_filter__download_btn}>
