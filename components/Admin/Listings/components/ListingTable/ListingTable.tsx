@@ -72,23 +72,6 @@ const ListingTable = () => {
         {
             ...sharedColDef,
 
-            field: 'status',
-            cellClassName: styles.table_cell,
-            headerClassName: styles.table_header,
-            headerName: 'Status',
-            minWidth: 150,
-            renderCell: ({ value }) => (
-                <div className={styles.container__status_container}>
-                    <ToggleSwitch checked={value?.toLowerCase() === 'ongoing'} />
-                    <p style={{ fontSize: '1.2rem' }} className={styles.container__status_container__status}>
-                        {value?.toLowerCase() === 'ongoing' ? 'Live' : 'Draft'}
-                    </p>
-                </div>
-            ),
-        },
-        {
-            ...sharedColDef,
-
             field: 'price',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
@@ -98,11 +81,28 @@ const ListingTable = () => {
         {
             ...sharedColDef,
 
+            field: 'status',
+            cellClassName: styles.table_cell,
+            headerClassName: styles.table_header,
+            headerName: 'Status',
+            minWidth: 150,
+            renderCell: ({ value }) => (
+                <div className={styles.container__status_container}>
+                    <p style={{ fontSize: '1.2rem' }} className={styles.container__status_container__status}>
+                        {value}
+                    </p>
+                </div>
+            ),
+        },
+
+        {
+            ...sharedColDef,
+
             field: 'availability',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
             headerName: 'Availability',
-            maxWidth: 100,
+            maxWidth: 200,
             renderCell: ({ value }) => (
                 <div className={styles.container__availability_container}>
                     <span className={styles.container__availability_container__availability} data-status={value?.toLowerCase()}>
@@ -132,7 +132,7 @@ const ListingTable = () => {
             ),
         },
     ];
-    console.log(activeRow)
+
     const handleClickMore = (id: number) => {
         console.log('More clicked', id)
         setShowMoreModal((prev) => !prev)

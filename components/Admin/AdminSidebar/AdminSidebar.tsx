@@ -44,11 +44,11 @@ const AdminSidebar = ({ isMobile, onClose }: Props) => {
             icon: <ThirdPartyCheckIcon />,
             link: '/admin/third-party-check',
         },
-        {
-            name: 'Blog',
-            icon: <BlogIcon />,
-            link: '/admin/blog',
-        },
+        /*   {
+              name: 'Blog',
+              icon: <BlogIcon />,
+              link: '/admin/blog',
+          }, */
 
 
     ]

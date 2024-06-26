@@ -14,7 +14,7 @@ const AdminNavbar = () => {
   const pathname = usePathname();
   const [showMenubar, setShowMenubar] = useState<boolean>(false)
 
-  const newPathname = pathname.split('/')[2];
+  const newPathname = pathname.split('/')[2].replace(/-/g, ' ');
 
 
   return (

@@ -10,3 +10,4 @@ export {default as TransactionDetailsView} from './TransactionDetails/Transactio
 export {default as UsersView} from './UsersView'
 export {default as UserDetailsView} from './UserDetailsView'
 export {default as WithdrawalRequests} from './Wallet/WithdrawalRequests/WithdrawalRequests'
+export {default as ThirdPartyCheckView} from './ThirdPartyCheck'
