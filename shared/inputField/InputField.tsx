@@ -16,7 +16,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	iconTitle?: string;
 	error?: string;
 	customPrefix?: React.JSX.Element;
-	register?:any;
+	register?: any;
 	handleSuffixClick?: () => void;
 }
 
@@ -88,7 +88,11 @@ const InputField = ({
 					</div>
 				)}
 				{!!icon && iconPosition === "suffix" && (
-					<figure className={styles.input_icon} onClick={handleSuffixClick} data-click={!!handleSuffixClick}>
+					<figure
+						className={styles.input_icon}
+						onClick={handleSuffixClick}
+						data-click={!!handleSuffixClick}
+					>
 						<Image src={icon} fill sizes="100vw" alt="" title={iconTitle} />
 					</figure>
 				)}

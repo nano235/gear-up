@@ -16,6 +16,7 @@ import {
 import { updateStoreVersion } from "./global";
 import userSlice from "./slices/userSlice";
 import addListingSlice from "./slices/addListingSlice";
+import listingsSlice from "./slices/listingsSlice";
 
 const PERSISTED_KEYS: string[] = ["user", "newListing"];
 
@@ -39,6 +40,7 @@ const persistedReducer = persistReducer(
 	combineReducers({
 		user: userSlice,
 		newListing: addListingSlice,
+		listings: listingsSlice,
 	})
 );
 

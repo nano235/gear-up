@@ -66,10 +66,10 @@ const initialState: AddListing = {
 	type: [],
 	perks: {
 		buyNow: false,
-		freeShipping: false,
-		makeOffer: false,
-		pickup: false,
-		shipping: false,
+		freeShipping: true,
+		makeOffer: true,
+		pickup: true,
+		shipping: true,
 		terms: false,
 	},
 };
@@ -81,9 +81,7 @@ const addListingSlice = createSlice({
 		updateNewListing: (state, action: PayloadAction<Partial<AddListing>>) => {
 			Object.assign(state, action.payload);
 		},
-		clearNewListing: state => {
-			Object.assign(state, initialState);
-		},
+		clearNewListing: state => initialState,
 	},
 });
 

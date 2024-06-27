@@ -11,13 +11,15 @@ import { useGlobalContext } from "@/contexts/AppContext";
 import { PageLoader } from "@/shared/loaders";
 import { useFetch } from "@/hooks";
 import { useSearchParams } from "next/navigation";
+import { AppState, useAppSelector } from "@/store/configureStore";
 const ListingsView = () => {
-	const { listings, setListings }: any = useGlobalContext();
+	// const { listings, setListings }: any = useGlobalContext();
+	const listings = useAppSelector((state: AppState) => state.listings);
 	const pathName = usePathname();
 	const router = useRouter();
 	const pagePathName = pathName.split("/")[1];
-	const search = useSearchParams()
-	const category = search.get('category')
+	const search = useSearchParams();
+	const category = search.get("category");
 
 	const [hideFilters, setHideFilters] = useState<boolean>(false);
 	// const [listings, setListings] = useState<any[]>([]);
@@ -26,6 +28,7 @@ const ListingsView = () => {
 	const [showOnMaps, setShowOnMaps] = useState<boolean>(false);
 	const pageSize: number = 12;
 	const elementRef: any = useRef(null);
+	console.log(listings);
 
 	const checkActive = (url: string) => {
 		let isActive = url === pathName;
@@ -119,15 +122,17 @@ const ListingsView = () => {
 	return (
 		<section className={styles.section} data-hidden={hideFilters} ref={elementRef}>
 			<div className={styles.breadcrumb_container}>
-				{
-					!!category &&
-					<CustomBreadCrumb path1="categories" path2="gears" />
-				}
-				<BreadCrumbSelect className={styles.desk_breadcrumb} isMobile={isMobile} />
-				{
-					!!category &&
-					<p>Showing <span className={styles.items_count}>20</span> results for <span className={styles.category_name}>{" "}{`"${category}"`}</span></p>
-				}
+				{!!category && <CustomBreadCrumb path1="categories" path2="gears" />}
+				<BreadCrumbSelect
+					className={styles.desk_breadcrumb}
+					isMobile={isMobile}
+				/>
+				{!!category && (
+					<p>
+						Showing <span className={styles.items_count}>20</span> results for{" "}
+						<span className={styles.category_name}> {`"${category}"`}</span>
+					</p>
+				)}
 			</div>
 			<div className={styles.section_grid}>
 				<Filter

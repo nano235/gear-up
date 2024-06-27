@@ -9,19 +9,19 @@ import { GridAddIcon } from '@mui/x-data-grid';
 const Lisitings = () => {
 
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.container__filters_container}>
-        <ListingFilters />
-        <div className={styles.container__filters_container__listings_container}>
-          <p>Hide All Listings</p>
-          <ToggleSwitch />
+	return (
+		<div className={styles.container}>
+			<div className={styles.container__filters_container}>
+				<ListingFilters />
+				<div className={styles.container__filters_container__listings_container}>
+					<p>Hide All Listings</p>
+					<ToggleSwitch />
 
-        </div>
-      </div>
-      <ListingTable />
-    </div>
-  )
+				</div>
+			</div>
+			<ListingTable />
+		</div>
+	)
 }
 
-export default Lisitings
+export default Lisitings;

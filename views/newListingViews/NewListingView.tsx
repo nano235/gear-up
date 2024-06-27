@@ -36,14 +36,11 @@ const NewListingView = () => {
 					<Logo type="dark" />
 					<div className={styles.steps}>
 						<div className={styles.text}>
-							<p>Step 1 of 5 : Products</p>
+							<p>Step 1 of 6 : Products</p>
 						</div>
 					</div>
 				</div>
-				<div
-					className={styles.small_row}
-					style={{ gap: "0.8rem", cursor: "pointer" }}
-				>
+				<div style={{ gap: "0.8rem", cursor: "pointer", display: "flex" }}>
 					<div className={styles.text}>
 						<h6>Exit</h6>
 					</div>
@@ -52,7 +49,7 @@ const NewListingView = () => {
 						<span></span>
 					</div>
 				</div>
-				<span style={{ width: "20%" }}></span>
+				<span style={{ width: "16.7%" }}></span>
 			</div>
 			<div className={styles.body}>
 				<div className={styles.details}>

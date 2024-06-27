@@ -9,6 +9,9 @@ import Image from "next/image";
 import { NavLink, NavLinkMenu, NavLinkSub } from "@/interfaces";
 import { usePathname, useRouter } from "next/navigation";
 import { useGlobalContext } from "@/contexts/AppContext";
+import { AppState, useAppDispatch, useAppSelector } from "@/store/configureStore";
+import { updateUser } from "@/store/slices/userSlice";
+import { clearNewListing } from "@/store/slices/addListingSlice";
 
 enum Scroll {
 	Idle = "idle",
@@ -17,17 +20,22 @@ enum Scroll {
 }
 
 const Header = () => {
-	const { heroHeight }: any = useGlobalContext();
+	const { heroHeight, isLoggedIn }: any = useGlobalContext();
 	const [collapsed, setCollapsed] = useState<boolean>(true);
 	const [scroll, setScroll] = useState<Scroll>(Scroll.Idle);
 	const headerRef: any = useRef(null);
+	const user = useAppSelector((state: AppState) => state.user);
 	const router = useRouter();
 	const pathName = usePathname();
+	const dispatch = useAppDispatch();
 	const homePath = pathName === "/";
 	useEffect(() => {
 		const headerHeight: any = headerRef.current?.offsetHeight;
+		dispatch(updateUser({ isAuthenticated: false }));
+		dispatch(clearNewListing());
 		const scrollCheck = () => {
 			const currentScrollY = window.scrollY;
+
 			if (homePath) {
 				if (currentScrollY > headerHeight) {
 					setScroll(Scroll.InitialScroll);
@@ -68,13 +76,13 @@ const Header = () => {
 				<nav className={styles.header_nav}>
 					<ul className={styles.header_navList}>
 						{navLinks.map((link: NavLink, index: number) => {
-							const [isActive, setIsActive] = useState<boolean>(false);
+							// const [isActive, setIsActive] = useState<boolean>(false);
 							return (
 								<li
 									key={index}
 									className={styles.header_navLink}
-									onClick={() => setIsActive(!isActive)}
-									data-active={isActive}
+									// onClick={() => setIsActive(!isActive)}
+									// data-active={isActive}
 								>
 									{/* {link.external ? (
 										<a
@@ -246,12 +254,23 @@ const Header = () => {
 							/>
 						</div>
 					</Button>
-					<Button buttonType="transparent" className={styles.trans_button}>
-						<Link href={"/login"}>Login</Link>
-					</Button>
-					<Button className={styles.button}>
-						<Link href={"/sign-up"}>Sign Up</Link>
-					</Button>
+					{user.isAuthenticated ? (
+						<Link className={styles.user_image} href="/admin/dashboard">
+							<Image src="/images/user.png" alt="" fill />
+						</Link>
+					) : (
+						<>
+							<Button
+								buttonType="transparent"
+								className={styles.trans_button}
+							>
+								<Link href={"/login"}>Login</Link>
+							</Button>
+							<Button className={styles.button}>
+								<Link href={"/sign-up"}>Sign Up</Link>
+							</Button>
+						</>
+					)}
 				</div>
 			</div>
 			<div className={styles.mob_buttons}>

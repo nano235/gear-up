@@ -197,7 +197,7 @@ export const navLinks: NavLink[] = [
 	},
 	{
 		label: "sell gears",
-		href: "/sell",
+		href: "/new-listing",
 		external: false,
 		videoUrl: "#",
 		title: "Selling a gear",
@@ -239,7 +239,7 @@ export const navLinks: NavLink[] = [
 	},
 	{
 		label: "rent out",
-		href: "/rent",
+		href: "/new-listing",
 		external: false,
 		title: "Rent out a gear",
 		description:

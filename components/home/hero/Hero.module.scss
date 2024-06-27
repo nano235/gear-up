@@ -47,6 +47,16 @@
 			color: $col-grey-500;
 		}
 	}
+	.cta_text {
+		div {
+			@extend %title-56;
+			font-family: $font-good;
+			background: $orange-grad;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-align: center;
+		}
+	}
 	.row {
 		@include flex();
 	}
