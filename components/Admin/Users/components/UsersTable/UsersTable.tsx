@@ -19,9 +19,10 @@ interface Props {
     page: number
     limit: number
     handlePagination: (page: number) => void
+    url?: string
 }
 
-const UsersTable = ({ users, page, limit, handlePagination }: Props) => {
+const UsersTable = ({ users, page, limit, handlePagination, url }: Props) => {
 
 
     const columns: GridColDef[] = [
@@ -33,7 +34,7 @@ const UsersTable = ({ users, page, limit, handlePagination }: Props) => {
             headerName: 'Username',
             minWidth: 250,
             renderCell: ({ row, value }) => (
-                <Link href={`/admin/users/${row.id}`} className={styles.container__name_container}>
+                <Link href={`/admin/${url}/${row.id}`} className={styles.container__name_container}>
                     <Image src={row.image} alt={value} width={16} height={16} />
                     <p className={styles.container__name} style={{ fontSize: '1.2rem' }}>
                         {value}

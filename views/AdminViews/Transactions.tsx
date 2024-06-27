@@ -1,9 +1,13 @@
 import React from 'react'
-import { Transactions } from '../../components/Admin'
+import { HeaderSubText, Transactions } from '../../components/Admin'
 
-const TransactionsView = () => {
+interface Props {
+  showTitle?: boolean
+}
+
+const TransactionsView = ({ showTitle }: Props) => {
   return (
-    <Transactions />
+    <Transactions showTitle={showTitle} />
   )
 }
 

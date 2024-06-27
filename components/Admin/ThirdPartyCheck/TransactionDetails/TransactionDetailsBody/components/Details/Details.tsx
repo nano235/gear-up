@@ -35,14 +35,6 @@ const DetailsComponent = ({ item }: Props) => {
                     </div>
                     <div>
                         <div className={styles.summary_item}>
-                            <h4>Amount</h4>
-                            <p>$300</p>
-                        </div>
-                        <div className={styles.summary_item}>
-                            <h4>Shipping fee</h4>
-                            <p>$300</p>
-                        </div>
-                        <div className={styles.summary_item}>
                             <h4>Gearup fee</h4>
                             <p>$300</p>
                         </div>

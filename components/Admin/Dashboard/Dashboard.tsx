@@ -24,7 +24,7 @@ const Dashboard = () => {
       <PendingListing />
       <CardsSection />
       <HeaderSubText title='Recent Users' />
-      <UsersTable users={paginatedData} page={page} limit={limit} handlePagination={handlePagination} />
+      <UsersTable users={paginatedData} page={page} limit={limit} handlePagination={handlePagination} url="dashboard" />
 
     </div>
   )

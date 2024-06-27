@@ -1,9 +1,13 @@
 import React from 'react'
-import { Listings } from '../../components/Admin'
+import { HeaderSubText, Listings } from '../../components/Admin'
 
-const ListingsView = () => {
+interface Props {
+  showTitle?: boolean
+}
+
+const ListingsView = ({ showTitle = false }: Props) => {
   return (
-    <div><Listings /></div>
+    <Listings showTitle={showTitle} />
   )
 }
 
