@@ -78,7 +78,6 @@ const Transactions = () => {
 	];
 	return (
 		<div className={styles.container}>
-			<HeaderSubText title="Transactions" variant="main" />
 			<div className={styles.container__download_filter}>
 				<ReuseableFilters
 					parentFilters={parentFilters}

@@ -2,21 +2,31 @@
 import React, { useEffect, useState } from "react";
 import styles from "./AdminSidebar.module.scss";
 import {
+	BlogIcon,
 	CategoriesNavIcon,
+	CloseIcon,
 	DashboardNavIcon,
 	ListingsNavIcon,
+	LocationEllipse,
 	LogoIcon,
 	LogoutNavIcon,
 	MessagesNavIcon,
 	SettingsNavIcon,
+	ThirdPartyCheckIcon,
 	TransactionNavIcon,
+	UserIcon,
 	WalletNavIcon,
 } from "@/shared/svgs/dashboard";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/shared";
 
-const AdminSidebar = () => {
+interface Props {
+	isMobile?: boolean;
+	onClose?: () => void;
+}
+
+const AdminSidebar = ({ isMobile, onClose }: Props) => {
 	const pathname = usePathname();
 	const sidebarItems = [
 		{
@@ -25,19 +35,19 @@ const AdminSidebar = () => {
 			link: "/admin/dashboard",
 		},
 		{
+			name: "Users",
+			icon: <UserIcon />,
+			link: "/admin/users",
+		},
+		{
+			name: "Wallet",
+			icon: <WalletNavIcon />,
+			link: "/admin/wallet",
+		},
+		{
 			name: "Transactions",
 			icon: <TransactionNavIcon />,
 			link: "/admin/transactions",
-		},
-		{
-			name: "Categories",
-			icon: <CategoriesNavIcon />,
-			link: "/admin/categories",
-		},
-		{
-			name: "Messages",
-			icon: <MessagesNavIcon />,
-			link: "/admin/messages",
 		},
 		{
 			name: "Listings",
@@ -45,9 +55,14 @@ const AdminSidebar = () => {
 			link: "/admin/listings",
 		},
 		{
-			name: "Wallet",
-			icon: <WalletNavIcon />,
-			link: "/admin/wallet",
+			name: "Third party check",
+			icon: <ThirdPartyCheckIcon />,
+			link: "/admin/third-party-check",
+		},
+		{
+			name: "Blog",
+			icon: <BlogIcon />,
+			link: "/admin/blog",
 		},
 	];
 	const [active, setActive] = useState("/admin/dashboard");
@@ -64,7 +79,27 @@ const AdminSidebar = () => {
 		<div className={styles.sidebar_container}>
 			<div className={styles.sidebar_container__header}>
 				<Logo type="dark" />
+				{isMobile && (
+					<span onClick={onClose}>
+						<CloseIcon />
+					</span>
+				)}
 			</div>
+
+			{isMobile && (
+				<div className={styles.sidebar_container__customer_container}>
+					<h3 className={styles.title}>Profile</h3>
+					<div className={styles.location_details}>
+						<span className={styles.location_icon}>
+							<LocationEllipse />
+						</span>
+						<div>
+							<h4>username</h4>
+							<Link href="/admin/settings">View Profile</Link>
+						</div>
+					</div>
+				</div>
+			)}
 			<div className={styles.navlinks_wrapper}>
 				<ul className={styles.navlinks_container}>
 					{sidebarItems.map((item, index) => (

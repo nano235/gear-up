@@ -45,6 +45,14 @@
 	opacity: 0.5;
 	pointer-events: none;
 	background: #E3E6E9;
+
+	&[data-active="true"] {
+		background: #FFC107;
+	}
+	&[data-active="false"] {
+		background: #E3E6E9;
+	}
+
 	
 }
 

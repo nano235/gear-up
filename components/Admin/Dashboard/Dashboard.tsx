@@ -1,16 +1,30 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import styles from './Dashboard.module.scss'
-import { CardsSection, DashboardHeader, RecentDeals, TotalEarnings } from './Components'
-import GetStarted from '../GetStarted/GetStarted'
+import { CardsSection, PendingListing } from './Components'
+import { UsersTable } from '../Users/components'
+import { usersData } from '@/mock/users.mock'
+import HeaderSubText from '../HeaderSubText/HeaderSubText'
+import { GridRowsProp } from '@mui/x-data-grid'
 
 const Dashboard = () => {
+  const [page, setPage] = useState(1)
+  const [limit, setLimit] = useState(10)
+  const [paginatedData, setPaginatedData] = useState<GridRowsProp>(usersData.slice(0, limit));
+
+  const handlePagination = (page: number) => {
+    const start = (page - 1) * limit;
+    const end = start + limit;
+    setPaginatedData(usersData.slice(start, end));
+    setPage(page)
+  }
+
   return (
     <div className={styles.container}>
-      <DashboardHeader />
-      <GetStarted description='We want to keep our community safe, you’ll need to complete the verification process to rent or rent out' title='Let’s help you get verified'/>
+      <PendingListing />
       <CardsSection />
-      <TotalEarnings/>
-      <RecentDeals/>
+      <HeaderSubText title='Recent Users' />
+      <UsersTable users={paginatedData} page={page} limit={limit} handlePagination={handlePagination} />
     </div>
   )
 }

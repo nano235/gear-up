@@ -5,7 +5,6 @@ import { DatePicker, InputField, Select } from '@/shared'
 import { DashboardCard } from '..';
 import Image from 'next/image';
 import { ArrowUpIcon } from '@/shared/svgs/dashboard';
-import { DateRange, DateRangePicker } from 'react-date-range';
 import { addDays } from 'date-fns';
 import format from "date-fns/format";
 
@@ -24,29 +23,43 @@ const CardsSection = () => {
     const cardsList = [
         {
             id: 1,
+            title: 'Total revenue',
+            icon: '/svgs/total-revenue.svg',
+            percentage: 0,
+            amount: 0,
+        },
+        {
+            id: 2,
             title: 'Active listing',
             icon: '/svgs/active-icon.svg',
             percentage: 0,
             amount: 0,
         },
         {
-            id: 2,
+            id: 3,
             title: 'Ongoing deals',
             icon: '/svgs/ongoing-icon.svg',
             percentage: 0,
             amount: 0,
         },
         {
-            id: 3,
+            id: 4,
             title: 'Completed deals',
             icon: '/svgs/completed-icon.svg',
             percentage: 0,
             amount: 0,
         },
         {
-            id: 4,
+            id: 5,
             title: 'Declined deals',
             icon: '/svgs/decline-icon.svg',
+            percentage: 0,
+            amount: 0,
+        },
+        {
+            id: 6,
+            title: 'In dispute',
+            icon: '/svgs/in-dispute.svg',
             percentage: 0,
             amount: 0,
         }
@@ -61,7 +74,9 @@ const CardsSection = () => {
     return (
         <div className={styles.container}>
             <div className={styles.container__date_container}>
-                <Select options={timeOptions} onOptionChange={onOptionChange} />
+                <div className={styles.date_picker_container}>
+                    <Select options={timeOptions} onOptionChange={onOptionChange} />
+                </div>
                 <div className={styles.container__date_container__date_display}>
                     {openModal && (
                         <DatePicker
@@ -73,7 +88,6 @@ const CardsSection = () => {
                         />
                     )}
                     <div className={styles.input_field} onClick={() => setOpenModal(true)}>
-
                         <p>
                             {format(
                                 inputDate[0].startDate,

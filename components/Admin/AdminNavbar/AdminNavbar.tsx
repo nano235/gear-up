@@ -1,35 +1,71 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import styles from "./AdminNavbar.module.scss";
-import { InputField, Logo } from "@/shared";
+import { Button, InputField, Logo } from "@/shared";
 import { ArrowDownIcon, LogoIcon, NotificationIcon } from "@/shared/svgs/dashboard";
 import Image from "next/image";
+import AdminSidebar from "../AdminSidebar/AdminSidebar";
+import { usePathname } from "next/navigation";
+import HeaderSubText from "../HeaderSubText/HeaderSubText";
 
 const AdminNavbar = () => {
+	const [collapsed, setCollapsed] = useState<boolean>(false);
+	const pathname = usePathname();
+	const [showMenubar, setShowMenubar] = useState<boolean>(false);
+
+	const newPathname = pathname.split("/")[2];
+
 	return (
 		<div className={styles.navbar_container}>
 			<div className={styles.logo_icon}>
 				<Logo type="dark" />
 			</div>
-			<div className={styles.input_container}>
-				<InputField
-					placeholder="Try e.g Nikon SR ..."
-					icon="/svgs/icon-search-dark.svg"
-					iconTitle="search-icon"
-				/>
-			</div>
+			<HeaderSubText title={newPathname} variant="main" />
 			<div className={styles.icons_container}>
-				<span className={styles.search_icon}>
-					<Image
-						src="/svgs/icon-search-dark.svg"
-						width={50}
-						height={50}
-						alt="search-icon"
-					/>
-				</span>
-				<span>
-					<NotificationIcon />
-				</span>
-				<span className={styles.menu_icon}></span>
+				<div className={styles.mob_buttons}>
+					<Button
+						buttonType="transparent"
+						className={`${styles.small_icon} ${styles.circle_border}`}
+					>
+						<Image
+							src={"/svgs/icon-search-normal.svg"}
+							height={70}
+							width={70}
+							alt=""
+							sizes="100vw"
+						/>
+					</Button>
+					<Button
+						buttonType="transparent"
+						className={`${styles.small_icon} ${styles.circle_border}`}
+					>
+						<Image
+							src={"/svgs/icon-notification.svg"}
+							height={70}
+							width={70}
+							alt=""
+							sizes="100vw"
+						/>
+					</Button>
+					<Button
+						onClick={() => setShowMenubar(!showMenubar)}
+						buttonType="transparent"
+						className={styles.small_icon}
+					>
+						<Image
+							src={
+								!collapsed
+									? "/svgs/icon-hamburger.svg"
+									: "/svgs/icon-cart.svg"
+							}
+							height={70}
+							width={70}
+							alt=""
+							sizes="100vw"
+						/>
+					</Button>
+				</div>
 			</div>
 			<div className={styles.navbar_container__details}>
 				<div className={styles.avatar}>
@@ -45,6 +81,15 @@ const AdminNavbar = () => {
 					<ArrowDownIcon />
 				</span>
 			</div>
+
+			{showMenubar && (
+				<div className={styles.sidemenu_container}>
+					<AdminSidebar
+						isMobile={true}
+						onClose={() => setShowMenubar(!showMenubar)}
+					/>
+				</div>
+			)}
 		</div>
 	);
 };

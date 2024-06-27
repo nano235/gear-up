@@ -5,12 +5,12 @@ import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import Image from "next/image";
 import { InputField, ToggleSwitch } from "@/shared";
 import { MoreIcon } from "@/shared/svgs/dashboard";
-import RecentDealsCard from "@/components/Admin/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard";
 import { GridIcon, ListIcon } from "@/shared/svgs/dashboard";
 import ListingCard from "../ListingCard/ListingCard";
 import MoreModal from "../MoreModal/MoreModal";
 import { customisedTableClasses } from "@/utils/classes";
 import Pagination from "../../../../../shared/pagination/Pagination";
+import RecentDealsCard from "@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard";
 
 const ListingTable = () => {
 	const [activeLayout, setActiveLayout] = useState("list");

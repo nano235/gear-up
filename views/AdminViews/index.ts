@@ -7,3 +7,6 @@ export { default as TransactionsView } from "./Transactions";
 export { default as WalletView } from "./Wallet";
 export { default as VerificationView } from "./VerificationViews/VerificationViews";
 export { default as TransactionDetailsView } from "./TransactionDetails/TransactionDetails";
+export { default as UsersView } from "./UsersView";
+export { default as UserDetailsView } from "./UserDetailsView";
+export { default as WithdrawalRequests } from "./Wallet/WithdrawalRequests/WithdrawalRequests";

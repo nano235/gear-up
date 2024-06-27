@@ -11,6 +11,7 @@ import { useGlobalContext } from "@/contexts/AppContext";
 import { PageLoader } from "@/shared/loaders";
 import { useFetch } from "@/hooks";
 import { useSearchParams } from "next/navigation";
+import { AppState, useAppSelector } from "@/store/configureStore";
 const ListingsView = () => {
 	// const { listings, setListings }: any = useGlobalContext();
 	const listings = useAppSelector((state: AppState) => state.listings);

@@ -3,32 +3,81 @@
 .container {
 	padding: 4rem 3rem;
 
-	&__header {
+	&__header_container {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
-		margin-bottom: 3rem;
+		gap: 2rem;
 
-		.btn_container {
+		&__item {
 			display: flex;
-			gap: 1.6rem;
-			align-items: center;
-		}
+			align-items: flex-start;
+			margin-bottom: 3rem;
+			flex-direction: column;
+			gap: 4rem;
+			border: 1px solid $col-border;
+			padding: 1.6rem 2rem;
+			border-radius: 2rem;
+			width: 50%;
 
-		.btn {
-			display: flex;
-			align-items: center;
-			gap: 0.5rem;
+			p {
+				font-size: 1.4rem;
+				color: #a3a7ab;
+			}
 
-			.icon {
-				height: 2.5rem;
-				width: 2.5rem;
+			h3 {
+				font-size: 2.8rem;
+				color: $col-grey-1;
+				font-weight: 700;
+			}
+
+			.btn_container {
+				display: flex;
+				gap: 1.6rem;
+				align-items: center;
+			}
+
+			.btn {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				padding: 1rem 2rem;
+
+				.icon {
+					height: 2rem;
+					width: 2rem;
+				}
 			}
 		}
 
-		.transparent_btn {
-			border: 1px solid #dedfe0;
-			background: transparent;
+		.pending_requests {
+			background-color: #ffb30f;
+
+			.title {
+				color: #121212;
+				font-size: 2rem;
+				font-weight: 700;
+			}
+
+			.description {
+				color: #1b1e21;
+				font-size: 1.4rem;
+				font-weight: 400;
+			}
+
+			button {
+				background: #1b1e21;
+				color: $col-white;
+				padding: 1rem 2rem;
+				display: flex;
+				gap: 1rem;
+			}
+		}
+
+		.no_requests {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 4rem;
 		}
 	}
 

@@ -3,7 +3,7 @@ import { Transactions } from '../../components/Admin'
 
 const TransactionsView = () => {
   return (
-    <div><Transactions /></div>
+    <Transactions />
   )
 }
 

@@ -4,10 +4,10 @@ import styles from "./TransactionTable.module.scss";
 import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import Image from "next/image";
 import { Button, InputField, Pagination } from "@/shared";
-import RecentDealsCard from "@/components/Admin/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard";
 import { customisedTableClasses } from "@/utils/classes";
 import Link from "next/link";
 import { transactions } from "@/mock/transactions.mock";
+import RecentDealsCard from "@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard";
 
 interface Props {
 	transactionType: string;
@@ -64,14 +64,6 @@ const TransactionTable = ({ transactionType }: Props) => {
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
 			headerName: "Transaction Date",
-			minWidth: 150,
-		},
-		{
-			...sharedColDef,
-			field: "transaction_type",
-			cellClassName: styles.table_cell,
-			headerClassName: styles.table_header,
-			headerName: "Type",
 			minWidth: 150,
 		},
 		{

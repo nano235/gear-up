@@ -9,6 +9,8 @@
 	gap: 2.5rem;
 	width: 100%;
 	box-sizing: border-box;
+	position: relative;
+	justify-content: space-between;
 
 	.icons_container {
 		display: flex;
@@ -17,7 +19,6 @@
 		justify-content: center;
 
 		.search_icon {
-			display: none;
 			@include screenMax("mobile") {
 				display: flex;
 			}
@@ -29,6 +30,34 @@
 				display: flex;
 			}
 		}
+
+		.mob_buttons {
+			display: none;
+
+			.small_icon {
+				padding: 0;
+				height: 100%;
+				display: flex;
+				align-items: center;
+			}
+
+			.circle_border {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 3.5rem;
+				width: 3.5rem;
+				border-radius: 50%;
+				border: 1px solid $col-border;
+				padding: 0.7rem;
+			}
+
+			@include screenMax("mobile") {
+				display: flex;
+				align-items: center;
+				gap: 2rem;
+			}
+		}
 	}
 
 	.logo_icon {
@@ -38,9 +67,54 @@
 		}
 	}
 
+	@keyframes slide-down {
+		from {
+			transform: translateY(-100%);
+			opacity: 0;
+		}
+		to {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+
 	.input_container {
-		@include screenMax("mobile") {
+		display: flex;
+		width: 100%;
+
+		.close {
 			display: none;
+			@include screenMax("mobile") {
+				display: flex;
+				color: $col-error;
+				font-size: 1.6rem;
+			}
+		}
+
+		@include screenMax("mobile") {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			z-index: 4;
+			background-color: $col-white;
+			height: 8rem;
+			align-items: center;
+			padding: 1rem;
+			gap: 1.6rem;
+			animation: slide-down 0.5s ease-out forwards;
+			display: none;
+
+			&[data-show="true"] {
+				display: flex;
+			}
+
+			.search_field {
+				border-radius: 50%;
+				&[data-focus="true"] {
+					border-color: $col-warning;
+				}
+			}
 		}
 	}
 
@@ -68,6 +142,7 @@
 			object-fit: cover;
 			border-radius: 50%;
 			border: 1px solid $col-border;
+
 			img {
 				border-radius: 50%;
 			}
@@ -78,9 +153,31 @@
 		}
 	}
 
+	@keyframes slide-out {
+		from {
+			transform: translateX(100%);
+			opacity: 0;
+		}
+		to {
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+
+	.sidemenu_container {
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: $col-white;
+		width: 100%;
+		height: 100vh;
+		animation: slide-out 0.4s ease-out forwards;
+		z-index: 5;
+	}
+
 	@include screenMax("mobile") {
 		justify-content: space-between;
-		padding: 2rem 1.6rem;
-		height: auto;
+		padding: 1.6rem 1.5rem;
+		height: 8rem;
 	}
 }

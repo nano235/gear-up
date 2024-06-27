@@ -4,10 +4,10 @@ import styles from './WalletTransactionsTable.module.scss'
 import { DataGrid, GridColDef, GridRowsProp } from '@mui/x-data-grid';
 import Image from 'next/image';
 import { Button, InputField, Pagination } from '@/shared';
-import RecentDealsCard from '@/components/Admin/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
 import { customisedTableClasses } from '@/utils/classes';
 import Link from 'next/link';
-import { MoreIcon } from '@/shared/svgs/dashboard';
+import { MoreIcon, TransactionNavIcon } from '@/shared/svgs/dashboard';
+import RecentDealsCard from '@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
 
 const WalletTransactionsTable = () => {
     const [page, setPage] = useState(1)
@@ -103,8 +103,8 @@ const WalletTransactionsTable = () => {
             headerName: 'Actions',
             minWidth: 150,
             renderCell: ({ value }) => (
-                <span onClick={() => handleClickMore(value)} className={styles.container__status_container}>
-                    <MoreIcon />
+                <span onClick={() => handleClickMore(value)} className={styles.action_btns}>
+                    <Image src="/svgs/document-download.svg" alt='download' height={10} width={10} /> Download receipt
                 </span>
             ),
         },
@@ -116,23 +116,36 @@ const WalletTransactionsTable = () => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.container__input_filter_container}>
-                <InputField placeholder='Search' icon='/svgs/icon-search-dark.svg' iconTitle='search-icon' />
-            </div>
+            {
+                rows.length < 1 ?
 
-            <div className={styles.container__table} style={{ width: '100%', height: "100%", }}>
-                <DataGrid rows={rows} columns={columns}
-                    paginationMode="server" sx={customisedTableClasses} hideFooter autoHeight />
-                <Pagination currentPage={1} onPageChange={setPage} totalCount={rows.length} pageSize={5} />
-            </div>
+                    <div className={styles.empty_rows}>
+                        <span className={styles.transaction_icon}>
+                            <TransactionNavIcon color='#FFB30F' />
+                        </span>
+                        No data available
+                    </div>
+                    :
+                    <>
+                        <div className={styles.container__input_filter_container}>
+                            <InputField placeholder='Search' icon='/svgs/icon-search-dark.svg' iconTitle='search-icon' />
+                        </div>
 
-            <ul className={styles.container__cards_container}>
-                {
-                    rows.map((item) => (
-                        <RecentDealsCard key={item.id} item={item} />
-                    ))
-                }
-            </ul>
+                        <div className={styles.container__table} style={{ width: '100%', height: "100%", }}>
+                            <DataGrid rows={rows} columns={columns}
+                                paginationMode="server" sx={customisedTableClasses} hideFooter autoHeight />
+                            <Pagination currentPage={1} onPageChange={setPage} totalCount={rows.length} pageSize={5} />
+                        </div>
+
+                        <ul className={styles.container__cards_container}>
+                            {
+                                rows.map((item) => (
+                                    <RecentDealsCard key={item.id} item={item} />
+                                ))
+                            }
+                        </ul>
+                    </>
+            }
         </div>
     )
 }

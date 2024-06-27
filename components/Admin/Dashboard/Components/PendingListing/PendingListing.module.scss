@@ -1,0 +1,42 @@
+@import "@/styles/imports";
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #FFF7E7;
+    padding: 2rem;
+    border-radius: 1.6rem;
+
+   
+
+    &__left {
+        display: flex;
+        gap: 1rem;
+
+        .image_icon{
+            height: 4.8rem;
+            width: 4.8rem;
+        }
+
+        &__welcome {
+            font-weight: 700;
+            font-size: 2rem;
+            color: $col-grey-1;
+        }
+
+        &__question {
+            color: #4B525A;
+            font-size: 1.6rem;
+        }
+    }
+
+    @include screenMax("mobile") {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+
+    }
+
+}
