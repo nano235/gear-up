@@ -1,0 +1,37 @@
+@import '@/styles/imports';
+
+.container {
+    padding: 4rem 3rem;
+
+    .header_container{
+        @include flex;
+        justify-content: space-between;
+        margin: 2.5rem 0;
+        align-items: center;
+        margin-bottom: 4rem;
+
+    .btn_container{
+        @include flex;
+        gap: 1rem;
+        margin-bottom: 1.6rem;
+
+        .decline_btn{
+            background: transparent;
+            border: 1px solid $col-border;
+            color: #FF3729;
+        }
+    }
+}
+
+.main_container{
+    display: flex;
+    gap: 2rem;
+width: 100%;
+margin-top: rem;
+
+
+        .right_container{
+        width: 35%;
+    }
+}
+}

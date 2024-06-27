@@ -28,6 +28,7 @@ import ImageUploader from "./ImageUploader/ImageUploader";
 import ConfirmToken from "./ConfirmToken/ConfirmToken";
 import CustomBreadCrumb from "./customBreadCrumb/customBreadCrumb";
 import StarRating from "./starRating/StarRating";
+import BackNavigation from "./backNavigation/BackNavigation";
 
 export {
 	Header,
@@ -60,4 +61,5 @@ export {
 	ConfirmToken,
 	CustomBreadCrumb,
 	StarRating,
+	BackNavigation,
 };

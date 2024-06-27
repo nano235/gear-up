@@ -6,6 +6,7 @@ import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import Image from 'next/image'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/shared'
+import { TrixEditorModal } from '../../components'
 
 interface Props {
     slug: string
@@ -17,9 +18,15 @@ const TransactionDetailsHeader = ({ slug, item }: Props) => {
     const router = useRouter()
     const search = useSearchParams()
     const transaction_type = search.get('transaction_type')
+    const [openModal, setOpenModal] = useState(false)
+    const [value, setValue] = useState('')
 
     const handleBack = () => {
         router.back()
+    }
+
+    const handleChange = (text: string) => {
+        setValue(text)
     }
 
     return (
@@ -43,10 +50,11 @@ const TransactionDetailsHeader = ({ slug, item }: Props) => {
                         {item?.transaction_status}
                     </div>
                 </div>
-                <div className={styles.left}>
+                <div className={styles.left} onClick={() => setOpenModal(true)}>
                     <Button>Give status report</Button>
                 </div>
             </div>
+            <TrixEditorModal openModal={openModal} setOpenModal={setOpenModal} value={value} onChange={handleChange} />
         </div>
     )
 }

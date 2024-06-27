@@ -11,6 +11,7 @@ import MoreModal from "../MoreModal/MoreModal";
 import { customisedTableClasses } from "@/utils/classes";
 import Pagination from "../../../../../shared/pagination/Pagination";
 import RecentDealsCard from "@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard";
+import Link from "next/link";
 
 const ListingTable = () => {
 	const [activeLayout, setActiveLayout] = useState("list");
@@ -277,7 +278,7 @@ const ListingTable = () => {
 				<>
 					<div className={styles.container__grid}>
 						{rows.map(item => (
-							<ListingCard key={item.id} props={item} />
+							<Link key={item.id} href={`/admin/listings/${item.id}`}><ListingCard key={item.id} props={item} /></Link>
 						))}
 					</div>
 				</>
