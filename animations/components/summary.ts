@@ -40,6 +40,9 @@ export class Summary extends Component {
 		}
 
 		const cards = this.children.cards[0];
+		if (!cards) {
+			return;
+		}
 		cards!.style.overflow = "visible";
 
 		// const end = cards.clientWidth + 64 + 64 + 64;

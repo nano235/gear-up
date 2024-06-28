@@ -189,17 +189,14 @@ const ListingTable = () => {
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
 			headerName: 'Actions',
-			maxWidth: 100,
+			maxWidth: 150,
 			renderCell: ({ row, value }) => (
-				<div className={styles.container__action_cell}>
-					<span onClick={() => handleClickMore(row.id)} className={styles.container__actions_container}>
-						<MoreIcon />
-					</span>
-					{
-						showMoreModal && activeRow === row.id && <div className={styles.modal_container}><MoreModal /></div>
-					}
-
-				</div>
+				<Link
+					href={`/admin/listings/${row.id}?&user_role=${row.user_role}&third_party=${row.third_party_verification}&timeElapsed=${row.timeElapsed}`}
+					className={styles.container__action_btn}
+				>
+					view details
+				</Link>
 			),
 		},
 	];
@@ -270,7 +267,7 @@ const ListingTable = () => {
 
 					<ul className={styles.container__cards_container}>
 						{rows.map(item => (
-							<RecentDealsCard key={item.id} item={item} />
+							<ListingCard key={item.id} props={item} />
 						))}
 					</ul>
 				</>

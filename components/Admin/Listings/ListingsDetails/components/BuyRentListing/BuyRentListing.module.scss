@@ -1,11 +1,15 @@
 @import '@/styles/imports';
 
 .left_container{
-    width: 65%;
+    width: 100%;
 
 
     .details_container{
         margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+
 
         hr{
             border: 1px solid $col-border;
