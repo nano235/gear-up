@@ -111,15 +111,15 @@ const AdminSidebar = ({ isMobile, onClose }: Props) => {
 							href={item.link}
 							className={styles.navlinks_container__item}
 						>
-							<span className="icon">{item.icon}</span>
-							<span className="title">{item.name}</span>
+							<span className={styles.icon}>{item.icon}</span>
+							<span className={styles.title}>{item.name}</span>
 						</Link>
 					))}
 				</ul>
 
 				<ul className={`${styles.navlinks_container} ${styles.btn_container}`}>
 					<Link
-						href="/admin/settings?q=payments"
+						href="/admin/settings?q=profile"
 						className={styles.navlinks_container__item}
 						data-active={active === "/admin/settings"}
 					>

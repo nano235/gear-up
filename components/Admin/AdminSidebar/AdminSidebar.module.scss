@@ -90,12 +90,14 @@
                 .icon {
                     height: 2.4rem;
                     width: 2.4rem;
+                    display: flex;
+                    align-items: center;
                 }
 
                 .title {
-                    font-size: 1rem;
+                    font-size: 1.6rem;
                     color: $col-high-emphasis-text;
-                    font-weight: 600;
+                    font-weight: 400;
                 }
 
                 .logout_text {

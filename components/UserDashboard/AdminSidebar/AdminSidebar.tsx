@@ -90,10 +90,10 @@ const AdminSidebar = ({ isMobile, onClose }: Props) => {
                 <ul className={styles.navlinks_container}>
                     {sidebarItems.map((item, index) => (
                         <Link key={index} data-active={active === item.link} href={item.link} className={styles.navlinks_container__item} >
-                            <span className='icon'>
+                            <span className={styles.icon}>
                                 {item.icon}
                             </span>
-                            <span className='title'>{item.name}</span>
+                            <span className={styles.title}>{item.name}</span>
                         </Link>
                     ))}
                 </ul>

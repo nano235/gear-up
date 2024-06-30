@@ -34,23 +34,9 @@ const PersonalInfoForm: React.FC = () => {
         // Handle form submission
         console.log(values);
     };
-    const banksOptions = [
-        'GTBank',
-        'Access Bank',
-        'Zenith Bank',
-        'First Bank',
-        'UBA',
-        'FCMB',
-        'Sterling Bank',
-        'Union Bank',
-        'Wema Bank',
-        'Polaris Bank',
-        'Keystone Bank',
-    ]
 
     return (
         <div className={styles.container}>
-            <HeaderSubText title="Profile information" description="Please provide the necessary personal information" />
             <div className={styles.container__form_container}>
                 <Formik
                     initialValues={initialValues}
@@ -58,40 +44,27 @@ const PersonalInfoForm: React.FC = () => {
                     onSubmit={handleSubmit}
                 >
                     <Form >
+                        <HeaderSubText title="My profile" variant='main' />
                         <div className={styles.uploader_container}>
                             <ImageUploader />
-                            <h3 className={styles.name}>Einstein130</h3>
-                            <p className={styles.email}>Einstein.oyakhilome1@gmail.com</p>
+                            <div>
+
+                                <h3 className={styles.name}>Einstein Oyakhilome</h3>
+                                <p className={styles.email}>super admin</p>
+                            </div>
                         </div>
                         <div className={styles.container__form_container__form}>
                             <div className={styles.form_field}>
-                                <InputField label='First name' />
+                                <InputField label='First name' value='Einstein' />
                             </div>
                             <div className={styles.form_field}>
-                                <InputField label='Last name' />
-                            </div>
-                            <div className={styles.form_field}>
-                                <InputField label='Display name' />
-                            </div>
-                            <div className={styles.phone_field}>
-                                <InputField
-                                    label='Phone number'
-                                    customPrefix={
-                                        <p className={styles.prefix_container}>
-                                            +234 <span className={styles.prefix_divider}></span>
-                                        </p>
-                                    }
-                                    type='number'
-                                />
+                                <InputField label='Last name' value='Oyakhilome' />
                             </div>
                             <div className={styles.address_field}>
-                                <InputField label='Address' placeholder='enter address' />
+                                <InputField label='Email' placeholder='enter address' value='einstein@gmail.com' />
                             </div>
-                            <div className={styles.map_container}>
-                                map
-                            </div>
-                            <div className={styles.text_area_container}>
-                                <TextArea rows={6} className={styles.text_area} label='About' placeholder='Tell us about yorself...' />
+                            <div className={styles.address_field}>
+                                <InputField label='My role' placeholder='enter address' value='super admin' disabled inputClassName={styles.disabled_field} />
                             </div>
                         </div>
                         <div className={styles.submit_btn_container}>
