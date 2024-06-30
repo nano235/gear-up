@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { Account, Payments, Profile, Sidebar } from './components'
+import { Members, Profile, RolesPermission, Sidebar } from './components'
 import styles from './Settings.module.scss'
 import { useSearchParams } from 'next/navigation'
 
@@ -46,8 +46,8 @@ const Settings = () => {
         <Sidebar settingsLists={settingsLists} active={active} />
         <div className={styles.content}>
           {searchQuery === 'profile' && <Profile />}
-          {searchQuery === 'members' && <Account />}
-          {searchQuery === 'roles-permissions' && <Payments />}
+          {searchQuery === 'members' && <Members />}
+          {searchQuery === 'roles-permissions' && <RolesPermission />}
         </div>
       </div>
     </div>
