@@ -97,7 +97,7 @@ const MembersTable = () => {
         setPaginatedData(membersData.slice(start, end));
     }
 
-    const handleRowClick = (id: GridRowsProp) => {
+    const handleRowClick = (id: any) => {
         console.log('Row clicked', id)
         router.push(`/admin/settings/members/${id}`)
     }
