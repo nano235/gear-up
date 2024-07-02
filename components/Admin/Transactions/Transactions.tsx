@@ -5,7 +5,10 @@ import { TransactionsTable } from "./components";
 import HeaderSubText from "../HeaderSubText/HeaderSubText";
 import ReuseableFilters from "../ReuseableFilter/ReuseableFilter";
 
-const Transactions = () => {
+interface Props {
+	showTitle?: boolean;
+}
+const Transactions = ({ showTitle = false }: Props) => {
 	const [activeFilterId, setActiveFilterId] = useState(1);
 	const [activeSubFilterId, setActiveSubFilterId] = useState(1);
 	const parentFilters = [
@@ -78,6 +81,9 @@ const Transactions = () => {
 	];
 	return (
 		<div className={styles.container}>
+			{
+				showTitle && <HeaderSubText title='Transactions' />
+			}
 			<div className={styles.container__download_filter}>
 				<ReuseableFilters
 					parentFilters={parentFilters}

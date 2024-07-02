@@ -18,6 +18,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	customPrefix?: React.JSX.Element;
 	register?: any;
 	handleSuffixClick?: () => void;
+	inputClassName?: string;
 }
 
 const InputField = ({
@@ -35,6 +36,7 @@ const InputField = ({
 	handleSuffixClick,
 	error,
 	register,
+	inputClassName,
 	...options
 }: Props) => {
 	let localType = isPassword ? (type = "password") : type;
@@ -55,7 +57,7 @@ const InputField = ({
 				</label>
 			)}
 
-			<div className={styles.input_wrapper} data-error={!!error}>
+			<div className={`${styles.input_wrapper} ${inputClassName}`} data-error={!!error}>
 				{!!icon && iconPosition === "prefix" && (
 					<figure className={styles.input_icon}>
 						<Image src={icon} fill sizes="100vw" title={iconTitle} alt="" />

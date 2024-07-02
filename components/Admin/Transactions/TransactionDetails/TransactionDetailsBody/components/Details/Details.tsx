@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import styles from './Details.module.scss'
-import { ChevronIcon, CopyIcon } from '@/shared/svgs/dashboard'
+import { CopyIcon } from '@/shared/svgs/dashboard'
 import DetailsTimeline from '../TimeLines/TimeLines'
 import StatusUpdate from '../StatusUpdate/StatusUpdate'
 import PersonalDetails from '../PersonalDetails/PersonalDetails'

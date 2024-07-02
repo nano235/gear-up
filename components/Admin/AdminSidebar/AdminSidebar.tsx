@@ -27,47 +27,49 @@ interface Props {
 }
 
 const AdminSidebar = ({ isMobile, onClose }: Props) => {
-	const pathname = usePathname();
+	const pathname = usePathname()
 	const sidebarItems = [
 		{
-			name: "Dashboard",
+			name: 'Dashboard',
 			icon: <DashboardNavIcon />,
-			link: "/admin/dashboard",
+			link: '/admin/dashboard',
 		},
 		{
-			name: "Users",
+			name: 'Users',
 			icon: <UserIcon />,
-			link: "/admin/users",
+			link: '/admin/users',
 		},
 		{
-			name: "Wallet",
+			name: 'Wallet',
 			icon: <WalletNavIcon />,
-			link: "/admin/wallet",
+			link: '/admin/wallet',
 		},
 		{
-			name: "Transactions",
+			name: 'Transactions',
 			icon: <TransactionNavIcon />,
-			link: "/admin/transactions",
+			link: '/admin/transactions',
 		},
 		{
-			name: "Listings",
+			name: 'Listings',
 			icon: <ListingsNavIcon />,
-			link: "/admin/listings",
+			link: '/admin/listings',
 		},
 		{
-			name: "Third party check",
+			name: 'Third party check',
 			icon: <ThirdPartyCheckIcon />,
-			link: "/admin/third-party-check",
+			link: '/admin/third-party-check',
 		},
-		{
-			name: "Blog",
-			icon: <BlogIcon />,
-			link: "/admin/blog",
-		},
-	];
-	const [active, setActive] = useState("/admin/dashboard");
+		/*   {
+			  name: 'Blog',
+			  icon: <BlogIcon />,
+			  link: '/admin/blog',
+		  }, */
 
-	console.log(pathname);
+
+	]
+	const [active, setActive] = useState('/admin/dashboard')
+
+	console.log(pathname)
 
 	useEffect(() => {
 		const absPath = pathname.split("?")[0].split("/").slice(0, 3).join("/");
@@ -109,15 +111,15 @@ const AdminSidebar = ({ isMobile, onClose }: Props) => {
 							href={item.link}
 							className={styles.navlinks_container__item}
 						>
-							<span className="icon">{item.icon}</span>
-							<span className="title">{item.name}</span>
+							<span className={styles.icon}>{item.icon}</span>
+							<span className={styles.title}>{item.name}</span>
 						</Link>
 					))}
 				</ul>
 
 				<ul className={`${styles.navlinks_container} ${styles.btn_container}`}>
 					<Link
-						href="/admin/settings?q=payments"
+						href="/admin/settings?q=profile"
 						className={styles.navlinks_container__item}
 						data-active={active === "/admin/settings"}
 					>

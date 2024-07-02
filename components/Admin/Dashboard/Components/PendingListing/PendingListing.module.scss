@@ -32,6 +32,11 @@
         }
     }
 
+    .btn{
+        gap: 0.5rem;
+
+    }
+
     @include screenMax("mobile") {
         flex-direction: column;
         gap: 1rem;

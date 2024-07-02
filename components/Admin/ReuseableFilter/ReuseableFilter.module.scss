@@ -34,6 +34,7 @@
             font-size: 1.4rem;
             border-radius: 10rem;
             cursor: pointer;
+            transition: all 0.5s ease-in-out;
 
             &[data-active='true']{
                 background-color: #ffb30f;
@@ -60,7 +61,7 @@
             cursor: pointer;
             border: 1px solid $col-border;
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
 
             &[data-active='true']{
                 background-color: #FFF7E7;

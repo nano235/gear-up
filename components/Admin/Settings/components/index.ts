@@ -1,6 +1,4 @@
-export {default as Verification} from './Verification/Verification'
 export {default as Profile} from './Profile/Profile'
-export {default as HelpCenter} from './HelpCenter/HelpCenter'
-export {default as Account} from './Account/Account'
-export {default as Payments} from './Payments/Payments'
 export {default as Sidebar} from './Sidebar/Sidebar'
+export {default as Members} from './Members/Members'
+export {default as RolesPermission} from './RolesPermission/RolesPermission'

@@ -1,20 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
-import styles from "./AdminNavbar.module.scss";
-import { Button, InputField, Logo } from "@/shared";
-import { ArrowDownIcon, LogoIcon, NotificationIcon } from "@/shared/svgs/dashboard";
-import Image from "next/image";
-import AdminSidebar from "../AdminSidebar/AdminSidebar";
-import { usePathname } from "next/navigation";
-import HeaderSubText from "../HeaderSubText/HeaderSubText";
+import React, { useState } from 'react';
+import styles from './AdminNavbar.module.scss';
+import { Button, Logo } from '@/shared';
+import { ArrowDownIcon } from '@/shared/svgs/dashboard';
+import Image from 'next/image';
+import AdminSidebar from '../AdminSidebar/AdminSidebar';
+import { usePathname } from 'next/navigation';
+import HeaderSubText from '../HeaderSubText/HeaderSubText';
 
 const AdminNavbar = () => {
 	const [collapsed, setCollapsed] = useState<boolean>(false);
 	const pathname = usePathname();
 	const [showMenubar, setShowMenubar] = useState<boolean>(false);
 
-	const newPathname = pathname.split("/")[2];
+	const newPathname = pathname.split('/')[2].replace(/-/g, ' ');
+
 
 	return (
 		<div className={styles.navbar_container}>

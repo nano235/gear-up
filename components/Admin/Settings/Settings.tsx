@@ -1,65 +1,53 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { Account, HelpCenter, Payments, Profile, Sidebar, Verification } from './components'
+import { Members, Profile, RolesPermission, Sidebar } from './components'
 import styles from './Settings.module.scss'
-
 import { useSearchParams } from 'next/navigation'
-import HeaderSubText from '../HeaderSubText/HeaderSubText'
+
 
 
 const Settings = () => {
   const searchParams = useSearchParams()
   const searchQuery = searchParams.get('q')
-  const [active, setActive] = useState<string>('/admin/settings?q=payments')
+  const [active, setActive] = useState<string>('/admin/settings?q=profile')
   const settingsLists = [
-    {
-      id: 3,
-      name: 'Payments',
-      path: '/admin/settings?q=payments',
-      slug: 'payments'
-    },
     {
       id: 1,
       name: 'Profile',
       path: '/admin/settings?q=profile',
-      slug: 'profile'
+      slug: 'profile',
+      description: "Create your profile as a Super Admin",
+
     },
     {
       id: 2,
-      name: 'Verification',
-      path: '/admin/settings?q=verification',
-      slug: 'verification'
+      name: 'Members',
+      path: '/admin/settings?q=members',
+      slug: 'members',
+      description: "Add & Manage gearup members",
     },
 
     {
       id: 4,
-      name: 'Account',
-      path: '/admin/settings?q=account',
-      slug: 'account'
-    },
-    {
-      id: 5,
-      name: 'Help center',
-      path: '/admin/settings?q=help-center',
-      slug: 'help-center'
+      name: 'Roles & Permissions',
+      path: '/admin/settings?q=roles-permissions',
+      slug: 'roles-permissions',
+      description: "Grant special roles and permissions",
     },
   ]
 
   useEffect(() => {
-    setActive(searchQuery || 'payments')
+    setActive(searchQuery || 'profile')
   }, [searchQuery])
 
   return (
     <div className={styles.wrapper}>
-        <HeaderSubText title='Settings' variant='main' />
       <div className={styles.container}>
         <Sidebar settingsLists={settingsLists} active={active} />
         <div className={styles.content}>
           {searchQuery === 'profile' && <Profile />}
-          {searchQuery === 'verification' && <Verification />}
-          {searchQuery === 'account' && <Account />}
-          {searchQuery === 'payments' && <Payments />}
-          {searchQuery === 'help-center' && <HelpCenter />}
+          {searchQuery === 'members' && <Members />}
+          {searchQuery === 'roles-permissions' && <RolesPermission />}
         </div>
       </div>
     </div>

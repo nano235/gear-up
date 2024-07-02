@@ -35,3 +35,4 @@ export { default as ArrowRight } from "./ArrowRight";
 export { default as ThirdPartyCheckIcon } from "./ThirdPartyCheckIcon";
 export { default as UserIcon } from "./UserIcon";
 export { default as BlogIcon } from "./BlogIcon";
+export {default as UserSideIcon } from './UserSideIcon'

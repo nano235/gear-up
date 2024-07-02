@@ -17,35 +17,35 @@ const AdminSidebar = ({ isMobile, onClose }: Props) => {
         {
             name: 'Dashboard',
             icon: <DashboardNavIcon />,
-            link: '/dashboard',
+            link: '/user/dashboard',
         },
         {
             name: 'Transactions',
             icon: <TransactionNavIcon />,
-            link: '/transactions',
+            link: '/user/transactions',
         },
         {
             name: 'Categories',
             icon: <CategoriesNavIcon />,
-            link: '/categories',
+            link: '/user/categories',
         },
         {
             name: 'Messages',
             icon: <MessagesNavIcon />,
-            link: '/messages',
+            link: '/user/messages',
         },
         {
             name: 'Listings',
             icon: <ListingsNavIcon />,
-            link: '/listings',
+            link: '/user/listings',
         },
         {
             name: 'Wallet',
             icon: <WalletNavIcon />,
-            link: '/wallet',
+            link: '/user/wallet',
         },
     ]
-    const [active, setActive] = useState('/dashboard')
+    const [active, setActive] = useState('/user/dashboard')
 
     console.log(pathname)
 
@@ -79,7 +79,7 @@ const AdminSidebar = ({ isMobile, onClose }: Props) => {
                             <h4>
                                 username
                             </h4>
-                            <Link href="/settings">
+                            <Link href="/user/settings?q=profile">
                                 View Profile
                             </Link>
                         </div>
@@ -90,16 +90,16 @@ const AdminSidebar = ({ isMobile, onClose }: Props) => {
                 <ul className={styles.navlinks_container}>
                     {sidebarItems.map((item, index) => (
                         <Link key={index} data-active={active === item.link} href={item.link} className={styles.navlinks_container__item} >
-                            <span className='icon'>
+                            <span className={styles.icon}>
                                 {item.icon}
                             </span>
-                            <span className='title'>{item.name}</span>
+                            <span className={styles.title}>{item.name}</span>
                         </Link>
                     ))}
                 </ul>
 
                 <ul className={`${styles.navlinks_container} ${styles.btn_container}`} >
-                    <Link href='/settings?q=payments' className={styles.navlinks_container__item} data-active={active === '/settings'}>
+                    <Link href='/user/settings?q=payments' className={styles.navlinks_container__item} data-active={active === '/user/settings'}>
                         <span>
                             <SettingsNavIcon />
                         </span>

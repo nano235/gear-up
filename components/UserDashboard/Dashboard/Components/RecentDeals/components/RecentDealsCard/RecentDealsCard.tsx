@@ -1,7 +1,6 @@
 'use client'
 import React, { useState } from 'react'
 import styles from './RecentDealsCard.module.scss'
-import { DashboardCard } from '../../..'
 import Image from 'next/image'
 import { Button } from '@/shared'
 

@@ -1,12 +1,16 @@
-export { default as CategoriesView } from "./Categories";
-export { default as DashboardView } from "./Dashboard";
-export { default as LisitingsView } from "./Listings";
-export { default as MessagesView } from "./Messages";
-export { default as SettingsView } from "./Settings";
-export { default as TransactionsView } from "./Transactions";
-export { default as WalletView } from "./Wallet";
-export { default as VerificationView } from "./VerificationViews/VerificationViews";
-export { default as TransactionDetailsView } from "./TransactionDetails/TransactionDetails";
-export { default as UsersView } from "./UsersView";
-export { default as UserDetailsView } from "./UserDetailsView";
-export { default as WithdrawalRequests } from "./Wallet/WithdrawalRequests/WithdrawalRequests";
+export {default as CategoriesView} from './Categories'
+export {default as DashboardView} from  './Dashboard'
+export {default as LisitingsView} from './Listings'
+export {default as MessagesView} from './Messages'
+export {default as SettingsView} from './Settings'
+export {default as TransactionsView} from './Transactions'
+export {default as WalletView} from './Wallet'
+export {default as VerificationView} from '../UserDashboardViews/Dashboard/VerificationViews/VerificationViews'
+export {default as TransactionDetailsView} from './TransactionDetails/TransactionDetails'
+export {default as UsersView} from './UsersView'
+export {default as UserDetailsView} from './UserDetailsView'
+export {default as WithdrawalRequests} from './Wallet/WithdrawalRequests/WithdrawalRequests'
+export {default as ThirdPartyCheckView} from './ThirdPartyCheck'
+export {default as ThirdPartyCheckDetailsView} from './ThirdPartyCheck/ThirdPartyCheckDetails/ThirdPartyCheckDetails'
+export {default as ListingsDetailsView} from './Listings/ListingsDetails/ListingsDetails'
+export {default as MemberDetailsView} from './MemberDetailsView/MemberDetailsView'

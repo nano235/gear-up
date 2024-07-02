@@ -29,7 +29,7 @@ const TransactionDetailsHeader = ({ slug, item }: Props) => {
                 </span>
                 <p>Back</p>
             </div>
-            <HeaderSubText title='Transactions details' variant='main' />
+            <HeaderSubText title='Transactions details' variant='normal' />
             <div className={styles.item_details}>
                 <div className={styles.left}>
                     <Image src="/images/admin-img.jpg" alt={item?.gear_name} width={16} height={16} />

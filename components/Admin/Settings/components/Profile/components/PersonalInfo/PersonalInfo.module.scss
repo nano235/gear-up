@@ -21,9 +21,16 @@
     border: 1px solid $col-border;
     padding: 2.5rem;
     border-radius: 2rem;
+    background-color: #fff;
 
     .uploader_container{
-        margin: 4rem 0;
+        margin: 2rem 0;
+        display: flex;
+        align-items: center;
+        background: #FAFAFB;
+        gap: 2rem;
+        padding: 2rem;
+        border-radius: 0.8rem;
 
         .name {
             font-size: 2rem;
@@ -83,15 +90,12 @@
 
       .text_area_container{
         grid-column: span 2;
-      
+        
       }
-
-      .map_container {
-        grid-column: span 2;
-        border: 1px solid $col-border;
-        border-radius: 1rem;
-        height: 250px;
-        background: #FFF7E7;
+      
+      .disabled_field{
+        background-color: #FAFAFB;
+  
       }
 
 
@@ -100,7 +104,7 @@
     .submit_btn_container {
       column-span: 2;
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
       margin-top: 2rem;
       width: 100%;
     }

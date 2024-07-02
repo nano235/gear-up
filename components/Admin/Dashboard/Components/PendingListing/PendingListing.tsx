@@ -14,7 +14,7 @@ const PendingListing = () => {
                 </div>
             </div>
             <div className={styles.create_listing}>
-                <Button buttonType='secondary' iconSuffix='/svgs/arrow.svg'>
+                <Button className={styles.btn} buttonType='secondary' iconSuffix='/svgs/arrow.svg'>
                     Review pending listings
                 </Button>
             </div>

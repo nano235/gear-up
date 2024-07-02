@@ -26,8 +26,9 @@ import ToggleSwitch from "./Switch/Switch";
 import RadioInput from "./Radio/Radio";
 import ImageUploader from "./ImageUploader/ImageUploader";
 import ConfirmToken from "./ConfirmToken/ConfirmToken";
+import CustomBreadCrumb from "./CustomBreadCrumbs/CustomBreadCrumbs";
 import StarRating from "./starRating/StarRating";
-import CustomBreadCrumb from "./customBreadCrumb/CustomBreadCrumb";
+import BackNavigation from "./backNavigation/BackNavigation";
 
 export {
 	Header,
@@ -60,4 +61,5 @@ export {
 	ConfirmToken,
 	CustomBreadCrumb,
 	StarRating,
+	BackNavigation,
 };

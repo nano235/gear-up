@@ -35,7 +35,7 @@ const Users = () => {
             <div className={styles.container__input_filter_container}>
                 <InputField placeholder='Search' icon='/svgs/icon-search-dark.svg' iconTitle='search-icon' />
             </div>
-            <UsersTable users={paginatedData} page={page} limit={limit} handlePagination={handlePagination} />
+            <UsersTable users={paginatedData} page={page} limit={limit} handlePagination={handlePagination} url='users' />
         </div>
     )
 }

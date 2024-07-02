@@ -11,6 +11,7 @@ import MoreModal from "../MoreModal/MoreModal";
 import { customisedTableClasses } from "@/utils/classes";
 import Pagination from "../../../../../shared/pagination/Pagination";
 import RecentDealsCard from "@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard";
+import Link from "next/link";
 
 const ListingTable = () => {
 	const [activeLayout, setActiveLayout] = useState("list");
@@ -133,55 +134,49 @@ const ListingTable = () => {
 		{
 			...sharedColDef,
 
-			field: "date",
+			field: 'date',
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
-			headerName: "Date",
+			headerName: 'Date',
 			minWidth: 150,
 		},
 		{
 			...sharedColDef,
 
-			field: "status",
+			field: 'price',
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
-			headerName: "Status",
+			headerName: 'Price',
+			minWidth: 150,
+		},
+		{
+			...sharedColDef,
+
+			field: 'status',
+			cellClassName: styles.table_cell,
+			headerClassName: styles.table_header,
+			headerName: 'Status',
 			minWidth: 150,
 			renderCell: ({ value }) => (
 				<div className={styles.container__status_container}>
-					<ToggleSwitch checked={value?.toLowerCase() === "ongoing"} />
-					<p
-						style={{ fontSize: "1.2rem" }}
-						className={styles.container__status_container__status}
-					>
-						{value?.toLowerCase() === "ongoing" ? "Live" : "Draft"}
+					<p style={{ fontSize: '1.2rem' }} className={styles.container__status_container__status}>
+						{value}
 					</p>
 				</div>
 			),
 		},
+
 		{
 			...sharedColDef,
 
-			field: "price",
+			field: 'availability',
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
-			headerName: "Price",
-			minWidth: 150,
-		},
-		{
-			...sharedColDef,
-
-			field: "availability",
-			cellClassName: styles.table_cell,
-			headerClassName: styles.table_header,
-			headerName: "Availability",
-			maxWidth: 100,
+			headerName: 'Availability',
+			maxWidth: 200,
 			renderCell: ({ value }) => (
 				<div className={styles.container__availability_container}>
-					<span
-						className={styles.container__availability_container__availability}
-						data-status={value?.toLowerCase()}
-					>
+					<span className={styles.container__availability_container__availability} data-status={value?.toLowerCase()}>
 						{value}
 					</span>
 				</div>
@@ -190,33 +185,26 @@ const ListingTable = () => {
 		{
 			...sharedColDef,
 
-			field: "actions",
+			field: 'actions',
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
-			headerName: "Actions",
-			maxWidth: 100,
+			headerName: 'Actions',
+			maxWidth: 150,
 			renderCell: ({ row, value }) => (
-				<div className={styles.container__action_cell}>
-					<span
-						onClick={() => handleClickMore(row.id)}
-						className={styles.container__actions_container}
-					>
-						<MoreIcon />
-					</span>
-					{showMoreModal && activeRow === row.id && (
-						<div className={styles.modal_container}>
-							<MoreModal />
-						</div>
-					)}
-				</div>
+				<Link
+					href={`/admin/listings/${row.id}?&user_role=${row.user_role}&third_party=${row.third_party_verification}&timeElapsed=${row.timeElapsed}`}
+					className={styles.container__action_btn}
+				>
+					view details
+				</Link>
 			),
 		},
 	];
-	console.log(activeRow);
+
 	const handleClickMore = (id: number) => {
-		console.log("More clicked", id);
-		setShowMoreModal(prev => !prev);
-		setActiveRow(id);
+		console.log('More clicked', id)
+		setShowMoreModal((prev) => !prev)
+		setActiveRow(id)
 	};
 
 	const listData = [
@@ -279,7 +267,7 @@ const ListingTable = () => {
 
 					<ul className={styles.container__cards_container}>
 						{rows.map(item => (
-							<RecentDealsCard key={item.id} item={item} />
+							<ListingCard key={item.id} props={item} />
 						))}
 					</ul>
 				</>
@@ -287,7 +275,7 @@ const ListingTable = () => {
 				<>
 					<div className={styles.container__grid}>
 						{rows.map(item => (
-							<ListingCard key={item.id} props={item} />
+							<Link key={item.id} href={`/admin/listings/${item.id}`}><ListingCard key={item.id} props={item} /></Link>
 						))}
 					</div>
 				</>
