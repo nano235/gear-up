@@ -43,6 +43,7 @@
             border-radius: 10rem;
             cursor: pointer;
             border: 1px solid $col-border;
+            transition: all 0.5s ease-in-out;
 
             &[data-active='true']{
                 background-color: #FFF7E7;

@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import styles from './Members.module.scss'
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import { GridAddIcon } from '@mui/x-data-grid'
@@ -6,6 +7,7 @@ import { Button } from '@/shared'
 import MembersTable from './MembersTable/MembersTable'
 import Image from 'next/image'
 import { UserIcon } from '@/shared/svgs/dashboard'
+import AddMember from './AddMember/AddMember'
 
 const lists = [
     {
@@ -26,6 +28,7 @@ const lists = [
 ]
 
 const Members = () => {
+    const [openModal, setOpenModal] = useState(false)
     const noMembers = true;
     return (
         <div className={styles.container}>
@@ -36,6 +39,7 @@ const Members = () => {
                         !noMembers && <Button
                             buttonType="primary"
                             className={`${styles.transparent_btn} ${styles.btn}`}
+                            onClick={() => setOpenModal(true)}
                         >
                             <span className={styles.icon}>
                                 <GridAddIcon className={styles.icon} />{" "}
@@ -60,7 +64,7 @@ const Members = () => {
                     }
                 </ul>
                 {
-                    noMembers ?
+                    !noMembers ?
                         <div className={styles.no_members}>
                             <span className={styles.icon}>  <UserIcon color='#FFB30F' /></span>
                             <div>
@@ -70,6 +74,7 @@ const Members = () => {
                             <Button
                                 buttonType="primary"
                                 className={`${styles.transparent_btn} ${styles.btn}`}
+                                onClick={() => setOpenModal(true)}
                             >
                                 <span className={styles.add_icon}>
                                     <GridAddIcon className={styles.add_icon} />{" "}
@@ -82,6 +87,7 @@ const Members = () => {
                         : <MembersTable />
                 }
             </div>
+            <AddMember openModal={openModal} setOpenModal={setOpenModal} />
         </div>
     )
 }

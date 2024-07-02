@@ -1,9 +1,11 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import styles from './RolesPermission.module.scss'
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import { GridAddIcon } from '@mui/x-data-grid'
 import { Button } from '@/shared'
 import Image from 'next/image'
+import AddRole from './AddRole/AddRole'
 
 const lists = [
     {
@@ -24,6 +26,7 @@ const lists = [
 ]
 
 const RolesPermission = () => {
+    const [openModal, setOpenModal] = useState(false)
     return (
         <div className={styles.container}>
             <div className={styles.body}>
@@ -32,6 +35,7 @@ const RolesPermission = () => {
                     <Button
                         buttonType="primary"
                         className={`${styles.transparent_btn} ${styles.btn}`}
+                        onClick={() => setOpenModal(true)}
                     >
                         <span className={styles.icon}>
                             <GridAddIcon className={styles.icon} />{" "}
@@ -56,6 +60,7 @@ const RolesPermission = () => {
                     }
                 </ul>
             </div>
+            <AddRole openModal={openModal} setOpenModal={setOpenModal} />
         </div>
     )
 }

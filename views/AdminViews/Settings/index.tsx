@@ -1,5 +1,5 @@
+import { Settings } from '@/components/Admin'
 import React from 'react'
-import { Settings } from '../../components/Admin'
 
 const SettingsView = () => {
     return (

@@ -6,7 +6,7 @@
 
     &__action_btn{
         border:1px solid $col-grey-300;
-        padding: 0.5rem 1rem;
+        padding: 0.2rem 1rem;
         border-radius: 10rem;
         font-size:1.4rem;
         font-weight: 700;
@@ -116,6 +116,7 @@
 
             &__icon{
                 padding: 1rem;
+                transition: all 0.5s ease-in-out;
                 
                 &[data-active='true'][data-type='list']{
                     background: #000000;
