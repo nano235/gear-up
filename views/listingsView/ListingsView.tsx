@@ -3,7 +3,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./ListingsView.module.scss";
 import { Listings } from "@/interfaces";
-import { Button, CustomBreadCrumb, Listing, Pagination } from "@/shared";
+import { Button, Listing, Pagination } from "@/shared";
 import { usePathname, useRouter } from "next/navigation";
 import { BreadCrumbSelect, Filter } from "@/components/listings";
 import gsap from "gsap";
@@ -12,6 +12,7 @@ import { PageLoader } from "@/shared/loaders";
 import { useFetch } from "@/hooks";
 import { useSearchParams } from "next/navigation";
 import { AppState, useAppSelector } from "@/store/configureStore";
+import CustomBreadCrumb from "@/shared/customBreadCrumb/CustomBreadCrumb";
 const ListingsView = () => {
 	// const { listings, setListings }: any = useGlobalContext();
 	const listings = useAppSelector((state: AppState) => state.listings);
