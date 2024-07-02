@@ -1,11 +1,11 @@
 
-import { VerificationView } from '@/views/AdminViews'
+import { VerificationView } from '@/views/UserDashboardViews'
 import React from 'react'
 
 const Page = () => {
     return (
         <div>
-            <VerificationView /> 
+            <VerificationView />
         </div>
     )
 }

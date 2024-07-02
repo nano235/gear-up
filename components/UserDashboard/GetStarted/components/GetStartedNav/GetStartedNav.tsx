@@ -5,6 +5,7 @@ import styles from './GetStartedNav.module.scss';
 import ProgressBar from '@/shared/progressBar/ProgressBar';
 import Image from 'next/image';
 import { CloseIcon } from '@/shared/svgs/dashboard';
+import Link from 'next/link';
 
 interface NavbarProps {
     stepCount: number;
@@ -30,10 +31,10 @@ const GetStartedNav: React.FC<NavbarProps> = ({ stepCount, currentStep, steps, o
                     </div>
                 </div>
                 <div className={styles.container__top__right}>
-                    <span className={styles.close_button} onClick={onClose}>
+                    <Link href={'/user/dashboard'} className={styles.close_button} onClick={onClose}>
                         Exit
                         <CloseIcon />
-                    </span>
+                    </Link>
                 </div>
             </div>
             <div className={styles.progress_bar}>

@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import styles from './VerificationViews.module.scss'
-import { PersonalIdentification, PhoneVerification, IdVerification, FaceMatch, GetStartedNav } from '@/components/Admin/GetStarted/components'
+import { PersonalIdentification, PhoneVerification, IdVerification, FaceMatch, GetStartedNav } from '@/components/UserDashboard/GetStarted/components'
 import Image from 'next/image'
 import { Button } from '@/shared'
 

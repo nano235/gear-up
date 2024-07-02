@@ -11,37 +11,43 @@ const Settings = () => {
   const searchParams = useSearchParams()
   const searchQuery = searchParams.get('q')
   const [active, setActive] = useState<string>('/admin/settings?q=payments')
+
   const settingsLists = [
     {
       id: 3,
       name: 'Payments',
-      path: '/admin/settings?q=payments',
-      slug: 'payments'
+      path: '/user/settings?q=payments',
+      slug: 'payments',
+      icon: '/svgs/settings-payment.svg',
     },
     {
       id: 1,
       name: 'Profile',
-      path: '/admin/settings?q=profile',
-      slug: 'profile'
+      path: '/user/settings?q=profile',
+      slug: 'profile',
+      icon: '/svgs/settings-profile.svg',
     },
     {
       id: 2,
       name: 'Verification',
-      path: '/admin/settings?q=verification',
-      slug: 'verification'
+      path: '/user/settings?q=verification',
+      slug: 'verification',
+      icon: '/svgs/settings-verification.svg',
     },
 
     {
       id: 4,
       name: 'Account',
-      path: '/admin/settings?q=account',
-      slug: 'account'
+      path: '/user/settings?q=account',
+      slug: 'account',
+      icon: '/svgs/settings-account.svg',
     },
     {
       id: 5,
       name: 'Help center',
-      path: '/admin/settings?q=help-center',
-      slug: 'help-center'
+      path: '/user/settings?q=help-center',
+      slug: 'help-center',
+      icon: '/svgs/settings-help-center.svg',
     },
   ]
 
@@ -51,7 +57,7 @@ const Settings = () => {
 
   return (
     <div className={styles.wrapper}>
-        <HeaderSubText title='Settings' variant='main' />
+      <HeaderSubText title='Settings' variant='main' />
       <div className={styles.container}>
         <Sidebar settingsLists={settingsLists} active={active} />
         <div className={styles.content}>
