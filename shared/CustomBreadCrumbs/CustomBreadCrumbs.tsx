@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import styles from "./CustomBreadCrumb.module.scss";
+import styles from "./CustomBreadCrumbs.module.scss";
 import { ChevronIcon } from "../svgs/dashboard";
 
 interface Props {
