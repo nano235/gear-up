@@ -19,6 +19,9 @@ export const customisedTableClasses = {
     "& .MuiDataGrid-cell:focus": {
       outline: "none",
     },
+    "& .MuiDataGrid-row:hover": {
+    background: "#F9FAFB",
+  },
     borderRadius: "8px",
   };
   

@@ -6,6 +6,7 @@ import { GridAddIcon } from '@mui/x-data-grid'
 import { Button } from '@/shared'
 import Image from 'next/image'
 import AddRole from './AddRole/AddRole'
+import RolesPermissionTable from './RolesPermissionTable/RolesPermissionTable'
 
 const lists = [
     {
@@ -59,6 +60,7 @@ const RolesPermission = () => {
                         ))
                     }
                 </ul>
+                <RolesPermissionTable />
             </div>
             <AddRole openModal={openModal} setOpenModal={setOpenModal} />
         </div>
