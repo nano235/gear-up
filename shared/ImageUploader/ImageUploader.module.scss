@@ -1,16 +1,17 @@
 .container {
     position: relative;
-    width: 150px;
-    height: 150px;
-
+    width: 130px;
+    height: 130px;
+    
     .image_container {
-      width: 150px;
-      height: 150px;
+      background-color: #E3E6E9;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
       overflow: hidden;
       margin-bottom: 16px;
-      border: 1px solid #E0E0E0;}
-      position: relative;
+      border: 1px solid #E0E0E0;
+    }
 
       .image {
         width: 100%;
@@ -21,10 +22,10 @@
   .upload_button {
     position: absolute;
     bottom: 8px;
-    right: -10px;
+    right: -8px;
     cursor: pointer;
-    height: 4.5rem;
-height: 4.5rem;
+    height: 3.5rem;
+height: 3.5rem;
 border-radius: 50%;
 padding: 0.5rem;
 background: #fff;
@@ -38,8 +39,8 @@ background: #fff;
     .icon {
       font-size: 24px;
       background: #FFF7E7;
-      height: 4rem;
-      height: 4rem;
+      height: 3rem;
+      height: 3rem;
       border-radius: 50%;
       
     

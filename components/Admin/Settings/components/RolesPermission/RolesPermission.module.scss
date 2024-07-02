@@ -46,7 +46,7 @@ gap: 4rem;
             cursor: pointer;
             box-sizing: border-box;
             border-radius: 1rem;
-            width: 100%;
+            flex: 1;
             transition: all 0.3s linear;
 
             &:hover{

@@ -22,7 +22,7 @@ const AdminNavbar = () => {
 			<div className={styles.logo_icon}>
 				<Logo type="dark" />
 			</div>
-			<HeaderSubText title={newPathname} variant="main" />
+			<HeaderSubText title={newPathname} variant="normal" />
 			<div className={styles.icons_container}>
 				<div className={styles.mob_buttons}>
 					<Button
