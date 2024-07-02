@@ -18,7 +18,8 @@ const RangeInput = ({
 }) => {
 	const ref = useRef<any>(null);
 	useEffect(() => {
-		ref.current.style.backgroundSize = ((value - min) * 100) / (max - min) + "% 100%";
+		ref.current.style.backgroundSize =
+			((value! - min) * 100) / (max - min) + "% 100%";
 	});
 	return (
 		<div className={styles.container}>
