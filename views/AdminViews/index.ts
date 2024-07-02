@@ -13,3 +13,4 @@ export {default as WithdrawalRequests} from './Wallet/WithdrawalRequests/Withdra
 export {default as ThirdPartyCheckView} from './ThirdPartyCheck'
 export {default as ThirdPartyCheckDetailsView} from './ThirdPartyCheck/ThirdPartyCheckDetails/ThirdPartyCheckDetails'
 export {default as ListingsDetailsView} from './Listings/ListingsDetails/ListingsDetails'
+export {default as MemberDetailsView} from './MemberDetailsView/MemberDetailsView'
