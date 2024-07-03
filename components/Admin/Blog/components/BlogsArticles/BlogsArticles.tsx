@@ -117,16 +117,18 @@ const BlogsTable = () => {
                     icon="/svgs/icon-search-dark.svg"
                     iconTitle="search-icon"
                 />
-                <Button
-                    buttonType="primary"
-                    className={`${styles.transparent_btn} ${styles.btn}`}
+                <Link href="/admin/blog/new-blog">
+                    <Button
+                        buttonType="primary"
+                        className={`${styles.transparent_btn} ${styles.btn}`}
 
-                >
-                    <span className={styles.icon}>
-                        <GridAddIcon className={styles.icon} />{" "}
-                    </span>
-                    New post
-                </Button>
+                    >
+                        <span className={styles.icon}>
+                            <GridAddIcon className={styles.icon} />{" "}
+                        </span>
+                        New post
+                    </Button>
+                </Link>
             </div>
 
             <div

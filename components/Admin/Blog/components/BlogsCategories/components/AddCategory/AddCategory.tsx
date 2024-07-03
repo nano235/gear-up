@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './AddCategory.module.scss'
 import Modal from '@/shared/modals/modal/Modal'
-import { Button, InputField, Select } from '@/shared';
+import { Button, InputField } from '@/shared';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -11,7 +11,6 @@ interface AddMemberProps {
 }
 
 const AddRole = ({ openModal, setOpenModal }: AddMemberProps) => {
-    const [selectedRole, setSelectedRole] = React.useState<string>('')
 
     interface PayoutFormValues {
         firstName: string;
@@ -45,15 +44,6 @@ const AddRole = ({ openModal, setOpenModal }: AddMemberProps) => {
         setOpenModal(false)
     }
 
-    const roleOptions = [
-        'customer support',
-        'designer',
-        'footballer'
-    ]
-
-    const onOptionChange = (option: any) => {
-        setSelectedRole(option.value)
-    }
     return (
         <Modal openModal={openModal} setOpenModal={onClose} title='Create new category' >
             <div className={styles.container}>

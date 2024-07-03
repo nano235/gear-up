@@ -17,3 +17,4 @@ export {default as ThirdPartyCheckComponent} from './ThirdPartyCheck/ThirdPartyC
 export {default as ListingsDetailsComponent} from './Listings/ListingsDetails/ListingsDetails'
 export {default as MemberDetailsComponent} from './Settings/components/MemberDetails/MemberDetails'
 export {default as BlogComponent} from './Blog/Blog'
+export {default as NewBlogComponent} from './Blog/NewBlog/NewBlog'
