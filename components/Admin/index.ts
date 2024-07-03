@@ -16,3 +16,4 @@ export {default as WithdrawalRequestsComponent} from './Wallet/WithdrawalRequest
 export {default as ThirdPartyCheckComponent} from './ThirdPartyCheck/ThirdPartyCheck'
 export {default as ListingsDetailsComponent} from './Listings/ListingsDetails/ListingsDetails'
 export {default as MemberDetailsComponent} from './Settings/components/MemberDetails/MemberDetails'
+export {default as BlogComponent} from './Blog/Blog'
