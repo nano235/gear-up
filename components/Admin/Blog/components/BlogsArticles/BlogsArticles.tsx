@@ -116,7 +116,6 @@ const BlogsTable = () => {
                     className={styles.container__action_btn}
                     ref={containerRef}
                 >
-
                     <Popper
                         id={selectedRow?.id || 'simple-popover'}
                         sx={{
