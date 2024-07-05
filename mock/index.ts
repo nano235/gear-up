@@ -6,6 +6,7 @@ import { listings } from "./listings.mock";
 import { footerNavLink, navLinks, socialMediaLinks } from "./nav.mock";
 import { platformList } from "./platform.mock";
 import { scrollData } from "./scrollData.mock";
+import { userListingsData } from "./userListings.mock";
 
 export {
 	navLinks,
@@ -18,4 +19,5 @@ export {
 	footerNavLink,
 	socialMediaLinks,
 	cameraSubCategories,
+	userListingsData,
 };

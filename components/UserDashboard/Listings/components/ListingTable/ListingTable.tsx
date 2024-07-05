@@ -13,7 +13,8 @@ import { customisedTableClasses } from "@/utils/classes";
 import Pagination from "../../../../../shared/pagination/Pagination";
 import RecentDealsCard from "@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard";
 import { Popper } from "@mui/material";
-import { listings } from "@/mock";
+import { listings, userListingsData } from "@/mock";
+import Fade from '@mui/material/Fade';
 
 const ListingTable = () => {
 	const [activeLayout, setActiveLayout] = useState("list");
@@ -25,7 +26,7 @@ const ListingTable = () => {
 	const [showOptionsModal, setShowOptionsModal] = useState(false);
 	const [selectedRow, setSelectedRow] = useState<any | undefined>();
 	const [paginatedTransactions, setPaginatedTransactions] = useState<GridRowsProp>(
-		listings.map((item, ind) => { return { ...item, id: ind + 1 } }).slice(0, limit)
+		userListingsData.map((item, ind) => { return { ...item, id: ind + 1 } }).slice(0, limit)
 	);
 	const sharedColDef: GridColDef = {
 		field: "",
@@ -36,7 +37,7 @@ const ListingTable = () => {
 	const handlePagination = (page: number) => {
 		const start = (page - 1) * limit;
 		const end = start + limit;
-		setPaginatedTransactions(listings.slice(start, end));
+		setPaginatedTransactions(userListingsData.slice(start, end));
 		setPage(page);
 	};
 	const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -131,29 +132,24 @@ const ListingTable = () => {
 		},
 		{
 			...sharedColDef,
-
-			field: "actions",
+			field: "id",
+			align: "center",
+			headerAlign: "center",
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
 			headerName: "Actions",
-			maxWidth: 100,
+			minWidth: 150,
 			renderCell: ({ row, value }) => (
 				<span
 					className={styles.container__action_btn}
 					ref={containerRef}
 				>
-					<Popper
-						id={selectedRow?.id || 'simple-popover'}
-						sx={{
-							pointerEvents: 'revert-layer',
-							boxShadow: 'none',
-							zIndex: 100,
-						}}
-						open={open}
-						anchorEl={anchorEl}
-
-					>
-						<MoreModal row={selectedRow} onClose={() => setShowOptionsModal(false)} />
+					<Popper id={'simple-popover'} open={open} anchorEl={anchorEl} transition>
+						{({ TransitionProps }) => (
+							<Fade {...TransitionProps} timeout={200}>
+								<div className={styles.more_modal}><MoreModal row={selectedRow} onClose={() => setShowOptionsModal(false)} /></div>
+							</Fade>
+						)}
 					</Popper>
 					< MoreIcon onClick={(e) => {
 						setShowOptionsModal(true);
@@ -219,13 +215,13 @@ const ListingTable = () => {
 						<Pagination
 							currentPage={1}
 							onPageChange={setPage}
-							totalCount={listings.length}
+							totalCount={userListingsData.length}
 							pageSize={5}
 						/>
 					</div>
 
 					<ul className={styles.container__cards_container}>
-						{listings.map((item, ind) => (
+						{userListingsData.map((item, ind) => (
 							<RecentDealsCard key={ind} item={item} />
 						))}
 					</ul>

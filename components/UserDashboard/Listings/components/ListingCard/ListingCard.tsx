@@ -1,6 +1,6 @@
 "use client";
 
-import React,{useState} from "react";
+import React, { useState } from "react";
 import styles from "./ListingCard.module.scss";
 import Image from "next/image";
 import { formatLink, shortenTitle } from "@/utils";
@@ -17,9 +17,9 @@ interface Props {
 const ListingCard = ({ props, className }: Props) => {
     const { setSingleListing } = useGlobalContext();
     const [showMoreModal, setShowMoreModal] = useState(false);
-    const [activeRow,setActiveRow] = useState(0)
+    const [activeRow, setActiveRow] = useState(0)
 
-    const handleMoreIconClick = (id:number) => {
+    const handleMoreIconClick = (id: number) => {
         setActiveRow(id)
         setShowMoreModal((prev) => !prev);
         // Add any additional logic for the MoreIcon click here
@@ -31,11 +31,11 @@ const ListingCard = ({ props, className }: Props) => {
         >
             <div className={styles.image}>
                 <Image src={props.image} alt={props.title} fill sizes="100vw" />
-                <span className={styles.more_icon} onClick={()=>handleMoreIconClick(props.id)}>
+                <span className={styles.more_icon} onClick={() => handleMoreIconClick(props.id)}>
                     <MoreIcon />
                 </span>
                 {
-                    showMoreModal && activeRow === props.id && <MoreModal />
+                    showMoreModal && activeRow === props.id && <div className={styles.more_modal}> <MoreModal /></div>
                 }
             </div>
             <div className={styles.row} style={{ alignItems: "flex-start" }}>

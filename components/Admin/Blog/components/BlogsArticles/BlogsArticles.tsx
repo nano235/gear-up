@@ -11,7 +11,7 @@ import RecentDealsCard from "@/components/UserDashboard/Dashboard/Components/Rec
 import { blogsData } from "@/mock/blogs.mock";
 import { MoreIcon } from "@/shared/svgs/dashboard";
 import MoreModal from "./MoreModal/MoreModal";
-import { Popover, Popper } from "@mui/material";
+import { Fade, Popover, Popper } from "@mui/material";
 import { set } from "date-fns";
 
 const BlogsTable = () => {
@@ -116,6 +116,7 @@ const BlogsTable = () => {
                     className={styles.container__action_btn}
                     ref={containerRef}
                 >
+
                     <Popper
                         id={selectedRow?.id || 'simple-popover'}
                         sx={{
@@ -125,9 +126,13 @@ const BlogsTable = () => {
                         }}
                         open={open}
                         anchorEl={anchorEl}
-
+                        transition
                     >
-                        <MoreModal row={selectedRow} onClose={() => setShowOptionsModal(false)} />
+                        {({ TransitionProps }) => (
+                            <Fade {...TransitionProps} timeout={200}>
+                                <div className={styles.more_modal}><MoreModal row={selectedRow} onClose={() => setShowOptionsModal(false)} /></div>
+                            </Fade>
+                        )}
                     </Popper>
                     < MoreIcon onClick={(e) => {
                         setShowOptionsModal(true);

@@ -32,6 +32,10 @@
         align-items: center;
         justify-content: center;
         height: 100%;
+
+        .more_modal{
+            transform: translateX(-3rem);
+        }
     }
 
     &__title{
