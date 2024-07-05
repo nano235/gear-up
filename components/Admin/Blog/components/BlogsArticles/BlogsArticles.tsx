@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { RefObject, useEffect, useRef, useState } from "react";
 import styles from "./BlogsArticles.module.scss";
 import { DataGrid, GridAddIcon, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import Image from "next/image";
@@ -10,10 +10,17 @@ import { transactions } from "@/mock/transactions.mock";
 import RecentDealsCard from "@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard";
 import { blogsData } from "@/mock/blogs.mock";
 import { MoreIcon } from "@/shared/svgs/dashboard";
+import MoreModal from "./MoreModal/MoreModal";
+import { Popover, Popper } from "@mui/material";
+import { set } from "date-fns";
 
 const BlogsTable = () => {
+    const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
     const [page, setPage] = useState(1);
     const [limit, setLimit] = useState(10);
+    const [showOptionsModal, setShowOptionsModal] = useState(false);
+    const [selectedRow, setSelectedRow] = useState<any | undefined>();
     const [paginatedTransactions, setPaginatedTransactions] = useState<GridRowsProp>(
         blogsData.slice(0, limit)
     );
@@ -30,6 +37,11 @@ const BlogsTable = () => {
         setPaginatedTransactions(transactions.slice(start, end));
         setPage(page);
     };
+    const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const open = Boolean(anchorEl) && showOptionsModal;
 
     const columns: GridColDef[] = [
         {
@@ -102,12 +114,43 @@ const BlogsTable = () => {
             renderCell: ({ row, value }) => (
                 <span
                     className={styles.container__action_btn}
+                    ref={containerRef}
                 >
-                    <MoreIcon />
-                </span>
+                    <Popper
+                        id={selectedRow?.id || 'simple-popover'}
+                        sx={{
+                            pointerEvents: 'revert-layer',
+                            boxShadow: 'none',
+                            zIndex: 100,
+                        }}
+                        open={open}
+                        anchorEl={anchorEl}
+
+                    >
+                        <MoreModal row={selectedRow} onClose={() => setShowOptionsModal(false)} />
+                    </Popper>
+                    < MoreIcon onClick={(e) => {
+                        setShowOptionsModal(true);
+                        setSelectedRow(row);
+                        handlePopoverOpen(e);
+                    }
+                    } />
+                </span >
             ),
         },
     ];
+
+
+
+
+    const handlePopoverClose = () => {
+        setAnchorEl(null);
+
+    };
+
+
+
+
 
     return (
         <div className={styles.container}>

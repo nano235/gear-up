@@ -22,6 +22,17 @@ export const customisedTableClasses = {
     "& .MuiDataGrid-row:hover": {
     background: "#F9FAFB",
   },
+    "& .MuiDataGrid-cell": {
+      color: "#1B1E21",
+      fontSize: '1.2rem',
+      overflow: "visible"
+    },
+    "& .MuiDataGrid-main": {
+      overflow: "visible",
+      fontSize: '1.2rem',
+    },
+
     borderRadius: "8px",
   };
+  
   

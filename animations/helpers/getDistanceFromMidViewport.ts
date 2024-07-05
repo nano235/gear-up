@@ -7,8 +7,8 @@ export const getDistanceFromMidViewport = (element: HTMLElement): [x: number, y:
   const yCenter = y + height / 2;
   const xCenter = x + width / 2;
 
-  const distY = vh / 2 - yCenter;
-  const distX = vw / 2 - xCenter;
+  const distY = vh  - yCenter;
+  const distX = vw  - xCenter;
 
   return [distX, distY]
 }

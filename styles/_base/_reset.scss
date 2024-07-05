@@ -141,3 +141,12 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
 	-moz-appearance: textfield;
 }
+
+
+.css-g3hgs1-MuiBackdrop-root-MuiModal-backdrop {
+	position: fixed !important;
+}
+
+.css-diqb6k-MuiModal-root-MuiPopover-root {
+	position: fixed !important;
+}
