@@ -7,7 +7,10 @@ const PendingListing = () => {
     return (
         <div className={styles.container}>
             <div className={styles.container__left}>
-                <Image src='/svgs/pending-listing.svg' className={styles.image_icon} width={40} height={40} alt='Pending listing' />
+                <div className={styles.icon_container}>
+
+                    <Image src='/svgs/pending-listing.svg' className={styles.image_icon} width={40} height={40} alt='Pending listing' />
+                </div>
                 <div >
                     <h2 className={styles.container__left__welcome}>Pending listings</h2>
                     <p className={styles.container__left__question}>View all the listings awaiting approval</p>
