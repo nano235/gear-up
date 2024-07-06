@@ -38,4 +38,9 @@
             }
         }
     }
+
+    @include screenMax("mobile") {
+        padding:  2rem 1rem;
+    }
+
 }

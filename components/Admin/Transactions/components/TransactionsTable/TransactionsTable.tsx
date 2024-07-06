@@ -137,11 +137,11 @@ const TransactionTable = ({ transactionType }: Props) => {
 				/>
 			</div>
 
-			<ul className={styles.container__cards_container}>
+			{/* <ul className={styles.container__cards_container}>
 				{transactions.map(item => (
 					<RecentDealsCard key={item.id} item={item} />
 				))}
-			</ul>
+			</ul> */}
 		</div>
 	);
 };

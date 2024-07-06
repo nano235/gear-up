@@ -267,11 +267,11 @@ const ListingTable = () => {
 						/>
 					</div>
 
-					<ul className={styles.container__cards_container}>
+					{/* 	<ul className={styles.container__cards_container}>
 						{rows.map(item => (
 							<ListingCard key={item.id} props={item} />
 						))}
-					</ul>
+					</ul> */}
 				</>
 			) : (
 				<>

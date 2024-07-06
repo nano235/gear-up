@@ -171,9 +171,9 @@
 
     &__table{
         overflow: auto;
-        @include screenMax("mobile") {
+     /*    @include screenMax("mobile") {
             display: none;
-        }
+        } */
 
         
         .table_header{
