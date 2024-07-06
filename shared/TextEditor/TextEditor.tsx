@@ -1,18 +1,16 @@
 'use client'
-import React, { useState } from 'react';
+import React, { InputHTMLAttributes, useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import styles from './TextEditor.module.scss';
-
-interface CustomTextEditorProps {
+interface CustomTextEditorProps extends InputHTMLAttributes<HTMLInputElement> {
     value: string;
     setValue: (value: string) => void;
 }
 
-const CustomTextEditor = ({ value, setValue }: CustomTextEditorProps) => {
+const CustomTextEditor = ({ value, setValue, placeholder }: CustomTextEditorProps) => {
 
 
-    return <ReactQuill theme="snow" value={value} onChange={setValue} className={styles.container} />;
+    return <ReactQuill theme="snow" value={value} onChange={setValue} placeholder={placeholder} />;
 }
 
 export default CustomTextEditor;

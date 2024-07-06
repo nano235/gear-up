@@ -20,7 +20,7 @@ const TextEditorModal: React.FC<TrixEditorProps> = ({ onChange, value, openModal
     return (
         <Modal openModal={openModal} setOpenModal={onClose} title='Give status report'>
             <div className={styles.form_container}>
-                <CustomTextEditor value={value} setValue={onChange} />
+                <CustomTextEditor value={value} setValue={onChange} placeholder='enter status report' />
             </div>
         </Modal>
     );
