@@ -20,9 +20,10 @@ interface Props {
     limit: number
     handlePagination: (page: number) => void
     url?: string
+    totalCount?: number
 }
 
-const UsersTable = ({ users, page, limit, handlePagination, url }: Props) => {
+const UsersTable = ({ users, page, limit, handlePagination, url, totalCount }: Props) => {
 
 
     const columns: GridColDef[] = [
@@ -111,7 +112,7 @@ const UsersTable = ({ users, page, limit, handlePagination, url }: Props) => {
                                 sx={customisedTableClasses} autoHeight
                                 scrollbarSize={20}
                             />
-                            <Pagination currentPage={page} onPageChange={handlePagination} totalCount={users?.length || 0} pageSize={limit} />
+                            <Pagination currentPage={page} onPageChange={handlePagination} totalCount={totalCount || 0} pageSize={limit} />
                         </div>
                         {/*  <ul className={styles.container__cards_container}>
                             {
