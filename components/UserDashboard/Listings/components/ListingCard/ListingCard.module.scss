@@ -21,6 +21,36 @@
             padding: 0.5rem;
             border-radius: .5rem;
 		}
+
+		.more_modal {
+			position: absolute;
+			z-index: 10;
+			right: 0.8rem;
+			top:4rem;
+			background: #ffffff;
+			box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+			border-radius: 0.5rem;
+			width: 17.8rem;
+			&__edit,
+			&__delete,
+			&__status_container {
+				padding: 0.7rem;
+				font-size: 1.3rem;
+			}
+			&__status_container {
+				border: 1px solid #e5e5e5;
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+			}
+			.status,
+			.switch {
+				font-size: 1.3rem;
+			}
+			&__delete {
+				color: #ff4d4f;
+			}
+		}
 	}
 	.text {
 		max-width: 90%;

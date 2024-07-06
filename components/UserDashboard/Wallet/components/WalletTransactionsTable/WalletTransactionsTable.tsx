@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./WalletTransactionsTable.module.scss";
 import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import Image from "next/image";
@@ -9,15 +9,24 @@ import { customisedTableClasses } from "@/utils/classes";
 import Link from "next/link";
 import { MoreIcon } from "@/shared/svgs/dashboard";
 import RecentDealsCard from "@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard";
+import { Fade, Popper } from "@mui/material";
+import MoreModal from "./MoreModal/MoreModal";
 
 const WalletTransactionsTable = () => {
 	const [page, setPage] = useState(1);
-
+	const [selectedRow, setSelectedRow] = useState<any | undefined>();
+	const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+	const [openPoppover, setOpenPopover] = useState(Boolean(anchorEl));
 	const sharedColDef: GridColDef = {
 		field: "",
 		sortable: true,
 		flex: 1,
 	};
+
+	const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+		setAnchorEl(event.currentTarget);
+	};
+
 
 	const rows: GridRowsProp = [
 		{
@@ -83,7 +92,7 @@ const WalletTransactionsTable = () => {
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
 			headerName: "Name",
-			minWidth: 250,
+			minWidth: 350,
 			renderCell: ({ value }) => (
 				<div className={styles.container__name_container}>
 					<Image
@@ -140,20 +149,59 @@ const WalletTransactionsTable = () => {
 			headerClassName: styles.table_header,
 			headerName: "Actions",
 			minWidth: 150,
-			renderCell: ({ value }) => (
+			headerAlign: "center",
+			align: "center",
+			renderCell: ({ row, value }) => (
 				<span
-					onClick={() => handleClickMore(value)}
-					className={styles.container__status_container}
+					className={`${styles.container__action_btn} options_icon`}
 				>
-					<MoreIcon />
+					<Popper id={'simple-popover'} open={openPoppover} anchorEl={anchorEl} transition>
+						{({ TransitionProps }) => (
+							<Fade {...TransitionProps} timeout={200}>
+								<div className={`${styles.more_modal} popover-content`}><MoreModal row={selectedRow} /></div>
+							</Fade>
+						)}
+					</Popper>
+
+
+					< MoreIcon onClick={(e) => {
+						setOpenPopover(true);
+						setSelectedRow(row);
+						handlePopoverOpen(e);
+					}
+					} />
+
 				</span>
 			),
 		},
 	];
 
-	const handleClickMore = (id: number) => {
-		console.log("More clicked", id);
-	};
+
+	useEffect(() => {
+		// Function to handle click events
+		const handleClick = (event: MouseEvent) => {
+			const target = event.target as HTMLElement;
+
+			// Check if the click happened outside the specified elements
+			if (
+				!target.closest('.options_icon') &&
+				!target.closest('.popover-content')
+			) {
+				setAnchorEl(null);
+				setOpenPopover(false);
+			}
+		};
+
+		// Add event listener to the document
+		document.addEventListener('click', handleClick);
+
+		// Clean up the event listener
+		return () => {
+			document.removeEventListener('click', handleClick);
+		};
+	}, []);
+
+
 
 	return (
 		<div className={styles.container}>

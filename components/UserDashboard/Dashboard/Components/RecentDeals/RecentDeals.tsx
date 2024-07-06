@@ -3,10 +3,11 @@ import React from 'react'
 import styles from './RecentDeals.module.scss'
 import { DataGrid, GridAddIcon, GridColDef, GridRowsProp } from '@mui/x-data-grid';
 import Image from 'next/image';
-import { InputField } from '@/shared';
+import { Button, InputField } from '@/shared';
 import RecentDealsCard from './components/RecentDealsCard/RecentDealsCard';
 import { MoreIcon, TransactionNavIcon } from '@/shared/svgs/dashboard';
 import { customisedTableClasses } from '@/utils/classes';
+import Link from 'next/link';
 const sharedColDef: GridColDef = {
     field: "",
     sortable: true,
@@ -86,11 +87,13 @@ const RecentDeals = () => {
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
             headerName: 'Actions',
-            maxWidth: 100,
+            headerAlign: 'center',
+            align: 'center',
+            minWidth: 150,
             renderCell: ({ value }) => (
-                <span onClick={() => handleClickMore(value)} className={styles.container__status_container}>
-                    <MoreIcon />
-                </span>
+                <Link href={`/user/transactions/${value}`} className={styles.container__action_btn} >
+                    <Button>View details</Button>
+                </Link>
             ),
         },
     ];
@@ -111,34 +114,34 @@ const RecentDeals = () => {
             </div>
 
             {
-                rows.length > 1 ?
-                <div className={styles.empty_rows}>
-                    <span className={styles.transaction_icon}>
-                    <TransactionNavIcon color='#FFB30F'/>
-                    </span>
-                    No data available
+                rows.length < 1 ?
+                    <div className={styles.empty_rows}>
+                        <span className={styles.transaction_icon}>
+                            <TransactionNavIcon color='#FFB30F' />
+                        </span>
+                        No data available
 
-                    <span className={styles.add_btn}>
-                        <GridAddIcon sx={{height:'3rem',width:'3rem'}}/>
-                    </span>
-                </div>
-                :
-                <>
-            <div className={styles.container__table} style={{ width: '100%' }}>
-                <DataGrid rows={rows} columns={columns}
-                    hideFooterPagination={true} hideFooter paginationMode="server"
-                    sx={customisedTableClasses}  autoHeight
-                />
-            </div>
-            <ul className={styles.container__cards_container}>
-                {
-                    rows.map((item) => (
-                        <RecentDealsCard key={item.id} item={item} />
-                    ))
-                }
-            </ul>
-                </>
-                }
+                        <span className={styles.add_btn}>
+                            <GridAddIcon sx={{ height: '3rem', width: '3rem' }} />
+                        </span>
+                    </div>
+                    :
+                    <>
+                        <div className={styles.container__table} style={{ width: '100%' }}>
+                            <DataGrid rows={rows} columns={columns}
+                                hideFooterPagination={true} hideFooter paginationMode="server"
+                                sx={customisedTableClasses} autoHeight
+                            />
+                        </div>
+                        <ul className={styles.container__cards_container}>
+                            {
+                                rows.map((item) => (
+                                    <RecentDealsCard key={item.id} item={item} />
+                                ))
+                            }
+                        </ul>
+                    </>
+            }
         </div>
     )
 }

@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import styles from './StatusUpdate.module.scss'
-import { RadioInput } from '@/shared'
+import { CustomRadioButton, RadioInput } from '@/shared'
 
 
 const statuses = [
@@ -49,7 +49,10 @@ const StatusUpdate = () => {
                         return (
                             <li key={index} className={styles.status}>
                                 <h4 data-active={index + 1 === active} className={styles.status_title}>{status.title}</h4>
-                                <RadioInput checked={index + 1 === active} active={index + 1 === active} onChange={() => handleChange(index + 1)} />
+
+
+                                <CustomRadioButton checked={index + 1 === active} onChange={() => handleChange(index + 1)} />
+
                             </li>
                         )
                     })

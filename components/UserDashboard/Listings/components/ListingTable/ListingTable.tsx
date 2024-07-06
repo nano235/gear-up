@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./ListingTable.module.scss";
 import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import Image from "next/image";
@@ -12,97 +12,35 @@ import MoreModal from "../MoreModal/MoreModal";
 import { customisedTableClasses } from "@/utils/classes";
 import Pagination from "../../../../../shared/pagination/Pagination";
 import RecentDealsCard from "@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard";
+import { Popper } from "@mui/material";
+import { listings, userListingsData } from "@/mock";
+import Fade from '@mui/material/Fade';
 
 const ListingTable = () => {
 	const [activeLayout, setActiveLayout] = useState("list");
-	const [activeRow, setActiveRow] = useState<number | null>(null);
-	const [showMoreModal, setShowMoreModal] = useState(false);
+	const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 	const [page, setPage] = useState(1);
+	const [limit, setLimit] = useState(10);
+	const [selectedRow, setSelectedRow] = useState<any | undefined>();
+	const [openPoppover, setOpenPopover] = useState(Boolean(anchorEl));
+	const [paginatedTransactions, setPaginatedTransactions] = useState<GridRowsProp>(
+		userListingsData.map((item, ind) => { return { ...item, id: ind + 1 } }).slice(0, limit)
+	);
 	const sharedColDef: GridColDef = {
 		field: "",
 		sortable: true,
 		flex: 1,
 	};
-	const rows: GridRowsProp = [
-		{
-			id: 1,
-			title: "Canon EOS R5 Camera Kit",
-			price: "$200",
-			transaction_date: "15 Dec, 2023",
-			type: "Rental",
-			status: "Declined",
-			actions: "View",
-			image: "https://images.unsplash.com/photo-1608538770329-65941f62f9f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
-			availability: "rented out",
-			date: "15 Dec, 2023",
-			category: "Microphone",
-		},
-		{
-			id: 2,
-			title: "Canon EOS R5 Camera Kit",
-			price: "$200",
-			transaction_date: "15 Dec, 2023",
-			type: "Rental",
-			status: "ongoing",
-			actions: "View",
-			image: "https://images.unsplash.com/photo-1608538770329-65941f62f9f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
-			availability: "Active listing",
-			date: "15 Dec, 2023",
-			category: "Camera",
-		},
-		{
-			id: 3,
-			title: "Canon EOS R5 Camera Kit",
-			price: "$200",
-			transaction_date: "15 Dec, 2023",
-			type: "Rental",
-			status: "Completed",
-			actions: "View",
-			image: "https://images.unsplash.com/photo-1597183739841-5ca26ab0a604?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
-			availability: "hidden",
-			date: "15 Dec, 2023",
-			category: "Camera",
-		},
-		{
-			id: 4,
-			title: "Canon EOS R5 Camera Kit",
-			price: "$200",
-			transaction_date: "15 Dec, 2023",
-			type: "Rental",
-			status: "ongoing",
-			actions: "View",
-			image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
-			availability: "rented out",
-			date: "15 Dec, 2023",
-			category: "Speaker",
-		},
-		{
-			id: 5,
-			title: "Canon EOS R5 Camera Kit",
-			price: "$200",
-			transaction_date: "15 Dec, 2023",
-			type: "Rental",
-			status: "Declined",
-			actions: "View",
-			image: "https://plus.unsplash.com/premium_photo-1677159499898-b061fb5bd2d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
-			availability: "hidden",
-			date: "15 Dec, 2023",
-			category: "Camera",
-		},
-		{
-			id: 6,
-			title: "Canon EOS R5 Camera Kit",
-			price: "$200",
-			transaction_date: "15 Dec, 2023",
-			type: "Rental",
-			status: "Completed",
-			actions: "View",
-			image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
-			availability: "active listing",
-			date: "15 Dec, 2023",
-			category: "Camera",
-		},
-	];
+
+	const handlePagination = (page: number) => {
+		const start = (page - 1) * limit;
+		const end = start + limit;
+		setPaginatedTransactions(userListingsData.slice(start, end));
+		setPage(page);
+	};
+	const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+		setAnchorEl(event.currentTarget);
+	};
 
 	const columns: GridColDef[] = [
 		{
@@ -112,7 +50,7 @@ const ListingTable = () => {
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
 			headerName: "Product Name",
-			minWidth: 250,
+			minWidth: 300,
 			renderCell: ({ row, value }) => (
 				<div className={styles.container__name_container}>
 					<Image src={row.image} alt={value} width={16} height={16} />
@@ -144,6 +82,7 @@ const ListingTable = () => {
 			...sharedColDef,
 
 			field: "status",
+
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
 			headerName: "Status",
@@ -176,7 +115,7 @@ const ListingTable = () => {
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
 			headerName: "Availability",
-			maxWidth: 100,
+			minWidth: 150,
 			renderCell: ({ value }) => (
 				<div className={styles.container__availability_container}>
 					<span
@@ -190,35 +129,64 @@ const ListingTable = () => {
 		},
 		{
 			...sharedColDef,
-
-			field: "actions",
+			field: "id",
+			align: "center",
+			headerAlign: "center",
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
 			headerName: "Actions",
-			maxWidth: 100,
+			minWidth: 150,
 			renderCell: ({ row, value }) => (
-				<div className={styles.container__action_cell}>
-					<span
-						onClick={() => handleClickMore(row.id)}
-						className={styles.container__actions_container}
-					>
-						<MoreIcon />
-					</span>
-					{showMoreModal && activeRow === row.id && (
-						<div className={styles.modal_container}>
-							<MoreModal />
-						</div>
-					)}
-				</div>
+				<span
+					className={`${styles.container__action_btn} options_icon`}
+				>
+					<Popper id={'simple-popover'} open={openPoppover} anchorEl={anchorEl} transition>
+						{({ TransitionProps }) => (
+							<Fade {...TransitionProps} timeout={200}>
+								<div className={`${styles.more_modal} popover-content`}><MoreModal row={selectedRow} /></div>
+							</Fade>
+						)}
+					</Popper>
+
+
+					< MoreIcon onClick={(e) => {
+						setOpenPopover(true);
+						setSelectedRow(row);
+						handlePopoverOpen(e);
+					}
+					} />
+
+				</span>
 			),
 		},
 	];
-	console.log(activeRow);
-	const handleClickMore = (id: number) => {
-		console.log("More clicked", id);
-		setShowMoreModal(prev => !prev);
-		setActiveRow(id);
-	};
+
+
+
+	useEffect(() => {
+		// Function to handle click events
+		const handleClick = (event: MouseEvent) => {
+			const target = event.target as HTMLElement;
+
+			// Check if the click happened outside the specified elements
+			if (
+				!target.closest('.options_icon') &&
+				!target.closest('.popover-content')
+			) {
+				setAnchorEl(null);
+				setOpenPopover(false);
+			}
+		};
+
+		// Add event listener to the document
+		document.addEventListener('click', handleClick);
+
+		// Clean up the event listener
+		return () => {
+			document.removeEventListener('click', handleClick);
+		};
+	}, []);
+
 
 	const listData = [
 		{
@@ -262,7 +230,7 @@ const ListingTable = () => {
 						style={{ width: "100%", height: "100%" }}
 					>
 						<DataGrid
-							rows={rows}
+							rows={paginatedTransactions}
 							columns={columns}
 							hideFooterPagination={true}
 							paginationMode="server"
@@ -273,21 +241,21 @@ const ListingTable = () => {
 						<Pagination
 							currentPage={1}
 							onPageChange={setPage}
-							totalCount={rows.length}
+							totalCount={userListingsData.length}
 							pageSize={5}
 						/>
 					</div>
 
 					<ul className={styles.container__cards_container}>
-						{rows.map(item => (
-							<RecentDealsCard key={item.id} item={item} />
+						{userListingsData.map((item, ind) => (
+							<RecentDealsCard key={ind} item={item} />
 						))}
 					</ul>
 				</>
 			) : (
 				<>
 					<div className={styles.container__grid}>
-						{rows.map(item => (
+						{paginatedTransactions.map(item => (
 							<ListingCard key={item.id} props={item} />
 						))}
 					</div>

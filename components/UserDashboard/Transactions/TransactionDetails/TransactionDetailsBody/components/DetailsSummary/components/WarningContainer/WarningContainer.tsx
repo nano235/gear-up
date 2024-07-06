@@ -6,8 +6,8 @@ const WarningContainer = () => {
     return (
         <div className={styles.container}>
             <div className={styles.container__report_container}>
-                <span className={`${styles.warning} ${styles.icon}`}>
-                    <WarningIcon />
+                <span className={`${styles.warning}`}>
+                    <WarningIcon color='#FF3729' />
                 </span>
                 <div>
                     <h4>Report transaction</h4>

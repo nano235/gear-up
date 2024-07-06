@@ -36,14 +36,24 @@
     }
 
     &__action_btn{
-        border:1px solid $col-grey-300;
-        padding: 0.5rem 1rem;
-        border-radius: 10rem;
-        font-size:1.4rem;
-        font-weight: 700;
-        color: #4B525A;
-    }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
 
+        button{
+            padding: 0.7rem 1rem;
+            border-radius: 10rem;
+            font-size:1.2rem;
+            font-weight: 700;
+            color: #4B525A;
+            display: flex;
+            align-items: center;
+            background:none;
+            border: 1px solid $col-border;
+        
+        }
+    }
     &__status_container{
         display: flex;
         align-items: center;

@@ -97,11 +97,14 @@ const WalletTransactionsTable = () => {
         },
         {
 
-            ...sharedColDef, field: 'id',
+            ...sharedColDef,
+            field: 'id',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
             headerName: 'Actions',
             minWidth: 150,
+            headerAlign: 'center',
+            align: 'center',
             renderCell: ({ value }) => (
                 <span onClick={() => handleClickMore(value)} className={styles.action_btns}>
                     <Image src="/svgs/document-download.svg" alt='download' height={10} width={10} /> Download receipt

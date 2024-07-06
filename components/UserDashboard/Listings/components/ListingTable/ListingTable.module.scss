@@ -27,6 +27,17 @@
     
     }
 
+    &__action_btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        .more_modal{
+            transform: translateX(-3rem);
+        }
+    }
+
     &__title{
         font-size: 2.4rem;
         font-weight: 700;

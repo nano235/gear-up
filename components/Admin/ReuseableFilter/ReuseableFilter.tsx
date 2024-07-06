@@ -19,7 +19,7 @@ const ReuseableFilters = ({ parentFilters, activeFilterId, setActiveFilterId, se
                         parentFilters.map((filter) => (
                             <li data-active={filter.id === activeFilterId} onClick={() => {
                                 setActiveFilterId(filter.id)
-                                setActiveSubFilterId(0)
+                                setActiveSubFilterId(1)
                             }} key={filter.id} className={styles.container__filters__parent_container__filter}>
                                 <p>{filter.name}</p>
                             </li>
