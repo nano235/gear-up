@@ -29,11 +29,11 @@ const AdminSidebar = ({ isMobile, onClose }: Props) => {
             icon: <CategoriesNavIcon />,
             link: '/user/categories',
         },
-        {
-            name: 'Messages',
-            icon: <MessagesNavIcon />,
-            link: '/user/messages',
-        },
+        // {
+        //     name: 'Messages',
+        //     icon: <MessagesNavIcon />,
+        //     link: '/user/messages',
+        // },
         {
             name: 'Listings',
             icon: <ListingsNavIcon />,

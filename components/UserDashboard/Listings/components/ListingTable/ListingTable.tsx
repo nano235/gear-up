@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./ListingTable.module.scss";
 import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import Image from "next/image";
@@ -18,13 +18,11 @@ import Fade from '@mui/material/Fade';
 
 const ListingTable = () => {
 	const [activeLayout, setActiveLayout] = useState("list");
-	const [activeRow, setActiveRow] = useState<number | null>(null);
 	const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
-	const containerRef = useRef<HTMLDivElement>(null);
 	const [page, setPage] = useState(1);
 	const [limit, setLimit] = useState(10);
-	const [showOptionsModal, setShowOptionsModal] = useState(false);
 	const [selectedRow, setSelectedRow] = useState<any | undefined>();
+	const [openPoppover, setOpenPopover] = useState(Boolean(anchorEl));
 	const [paginatedTransactions, setPaginatedTransactions] = useState<GridRowsProp>(
 		userListingsData.map((item, ind) => { return { ...item, id: ind + 1 } }).slice(0, limit)
 	);
@@ -43,8 +41,6 @@ const ListingTable = () => {
 	const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
 		setAnchorEl(event.currentTarget);
 	};
-
-	const open = Boolean(anchorEl) && showOptionsModal;
 
 	const columns: GridColDef[] = [
 		{
@@ -86,6 +82,7 @@ const ListingTable = () => {
 			...sharedColDef,
 
 			field: "status",
+
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
 			headerName: "Status",
@@ -118,7 +115,7 @@ const ListingTable = () => {
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
 			headerName: "Availability",
-			maxWidth: 200,
+			minWidth: 150,
 			renderCell: ({ value }) => (
 				<div className={styles.container__availability_container}>
 					<span
@@ -141,26 +138,55 @@ const ListingTable = () => {
 			minWidth: 150,
 			renderCell: ({ row, value }) => (
 				<span
-					className={styles.container__action_btn}
-					ref={containerRef}
+					className={`${styles.container__action_btn} options_icon`}
 				>
-					<Popper id={'simple-popover'} open={open} anchorEl={anchorEl} transition>
+					<Popper id={'simple-popover'} open={openPoppover} anchorEl={anchorEl} transition>
 						{({ TransitionProps }) => (
 							<Fade {...TransitionProps} timeout={200}>
-								<div className={styles.more_modal}><MoreModal row={selectedRow} onClose={() => setShowOptionsModal(false)} /></div>
+								<div className={`${styles.more_modal} popover-content`}><MoreModal row={selectedRow} /></div>
 							</Fade>
 						)}
 					</Popper>
+
+
 					< MoreIcon onClick={(e) => {
-						setShowOptionsModal(true);
+						setOpenPopover(true);
 						setSelectedRow(row);
 						handlePopoverOpen(e);
 					}
 					} />
-				</span >
+
+				</span>
 			),
 		},
 	];
+
+
+
+	useEffect(() => {
+		// Function to handle click events
+		const handleClick = (event: MouseEvent) => {
+			const target = event.target as HTMLElement;
+
+			// Check if the click happened outside the specified elements
+			if (
+				!target.closest('.options_icon') &&
+				!target.closest('.popover-content')
+			) {
+				setAnchorEl(null);
+				setOpenPopover(false);
+			}
+		};
+
+		// Add event listener to the document
+		document.addEventListener('click', handleClick);
+
+		// Clean up the event listener
+		return () => {
+			document.removeEventListener('click', handleClick);
+		};
+	}, []);
+
 
 	const listData = [
 		{

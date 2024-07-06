@@ -88,9 +88,11 @@ const TransactionTable = ({ transactionType }: Props) => {
             headerClassName: styles.table_header,
             headerName: 'Actions',
             minWidth: 150,
+            align: "center",
+            headerAlign: "center",
             renderCell: ({ row, value }) => (
                 <Link href={`/admin/third-party-check/${row.id}?transaction_type=${transactionType}&user_role=${row.user_role}&third_party=${row.third_party_verification}&timeElapsed=${row.timeElapsed}`} className={styles.container__action_btn} >
-                    view details
+                    <Button>View details</Button>
                 </Link>
             ),
         },

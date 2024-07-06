@@ -102,7 +102,7 @@ const Wallet = () => {
         }
       </ul>
       <div className={styles.table_section}>
-        <HeaderSubText title='Transaction History' variant='main' />
+        <HeaderSubText title='Transaction History' variant='normal' />
         <WalletTransactionsTable />
       </div>
       {
@@ -110,7 +110,7 @@ const Wallet = () => {
         <WithdrawalModal setConfirmWithdrawal={setConfirmWithdrawal} isWithdrawal={isWithdrawal} setIsWithdrawal={closeWithdrawalModal} />
       }
       {
-        confirmWithdrawal && <ConfirmWithdrawalModal openModal={confirmWithdrawal} setOpenModal={setConfirmWithdrawal} setShowAlertModal={setShowAlertModal}/>
+        confirmWithdrawal && <ConfirmWithdrawalModal openModal={confirmWithdrawal} setOpenModal={setConfirmWithdrawal} setShowAlertModal={setShowAlertModal} />
       }
       {
         showAlertModal && <AlertModal openModal={showAlertModal} setOpenModal={setShowAlertModal} />

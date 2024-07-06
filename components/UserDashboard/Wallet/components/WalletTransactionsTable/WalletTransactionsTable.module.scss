@@ -36,12 +36,14 @@
     }
 
     &__action_btn{
-        border:1px solid $col-grey-300;
-        padding: 0.5rem 1rem;
-        border-radius: 10rem;
-        font-size:1.4rem;
-        font-weight: 700;
-        color: #4B525A;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        .more_modal{
+            transform: translateX(-3rem);
+        }
     }
 
     &__status_container{

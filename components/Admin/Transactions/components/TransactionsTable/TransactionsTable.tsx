@@ -71,6 +71,8 @@ const TransactionTable = ({ transactionType }: Props) => {
 			field: "transaction_status",
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
+			align: "center",
+			headerAlign: "center",
 			headerName: "Status",
 			minWidth: 150,
 			renderCell: ({ value }) => (
@@ -91,13 +93,15 @@ const TransactionTable = ({ transactionType }: Props) => {
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
 			headerName: "Actions",
+			align: "center",
+			headerAlign: "center",
 			minWidth: 150,
 			renderCell: ({ row, value }) => (
 				<Link
 					href={`/admin/transactions/${row.id}?transaction_type=${transactionType}&user_role=${row.user_role}&third_party=${row.third_party_verification}&timeElapsed=${row.timeElapsed}`}
 					className={styles.container__action_btn}
 				>
-					view details
+					<Button>View details</Button>
 				</Link>
 			),
 		},

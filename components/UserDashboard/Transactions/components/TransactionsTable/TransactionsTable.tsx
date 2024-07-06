@@ -100,10 +100,12 @@ const TransactionTable = ({ transactionType }: Props) => {
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
 			headerName: "Actions",
+			headerAlign: "center",
+			align: "center",
 			minWidth: 150,
 			renderCell: ({ row, value }) => (
 				<Link
-					href={`/admin/transactions/${row.id}?transaction_type=${transactionType}&user_role=${row.user_role}&third_party=${row.third_party_verification}&timeElapsed=${row.timeElapsed}`}
+					href={`/user/transactions/${row.id}?transaction_type=${transactionType}&user_role=${row.user_role}&third_party=${row.third_party_verification}&timeElapsed=${row.timeElapsed}`}
 					className={styles.container__action_btn}
 				>
 					view details

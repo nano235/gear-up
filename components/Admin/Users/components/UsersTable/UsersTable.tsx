@@ -7,7 +7,7 @@ import { MoreIcon, UserIcon } from '@/shared/svgs/dashboard';
 import { customisedTableClasses } from '@/utils/classes';
 import Link from 'next/link';
 import RecentDealsCard from '@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
-import { Pagination } from '@/shared';
+import { Button, Pagination } from '@/shared';
 const sharedColDef: GridColDef = {
     field: "",
     sortable: true,
@@ -34,12 +34,12 @@ const UsersTable = ({ users, page, limit, handlePagination, url }: Props) => {
             headerName: 'Username',
             minWidth: 250,
             renderCell: ({ row, value }) => (
-                <Link href={`/admin/${url}/${row.id}`} className={styles.container__name_container}>
+                <div className={styles.container__name_container}>
                     <Image src={row.image} alt={value} width={16} height={16} />
                     <p className={styles.container__name} style={{ fontSize: '1.2rem' }}>
                         {value}
                     </p>
-                </Link>
+                </div>
             ),
         },
         {
@@ -79,11 +79,12 @@ const UsersTable = ({ users, page, limit, handlePagination, url }: Props) => {
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
             headerName: 'Actions',
-            maxWidth: 100,
+            headerAlign: 'center',
+            maxWidth: 200,
             renderCell: ({ value }) => (
-                <span onClick={() => handleClickMore(value)} className={styles.container__status_container}>
-                    <MoreIcon />
-                </span>
+                <Link href={`/admin/${url}/${value}`} onClick={() => handleClickMore(value)} className={styles.container__action_btn}>
+                    <Button>View Profile</Button>
+                </Link>
             ),
         },
     ];

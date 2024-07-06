@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./ListingTable.module.scss";
 import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import Image from "next/image";
-import { InputField, ToggleSwitch } from "@/shared";
+import { Button, InputField, ToggleSwitch } from "@/shared";
 import { MoreIcon } from "@/shared/svgs/dashboard";
 import { GridIcon, ListIcon } from "@/shared/svgs/dashboard";
 import ListingCard from "../ListingCard/ListingCard";
@@ -129,7 +129,7 @@ const ListingTable = () => {
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
 			headerName: "Category",
-			minWidth: 200,
+			minWidth: 100,
 		},
 		{
 			...sharedColDef,
@@ -189,13 +189,15 @@ const ListingTable = () => {
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
 			headerName: 'Actions',
+			headerAlign: 'center',
+			align: 'center',
 			maxWidth: 150,
 			renderCell: ({ row, value }) => (
 				<Link
 					href={`/admin/listings/${row.id}?&user_role=${row.user_role}&third_party=${row.third_party_verification}&timeElapsed=${row.timeElapsed}`}
 					className={styles.container__action_btn}
 				>
-					view details
+					<Button>View details</Button>
 				</Link>
 			),
 		},

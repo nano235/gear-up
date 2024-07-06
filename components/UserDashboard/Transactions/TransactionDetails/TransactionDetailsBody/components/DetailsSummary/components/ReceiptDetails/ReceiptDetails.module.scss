@@ -57,6 +57,7 @@
                 height: 2rem;
                 width: 2rem;
                 cursor:pointer;
+                transition: all .3s ease-in-out;
 
                 &[data-active="true"]{
                     transform: rotate(180deg);
