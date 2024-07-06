@@ -29,7 +29,7 @@
     }
 
     @include screenMax("mobile") {
-        padding: 2rem 0;
+        padding: 2rem 1.6rem;
 
         &__download_filter{
             flex-direction: column;

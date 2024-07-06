@@ -140,13 +140,13 @@ const WalletTransactionsTable = () => {
                             <Pagination currentPage={1} onPageChange={setPage} totalCount={rows.length} pageSize={5} />
                         </div>
 
-                        <ul className={styles.container__cards_container}>
+                        {/*  <ul className={styles.container__cards_container}>
                             {
                                 rows.map((item) => (
                                     <RecentDealsCard key={item.id} item={item} />
                                 ))
                             }
-                        </ul>
+                        </ul> */}
                     </>
             }
         </div>
