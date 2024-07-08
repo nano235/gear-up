@@ -106,7 +106,7 @@ const UsersTable = ({ users, page, limit, handlePagination, url, totalCount }: P
                     </div>
                     :
                     <>
-                        <div className={styles.container__table} style={{ width: '100%' }}>
+                        <div className={styles.container__table}>
                             <DataGrid rows={users || []} columns={columns}
                                 hideFooterPagination={true} hideFooter paginationMode="server"
                                 sx={customisedTableClasses} autoHeight

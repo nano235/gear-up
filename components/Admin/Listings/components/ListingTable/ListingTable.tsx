@@ -173,7 +173,7 @@ const ListingTable = () => {
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
 			headerName: 'Availability',
-			maxWidth: 200,
+			minWidth: 200,
 			renderCell: ({ value }) => (
 				<div className={styles.container__availability_container}>
 					<span className={styles.container__availability_container__availability} data-status={value?.toLowerCase()}>
@@ -191,7 +191,7 @@ const ListingTable = () => {
 			headerName: 'Actions',
 			headerAlign: 'center',
 			align: 'center',
-			maxWidth: 150,
+			minWidth: 150,
 			renderCell: ({ row, value }) => (
 				<Link
 					href={`/admin/listings/${row.id}?&user_role=${row.user_role}&third_party=${row.third_party_verification}&timeElapsed=${row.timeElapsed}`}
