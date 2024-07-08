@@ -11,7 +11,7 @@ import { GridRowsProp } from '@mui/x-data-grid';
 
 const Users = () => {
     const [page, setPage] = useState(1)
-    const [limit, setLimit] = useState(10)
+    const [limit, setLimit] = useState(7)
     const [paginatedData, setPaginatedData] = useState<GridRowsProp>(usersData.slice(0, limit));
 
     const handlePagination = (page: number) => {
@@ -35,7 +35,7 @@ const Users = () => {
             <div className={styles.container__input_filter_container}>
                 <InputField placeholder='Search' icon='/svgs/icon-search-dark.svg' iconTitle='search-icon' />
             </div>
-            <UsersTable users={paginatedData} page={page} limit={limit} handlePagination={handlePagination} url='users' />
+            <UsersTable users={paginatedData} page={page} limit={limit} handlePagination={handlePagination} url='users' totalCount={usersData.length} />
         </div>
     )
 }

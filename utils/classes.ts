@@ -1,6 +1,7 @@
 export const customisedTableClasses = {
     "& .MuiButtonBase-root.MuiCheckbox-root .MuiSvgIcon-root": {
       // display: "none",
+
     },
     "& .MuiDataGrid-columnHeaderTitle": {
       color: "#1B1E21",
@@ -30,6 +31,7 @@ export const customisedTableClasses = {
     "& .MuiDataGrid-main": {
       overflow: "visible",
       fontSize: '1.2rem',
+      
     },
 
     borderRadius: "8px",

@@ -5,10 +5,10 @@
     display: flex;
     align-items: flex-start;
     gap: 2rem;
-    
+    width: min-content;
     padding: 2rem 0;
-    
-    
+    box-sizing: border-box;
+    overflow: hidden;
 
 
     &__filters{
@@ -25,6 +25,11 @@
         border: 1px solid $col-border;
         width:fit-content;
         transition: all 0.3s ease-in-out;
+
+       
+
+        
+
 
         &__filter{
             display: flex;
@@ -48,8 +53,11 @@
     &__children_container{
         display: flex;
         gap: 2rem;
-        padding: 1rem ;
+        padding: 1rem;
         border-radius: 10rem;
+        overflow: scroll;
+        width: auto;
+        flex-wrap: wrap;
 
         &__filter{
             display: flex;
@@ -71,7 +79,29 @@
             }
         
         }
-    }
 
     }
+    
+}
+@include screenMax("mobile") {
+    padding: 2rem 0rem;
+    gap: 1rem;
+
+    &__filters{
+        row-gap: 1rem;
+        padding: 0;
+
+
+        &__children_container{
+            gap: 1rem;
+
+            &__filter{
+                gap: 1rem;
+                padding: 0.6rem 1rem;
+            }
+        
+        }
+    
+    }
+}
 }

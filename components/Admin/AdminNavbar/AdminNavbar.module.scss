@@ -12,6 +12,12 @@
 	position: relative;
 	justify-content: space-between;
 
+
+	.title_container{
+		@include screenMax("mobile") {
+			display: none;
+		}
+	}
 	.icons_container {
 		display: flex;
 		gap: 1.5rem;

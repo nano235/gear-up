@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react'
 import { Form, Formik } from 'formik'
 import styles from './NewBlog.module.scss'
 import HeaderSubText from '../../HeaderSubText/HeaderSubText'
-import { Button, InputField, Select } from '@/shared'
+import { Button, CustomTextEditor, InputField, Select } from '@/shared'
 import * as Yup from 'yup'
 import { GridAddIcon } from '@mui/x-data-grid'
 import { AddCategory } from '../components/BlogsCategories/components'
@@ -22,6 +22,7 @@ const NewBlog = () => {
     const [imageURL, setImageURL] = useState('');
     const inputUploadRef = useRef<HTMLInputElement>(null);
     const [selectedImage, setSelectedImage] = useState<File | null>(null);
+    const [blogContent, setBlogContent] = useState('');
     const initialValues: NewBlogFormValues = {
         title: '',
         content: '',
@@ -110,7 +111,7 @@ const NewBlog = () => {
                                 <InputField label='Read minutes' placeholder='Enter read minutes' />
                             </div>
                             <div className={styles.address_field}>
-                                <InputField label='Content' placeholder='enter content' />
+                                <CustomTextEditor value={blogContent} setValue={setBlogContent} placeholder='type to create content' />
                             </div>
                         </div>
                         <div className={styles.submit_btn_container}>

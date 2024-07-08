@@ -30,6 +30,7 @@ import CustomBreadCrumb from "./CustomBreadCrumbs/CustomBreadCrumbs";
 import StarRating from "./starRating/StarRating";
 import BackNavigation from "./backNavigation/BackNavigation";
 import CustomRadioButton from "./CustomRadioButton/CustomRadioButton";
+import CustomTextEditor from "./TextEditor/TextEditor";
 
 export {
 	Header,
@@ -64,4 +65,5 @@ export {
 	StarRating,
 	BackNavigation,
 	CustomRadioButton,
+	CustomTextEditor
 };

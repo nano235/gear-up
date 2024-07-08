@@ -62,6 +62,10 @@ const ListingsDetails = () => {
                     <PersonalDetails profileLink='/settings?q=profile' title='Merchant' name='Wade Warren' subText='Lagos, Nigeria' />
                 </div>
             </main>
+            <div className={styles.btn_container_mob}>
+                <Button className={styles.decline_btn}>Decline</Button>
+                <Button className={styles.accept_btn}>Approve</Button>
+            </div>
         </div>
     )
 }

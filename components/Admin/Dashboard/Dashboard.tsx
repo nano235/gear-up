@@ -9,8 +9,8 @@ import { GridRowsProp } from '@mui/x-data-grid'
 
 const Dashboard = () => {
   const [page, setPage] = useState(1)
-  const [limit, setLimit] = useState(10)
-  const [paginatedData, setPaginatedData] = useState<GridRowsProp>(usersData.slice(0, limit));
+  const [limit, setLimit] = useState(5)
+  const [paginatedData, setPaginatedData] = useState<GridRowsProp>(usersData.slice(0, 15));
 
   const handlePagination = (page: number) => {
     const start = (page - 1) * limit;
@@ -24,7 +24,7 @@ const Dashboard = () => {
       <PendingListing />
       <CardsSection />
       <HeaderSubText title='Recent Users' />
-      <UsersTable users={paginatedData} page={page} limit={limit} handlePagination={handlePagination} url="dashboard" />
+      <UsersTable users={paginatedData} page={page} limit={limit} handlePagination={handlePagination} url="dashboard" totalCount={usersData.length} />
 
     </div>
   )

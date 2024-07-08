@@ -22,21 +22,11 @@ const AdminNavbar = () => {
 			<div className={styles.logo_icon}>
 				<Logo type="dark" />
 			</div>
-			<HeaderSubText title={`${newPathname.toLowerCase() === 'blog' ? `${newPathname} Articles` : newPathname}`} variant="normal" />
+			<div className={styles.title_container}>
+				<HeaderSubText title={`${newPathname.toLowerCase() === 'blog' ? `${newPathname} Articles` : newPathname}`} variant="normal" />
+			</div>
 			<div className={styles.icons_container}>
 				<div className={styles.mob_buttons}>
-					<Button
-						buttonType="transparent"
-						className={`${styles.small_icon} ${styles.circle_border}`}
-					>
-						<Image
-							src={"/svgs/icon-search-normal.svg"}
-							height={70}
-							width={70}
-							alt=""
-							sizes="100vw"
-						/>
-					</Button>
 					<Button
 						buttonType="transparent"
 						className={`${styles.small_icon} ${styles.circle_border}`}

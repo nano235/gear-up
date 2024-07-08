@@ -20,9 +20,10 @@ interface Props {
     limit: number
     handlePagination: (page: number) => void
     url?: string
+    totalCount?: number
 }
 
-const UsersTable = ({ users, page, limit, handlePagination, url }: Props) => {
+const UsersTable = ({ users, page, limit, handlePagination, url, totalCount }: Props) => {
 
 
     const columns: GridColDef[] = [
@@ -80,7 +81,7 @@ const UsersTable = ({ users, page, limit, handlePagination, url }: Props) => {
             headerClassName: styles.table_header,
             headerName: 'Actions',
             headerAlign: 'center',
-            maxWidth: 200,
+            minWidth: 200,
             renderCell: ({ value }) => (
                 <Link href={`/admin/${url}/${value}`} onClick={() => handleClickMore(value)} className={styles.container__action_btn}>
                     <Button>View Profile</Button>
@@ -105,20 +106,21 @@ const UsersTable = ({ users, page, limit, handlePagination, url }: Props) => {
                     </div>
                     :
                     <>
-                        <div className={styles.container__table} style={{ width: '100%' }}>
+                        <div className={styles.container__table}>
                             <DataGrid rows={users || []} columns={columns}
                                 hideFooterPagination={true} hideFooter paginationMode="server"
                                 sx={customisedTableClasses} autoHeight
+                                scrollbarSize={20}
                             />
-                            <Pagination currentPage={page} onPageChange={handlePagination} totalCount={users?.length || 0} pageSize={limit} />
+                            <Pagination currentPage={page} onPageChange={handlePagination} totalCount={totalCount || 0} pageSize={limit} />
                         </div>
-                        <ul className={styles.container__cards_container}>
+                        {/*  <ul className={styles.container__cards_container}>
                             {
                                 users?.map((item) => (
                                     <RecentDealsCard key={item.id} item={item} />
                                 ))
                             }
-                        </ul>
+                        </ul> */}
                     </>
             }
         </div>

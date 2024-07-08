@@ -6,7 +6,7 @@ import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import Image from 'next/image'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/shared'
-import { TrixEditorModal } from '../../components'
+import { TextEditorModal } from '../../components'
 
 interface Props {
     slug: string
@@ -28,6 +28,8 @@ const TransactionDetailsHeader = ({ slug, item }: Props) => {
     const handleChange = (text: string) => {
         setValue(text)
     }
+
+    console.log(value, 'value')
 
     return (
         <div className={styles.container}>
@@ -54,7 +56,7 @@ const TransactionDetailsHeader = ({ slug, item }: Props) => {
                     <Button>Give status report</Button>
                 </div>
             </div>
-            <TrixEditorModal openModal={openModal} setOpenModal={setOpenModal} value={value} onChange={handleChange} />
+            <TextEditorModal openModal={openModal} setOpenModal={setOpenModal} value={value} onChange={handleChange} />
         </div>
     )
 }
