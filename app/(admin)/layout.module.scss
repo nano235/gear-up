@@ -42,6 +42,15 @@
 				width: 100%;
 			}
 		}
+
+		.url_path{
+			// padding: 1.6rem;
+			display: none;
+			
+			@include screenMax("mobile") {
+				display: block;
+			}
+		}
 	}
 
 }
