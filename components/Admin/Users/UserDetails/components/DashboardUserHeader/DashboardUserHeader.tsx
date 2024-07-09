@@ -24,7 +24,7 @@ const DashboardUserHeader = () => {
         },
     ]
     return (
-        <div>
+        <div className={styles.wrapper}>
             <HeaderSubText title="User Information" />
             <div className={styles.container}>
                 <div className={styles.container__left}>

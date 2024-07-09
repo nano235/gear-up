@@ -8,4 +8,9 @@
     flex-direction: column;
     gap: 2.4rem;
 
+    @include screenMax("mobile") {
+        padding: 2rem 1.6rem;
+    }
+
+
 }

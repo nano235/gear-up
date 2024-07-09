@@ -8,6 +8,7 @@ import { customisedTableClasses } from '@/utils/classes';
 import Link from 'next/link';
 import RecentDealsCard from '@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
 import { Button, Pagination } from '@/shared';
+import UserCardMob from '../UserCardMob/UserCardMob';
 const sharedColDef: GridColDef = {
     field: "",
     sortable: true,
@@ -112,15 +113,15 @@ const UsersTable = ({ users, page, limit, handlePagination, url, totalCount }: P
                                 sx={customisedTableClasses} autoHeight
                                 scrollbarSize={20}
                             />
-                            <Pagination currentPage={page} onPageChange={handlePagination} totalCount={totalCount || 0} pageSize={limit} />
                         </div>
-                        {/*  <ul className={styles.container__cards_container}>
+                        <ul className={styles.container__cards_container}>
                             {
                                 users?.map((item) => (
-                                    <RecentDealsCard key={item.id} item={item} />
+                                    <UserCardMob key={item.id} item={item} url='users' />
                                 ))
                             }
-                        </ul> */}
+                        </ul>
+                        <Pagination currentPage={page} onPageChange={handlePagination} totalCount={totalCount || 0} pageSize={limit} />
                     </>
             }
         </div>

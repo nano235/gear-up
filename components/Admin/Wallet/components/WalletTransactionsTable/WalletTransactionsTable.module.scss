@@ -126,9 +126,9 @@
 
     &__table{
         overflow: auto;
-    /*     @include screenMax("mobile") {
+         @include screenMax("mobile") {
             display: none;
-        } */
+        } 
 
         .action_btns{
             display: flex;
@@ -175,6 +175,7 @@
             width: 100%;
             margin-top: 2rem;
             border-radius: 1.6rem;
+            border: 1px solid $col-border;
         }
     }
     

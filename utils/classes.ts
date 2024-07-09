@@ -31,6 +31,7 @@ export const customisedTableClasses = {
     "& .MuiDataGrid-main": {
       overflow: "visible",
       fontSize: '1.2rem',
+      minHeight: '40rem'
       
     },
 

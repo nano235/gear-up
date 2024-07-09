@@ -114,4 +114,8 @@ align-items: center;
         border-left: 1px solid $col-border;
     }
 
+    @include screenMax("mobile"){
+        min-width: 100%;
+    }
+
 }

@@ -1,4 +1,5 @@
 
+@import '@/styles/imports.scss';
 
 .form_container {
   display: flex;
@@ -6,4 +7,8 @@
   margin-top: 20px;
   margin-bottom: 20px;
   width: 60rem;
+
+  @include screenMax("mobile") {
+    width: 100%;
+  }
 }

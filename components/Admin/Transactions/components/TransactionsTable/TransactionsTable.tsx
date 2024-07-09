@@ -7,7 +7,7 @@ import { Button, InputField, Pagination } from "@/shared";
 import { customisedTableClasses } from "@/utils/classes";
 import Link from "next/link";
 import { transactions } from "@/mock/transactions.mock";
-import RecentDealsCard from "@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard";
+import TransactionCardMob from "./TransactionCardMob/TransactionCardMob";
 
 interface Props {
 	transactionType: string;
@@ -15,7 +15,7 @@ interface Props {
 
 const TransactionTable = ({ transactionType }: Props) => {
 	const [page, setPage] = useState(1);
-	const [limit, setLimit] = useState(10);
+	const [limit, setLimit] = useState(7);
 	const [paginatedTransactions, setPaginatedTransactions] = useState<GridRowsProp>(
 		transactions.slice(0, limit)
 	);
@@ -129,19 +129,19 @@ const TransactionTable = ({ transactionType }: Props) => {
 					hideFooter
 					autoHeight
 				/>
-				<Pagination
-					currentPage={page}
-					onPageChange={handlePagination}
-					totalCount={transactions.length}
-					pageSize={limit}
-				/>
 			</div>
 
-			{/* <ul className={styles.container__cards_container}>
-				{transactions.map(item => (
-					<RecentDealsCard key={item.id} item={item} />
+			<ul className={styles.container__cards_container}>
+				{paginatedTransactions.map(item => (
+					<TransactionCardMob key={item.id} item={item} />
 				))}
-			</ul> */}
+			</ul>
+			<Pagination
+				currentPage={page}
+				onPageChange={handlePagination}
+				totalCount={transactions.length}
+				pageSize={limit}
+			/>
 		</div>
 	);
 };

@@ -31,7 +31,6 @@
         display: flex;
         gap: 2rem;
         padding: 0.5rem 0.5rem;
-        border-radius: 10rem;
         width:fit-content;
 
         .filter{
@@ -50,9 +49,35 @@
                 font-weight: 700;
                 border: 1px solid #ffb30f;
             }
+            
+        }
+    }
+}
+
+
+@include screenMax("mobile"){
+    padding: 3rem 1.6rem;
+
+    .parent_container{
+        gap: 0;
+        width: 100%;
+        justify-content: space-between;
+
+        .filter{
+            border: none;
+            flex: 1;
+            border-radius: 0;
+            border-bottom: 1px solid $col-border;
+            &[data-active='true']{
+                border: none;
+                background-color: transparent;
+                font-weight: 700;
+                border-bottom: 1px solid #ffb30f;
+               
+            }
         
         }
-}
+    }
 }
 
 }

@@ -39,9 +39,11 @@ const DashboardUserComponent = ({ slug }: { slug: string }) => {
                     <p>Back</p>
                 </div>
             }
-            <DashboardUserHeader />
-            <About />
-            <Documents />
+            <div className={styles.about_document}>
+                <DashboardUserHeader />
+                <About />
+                <Documents />
+            </div>
             <TransactionsView showTitle={true} />
             <ListingsView showTitle={true} />
         </div>

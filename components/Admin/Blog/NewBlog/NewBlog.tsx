@@ -111,7 +111,8 @@ const NewBlog = () => {
                                 <InputField label='Read minutes' placeholder='Enter read minutes' />
                             </div>
                             <div className={styles.address_field}>
-                                <CustomTextEditor value={blogContent} setValue={setBlogContent} placeholder='type to create content' />
+
+                                <CustomTextEditor label='Content' value={blogContent} setValue={setBlogContent} placeholder='type to create content' />
                             </div>
                         </div>
                         <div className={styles.submit_btn_container}>

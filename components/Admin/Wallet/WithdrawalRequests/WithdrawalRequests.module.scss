@@ -37,6 +37,7 @@
         gap: 2rem;
         justify-content: space-between;
         width: 100%;
+        margin-top: 2rem;
 
         p{
             display: flex;
@@ -134,6 +135,10 @@
         .request_item:not(:last-child){
             border-bottom: 1px solid $col-border;
         }
+    }
+
+    @include screenMax("mobile") {
+        padding:  3rem 1.6rem;
     }
 
   

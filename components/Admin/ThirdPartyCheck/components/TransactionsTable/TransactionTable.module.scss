@@ -12,9 +12,9 @@
         font-size: 1.2rem;
         
         img{
-            width: 3rem;
-            height: 3rem;
-            border-radius: 0.5rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
         }
 
         &__name{
@@ -54,8 +54,10 @@
         
         }
     }
+
     &__status_container{
         display: flex;
+        justify-content: center;
         align-items: center;
         gap: 0.5rem;
         height: 100%;
@@ -136,7 +138,7 @@
         overflow: auto;
         @include screenMax("mobile") {
             display: none;
-        }
+        } 
 
         
         .table_header{
@@ -169,8 +171,9 @@
             width: 100%;
             margin-top: 2rem;
             border-radius: 1.6rem;
+            border: 1px solid $col-border;
         }
     }
-    
+     
 
 }

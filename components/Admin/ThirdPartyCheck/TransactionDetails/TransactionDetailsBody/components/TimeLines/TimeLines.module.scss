@@ -63,17 +63,6 @@ align-items: center;
 }
 }
 
-
-}
-p{
-    font-size: 1.4rem;
-    color: #7B8086;
-    font-weight: 400;
-
-    &[data-active="true"]{
-        color: #1B1E21;
-
-    }
 }
 
 .line_icon{
@@ -123,6 +112,10 @@ p{
         border-top-right-radius:1.6rem ;
         border-bottom-right-radius:1.6rem ;
         border-left: 1px solid $col-border;
+    }
+
+    @include screenMax("mobile"){
+        min-width: 100%;
     }
 
 }

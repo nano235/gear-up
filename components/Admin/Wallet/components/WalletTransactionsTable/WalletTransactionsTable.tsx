@@ -7,7 +7,7 @@ import { Button, InputField, Pagination } from '@/shared';
 import { customisedTableClasses } from '@/utils/classes';
 import Link from 'next/link';
 import { MoreIcon, TransactionNavIcon } from '@/shared/svgs/dashboard';
-import RecentDealsCard from '@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
+import WalletTransactionCardMob from './WalletTransactionCardMob/WalletTransactionCardMob';
 
 const WalletTransactionsTable = () => {
     const [page, setPage] = useState(1)
@@ -137,16 +137,16 @@ const WalletTransactionsTable = () => {
                         <div className={styles.container__table} style={{ width: '100%', height: "100%", }}>
                             <DataGrid rows={rows} columns={columns}
                                 paginationMode="server" sx={customisedTableClasses} hideFooter autoHeight />
-                            <Pagination currentPage={1} onPageChange={setPage} totalCount={rows.length} pageSize={5} />
                         </div>
 
-                        {/*  <ul className={styles.container__cards_container}>
+                        <ul className={styles.container__cards_container}>
                             {
                                 rows.map((item) => (
-                                    <RecentDealsCard key={item.id} item={item} />
+                                    <WalletTransactionCardMob key={item.id} item={item} />
                                 ))
                             }
-                        </ul> */}
+                        </ul>
+                        <Pagination currentPage={1} onPageChange={setPage} totalCount={rows.length} pageSize={5} />
                     </>
             }
         </div>

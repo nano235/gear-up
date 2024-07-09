@@ -126,4 +126,16 @@
           width: 100%;
         }
       }
+
+      @include screenMax("mobile"){
+        padding: 3rem 1.6rem;
+
+        .submit_btn_container{
+          flex-direction: column-reverse;
+          
+          button{
+            width: 100%;
+          }
+        }
+      }
 }

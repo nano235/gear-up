@@ -34,17 +34,27 @@
 				display: flex;
 				gap: 1.6rem;
 				align-items: center;
-			}
+				
+				.btn {
+					display: flex;
+					align-items: center;
+					gap: 0.5rem;
+					padding: 1rem 2rem;
+					
+					.icon {
+						height: 2rem;
+						width: 2rem;
+					}
+				}
 
-			.btn {
-				display: flex;
-				align-items: center;
-				gap: 0.5rem;
-				padding: 1rem 2rem;
+				@include screenMax("mobile") {
+					justify-content: space-between;
+					width: 100%;
+					gap: 1.6rem;
 
-				.icon {
-					height: 2rem;
-					width: 2rem;
+					.btn{
+						width: 100%;
+					}
 				}
 			}
 		}
@@ -71,6 +81,16 @@
 				display: flex;
 				gap: 1rem;
 			}
+
+			@include screenMax("mobile") {
+				
+
+				button {
+					width: 100%;
+					
+				}
+			}
+		
 		}
 
 		.no_requests {
@@ -80,7 +100,7 @@
 			gap: 4rem;
 		}
 
-		@include screenMax("tablet") {
+		@include screenMax("mobile") {
 			flex-direction: column;
 			gap: 1.6rem;
 
@@ -147,4 +167,9 @@
 	.table_section {
 		margin-top: 4rem;
 	}
+
+	@include screenMax("mobile") {
+		padding: 2rem 1rem;
+	}
+
 }
