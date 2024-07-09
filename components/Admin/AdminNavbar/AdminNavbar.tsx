@@ -2,19 +2,16 @@
 
 import React, { useState } from 'react';
 import styles from './AdminNavbar.module.scss';
-import { Button, Logo } from '@/shared';
+import { Button, Logo, UrlPath } from '@/shared';
 import { ArrowDownIcon } from '@/shared/svgs/dashboard';
 import Image from 'next/image';
 import AdminSidebar from '../AdminSidebar/AdminSidebar';
 import { usePathname } from 'next/navigation';
-import HeaderSubText from '../HeaderSubText/HeaderSubText';
 
 const AdminNavbar = () => {
 	const [collapsed, setCollapsed] = useState<boolean>(false);
 	const pathname = usePathname();
 	const [showMenubar, setShowMenubar] = useState<boolean>(false);
-
-	const newPathname = pathname.split('/')[2].replace(/-/g, ' ');
 
 
 	return (
@@ -23,7 +20,7 @@ const AdminNavbar = () => {
 				<Logo type="dark" />
 			</div>
 			<div className={styles.title_container}>
-				<HeaderSubText title={`${newPathname.toLowerCase() === 'blog' ? `${newPathname} Articles` : newPathname}`} variant="normal" />
+				<UrlPath />
 			</div>
 			<div className={styles.icons_container}>
 				<div className={styles.mob_buttons}>

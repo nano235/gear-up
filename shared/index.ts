@@ -31,6 +31,7 @@ import StarRating from "./starRating/StarRating";
 import BackNavigation from "./backNavigation/BackNavigation";
 import CustomRadioButton from "./CustomRadioButton/CustomRadioButton";
 import CustomTextEditor from "./TextEditor/TextEditor";
+import UrlPath from "./urlPath/UrlPath";
 
 export {
 	Header,
@@ -65,5 +66,6 @@ export {
 	StarRating,
 	BackNavigation,
 	CustomRadioButton,
-	CustomTextEditor
+	CustomTextEditor,
+	UrlPath,
 };
