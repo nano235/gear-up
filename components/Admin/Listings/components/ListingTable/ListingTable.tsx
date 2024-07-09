@@ -12,6 +12,7 @@ import { customisedTableClasses } from "@/utils/classes";
 import Pagination from "../../../../../shared/pagination/Pagination";
 import RecentDealsCard from "@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard";
 import Link from "next/link";
+import ListingCardMob from "./ListingCarMob/ListingCarMob";
 
 const ListingTable = () => {
 	const [activeLayout, setActiveLayout] = useState("list");
@@ -259,19 +260,20 @@ const ListingTable = () => {
 							autoHeight
 							sx={customisedTableClasses}
 						/>
-						<Pagination
-							currentPage={1}
-							onPageChange={setPage}
-							totalCount={rows.length}
-							pageSize={5}
-						/>
+
 					</div>
 
-					{/* 	<ul className={styles.container__cards_container}>
+					<ul className={styles.container__cards_container}>
 						{rows.map(item => (
-							<ListingCard key={item.id} props={item} />
+							<ListingCardMob key={item.id} item={item} />
 						))}
-					</ul> */}
+					</ul>
+					<Pagination
+						currentPage={1}
+						onPageChange={setPage}
+						totalCount={rows.length}
+						pageSize={5}
+					/>
 				</>
 			) : (
 				<>

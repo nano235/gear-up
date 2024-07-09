@@ -30,7 +30,7 @@
     .parent_container{
         display: flex;
         gap: 2rem;
-        padding: 0.5rem 0.5rem;
+        padding: 0;
         border-radius: 10rem;
         width:fit-content;
 
@@ -52,7 +52,23 @@
             }
         
         }
+
+    }
 }
+@include screenMax("mobile"){
+padding: 3rem 1.6rem;
+    &__download_filter{
+        flex-direction: column;
+        align-items: flex-start;
+
+        .parent_container{
+            width: 100%;
+
+            .filter{
+                flex: 1;
+            }
+        }
+    }
 }
 
 }

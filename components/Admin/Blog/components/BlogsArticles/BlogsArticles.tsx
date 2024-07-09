@@ -12,13 +12,16 @@ import { blogsData } from "@/mock/blogs.mock";
 import { MoreIcon } from "@/shared/svgs/dashboard";
 import MoreModal from "./MoreModal/MoreModal";
 import { Fade, Popover, Popper } from "@mui/material";
+import BlogArticleCardMob from "./BlogArticleCardMob/BlogArticleCardMob";
+import AddButtonMob from "../AddButtonMob/AddButtonMob";
+import { useRouter } from "next/navigation";
 
 const BlogsTable = () => {
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
     const [openPoppover, setOpenPopover] = useState(Boolean(anchorEl));
     const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(10);
-    const [showOptionsModal, setShowOptionsModal] = useState(false);
+    const [limit, setLimit] = useState(7);
+    const router = useRouter();
     const [selectedRow, setSelectedRow] = useState<any | undefined>();
     const [paginatedTransactions, setPaginatedTransactions] = useState<GridRowsProp>(
         blogsData.slice(0, limit)
@@ -40,7 +43,6 @@ const BlogsTable = () => {
         setAnchorEl(event.currentTarget);
     };
 
-    const open = Boolean(anchorEl) && showOptionsModal;
 
     const columns: GridColDef[] = [
         {
@@ -198,19 +200,20 @@ const BlogsTable = () => {
                     hideFooter
                     autoHeight
                 />
-                <Pagination
-                    currentPage={page}
-                    onPageChange={handlePagination}
-                    totalCount={transactions.length}
-                    pageSize={limit}
-                />
             </div>
 
             <ul className={styles.container__cards_container}>
-                {transactions.map(item => (
-                    <RecentDealsCard key={item.id} item={item} />
+                {paginatedTransactions.map(item => (
+                    <BlogArticleCardMob key={item.id} item={item} />
                 ))}
             </ul>
+            <AddButtonMob onClick={() => router.push('/admin/blog/new-blog')} />
+            <Pagination
+                currentPage={page}
+                onPageChange={handlePagination}
+                totalCount={transactions.length}
+                pageSize={limit}
+            />
         </div>
     );
 };

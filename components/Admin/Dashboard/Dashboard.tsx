@@ -10,7 +10,7 @@ import { GridRowsProp } from '@mui/x-data-grid'
 const Dashboard = () => {
   const [page, setPage] = useState(1)
   const [limit, setLimit] = useState(5)
-  const [paginatedData, setPaginatedData] = useState<GridRowsProp>(usersData.slice(0, 15));
+  const [paginatedData, setPaginatedData] = useState<GridRowsProp>(usersData.slice(0, limit));
 
   const handlePagination = (page: number) => {
     const start = (page - 1) * limit;

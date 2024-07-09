@@ -136,9 +136,9 @@
 
     &__table{
         overflow: auto;
-       /*  @include screenMax("mobile") {
+        @include screenMax("mobile") {
             display: none;
-        } */
+        } 
 
         
         .table_header{
@@ -162,7 +162,7 @@
           }
     }
 
-   /*  &__cards_container{
+    &__cards_container{
         display: none;
 
         @include screenMax("mobile") {
@@ -171,8 +171,9 @@
             width: 100%;
             margin-top: 2rem;
             border-radius: 1.6rem;
+            border: 1px solid $col-border;
         }
     }
-     */
+     
 
 }

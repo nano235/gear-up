@@ -7,13 +7,14 @@ import { Button, InputField, Pagination } from "@/shared";
 import { customisedTableClasses } from "@/utils/classes";
 import Link from "next/link";
 import { transactions } from "@/mock/transactions.mock";
-import RecentDealsCard from "@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard";
 import { blogsCategoriesData } from "@/mock/blogCategories.mock";
 import { AddCategory, EditCategory } from "./components";
+import BlogCategoryCardMob from "./BlogCategoryCardMob/BlogCategoryCardMob";
+import AddButtonMob from "../AddButtonMob/AddButtonMob";
 
 const BlogsCategories = () => {
     const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(10);
+    const [limit, setLimit] = useState(7);
     const [showEditCategory, setShowEditCategory] = useState(false)
     const [showAddCategory, setShowAddCategory] = useState(false)
     const [paginatedTransactions, setPaginatedTransactions] = useState<GridRowsProp>(
@@ -122,19 +123,20 @@ const BlogsCategories = () => {
                     hideFooter
                     autoHeight
                 />
-                <Pagination
-                    currentPage={page}
-                    onPageChange={handlePagination}
-                    totalCount={transactions.length}
-                    pageSize={limit}
-                />
             </div>
 
             <ul className={styles.container__cards_container}>
-                {transactions.map(item => (
-                    <RecentDealsCard key={item.id} item={item} />
+                {paginatedTransactions.map(item => (
+                    <BlogCategoryCardMob key={item.id} item={item} setOpenModal={setShowEditCategory} />
                 ))}
             </ul>
+            <AddButtonMob onClick={() => setShowAddCategory(true)} />
+            <Pagination
+                currentPage={page}
+                onPageChange={handlePagination}
+                totalCount={transactions.length}
+                pageSize={limit}
+            />
             <EditCategory openModal={showEditCategory} setOpenModal={setShowEditCategory} />
             <AddCategory openModal={showAddCategory} setOpenModal={setShowAddCategory} />
         </div>

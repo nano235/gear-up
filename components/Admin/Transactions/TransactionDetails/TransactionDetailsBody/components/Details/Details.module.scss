@@ -79,4 +79,20 @@
         gap: 2rem;
     }
 
+
+    @include screenMax("mobile"){
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+
+        &__left{
+            grid-column: 1/2;
+        }
+
+        &__right{
+            grid-column: 1/2;
+        }
+   
+    }
+
 }

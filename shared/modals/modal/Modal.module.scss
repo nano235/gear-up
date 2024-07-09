@@ -73,4 +73,12 @@
 			@include noScrollBar;
 		}
 	}
+
+	@include screenMax("mobile"){
+		padding: 1rem;
+
+		.modal{
+			padding: 2rem;
+		}
+	}
 }
