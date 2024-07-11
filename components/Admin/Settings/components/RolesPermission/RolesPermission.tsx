@@ -32,7 +32,11 @@ const RolesPermission = () => {
         <div className={styles.container}>
             <div className={styles.body}>
                 <div className={styles.header}>
-                    <HeaderSubText title="Roles & Permissions" variant='main' />
+
+                    <div className={styles.header_title}>
+                        <HeaderSubText title="Roles & Permissions" variant='main' />
+                    </div>
+
                     <Button
                         buttonType="primary"
                         className={`${styles.transparent_btn} ${styles.btn}`}

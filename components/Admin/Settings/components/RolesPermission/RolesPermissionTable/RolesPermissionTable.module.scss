@@ -2,6 +2,7 @@
 
 .container{
     margin-top: 2rem;
+    margin-bottom: 4rem;
 
 
     &__action_btn{
@@ -237,7 +238,7 @@
             flex-direction: column;
             width: 100%;
             margin-top: 2rem;
-            border-radius: 1.6rem;
+            gap: 1.6rem;
         }
     }
 
