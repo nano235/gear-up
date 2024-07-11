@@ -15,8 +15,8 @@ gap: 4rem;
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        padding: 1rem 2rem;
-        
+        padding: 1.6rem 2rem;
+        font-size: 1.5rem;
         .icon {
             height: 2rem;
             width: 2rem;
@@ -81,6 +81,7 @@ gap: 4rem;
             border-left: 1px solid #E3E6E9;
             border-right: 1px solid #E3E6E9;
         }
+    
 
     }
 
@@ -121,6 +122,41 @@ gap: 4rem;
 
         }
     }
+
+    @include screenMax("mobile"){
+        padding: 0;
+        border: none;
+        background-color: transparent;
+
+        .btn{
+            width: 100%;
+        }
+
+        .header_title{
+
+            display: none;
+          }
+        .members_list{
+            flex-direction: column;
+            gap: 1.6rem;
+            padding: 1rem 0;
+            background-color: none;
+
+            .member{
+        
+                gap: 1rem;
+                padding: 2rem;
+                border: 1px solid $col-border;
+
+                .amount{
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    color: #0F1011;
+                }
+            }
+        }
+    }
+
 
 }
 

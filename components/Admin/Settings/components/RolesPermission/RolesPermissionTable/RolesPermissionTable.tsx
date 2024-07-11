@@ -11,6 +11,7 @@ import { ListingCard } from "@/components/Admin/Listings/components";
 import { permissionsData } from "@/mock/permissionsData.mock";
 import RadioBox from "@/shared/Radio/Radio";
 import { Radio } from "@mui/material";
+import RolesPermissionCardMob from "../RolesPermissionCardMob/RolesPermissionCardMob";
 
 const RolesPermissionTable = () => {
     const [activeLayout, setActiveLayout] = useState("list");
@@ -160,8 +161,8 @@ const RolesPermissionTable = () => {
             </div>
 
             <ul className={styles.container__cards_container}>
-                {membersData.map(item => (
-                    <ListingCard key={item.id} props={item} />
+                {paginatedData.map(item => (
+                    <RolesPermissionCardMob key={item.id} item={item} />
                 ))}
             </ul>
         </div>

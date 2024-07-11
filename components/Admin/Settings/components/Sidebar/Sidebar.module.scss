@@ -60,6 +60,43 @@
 
     }
 
+    @include screenMax("mobile"){
+        display: none;
+    }
+
+
+}
+
+.parent_container{
+    display: none;
+    @include screenMax("mobile"){
+        display: flex;
+        gap: 2rem;
+        padding: 1.5rem 0.5rem;
+        width:100%;
+        overflow: scroll;
+        
+        .filter{
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            padding: 0.6rem 2rem;
+            font-size: 1.4rem;
+            border-radius: 10rem;
+            cursor: pointer;
+            border: 1px solid $col-border;
+            width: fit-content;
+            min-width: fit-content;
+            transition: all 0.3s ease-in-out;
+            
+            &[data-active='true']{
+                background-color: #FFF7E7;
+                font-weight: 700;
+                border: 1px solid #ffb30f;
+            }
+            
+        }
+    }
 }
 
 }

@@ -9,6 +9,7 @@ import Link from "next/link";
 import { membersData } from "@/mock/members.mock";
 import { ListingCard } from "@/components/Admin/Listings/components";
 import { useRouter } from "next/navigation";
+import MembersCardMob from "../MembersCardMob/MembersCardMob";
 
 const MembersTable = () => {
     const [activeLayout, setActiveLayout] = useState("list");
@@ -126,19 +127,19 @@ const MembersTable = () => {
                     sx={customisedTableClasses}
                     onRowClick={(row) => handleRowClick(row.id)}
                 />
-                <Pagination
-                    currentPage={1}
-                    onPageChange={handlePagination}
-                    totalCount={paginatedData.length}
-                    pageSize={5}
-                />
             </div>
 
             <ul className={styles.container__cards_container}>
-                {membersData.map(item => (
-                    <ListingCard key={item.id} props={item} />
+                {paginatedData.map(item => (
+                    <MembersCardMob key={item.id} item={item} />
                 ))}
             </ul>
+            <Pagination
+                currentPage={1}
+                onPageChange={handlePagination}
+                totalCount={paginatedData.length}
+                pageSize={5}
+            />
         </div>
     );
 };

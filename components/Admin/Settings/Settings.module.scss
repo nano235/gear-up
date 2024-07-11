@@ -14,10 +14,27 @@
     display: flex;
     gap: 2.4rem;
 
+    .header_title{
+        display: none;
+    }
    
     
     .content{
         flex: 1;
+    }
+
+    
+}
+@include screenMax("mobile"){
+    padding: 3rem 1.6rem;
+    .container{
+        flex-direction: column;
+        gap: 1.6rem;
+
+        .header_title{
+            display: block;
+        }
+    
     }
 }
 }
