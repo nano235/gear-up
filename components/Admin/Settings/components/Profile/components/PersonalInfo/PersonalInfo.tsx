@@ -45,11 +45,12 @@ const PersonalInfoForm: React.FC = () => {
                     onSubmit={handleSubmit}
                 >
                     <Form >
-                        <HeaderSubText title="My profile" variant='main' />
+                        <div className={styles.header_title}>
+                            <HeaderSubText title="My profile" variant='main' />
+                        </div>
                         <div className={styles.uploader_container}>
                             <ImageUploader />
                             <div>
-
                                 <h3 className={styles.name}>Einstein Oyakhilome</h3>
                                 <p className={styles.email}>super admin</p>
                             </div>
@@ -69,7 +70,7 @@ const PersonalInfoForm: React.FC = () => {
                             </div>
                         </div>
                         <div className={styles.submit_btn_container}>
-                            <Button disabled buttonType='primary' type="submit">Save changes</Button>
+                            <Button buttonType='primary' type="submit">Save changes</Button>
                         </div>
                     </Form>
                 </Formik>

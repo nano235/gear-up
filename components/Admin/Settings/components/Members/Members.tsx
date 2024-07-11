@@ -34,19 +34,22 @@ const Members = () => {
         <div className={styles.container}>
             <div className={styles.body}>
                 <div className={styles.header}>
-                    <HeaderSubText title="Members" variant='main' />
-                    {
-                        !noMembers && <Button
-                            buttonType="primary"
-                            className={`${styles.transparent_btn} ${styles.btn}`}
-                            onClick={() => setOpenModal(true)}
-                        >
-                            <span className={styles.icon}>
-                                <GridAddIcon className={styles.icon} />{" "}
-                            </span>
-                            New member
-                        </Button>
-                    }
+
+                    <div className={styles.header_title}>
+                        <HeaderSubText title="Members" variant='main' />
+                    </div>
+
+                    <Button
+                        buttonType="primary"
+                        className={`${styles.transparent_btn} ${styles.btn}`}
+                        onClick={() => setOpenModal(true)}
+                    >
+                        <span className={styles.icon}>
+                            <GridAddIcon className={styles.icon} />{" "}
+                        </span>
+                        New member
+                    </Button>
+
                 </div>
                 <ul className={styles.members_list}>
                     {

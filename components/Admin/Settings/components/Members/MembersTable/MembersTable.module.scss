@@ -132,9 +132,9 @@
             background-color: $col-grey-50;
         }
 
-        @include screenMax("mobile") {
+      /*   @include screenMax("mobile") {
             display: none;
-        }
+        } */
     }
 
     &__table{
@@ -156,6 +156,10 @@
             align-items: center;
             justify-content: flex-start;
         }
+
+        @include screenMax("mobile") {
+            display: none;
+        }
     }
 
     &__cards_container{
@@ -167,6 +171,7 @@
             width: 100%;
             margin-top: 2rem;
             border-radius: 1.6rem;
+            border: 1px solid $col-border;
         }
     }
 

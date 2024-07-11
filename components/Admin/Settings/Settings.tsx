@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Members, Profile, RolesPermission, Sidebar } from './components'
 import styles from './Settings.module.scss'
 import { useSearchParams } from 'next/navigation'
+import HeaderSubText from '../HeaderSubText/HeaderSubText'
 
 
 
@@ -43,6 +44,9 @@ const Settings = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
+        <div className={styles.header_title}>
+          <HeaderSubText title="Settings" variant='normal' />
+        </div>
         <Sidebar settingsLists={settingsLists} active={active} />
         <div className={styles.content}>
           {searchQuery === 'profile' && <Profile />}
