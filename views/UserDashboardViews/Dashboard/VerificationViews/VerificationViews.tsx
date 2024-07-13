@@ -57,7 +57,7 @@ const VerificationViews = () => {
         </div>
         <div className={styles.container__main_content__right_side}>
           <div className={styles.img_container}>
-            <Image src="/svgs/verification-bg.svg" height={300} width={300} alt="Verification" />
+            <Image src="/svgs/verification-bg.svg" height={600} width={600} alt="Verification" />
           </div>
         </div>
       </main>

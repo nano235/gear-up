@@ -10,6 +10,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "19 Apr, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Tripod"
     },
     {
@@ -23,6 +25,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1608538770329-65941f62f9f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "21 Jun, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lens"
     },
     {
@@ -36,6 +40,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Hidden",
       "date": "24 Jan, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lighting"
     },
     {
@@ -49,6 +55,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Hidden",
       "date": "14 May, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Tripod"
     },
     {
@@ -62,6 +70,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1597183739841-5ca26ab0a604?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "18 Sep, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Speaker"
     },
     {
@@ -75,6 +85,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "17 Mar, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Speaker"
     },
     {
@@ -88,6 +100,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1597183739841-5ca26ab0a604?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "18 Dec, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Microphone"
     },
     {
@@ -101,6 +115,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1608538770329-65941f62f9f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Hidden",
       "date": "23 Apr, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lighting"
     },
     {
@@ -114,6 +130,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "25 May, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lens"
     },
     {
@@ -127,6 +145,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1597183739841-5ca26ab0a604?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Rented out",
       "date": "07 Oct, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Camera"
     },
     {
@@ -140,6 +160,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "16 Sep, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Speaker"
     },
     {
@@ -153,6 +175,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Rented out",
       "date": "05 Sep, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lighting"
     },
     {
@@ -166,6 +190,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1608538770329-65941f62f9f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Rented out",
       "date": "15 Dec, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Microphone"
     },
     {
@@ -179,6 +205,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Hidden",
       "date": "21 Jul, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Speaker"
     },
     {
@@ -192,6 +220,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Rented out",
       "date": "06 Jun, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Microphone"
     },
     {
@@ -205,6 +235,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1597183739841-5ca26ab0a604?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "27 Dec, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Speaker"
     },
     {
@@ -218,6 +250,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1608538770329-65941f62f9f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "14 May, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Speaker"
     },
     {
@@ -231,6 +265,8 @@ export const userListingsData = [
       "image": "https://plus.unsplash.com/premium_photo-1677159499898-b061fb5bd2d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Hidden",
       "date": "19 Feb, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lens"
     },
     {
@@ -244,6 +280,8 @@ export const userListingsData = [
       "image": "https://plus.unsplash.com/premium_photo-1677159499898-b061fb5bd2d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Hidden",
       "date": "16 Aug, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Microphone"
     },
     {
@@ -257,6 +295,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Hidden",
       "date": "29 Jun, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lens"
     },
     {
@@ -270,6 +310,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Hidden",
       "date": "09 Apr, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Tripod"
     },
     {
@@ -283,6 +325,8 @@ export const userListingsData = [
       "image": "https://plus.unsplash.com/premium_photo-1677159499898-b061fb5bd2d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Hidden",
       "date": "31 Oct, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Camera"
     },
     {
@@ -296,6 +340,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Rented out",
       "date": "01 Jun, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lighting"
     },
     {
@@ -309,6 +355,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "23 Sep, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Microphone"
     },
     {
@@ -322,6 +370,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1597183739841-5ca26ab0a604?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Hidden",
       "date": "15 Dec, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lens"
     },
     {
@@ -335,6 +385,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1608538770329-65941f62f9f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "16 Jan, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Tripod"
     },
     {
@@ -348,6 +400,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Rented out",
       "date": "14 Jul, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lens"
     },
     {
@@ -361,6 +415,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Hidden",
       "date": "03 May, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lighting"
     },
     {
@@ -374,6 +430,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Rented out",
       "date": "07 Jun, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lighting"
     },
     {
@@ -387,6 +445,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1608538770329-65941f62f9f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "03 Dec, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Camera"
     },
     {
@@ -400,6 +460,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "10 May, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Microphone"
     },
     {
@@ -413,6 +475,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Hidden",
       "date": "12 Aug, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Microphone"
     },
     {
@@ -426,6 +490,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Hidden",
       "date": "25 Apr, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Speaker"
     },
     {
@@ -439,6 +505,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "16 Jun, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lighting"
     },
     {
@@ -452,6 +520,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "30 Apr, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Microphone"
     },
     {
@@ -465,6 +535,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1597183739841-5ca26ab0a604?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "24 Jun, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Speaker"
     },
     {
@@ -478,6 +550,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Hidden",
       "date": "05 Feb, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lighting"
     },
     {
@@ -491,6 +565,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1597183739841-5ca26ab0a604?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "18 Nov, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Microphone"
     },
     {
@@ -504,6 +580,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1597183739841-5ca26ab0a604?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "28 Apr, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lens"
     },
     {
@@ -517,6 +595,8 @@ export const userListingsData = [
       "image": "https://plus.unsplash.com/premium_photo-1677159499898-b061fb5bd2d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "16 Apr, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Tripod"
     },
     {
@@ -530,6 +610,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Rented out",
       "date": "30 Nov, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lighting"
     },
     {
@@ -543,6 +625,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "20 Nov, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Tripod"
     },
     {
@@ -556,6 +640,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Hidden",
       "date": "19 Mar, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Tripod"
     },
     {
@@ -569,6 +655,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "27 Jan, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lens"
     },
     {
@@ -582,6 +670,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1608538770329-65941f62f9f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "28 Feb, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Microphone"
     },
     {
@@ -595,6 +685,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "29 Dec, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Tripod"
     },
     {
@@ -608,6 +700,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "15 Aug, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Camera"
     },
     {
@@ -621,6 +715,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Rented out",
       "date": "15 Nov, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lens"
     },
     {
@@ -634,6 +730,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "09 Apr, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Lighting"
     },
     {
@@ -647,6 +745,8 @@ export const userListingsData = [
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
       "availability": "Active listing",
       "date": "26 Apr, yyyy",
+      "sold_count": 3,
+      "revenue": "$600",
       "category": "Speaker"
     }
   ]

@@ -15,6 +15,7 @@ import ImagesView from "./newListingViews/ImagesView";
 import ListingTypeView from "./newListingViews/ListingTypeView";
 import PricingView from "./newListingViews/PricingView";
 import SummaryView from "./newListingViews/SummaryView";
+import CourseListingView from "./CourseListingView/CourseListingView";
 
 export {
 	HomeView,
@@ -34,4 +35,5 @@ export {
 	ListingTypeView,
 	PricingView,
 	SummaryView,
+	CourseListingView
 };

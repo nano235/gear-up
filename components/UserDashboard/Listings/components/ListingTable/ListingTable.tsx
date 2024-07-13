@@ -16,7 +16,11 @@ import { Popper } from "@mui/material";
 import { listings, userListingsData } from "@/mock";
 import Fade from '@mui/material/Fade';
 
-const ListingTable = () => {
+interface Props {
+	activeFilter: string;
+}
+
+const ListingTable = ({ activeFilter }: Props) => {
 	const [activeLayout, setActiveLayout] = useState("list");
 	const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 	const [page, setPage] = useState(1);
@@ -162,6 +166,106 @@ const ListingTable = () => {
 	];
 
 
+	const coursesColumns: GridColDef[] = [
+		{
+			...sharedColDef,
+
+			field: "title",
+			cellClassName: styles.table_cell,
+			headerClassName: styles.table_header,
+			headerName: "Course Name",
+			minWidth: 300,
+			renderCell: ({ row, value }) => (
+				<div className={styles.container__name_container}>
+					<Image src={row.image} alt={value} width={16} height={16} />
+					<p className={styles.container__name} style={{ fontSize: "1.2rem" }}>
+						{value}
+					</p>
+				</div>
+			),
+		},
+		{
+			...sharedColDef,
+
+			field: "sold_count",
+			cellClassName: styles.table_cell,
+			headerClassName: styles.table_header,
+			headerName: "Sold",
+			minWidth: 200,
+		},
+		{
+			...sharedColDef,
+
+			field: "revenue",
+			cellClassName: styles.table_cell,
+			headerClassName: styles.table_header,
+			headerName: "Revenue",
+			minWidth: 150,
+		},
+		{
+			...sharedColDef,
+
+			field: "price",
+			cellClassName: styles.table_cell,
+			headerClassName: styles.table_header,
+			headerName: "Price",
+			minWidth: 150,
+		},
+		{
+			...sharedColDef,
+
+			field: "status",
+
+			cellClassName: styles.table_cell,
+			headerClassName: styles.table_header,
+			headerName: "Status",
+			minWidth: 150,
+			renderCell: ({ value }) => (
+				<div className={styles.container__status_container}>
+					<p
+						style={{ fontSize: "1.2rem" }}
+						className={styles.container__status_container__status_courses}
+						data-status={value?.toLowerCase()}
+					>
+						{value?.toLowerCase() === "ongoing" ? "Published" : "Draft"}
+					</p>
+				</div>
+			),
+		},
+		{
+			...sharedColDef,
+			field: "id",
+			align: "center",
+			headerAlign: "center",
+			cellClassName: styles.table_cell,
+			headerClassName: styles.table_header,
+			headerName: "Actions",
+			minWidth: 150,
+			renderCell: ({ row, value }) => (
+				<span
+					className={`${styles.container__action_btn} options_icon`}
+				>
+					<Popper id={'simple-popover'} open={openPoppover} anchorEl={anchorEl} transition>
+						{({ TransitionProps }) => (
+							<Fade {...TransitionProps} timeout={200}>
+								<div className={`${styles.more_modal} popover-content`}><MoreModal row={selectedRow} /></div>
+							</Fade>
+						)}
+					</Popper>
+
+
+					< MoreIcon onClick={(e) => {
+						setOpenPopover(true);
+						setSelectedRow(row);
+						handlePopoverOpen(e);
+					}
+					} />
+
+				</span>
+			),
+		},
+	];
+
 
 	useEffect(() => {
 		// Function to handle click events
@@ -186,6 +290,8 @@ const ListingTable = () => {
 			document.removeEventListener('click', handleClick);
 		};
 	}, []);
+
+
 
 
 	const listData = [
@@ -231,7 +337,7 @@ const ListingTable = () => {
 					>
 						<DataGrid
 							rows={paginatedTransactions}
-							columns={columns}
+							columns={activeFilter.toLowerCase() === "courses" ? coursesColumns : columns}
 							hideFooterPagination={true}
 							paginationMode="server"
 							hideFooter

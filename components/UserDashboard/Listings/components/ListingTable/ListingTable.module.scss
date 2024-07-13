@@ -59,24 +59,22 @@
       
 
         &__status{
-            border-radius: 0.5rem;
+            border-radius: 1.5rem;
             font-weight: 600;
-            &[data-status="awaiting approval"]{
-                background-color: #FFFAEB;
-                color: #B54708;
-            }
-            &[data-status="completed"]{
+
+        }
+
+        &__status_courses{
+            
+            border-radius: 1.5rem;
+            font-weight: 600;
+            background-color: #F0F0F1;
+          padding: 0.1rem 1rem;
+            &[data-status="ongoing"]{
                 background-color: #ECFDF3;
                 color: #027A48;
             }
-            &[data-status="ongoing"]{
-                background-color:#F0F9FF;
-                color:#026AA2;
-            }
-            &[data-status="declined"]{
-                background-color: #FEF3F2;
-                color: #B42318;
-            }
+       
 
         }
 
@@ -84,8 +82,8 @@
             border-radius: 0.5rem;
             font-weight: 400;
             font-size: 1.2rem;
-            border-radius: 1rem;
-            padding: 0.1rem 0.5rem;
+            padding: 0.1rem 1rem;
+            border-radius: 1.5rem;
             &[data-status="rented out"]{
                 background-color: #F0F9FF;
                 color: #026AA2;
