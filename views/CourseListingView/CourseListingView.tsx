@@ -4,8 +4,8 @@ import styles from './CourseListingView.module.scss'
 import { PersonalIdentification, PhoneVerification, } from '@/components/UserDashboard/GetStarted/components'
 import Image from 'next/image'
 import { Button } from '@/shared'
-import { NewCourseListingsNav } from '@/components/UserDashboard/Listings/NewCourseListings/components'
-import CourseDetails from '@/components/UserDashboard/Listings/NewCourseListings/components/CourseDetails/CourseDetails'
+import { CourseContent, CourseDetails, NewCourseListingsNav } from '@/components/UserDashboard/Listings/NewCourseListings/components'
+
 
 const CourseListingView = () => {
     const [stepCount, setStepCount] = useState(4)
@@ -45,7 +45,7 @@ const CourseListingView = () => {
                         currentStep === 1 && <CourseDetails />
                     }
                     {
-                        currentStep === 2 && <PhoneVerification isTokenVerification={isTokenVerification} isTokenVerified={isTokenVerified} setIsTokenVerified={setIsTokenVerified} setIsTokenVerification={setIsTokenVerification} />
+                        currentStep === 2 && <CourseContent />
                     }
                 </div>
                 <div className={styles.container__main_content__right_side}>
@@ -62,7 +62,10 @@ const CourseListingView = () => {
                 }
                 {
                     currentStep < stepCount && <Button onClick={handleNextStep} buttonType='primary' iconSuffix='/svgs/color-arrow.svg' className={styles.container__btn_started}>
-                        Save & Continue
+                        {
+                            currentStep === 2 ? 'Publish' : 'Save & Continue'
+                        }
+
                     </Button>
                 }
             </div>

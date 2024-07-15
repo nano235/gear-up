@@ -89,7 +89,7 @@ const AdminSidebar = ({ isMobile, onClose }: Props) => {
             <div className={styles.navlinks_wrapper}>
                 <ul className={styles.navlinks_container}>
                     {sidebarItems.map((item, index) => (
-                        <Link key={index} data-active={active === item.link} href={item.link} className={styles.navlinks_container__item} >
+                        <Link key={index} data-active={active === item.link} href={item.link} className={styles.navlinks_container__item} onClick={onClose}>
                             <span className={styles.icon}>
                                 {item.icon}
                             </span>

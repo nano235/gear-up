@@ -13,6 +13,10 @@ export const customisedTableClasses = {
       background: '#fbfbfd',
       fontWeight: 700,
     },
+    "& .MuiDataGrid-main ": {
+      borderRadius: "1.6rem",
+      border: "1px solid #E5E7EB",
+    },
     "& .MuiDataGrid-columnHeader:focus": {
       outline: "none",
       fontWeight:700
@@ -26,12 +30,13 @@ export const customisedTableClasses = {
     "& .MuiDataGrid-cell": {
       color: "#1B1E21",
       fontSize: '1.2rem',
-      overflow: "visible"
+      overflow: "visible",
+
     },
     "& .MuiDataGrid-main": {
       overflow: "visible",
       fontSize: '1.2rem',
-      minHeight: '40rem'
+  /*     minHeight: '40rem' */
       
     },
 

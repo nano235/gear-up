@@ -136,12 +136,6 @@ const TransactionTable = ({ transactionType }: Props) => {
 					hideFooter
 					autoHeight
 				/>
-				<Pagination
-					currentPage={page}
-					onPageChange={handlePagination}
-					totalCount={transactions.length}
-					pageSize={limit}
-				/>
 			</div>
 
 			<ul className={styles.container__cards_container}>
@@ -149,6 +143,12 @@ const TransactionTable = ({ transactionType }: Props) => {
 					<RecentDealsCard key={item.id} item={item} />
 				))}
 			</ul>
+			<Pagination
+				currentPage={page}
+				onPageChange={handlePagination}
+				totalCount={transactions.length}
+				pageSize={limit}
+			/>
 		</div>
 	);
 };
