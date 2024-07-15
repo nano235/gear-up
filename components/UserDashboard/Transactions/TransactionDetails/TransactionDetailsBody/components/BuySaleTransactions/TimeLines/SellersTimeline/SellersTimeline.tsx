@@ -6,6 +6,8 @@ import { CheckmarkIcon, LineIcon } from '@/shared/svgs/dashboard'
 import { AcceptDecline, AwaitingConfirmation, AwaitingShipment, ConfirmShipment, RatingFeedback, Shipment, StatusReport } from './components'
 import { saleSellersTimeline, saleSellersTimelineThirdParty, sellersReturnTimeline } from '../../../utils/data'
 import { useSearchParams } from 'next/navigation'
+import TimeLine from './components/TimeLine/TimeLine'
+import Modal from '@/shared/modals/modal/Modal'
 interface Timeline {
     id: number
     name: string
@@ -13,10 +15,11 @@ interface Timeline {
 
 interface Props {
     timelines?: any
+    openModal: boolean
+    setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-
-const SellersTimeline = ({ timelines }: Props) => {
+const SellersTimeline = ({ openModal, setOpenModal }: Props) => {
     const [steps, setSteps] = useState(1)
     const [newTimelines, setNewTimelines] = useState<Timeline[]>([])
     const search = useSearchParams()
@@ -55,35 +58,12 @@ const SellersTimeline = ({ timelines }: Props) => {
 
     return (
         <>
-            <div>
-                <button onClick={handlePrev}>prev</button>
-                <button onClick={handleNext}> next</button>
-            </div>
             <div className={styles.container}>
-                <div className={styles.left}>
-                    <HeaderSubText title="Transaction timeline" />
-                    <ul className={styles.timelines_container}>
-                        {
-                            newTimelines?.map((timeline: any) => {
-                                return (
-                                    <li key={timeline.id} className={styles.timeline}>
-                                        <div className={styles.span_container}>
-                                            <span className={styles.id_container} data-active={timeline.id <= steps}>
-                                                {
-                                                    steps - 1 < timeline.id ? timeline.id : <span className={styles.check_icon} data-active={timeline.id <= steps}><CheckmarkIcon /></span>
-                                                }
-                                            </span>
-                                            {
-                                                timeline.id < newTimelines.length && <div data-active={timeline.id <= steps - 1} className={styles.line_icon}>
-                                                </div>
-                                            }
-                                        </div>
-                                        <p data-active={timeline.id <= steps}>{timeline.name}</p>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
+                <div className={styles.desktop_timelines}>
+                    <div className={styles.left}>
+                        <HeaderSubText title="Transaction timeline" />
+                        <TimeLine steps={steps} newTimelines={newTimelines} />
+                    </div>
                 </div>
                 <div className={styles.right}>
                     {
@@ -132,6 +112,9 @@ const SellersTimeline = ({ timelines }: Props) => {
                             </>
                     }
                 </div>
+                <Modal openModal={openModal} setOpenModal={() => setOpenModal(false)} title='Transaction timeline'>
+                    <TimeLine steps={steps} newTimelines={newTimelines} />
+                </Modal>
             </div>
         </>
     )

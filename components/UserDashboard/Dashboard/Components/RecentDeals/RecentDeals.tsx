@@ -1,34 +1,39 @@
 'use client';
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './RecentDeals.module.scss'
 import { DataGrid, GridAddIcon, GridColDef, GridRowsProp } from '@mui/x-data-grid';
 import Image from 'next/image';
-import { Button, InputField } from '@/shared';
+import { Button, InputField, Pagination } from '@/shared';
 import RecentDealsCard from './components/RecentDealsCard/RecentDealsCard';
 import { MoreIcon, TransactionNavIcon } from '@/shared/svgs/dashboard';
 import { customisedTableClasses } from '@/utils/classes';
 import Link from 'next/link';
+import { recentDeals } from '@/mock/RecentDealsData.mock';
 const sharedColDef: GridColDef = {
     field: "",
     sortable: true,
     flex: 1,
 };
 const RecentDeals = () => {
-    const rows: GridRowsProp = [
-        { id: 1, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Declined', actions: 'View', image: "" },
-        { id: 2, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Awaiting approval', actions: 'View', image: "" },
-        { id: 3, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Completed', actions: 'View', image: "" },
-        { id: 4, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Ongoing', actions: 'View', image: "" },
-        { id: 5, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Declined', actions: 'View', image: "" },
-        { id: 6, name: 'Canon EOS R5 Camera Kit', amount: '$200', transaction_date: '15 Dec, 2023', type: 'Rental', status: 'Completed', actions: 'View', image: "" },
+    const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(5);
+    const [paginatedTransactions, setPaginatedTransactions] = useState<GridRowsProp>(
+        recentDeals.slice(0, limit)
+    );
 
-    ];
+
+    const handlePagination = (page: number) => {
+        const start = (page - 1) * limit;
+        const end = start + limit;
+        setPaginatedTransactions(recentDeals.slice(start, end));
+        setPage(page);
+    };
 
 
     const columns: GridColDef[] = [
         {
             ...sharedColDef,
-            field: 'name',
+            field: 'title',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
             headerName: 'Name',
@@ -44,7 +49,7 @@ const RecentDeals = () => {
         },
         {
             ...sharedColDef,
-            field: 'amount',
+            field: 'price',
             cellClassName: styles.table_cell,
             headerClassName: styles.table_header,
             headerName: 'Amount',
@@ -114,7 +119,7 @@ const RecentDeals = () => {
             </div>
 
             {
-                rows.length < 1 ?
+                paginatedTransactions.length < 1 ?
                     <div className={styles.empty_rows}>
                         <span className={styles.transaction_icon}>
                             <TransactionNavIcon color='#FFB30F' />
@@ -128,18 +133,24 @@ const RecentDeals = () => {
                     :
                     <>
                         <div className={styles.container__table} style={{ width: '100%' }}>
-                            <DataGrid rows={rows} columns={columns}
+                            <DataGrid rows={paginatedTransactions} columns={columns}
                                 hideFooterPagination={true} hideFooter paginationMode="server"
                                 sx={customisedTableClasses} autoHeight
                             />
                         </div>
                         <ul className={styles.container__cards_container}>
                             {
-                                rows.map((item) => (
-                                    <RecentDealsCard key={item.id} item={item} />
+                                paginatedTransactions.map((item, ind) => (
+                                    <RecentDealsCard key={item.id} item={item} ind={ind} lastEle={(ind + 1) === paginatedTransactions.length ? true : false} />
                                 ))
                             }
                         </ul>
+                        <Pagination
+                            currentPage={page}
+                            onPageChange={handlePagination}
+                            totalCount={recentDeals.length}
+                            pageSize={limit}
+                        />
                     </>
             }
         </div>

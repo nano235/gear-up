@@ -79,6 +79,18 @@
 
 		.modal{
 			padding: 2rem;
+			min-width: 100%;
+
+			.header {
+				position: relative;
+				margin-bottom: 2.4rem;
+				.title {
+					h4 {
+						@extend %text-16;
+						font-weight: 600;
+					}
+				}
+			}
 		}
 	}
 }

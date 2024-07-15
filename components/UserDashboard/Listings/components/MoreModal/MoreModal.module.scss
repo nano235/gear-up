@@ -15,10 +15,14 @@
     }
 
     &__status_container{
-        border: 1px solid $col-border;
+        // border: 1px solid $col-border;
         display: flex;
         align-items: center;
         gap: 1rem;
+    }
+    
+    .item{
+        border-bottom: 1px solid $col-border;
     }
 
     .status,.switch{

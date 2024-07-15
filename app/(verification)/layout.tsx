@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import styles from "./layout.module.scss";
-import { AdminNavbar, AdminSidebar } from "@/components/Admin";
+
 
 export const metadata: Metadata = {
     title: "Welcome to Gear Up",
@@ -9,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function VerficationLayout({ children }: { children: React.ReactNode }) {
     return (
-        <main className={styles.main}>
+        <main>
             <aside>{children}</aside>
         </main>
     )

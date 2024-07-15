@@ -6,19 +6,22 @@ import { Button } from '@/shared'
 
 interface Props {
     item: any
+    ind?: number
+    lastEle?: boolean
 }
-const RecentDealsCard = ({ item }: Props) => {
+const RecentDealsCard = ({ item, ind, lastEle }: Props) => {
     const [showDetails, setShowDetails] = React.useState<boolean>(false)
+
     return (
         <div className={styles.container}>
-            <div className={styles.container__header}>
+            <div className={styles.container__header} data-index={ind} data-lastEle={lastEle && !showDetails}>
                 <div className={styles.container__header__left}>
                     <div className={styles.avatar}>
                         <Image src="/images/admin-img.jpg" alt={item.title} width={16} height={16} />
                     </div>
                     <div className={styles.container__header__left__name_amount}>
-                        <p className={styles.name}>{item.name}</p>
-                        <p className={styles.amount}>{item.amount}</p>
+                        <p className={styles.name}>{item.title}</p>
+                        <p className={styles.amount}>{item.price}</p>
                     </div>
                 </div>
                 <span className={styles.container__header__icon} data-rotate={showDetails} onClick={() => setShowDetails((prev) => !prev)}>
@@ -27,7 +30,7 @@ const RecentDealsCard = ({ item }: Props) => {
             </div>
             {
                 showDetails && (
-                    <div className={styles.container__details}>
+                    <div className={styles.container__details} data-lastEle={lastEle}>
                         <div className={styles.container__details__detail_container}>
                             <p className={styles.key}>Transaction date</p>
                             <p className={styles.value}>{item.transaction_date}</p>

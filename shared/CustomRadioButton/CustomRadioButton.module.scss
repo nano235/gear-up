@@ -6,11 +6,13 @@
     font-size: 16px;
     user-select: none;
     position: relative;
-    padding-left: 35px;
+    padding-left: 25px;
   
     input {
       position: absolute;
       opacity: 0;
+      top: 0;
+      left: 0;
       cursor: pointer;
   
       &:checked ~ .radioCustom {
@@ -31,7 +33,7 @@
       background-color: #fff;
       border: 2px solid #A4A6A7;
       border-radius: 50%;
-      transform: translateY(-1rem);
+      // transform: translateY(-1rem);
       
       &:after {
         content: '';

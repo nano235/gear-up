@@ -3,12 +3,14 @@ import React, { useState } from 'react'
 import styles from './StatusReport.module.scss'
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText';
 import { Button } from '@/shared';
+import RefundModal from './RefundModal/RefundModal';
 
 interface Props {
     handleNext: () => void
 }
 
 const StatusReport = ({ handleNext }: Props) => {
+    const [showRefundModal, setShowRefundModal] = useState(false)
     const isGood = true
 
     return (
@@ -18,7 +20,7 @@ const StatusReport = ({ handleNext }: Props) => {
                     <HeaderSubText title="Status Report" />
                 </div>
                 {
-                    isGood ?
+                    !isGood ?
                         <>
                             <div className={styles.details_container}>
                                 <h2>
@@ -93,11 +95,12 @@ const StatusReport = ({ handleNext }: Props) => {
                                 </p>
                             </div>
                             <div className={styles.btn_container}>
-                                <Button onClick={handleNext}>Proced</Button>
+                                <Button onClick={() => setShowRefundModal(true)}>Request a refund</Button>
                             </div>
                         </>
                 }
             </div>
+            <RefundModal openModal={showRefundModal} setOpenModal={setShowRefundModal} />
         </div>
     )
 }

@@ -53,8 +53,8 @@
         font-size: 1.2rem;
 
         &__status{
-            padding: 0.5rem;
-            border-radius: 0.5rem;
+            padding: 0.1rem 1rem;
+            border-radius: 1.5rem;
             font-weight: 600;
             &[data-status="awaiting approval"]{
                 background-color: #FFFAEB;
@@ -159,6 +159,7 @@
             width: 100%;
             margin-top: 2rem;
             border-radius: 1.6rem;
+            border: 1px solid $col-border;
         }
     }
     
