@@ -4,11 +4,10 @@ import styles from "./TransactionTable.module.scss";
 import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import Image from "next/image";
 import { Button, InputField, Pagination } from "@/shared";
-// import RecentDealsCard from '@/components/Admin/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
 import { customisedTableClasses } from "@/utils/classes";
 import Link from "next/link";
 import { transactions } from "@/mock/transactions.mock";
-import RecentDealsCard from "@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard";
+import TransactionCardMob from "./TransactionCardMob/TransactionCardMob";
 
 interface Props {
 	transactionType: string;
@@ -16,7 +15,7 @@ interface Props {
 
 const TransactionTable = ({ transactionType }: Props) => {
 	const [page, setPage] = useState(1);
-	const [limit, setLimit] = useState(10);
+	const [limit, setLimit] = useState(5);
 	const [paginatedTransactions, setPaginatedTransactions] = useState<GridRowsProp>(
 		transactions.slice(0, limit)
 	);
@@ -44,7 +43,7 @@ const TransactionTable = ({ transactionType }: Props) => {
 			minWidth: 250,
 			renderCell: ({ row, value }) => (
 				<div className={styles.container__name_container}>
-					<Image src={row.gear_image} alt={value} width={16} height={16} />
+					<Image src={row.gear_image} alt={value || "image-trans"} width={16} height={16} />
 					<p className={styles.container__name} style={{ fontSize: "1.2rem" }}>
 						{value}
 					</p>
@@ -139,8 +138,8 @@ const TransactionTable = ({ transactionType }: Props) => {
 			</div>
 
 			<ul className={styles.container__cards_container}>
-				{transactions.map(item => (
-					<RecentDealsCard key={item.id} item={item} />
+				{paginatedTransactions.map((item, ind) => (
+					<TransactionCardMob key={item.id} item={item} ind={ind} lastEle={(ind + 1) === paginatedTransactions.length ? true : false} />
 				))}
 			</ul>
 			<Pagination

@@ -5,15 +5,21 @@ import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import { CheckmarkIcon } from '@/shared/svgs/dashboard'
 import { AwaitingApproval, AwaitingConfirmation, ConfirmHandover, InitiateReturn, ReviewFeedback, TransactionOngoing } from './components'
 import { rentRentersTimeline } from '../../../utils/data'
+import Modal from '@/shared/modals/modal/Modal'
+import TimeLine from './components/TimeLine/TimeLine'
 
 interface Props {
     timelines?: any
+    openModal: boolean
+    setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const RentersTimeline = ({ timelines }: Props) => {
+const RentersTimeline = ({ timelines, openModal, setOpenModal }: Props) => {
+
+
     const [steps, setSteps] = useState(1)
     const isTimeElapsed = true
-   
+
 
     const handlePrev = () => {
         if (steps > 1) {
@@ -34,58 +40,36 @@ const RentersTimeline = ({ timelines }: Props) => {
     }, [isTimeElapsed])
 
     return (
-        <div>
-            <div>
-                <button onClick={handlePrev}>prev</button>
-                <button onClick={handleNext}> next</button>
-            </div>
-            <div className={styles.container}>
+        <div className={styles.container}>
+            <div className={styles.desktop_timelines}>
                 <div className={styles.left}>
                     <HeaderSubText title="Transaction timeline" />
-                    <ul className={styles.timelines_container}>
-                        {
-                            rentRentersTimeline?.map((timeline: any) => {
-                                return (
-                                    <li key={timeline.id} className={styles.timeline}>
-                                        <div className={styles.span_container}>
-                                            <span className={styles.id_container} data-active={timeline.id <= steps}>
-                                                {
-                                                    steps - 1 < timeline.id ? timeline.id : <span className={styles.check_icon} data-active={timeline.id <= steps}><CheckmarkIcon /></span>
-                                                }
-                                            </span>
-                                            {
-                                                timeline.id < 6 && <div data-active={timeline.id <= steps - 1} className={styles.line_icon}>
-                                                </div>
-                                            }
-                                        </div>
-                                        <p data-active={timeline.id <= steps}>{timeline.name}</p>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
-                <div className={styles.right}>
-                    {
-                        steps == 1 && <AwaitingApproval handleNext={handleNext} />
-                    }
-                    {
-                        steps === 2 && <ConfirmHandover handleNext={handleNext} />
-                    }
-                    {
-                        steps === 3 && <TransactionOngoing handleNext={handleNext} isTimeElapsed={isTimeElapsed} />
-                    }
-                    {
-                        steps === 4 && <InitiateReturn handleNext={handleNext} />
-                    }
-                    {
-                        steps === 5 && <AwaitingConfirmation />
-                    }
-                    {
-                        steps === 6 && <ReviewFeedback />
-                    }
+                    <TimeLine steps={steps} />
                 </div>
             </div>
+            <div className={styles.right}>
+                {
+                    steps == 1 && <AwaitingApproval handleNext={handleNext} />
+                }
+                {
+                    steps === 2 && <ConfirmHandover handleNext={handleNext} />
+                }
+                {
+                    steps === 3 && <TransactionOngoing handleNext={handleNext} isTimeElapsed={isTimeElapsed} />
+                }
+                {
+                    steps === 4 && <InitiateReturn handleNext={handleNext} />
+                }
+                {
+                    steps === 5 && <AwaitingConfirmation />
+                }
+                {
+                    steps === 6 && <ReviewFeedback />
+                }
+            </div>
+            <Modal openModal={openModal} setOpenModal={() => setOpenModal(false)} title='Transaction timeline'>
+                <TimeLine steps={steps} />
+            </Modal>
         </div>
     )
 }

@@ -147,7 +147,7 @@ const ListingTable = ({ activeFilter }: Props) => {
 					<Popper id={'simple-popover'} open={openPoppover} anchorEl={anchorEl} transition>
 						{({ TransitionProps }) => (
 							<Fade {...TransitionProps} timeout={200}>
-								<div className={`${styles.more_modal} popover-content`}><MoreModal row={selectedRow} /></div>
+								<div className={`${styles.more_modal} popover-content`}><MoreModal row={selectedRow} activeFilter={activeFilter} /></div>
 							</Fade>
 						)}
 					</Popper>
@@ -248,12 +248,10 @@ const ListingTable = ({ activeFilter }: Props) => {
 					<Popper id={'simple-popover'} open={openPoppover} anchorEl={anchorEl} transition>
 						{({ TransitionProps }) => (
 							<Fade {...TransitionProps} timeout={200}>
-								<div className={`${styles.more_modal} popover-content`}><MoreModal row={selectedRow} /></div>
+								<div className={`${styles.more_modal} popover-content`}><MoreModal row={selectedRow} activeFilter={activeFilter} /></div>
 							</Fade>
 						)}
 					</Popper>
-
-
 					< MoreIcon onClick={(e) => {
 						setOpenPopover(true);
 						setSelectedRow(row);

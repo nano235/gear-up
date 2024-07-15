@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import styles from './RecentDealsCard.module.scss'
+import styles from './TransactionCardMob.module.scss'
 import Image from 'next/image'
 import { Button } from '@/shared'
 
@@ -9,9 +9,9 @@ interface Props {
     ind?: number
     lastEle?: boolean
 }
-const RecentDealsCard = ({ item, ind, lastEle }: Props) => {
-    const [showDetails, setShowDetails] = React.useState<boolean>(false)
 
+const TransactionCardMob = ({ item, ind, lastEle }: Props) => {
+    const [showDetails, setShowDetails] = React.useState<boolean>(false)
     return (
         <div className={styles.container}>
             <div className={styles.container__header} data-index={ind} data-lastEle={lastEle && !showDetails}>
@@ -20,8 +20,8 @@ const RecentDealsCard = ({ item, ind, lastEle }: Props) => {
                         <Image src="/images/admin-img.jpg" alt={item.title} width={16} height={16} />
                     </div>
                     <div className={styles.container__header__left__name_amount}>
-                        <p className={styles.name}>{item.title}</p>
-                        <p className={styles.amount}>{item.price}</p>
+                        <p className={styles.name}>{item.gear_name}</p>
+                        <p className={styles.amount}>{item.amount}</p>
                     </div>
                 </div>
                 <span className={styles.container__header__icon} data-rotate={showDetails} onClick={() => setShowDetails((prev) => !prev)}>
@@ -35,13 +35,13 @@ const RecentDealsCard = ({ item, ind, lastEle }: Props) => {
                             <p className={styles.key}>Transaction date</p>
                             <p className={styles.value}>{item.transaction_date}</p>
                         </div>
-                        <div className={styles.container__details__detail_container}>
+                        {/*      <div className={styles.container__details__detail_container}>
                             <p className={styles.key}>Type</p>
                             <p className={`${styles.value} ${styles.rental}`}>{item.type}</p>
-                        </div>
+                        </div> */}
                         <div className={styles.container__details__detail_container}>
                             <p className={styles.key}>Status</p>
-                            <p className={`${styles.value} ${styles.status}`} data-status={item.status.toLowerCase()}>{item.status}</p>
+                            <p className={`${styles.value} ${styles.status}`} data-status={item.transaction_status?.toLowerCase()}>{item.transaction_status}</p>
                         </div>
                         <div className={styles.container__details__btn_container}>
                             <Button buttonType='secondary' className={styles.btn}>
@@ -56,4 +56,4 @@ const RecentDealsCard = ({ item, ind, lastEle }: Props) => {
     )
 }
 
-export default RecentDealsCard
+export default TransactionCardMob
