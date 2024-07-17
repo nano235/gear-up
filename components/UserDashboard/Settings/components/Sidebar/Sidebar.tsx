@@ -41,6 +41,15 @@ const Sidebar = ({ settingsLists, active }: Props) => {
                     ))}
                 </ul>
             </div>
+            <ul className={styles.parent_container}>
+                {
+                    settingsLists.map((item) => (
+                        <Link data-active={active === item.slug} href={item.path} key={item.id} className={styles.filter}>
+                            <p>{item.name}</p>
+                        </Link>
+                    ))
+                }
+            </ul>
         </div>
     )
 }

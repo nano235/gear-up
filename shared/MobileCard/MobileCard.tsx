@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import styles from './MobileCard.module.scss'
 import Image from 'next/image';
+import CustomImage from '../customImage/CustomImage';
 
 interface Props {
     mainHeaderText?: string;
@@ -19,7 +20,7 @@ const MobileCard = ({ mainHeaderImage, mainHeaderText, subHeaderText, lastEle, i
             <div className={styles.container__header} data-index={ind} data-lastEle={lastEle && !showDetails}>
                 <div className={styles.container__header__left}>
                     <div className={styles.avatar}>
-                        <Image src={mainHeaderImage || "/images/admin-img.jpg"} alt={mainHeaderText || "custom-image"} width={16} height={16} />
+                        <CustomImage src={mainHeaderImage || "/images/admin-img.jpg"} alt={mainHeaderText || "custom-image"} width={16} height={16} />
                     </div>
                     <div className={styles.container__header__left__name_amount}>
                         <p className={styles.name}>{mainHeaderText}</p>
