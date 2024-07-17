@@ -13,7 +13,6 @@
             padding: 5rem  8rem;
             padding-right:4rem ;
             overflow:auto;
-
             @include noScrollBar
         }
 
@@ -41,6 +40,25 @@
 
         &[data-page='1']{
             justify-content: center;
+        }
+    }
+
+    @include screenMax("mobile"){
+        width: 100%;
+        box-sizing: border-box;
+        &__main_content{
+            grid-template-columns: 1fr;
+            padding-right: 0;
+            padding: 0;
+            height: calc(100vh - 10rem);
+
+            &__left_side{
+                padding: 2rem 0;
+            }
+
+            &__right_side{
+                display: none;
+            }
         }
     }
 

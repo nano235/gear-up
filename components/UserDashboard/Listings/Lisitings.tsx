@@ -105,7 +105,13 @@ const Lisitings = () => {
   console.log(activeFilter, 'lsi')
   return (
     <div className={styles.container}>
-      <HeaderSubText title='Listings' variant='main' />
+      <div className={styles.title_toggle}>
+        <HeaderSubText title='Listings' variant='main' />
+        <div className={styles.listing_text}>
+          <p>Hide All Listings</p>
+          <ToggleSwitch />
+        </div>
+      </div>
       <div className={styles.container__filters_container}>
         <ReuseableFilters parentFilters={parentFilters} activeFilterId={activeFilterId} setActiveFilterId={setActiveFilterId} setActiveSubFilterId={setActiveSubFilterId} activeSubFilterId={activeSubFilterId} />
         <div className={styles.container__filters_container__listings_container}>
@@ -114,7 +120,7 @@ const Lisitings = () => {
           <Button onClick={handleButtonClick}> <GridAddIcon className={styles.add_icon} /> {activeFilter === Type.Courses ? "New Course" : "Create a listing"}</Button>
         </div>
       </div>
-      <ListingTable activeFilter={activeFilter?.toLowerCase()} />
+      <ListingTable activeFilter={activeFilter?.toLowerCase()} handleAddItem={handleButtonClick} />
     </div>
   )
 }

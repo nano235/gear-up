@@ -3,6 +3,16 @@
 .container {
     padding: 4rem 3rem;
 
+    .title_toggle{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .listing_text{
+            display: none;
+        }
+    }
+
     &__filters_container{
         display:flex;
         justify-content:space-between;
@@ -57,6 +67,30 @@
 
         @include screenMax("mobile") {
             display: none;
+        }
+    }
+
+    @include screenMax("mobile"){
+        padding: 3rem 1.6rem;
+
+        .title_toggle{
+           
+    
+            .listing_text{
+                display: flex ;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+
+        &__filters_container{
+            flex-direction: column-reverse;
+            gap: 1rem;
+            width: 100%;
+
+            &__listings_container{
+                display: none;
+            }
         }
     }
 

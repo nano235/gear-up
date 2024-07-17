@@ -150,18 +150,6 @@
           }
     }
 
-    &__cards_container{
-        display: none;
-
-        @include screenMax("mobile") {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            margin-top: 2rem;
-            border-radius: 1.6rem;
-            border: 1px solid $col-border;
-        }
-    }
     
 
 }
