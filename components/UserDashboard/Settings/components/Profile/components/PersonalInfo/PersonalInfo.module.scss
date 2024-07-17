@@ -64,34 +64,6 @@
         border-radius: 1rem;
         height: 250px;
         background: #FFF7E7;
-}
-    }
-
-    &__form {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-
-      .phone_field{
-        display: flex;
-      }
-
-      .address_field {
-        grid-column: span 2;
-      }
-
-      .text_area_container{
-        grid-column: span 2;
-      
-      }
-
-      .map_container {
-        grid-column: span 2;
-        border: 1px solid $col-border;
-        border-radius: 1rem;
-        height: 250px;
-        background: #FFF7E7;
       }
 
 
@@ -103,6 +75,30 @@
       justify-content: flex-end;
       margin-top: 2rem;
       width: 100%;
+    }
+  }
+
+  @include screenMax("mobile"){
+    &__form_container {
+      border: 1px solid $col-border;
+      padding: 2rem 1.6rem;
+      border-radius: 2rem;
+  
+      &__form {
+     display: flex;
+     flex-direction: column;
+      }
+      .submit_btn_container {
+        column-span: 2;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 2rem;
+        width: 100%;
+
+        button{
+          width: 100%;
+        }
+      }
     }
   }
 }

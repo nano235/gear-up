@@ -58,4 +58,30 @@
       width: 100%;
     }
   }
+
+  @include screenMax("mobile"){
+    &__form_container {
+      border: 1px solid $col-border;
+      padding: 2rem 1.6rem;
+      border-radius: 2rem;
+  
+      &__form {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 2rem;
+      }
+      .submit_btn_container {
+        column-span: 2;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 4rem;
+        width: 100%;
+
+        button{
+          width: 100%;
+        }
+      }
+    }
+
+  }
 }
