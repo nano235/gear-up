@@ -3,15 +3,13 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./ListingTable.module.scss";
 import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import Image from "next/image";
-import { InputField, ToggleSwitch } from "@/shared";
+import { AddBtn, InputField, MobileCardContainer, ToggleSwitch } from "@/shared";
 import { MoreIcon } from "@/shared/svgs/dashboard";
-// import RecentDealsCard from '@/components/Admin/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
 import { GridIcon, ListIcon } from "@/shared/svgs/dashboard";
 import ListingCard from "../ListingCard/ListingCard";
 import MoreModal from "../MoreModal/MoreModal";
 import { customisedTableClasses } from "@/utils/classes";
 import Pagination from "../../../../../shared/pagination/Pagination";
-import RecentDealsCard from "@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard";
 import { Popper } from "@mui/material";
 import { listings, userListingsData } from "@/mock";
 import Fade from '@mui/material/Fade';
@@ -20,9 +18,10 @@ import ListingCardMob from "./ListingCardMob/ListingCardMob";
 
 interface Props {
 	activeFilter: string;
+	handleAddItem: () => void;
 }
 
-const ListingTable = ({ activeFilter }: Props) => {
+const ListingTable = ({ activeFilter, handleAddItem }: Props) => {
 	const [activeLayout, setActiveLayout] = useState("list");
 	const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 	const [page, setPage] = useState(1);
@@ -334,7 +333,7 @@ const ListingTable = ({ activeFilter }: Props) => {
 					>
 						<DataGrid
 							rows={paginatedTransactions}
-							columns={activeFilter.toLowerCase() === "courses" ? coursesColumns : columns}
+							columns={activeFilter === "courses" ? coursesColumns : columns}
 							hideFooterPagination={true}
 							paginationMode="server"
 							hideFooter
@@ -344,23 +343,26 @@ const ListingTable = ({ activeFilter }: Props) => {
 
 					</div>
 
-					<ul className={styles.container__cards_container}>
+					<MobileCardContainer>
 						{paginatedTransactions.map((item, ind) => (
-							<ListingCardMob key={ind} item={item} />
+							<ListingCardMob activeFilter={activeFilter} key={ind} item={item} ind={ind} lastEle={(ind + 1) === paginatedTransactions.length ? true : false} />
 						))}
-					</ul>
+					</MobileCardContainer>
 					<Pagination
 						currentPage={1}
 						onPageChange={setPage}
 						totalCount={userListingsData.length}
 						pageSize={5}
 					/>
+					<div className={styles.btn_container}>
+						<AddBtn onClick={handleAddItem} />
+					</div>
 				</>
 			) : (
 				<>
 					<div className={styles.container__grid}>
 						{paginatedTransactions.map(item => (
-							<ListingCard key={item.id} props={item} />
+							<ListingCard key={item.id} props={item} activeFilter={activeFilter} activeRow={selectedRow} setActiveRow={setSelectedRow} />
 						))}
 					</div>
 				</>

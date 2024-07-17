@@ -12,12 +12,14 @@ import MoreModal from "../MoreModal/MoreModal";
 interface Props {
     props: any;
     className?: string;
+    activeFilter?: string;
+    activeRow?: number;
+    setActiveRow: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const ListingCard = ({ props, className }: Props) => {
+const ListingCard = ({ props, className, activeFilter, activeRow, setActiveRow }: Props) => {
     const { setSingleListing } = useGlobalContext();
     const [showMoreModal, setShowMoreModal] = useState(false);
-    const [activeRow, setActiveRow] = useState(0)
 
     const handleMoreIconClick = (id: number) => {
         setActiveRow(id)
@@ -35,7 +37,7 @@ const ListingCard = ({ props, className }: Props) => {
                     <MoreIcon />
                 </span>
                 {
-                    showMoreModal && activeRow === props.id && <div className={styles.more_modal}> <MoreModal /></div>
+                    showMoreModal && activeRow === props.id && <div className={styles.more_modal}> <MoreModal row={props} activeFilter={activeFilter} /></div>
                 }
             </div>
             <div className={styles.row} style={{ alignItems: "flex-start" }}>

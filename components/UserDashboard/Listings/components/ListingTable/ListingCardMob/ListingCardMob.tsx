@@ -1,36 +1,72 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './ListingCardMob.module.scss'
 import Image from 'next/image'
-import { Button, ToggleSwitch } from '@/shared'
+import { Button, MobileCard, ToggleSwitch } from '@/shared'
 
 interface Props {
     item: any
     ind?: number
     lastEle?: boolean
+    activeFilter?: string
 }
 
-const ListingCardMob = ({ item, ind, lastEle }: Props) => {
-    const [showDetails, setShowDetails] = React.useState<boolean>(false)
+const ListingCardMob = ({ item, ind, lastEle, activeFilter }: Props) => {
+
     return (
-        <div className={styles.container}>
-            <div className={styles.container__header} data-index={ind} data-lastEle={lastEle && !showDetails}>
-                <div className={styles.container__header__left}>
-                    <div className={styles.avatar}>
-                        <Image src="/images/admin-img.jpg" alt={item.title} width={16} height={16} />
-                    </div>
-                    <div className={styles.container__header__left__name_amount}>
-                        <p className={styles.name}>{item.title}</p>
-                        <p className={styles.amount}>{item.price}</p>
-                    </div>
-                </div>
-                <span className={styles.container__header__icon} data-rotate={showDetails} onClick={() => setShowDetails((prev) => !prev)}>
-                    <Image src={'/svgs/chevron.svg'} alt={item.title} width={16} height={16} />
-                </span>
-            </div>
+        <MobileCard
+            mainHeaderImage='/images/admin-img.jpg'
+            mainHeaderText={item.title}
+            subHeaderText={activeFilter !== 'courses' ? item.price : ""}
+            lastEle={lastEle}
+            ind={ind}
+
+        >
+
             {
-                showDetails && (
-                    <div className={styles.container__details} data-lastEle={lastEle}>
+                activeFilter === 'courses' ?
+
+                    <>
+                        <div className={styles.container__details__detail_container}>
+                            <p className={styles.key}>Price</p>
+                            <p className={styles.value}>{item.price}</p>
+                        </div>
+                        <div className={styles.container__details__detail_container}>
+                            <p className={styles.key}>Sold</p>
+                            <p className={`${styles.value}`}>{item.sold_count}</p>
+                        </div>
+                        <div className={styles.container__details__detail_container}>
+                            <p className={styles.key}>Revenue</p>
+                            <p className={`${styles.value}`}>{item.revenue}</p>
+                        </div>
+                        <div className={styles.container__details__detail_container}>
+                            <p className={styles.key}>Status</p>
+                            <p className={`${styles.value} ${styles.courses_status}`}>{item.status}</p>
+                        </div>
+                        <div className={styles.container__details__btn_container}>
+                            <Button buttonType='secondary' className={styles.btn}>
+                                see details
+                            </Button>
+                        </div>
+
+                        <p className={`${styles.courses_action_icons}`}>
+                            <span>
+                                <Image src={'/svgs/share.svg'} alt={item.title} width={16} height={16} />
+                                Share
+                            </span>
+                            <span>
+                                <Image src={'/svgs/edit.svg'} alt={item.title} width={16} height={16} />
+                                Edit
+                            </span>
+                            <span className={styles.delete}>
+                                <Image src={'/svgs/red-trash.svg'} alt={item.title} width={16} height={16} />
+                                Delete
+                            </span>
+                        </p>
+
+                    </>
+                    :
+                    <>
                         <div className={styles.container__details__detail_container}>
                             <p className={styles.key}>Category</p>
                             <p className={styles.value}>{item.category}</p>
@@ -62,10 +98,9 @@ const ListingCardMob = ({ item, ind, lastEle }: Props) => {
                                 <Image src={'/svgs/red-trash.svg'} alt={item.title} width={16} height={16} />
                             </p>
                         </div>
-                    </div>
-                )
+                    </>
             }
-        </div>
+        </MobileCard>
     )
 }
 

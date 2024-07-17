@@ -14,7 +14,7 @@ interface NavbarProps {
     onClose: () => void;
 }
 
-const GetStartedNav: React.FC<NavbarProps> = ({ stepCount, currentStep, steps, onClose }) => {
+const NewCourseListingNav: React.FC<NavbarProps> = ({ stepCount, currentStep, steps, onClose }) => {
     const progress = (currentStep / stepCount) * 100;
 
     return (
@@ -32,7 +32,7 @@ const GetStartedNav: React.FC<NavbarProps> = ({ stepCount, currentStep, steps, o
                 </div>
                 <div className={styles.container__top__right}>
                     <Link href={'/user/listings'} className={styles.close_button} onClick={onClose}>
-                        Exit
+                        <span className={styles.close_text}>  Exit</span>
                         <CloseIcon />
                     </Link>
                 </div>
@@ -44,4 +44,4 @@ const GetStartedNav: React.FC<NavbarProps> = ({ stepCount, currentStep, steps, o
     );
 };
 
-export default GetStartedNav;
+export default NewCourseListingNav;

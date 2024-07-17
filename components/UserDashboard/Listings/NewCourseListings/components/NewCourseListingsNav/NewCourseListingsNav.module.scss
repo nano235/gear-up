@@ -40,12 +40,29 @@
                 font-size: 1.6rem;
                 color: #4B525A;
                 font-weight: 400;
+                
+               
               }
               
               .step_names {
                 font-size: 1.6rem;
                 color: #4B525A;
                 font-weight: 400;
+              }
+
+              @include screenMax("tablet"){
+                font-size: 1.2rem;
+                padding-left: 1rem;
+
+                .step_count {
+                  font-size: 1.2rem;
+                }
+
+                
+                .step_names {
+                  font-size: 1.2rem;
+                }
+                
               }
           
             }
@@ -71,6 +88,25 @@
               font-size: 1.6rem;
               color: #4B525A;
             }
+
+            @include screenMax("tablet"){
+              padding:0 1rem;
+              padding-right:0;
+
+              .close_text {
+                display: none;
+              }
+
+
+              .close_button{
+                font-size: 1.4rem;
+              }
+            }
+        }
+
+        @include screenMax("tablet"){
+          padding: 2rem 1rem;
+          padding-left: 1rem;
         }
     
     }

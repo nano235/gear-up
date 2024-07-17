@@ -35,6 +35,7 @@ import UrlPath from "./urlPath/UrlPath";
 import CustomImage from "./customImage/CustomImage";
 import MobileCard from "./MobileCard/MobileCard";
 import MobileCardContainer from "./MobileCardContainer/MobileCardContainer";
+import AddBtn from "./addBtn/AddBtn";
 
 export {
 	Header,
@@ -74,4 +75,5 @@ export {
 	CustomImage,
 	MobileCard,
 	MobileCardContainer,
+	AddBtn,
 };

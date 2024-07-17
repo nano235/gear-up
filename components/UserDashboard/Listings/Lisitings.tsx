@@ -120,7 +120,7 @@ const Lisitings = () => {
           <Button onClick={handleButtonClick}> <GridAddIcon className={styles.add_icon} /> {activeFilter === Type.Courses ? "New Course" : "Create a listing"}</Button>
         </div>
       </div>
-      <ListingTable activeFilter={activeFilter?.toLowerCase()} />
+      <ListingTable activeFilter={activeFilter?.toLowerCase()} handleAddItem={handleButtonClick} />
     </div>
   )
 }

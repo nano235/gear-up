@@ -25,12 +25,16 @@
         border-bottom: 1px solid $col-border;
     }
 
-    .status,.switch{
+    .status, .switch{
         font-size: 1.3rem;
     }
 
     &__delete{
         color: $col-error;
+    }
+
+    @include screenMax("mobile"){
+        width: 15rem;
     }
 
 }

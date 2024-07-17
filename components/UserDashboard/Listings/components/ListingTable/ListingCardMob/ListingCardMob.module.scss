@@ -140,10 +140,17 @@
             color: #344054;
             padding: 0.2rem 1rem;
             border-radius: 1.6rem;
-        
-
         }
-}
+
+        .courses_status{
+            background-color: #ECFDF3;
+            color: #027A48;
+            padding: 0.2rem 1rem;
+            border-radius: 1.6rem;
+        }
+
+    }
+ 
 
 &__btn_container{
     width: 100%;
@@ -156,4 +163,33 @@
     }
 }
 }
+
+}
+.courses_action_icons{
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 1rem 0;
+
+    span{
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: #7B8086;
+        
+        img{
+            cursor: pointer;
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    .delete{
+        color: #FF3729;
+    }
+
 }
