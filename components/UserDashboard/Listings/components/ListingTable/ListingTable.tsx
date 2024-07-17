@@ -15,6 +15,8 @@ import RecentDealsCard from "@/components/UserDashboard/Dashboard/Components/Rec
 import { Popper } from "@mui/material";
 import { listings, userListingsData } from "@/mock";
 import Fade from '@mui/material/Fade';
+import ListingCardMob from "./ListingCardMob/ListingCardMob";
+
 
 interface Props {
 	activeFilter: string;
@@ -24,7 +26,7 @@ const ListingTable = ({ activeFilter }: Props) => {
 	const [activeLayout, setActiveLayout] = useState("list");
 	const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 	const [page, setPage] = useState(1);
-	const [limit, setLimit] = useState(10);
+	const [limit, setLimit] = useState(5);
 	const [selectedRow, setSelectedRow] = useState<any | undefined>();
 	const [openPoppover, setOpenPopover] = useState(Boolean(anchorEl));
 	const [paginatedTransactions, setPaginatedTransactions] = useState<GridRowsProp>(
@@ -42,6 +44,7 @@ const ListingTable = ({ activeFilter }: Props) => {
 		setPaginatedTransactions(userListingsData.slice(start, end));
 		setPage(page);
 	};
+
 	const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
 		setAnchorEl(event.currentTarget);
 	};
@@ -169,7 +172,6 @@ const ListingTable = ({ activeFilter }: Props) => {
 	const coursesColumns: GridColDef[] = [
 		{
 			...sharedColDef,
-
 			field: "title",
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
@@ -186,7 +188,6 @@ const ListingTable = ({ activeFilter }: Props) => {
 		},
 		{
 			...sharedColDef,
-
 			field: "sold_count",
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
@@ -195,7 +196,6 @@ const ListingTable = ({ activeFilter }: Props) => {
 		},
 		{
 			...sharedColDef,
-
 			field: "revenue",
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
@@ -204,7 +204,6 @@ const ListingTable = ({ activeFilter }: Props) => {
 		},
 		{
 			...sharedColDef,
-
 			field: "price",
 			cellClassName: styles.table_cell,
 			headerClassName: styles.table_header,
@@ -342,19 +341,20 @@ const ListingTable = ({ activeFilter }: Props) => {
 							autoHeight
 							sx={customisedTableClasses}
 						/>
-						<Pagination
-							currentPage={1}
-							onPageChange={setPage}
-							totalCount={userListingsData.length}
-							pageSize={5}
-						/>
+
 					</div>
 
 					<ul className={styles.container__cards_container}>
-						{userListingsData.map((item, ind) => (
-							<RecentDealsCard key={ind} item={item} />
+						{paginatedTransactions.map((item, ind) => (
+							<ListingCardMob key={ind} item={item} />
 						))}
 					</ul>
+					<Pagination
+						currentPage={1}
+						onPageChange={setPage}
+						totalCount={userListingsData.length}
+						pageSize={5}
+					/>
 				</>
 			) : (
 				<>

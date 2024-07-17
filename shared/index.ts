@@ -32,6 +32,9 @@ import BackNavigation from "./backNavigation/BackNavigation";
 import CustomRadioButton from "./CustomRadioButton/CustomRadioButton";
 import CustomTextEditor from "./TextEditor/TextEditor";
 import UrlPath from "./urlPath/UrlPath";
+import CustomImage from "./customImage/CustomImage";
+import MobileCard from "./MobileCard/MobileCard";
+import MobileCardContainer from "./MobileCardContainer/MobileCardContainer";
 
 export {
 	Header,
@@ -68,4 +71,7 @@ export {
 	CustomRadioButton,
 	CustomTextEditor,
 	UrlPath,
+	CustomImage,
+	MobileCard,
+	MobileCardContainer,
 };

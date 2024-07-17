@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import styles from './RecentDeals.module.scss'
 import { DataGrid, GridAddIcon, GridColDef, GridRowsProp } from '@mui/x-data-grid';
 import Image from 'next/image';
-import { Button, InputField, Pagination } from '@/shared';
+import { Button, InputField, MobileCardContainer, Pagination } from '@/shared';
 import RecentDealsCard from './components/RecentDealsCard/RecentDealsCard';
 import { MoreIcon, TransactionNavIcon } from '@/shared/svgs/dashboard';
 import { customisedTableClasses } from '@/utils/classes';
@@ -138,13 +138,15 @@ const RecentDeals = () => {
                                 sx={customisedTableClasses} autoHeight
                             />
                         </div>
-                        <ul className={styles.container__cards_container}>
+
+                        <MobileCardContainer>
                             {
                                 paginatedTransactions.map((item, ind) => (
                                     <RecentDealsCard key={item.id} item={item} ind={ind} lastEle={(ind + 1) === paginatedTransactions.length ? true : false} />
                                 ))
                             }
-                        </ul>
+                        </MobileCardContainer>
+
                         <Pagination
                             currentPage={page}
                             onPageChange={handlePagination}
