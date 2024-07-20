@@ -2,36 +2,98 @@
 
 
 .container {
-    padding: 4rem 3rem;
+    padding: 2rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
 
+    .account_balance_container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        background-color: #FBFBFD;
+        padding: 2.4rem 1.6rem;
+        width: 100%;
+        border-radius: 1.6rem;
+        flex-direction: column;
+
+        p{
+            color: #A3A7AB;
+            font-size: 1.4rem;
+            font-weight: 400;
+
+        }
+
+        h2{
+            color: #121212;
+            font-size: 2.8rem;
+            font-weight: 700;
+        }
+    }
+.fiat_wallet{
+    grid-column: span 2;
+    padding: 2.5rem 2rem;
+    border-radius: 1.6rem;
+    background-color: #fff;
+
+    
+
+}
+
+.xlm_wallet{
+    grid-column: span 1;
+    padding: 2.5rem 2rem;
+    border-radius: 1.6rem;
+    background-color: #fff;
+    max-width: 36rem;
+    width: 100%;
+    box-sizing: border-box;
+
+    .xlm_btn{
+        width: 100%;
+        margin-top: 1rem;
+         display: flex;
+         justify-content: center;
+    }
+}
+
+.btn_container{
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+    
+
+    .btn{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .icon{
+           height: 2rem;
+            width: 2rem;
+        }
+
+    }
+
+    .transparent_btn{
+        border: 1px solid #DEDFE0;
+        background: transparent;
+    }
+
+    .withdraw_btn{
+        background: #000;
+        color: #FFB30F;
+    }
+}
     &__header{
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 3rem;
 
-        .btn_container{
-            display: flex;
-            gap: 1.6rem;
-            align-items: center;
-        }
+        
 
-        .btn{
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-
-            .icon{
-               height: 2.5rem;
-                width: 2.5rem;
-            }
-
-        }
-
-        .transparent_btn{
-            border: 1px solid #DEDFE0;
-            background: transparent;
-        }
     }
 
     &__cards_container {

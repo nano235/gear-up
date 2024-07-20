@@ -6,51 +6,20 @@ import { Button, InputField } from '@/shared'
 import { CustomWalletIcon, SettingsNavIcon, TransactionNavIcon, WithdrawIcon } from '@/shared/svgs/dashboard'
 import { DashboardCard } from '../Dashboard/Components'
 import Image from 'next/image'
-import { ConfirmWithdrawalModal, WalletTransactionsTable, WithdrawalModal } from './components'
+import { ConfirmWithdrawalModal, WalletTransactionsTable, WalletWithdrawalModal, XlmDepositModal, XlmWithdrawalModal, WalletDepositModal } from './components'
 import AlertModal from './components/AlertModal/AlertModal'
-const cardsList = [
-  {
-    id: 1,
-    title: 'Balance',
-    icon: '/svgs/active-icon.svg',
-    amount: 0,
-    icon_color: "#FFB30F",
-    bg: "#FDF8EC",
-    subBg: "#FAEDD1"
-  },
-  {
-    id: 2,
-    title: 'Past 7 days',
-    icon: '/svgs/ongoing-icon.svg',
-    amount: 0,
-    icon_color: "#0505B3",
-    bg: "#ECECFD",
-    subBg: "#ECECFD"
-  },
-  {
-    id: 3,
-    title: 'Past 30 days',
-    icon: '/svgs/completed-icon.svg',
-    amount: 0,
-    icon_color: "#05B354",
-    bg: "#ECFDF4",
-    subBg: "#D1FAE3"
-  },
-  {
-    id: 4,
-    title: 'Total earnings',
-    icon: '/svgs/decline-icon.svg',
-    amount: 0,
-    icon_color: "#FFB30F",
-    bg: "#FDF8EC",
-    subBg: "#FAEDD1"
-  }
-]
+import { GridAddIcon } from '@mui/x-data-grid'
+import XlmTransactionsTable from './components/XlmTransactionTable/XlmTransactionTable'
+
 
 const Wallet = () => {
   const [isWithdrawal, setIsWithdrawal] = useState(false)
   const [confirmWithdrawal, setConfirmWithdrawal] = useState(false)
   const [showAlertModal, setShowAlertModal] = useState(false)
+  const [showXlmDepositModal, setShowXlmDepositModal] = useState(false)
+  const [showXlmWithdrawalModal, setShowXlmWithdrawalModal] = useState(false)
+  const [showWalletDepositModal, setShowWalletDepositModal] = useState(false)
+  const [showWalletWithdrawalModal, setShowWalletWithdrawalModal] = useState(false)
 
 
   const openModalHandler = () => {
@@ -71,49 +40,67 @@ const Wallet = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.container__header}>
-        <HeaderSubText title='Payouts' variant='normal' />
-        <div className={styles.btn_container}>
-          <Button buttonType='secondary' className={`${styles.transparent_btn} ${styles.btn}`}>
-            <span className={styles.icon}><SettingsNavIcon /> </span>Settings</Button>
-          <Button onClick={openModalHandler} buttonType='primary' className={styles.btn}>
-            <span className={styles.icon}><WithdrawIcon /></span>
-            Withdraw</Button>
+      <div className={styles.fiat_wallet}>
+        <div className={styles.container__header}>
+          <HeaderSubText title='Wallet' variant='normal' />
+          <div className={styles.btn_container}>
+            <Button onClick={() => setShowWalletDepositModal(true)} buttonType='primary' className={` ${styles.btn}`}>
+              <GridAddIcon className={styles.icon} />Deposit</Button>
+            <Button onClick={() => setShowWalletWithdrawalModal(true)} buttonType='primary' className={`${styles.btn} ${styles.withdraw_btn}`}>
+              <span className={styles.icon}><WithdrawIcon color='#FFB30F' /></span>
+              Withdraw</Button>
+            <Button buttonType='secondary' className={`${styles.transparent_btn} ${styles.btn}`}>
+              <span className={styles.icon}><SettingsNavIcon /> </span>Settings</Button>
+          </div>
+        </div>
+
+        <div className={styles.account_balance_container}>
+          <p>Wallet balance</p>
+          <h2>$200.00</h2>
+        </div>
+        <div className={styles.table_section}>
+          <HeaderSubText title='Transaction History' variant='normal' />
+          <WalletTransactionsTable />
         </div>
       </div>
-
-      <ul className={styles.container__cards_container}>
-        {
-          cardsList.map((card) => (
-            <DashboardCard key={card.id} >
-              <div className={styles.container__cards_container__item}>
-                <div className={styles.container__cards_container__item__left}>
-                  <span className={styles.icon_container} data-id={card.id}>
-                    <CustomWalletIcon color={card.icon_color} bg={card.subBg} subBg={card.bg} />
-                  </span>
-                  <div>
-                    <p className={styles.title}>{card.title}</p>
-                    <p className={styles.amount}>${card.amount.toFixed(2)}</p>
-                  </div>
-                </div>
-              </div>
-            </DashboardCard>
-          ))
-        }
-      </ul>
-      <div className={styles.table_section}>
-        <HeaderSubText title='Transaction History' variant='normal' />
-        <WalletTransactionsTable />
+      <div className={styles.xlm_wallet}>
+        <div className={styles.container__header}>
+          <HeaderSubText title='XLM wallet' variant='normal' />
+        </div>
+        <div className={styles.account_balance_container}>
+          <p>Wallet balance</p>
+          <h2>$200.00</h2>
+        </div>
+        <div className={`${styles.btn_container} ${styles.xlm_btn}`}>
+          <Button buttonType='primary' className={` ${styles.btn}`} onClick={() => setShowXlmDepositModal(true)} >
+            <GridAddIcon className={styles.icon} />Deposit</Button>
+          <Button onClick={() => setShowXlmWithdrawalModal(true)} buttonType='primary' className={`${styles.btn} ${styles.withdraw_btn}`}>
+            <span className={styles.icon}><WithdrawIcon color='#FFB30F' /></span>
+            Withdraw</Button>
+        </div>
+        <div className={styles.table_section}>
+          <HeaderSubText title='Transaction History' variant='normal' />
+          <XlmTransactionsTable />
+        </div>
       </div>
       {
-        isWithdrawal &&
-        <WithdrawalModal setConfirmWithdrawal={setConfirmWithdrawal} isWithdrawal={isWithdrawal} setIsWithdrawal={closeWithdrawalModal} />
+        showWalletWithdrawalModal &&
+        <WalletWithdrawalModal openModal={showWalletWithdrawalModal} setOpenModal={setShowWalletWithdrawalModal} />
       }
       {
         confirmWithdrawal && <ConfirmWithdrawalModal openModal={confirmWithdrawal} setOpenModal={setConfirmWithdrawal} setShowAlertModal={setShowAlertModal} />
       }
       {
         showAlertModal && <AlertModal openModal={showAlertModal} setOpenModal={setShowAlertModal} />
+      }
+      {
+        showXlmDepositModal && <XlmDepositModal openModal={showXlmDepositModal} setOpenModal={setShowXlmDepositModal} />
+      }
+      {
+        showXlmWithdrawalModal && <XlmWithdrawalModal openModal={showXlmWithdrawalModal} setOpenModal={setShowXlmWithdrawalModal} />
+      }
+      {
+        showWalletDepositModal && <WalletDepositModal openModal={showWalletDepositModal} setOpenModal={setShowWalletDepositModal} />
       }
     </div>
   )

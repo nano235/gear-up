@@ -3,6 +3,7 @@
 import React, { useCallback, useEffect } from "react";
 import styles from "./Modal.module.scss";
 import { Title } from "@/shared";
+import Image from "next/image";
 
 interface Props {
 	setOpenModal: (e?: any) => void;
@@ -11,6 +12,8 @@ interface Props {
 	className?: string;
 	children?: React.ReactNode;
 	description?: string;
+	addBackIcon?: boolean;
+	onClickBack?: () => void;
 }
 
 const Modal = ({
@@ -20,6 +23,8 @@ const Modal = ({
 	className,
 	children,
 	description,
+	addBackIcon = false,
+	onClickBack,
 }: Props) => {
 	const close = useCallback(() => {
 		setOpenModal(false);
@@ -49,7 +54,10 @@ const Modal = ({
 				}
 			>
 				<div className={styles.header}>
-					<Title title={title} description={description} />
+					<span>
+						{addBackIcon && <Image onClick={onClickBack} src="/svgs/arrow-left.svg" alt="logo" width={30} height={30} className={styles.back_icon} />}
+						<Title title={title} description={description} />
+					</span>
 					<div className={styles.closeModal_container} onClick={close}>
 						<div className={styles.closeModal}>
 							<span></span>

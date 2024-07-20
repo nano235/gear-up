@@ -33,10 +33,7 @@ const Sidebar = ({ settingsLists, active }: Props) => {
                             <span className={styles.icon}>
                                 <Image src={item.icon} alt={item.name} height={50} width={50} />
                             </span>
-
                             <h2 className={styles.title}>{item.name}</h2>
-
-
                         </Link>
                     ))}
                 </ul>
