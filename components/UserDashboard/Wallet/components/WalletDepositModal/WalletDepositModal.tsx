@@ -43,7 +43,7 @@ const WalletDepositModal = ({ openModal, setOpenModal }: Props) => {
                         <p className={styles.key}>Account number</p>
                         <p className={styles.value}>
                             <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                                <p>0000045847378283543</p>
+                                <p>378283543</p>
                                 <span className={styles.icon}>
                                     <CopyIcon />
                                 </span>Copy

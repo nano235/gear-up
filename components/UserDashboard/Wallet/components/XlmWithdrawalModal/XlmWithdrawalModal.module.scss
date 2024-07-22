@@ -139,5 +139,9 @@
             margin-top: 2rem;
         }
     }
+
+    @include screenMax("mobile"){
+        min-width: 100%;
+    }
         
 }

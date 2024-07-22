@@ -113,5 +113,9 @@
         }
         
     }
+
+    @include screenMax("mobile"){
+        min-width: 100%;
+    }
         
 }

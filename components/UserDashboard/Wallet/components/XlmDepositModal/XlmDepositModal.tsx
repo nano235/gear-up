@@ -21,7 +21,7 @@ const xlmFundOptions = [
     {
         id: 1,
         title: 'From bank account',
-        description: 'Deposit XLM using your debit/master card',
+        description: 'Deposit XLM using your visa/master card',
         Icon: '/svgs/xlm-bank-deposit-icon.svg'
     },
     {

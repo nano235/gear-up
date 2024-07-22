@@ -1,11 +1,18 @@
 @import "@/styles/imports";
 
+.wallet_wrapper{
+    padding: 2rem 3rem;
+
+    .toggle_btns_container, .mobile_title_container{
+        display: none;
+    }
 
 .container {
-    padding: 2rem 3rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+
+  
 
     .account_balance_container{
         display: flex;
@@ -37,8 +44,11 @@
     border-radius: 1.6rem;
     background-color: #fff;
 
+    .mobile_btns{
+        display: flex;
+        justify-content: center;
     
-
+    }
 }
 
 .xlm_wallet{
@@ -62,6 +72,8 @@
     display: flex;
     gap: 1.6rem;
     align-items: center;
+
+
     
 
     .btn{
@@ -155,4 +167,105 @@
         margin-top: 4rem;
     }
 
+    
+}
+@include screenMax("mobile"){
+    padding: 1rem 1.6rem;
+
+    .fiat_wallet{
+        display: none;
+
+
+
+        &[data-active='true']{
+            display: block;
+        }
+    }
+
+    .xlm_wallet{
+        display: none;
+
+        &[data-active='true']{
+            display: block;
+        }
+    }
+
+    .toggle_btns_container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fff;
+        margin: 2rem 0;
+        padding: 1rem;
+        border-radius: 10rem;
+
+        button{
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #515B6F;
+            font-size: 1.4rem;
+            font-weight: 400;
+            width: 100%;
+            
+        }
+        .active{
+            font-weight: 700;
+            box-shadow: 0px 4px 40px 0px #0000001F;
+            background: #fff;
+            color:#FFB30F;
+        }
+
+    }
+
+    .mobile_title_container{
+        display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    
+    button{
+        background: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: #4B525A;
+        font-size: 1.4rem;
+        font-weight: 700;
+        
+        .icon{
+            height: 2rem;
+            width: 2rem;
+            
+        }
+    }
+}
+    .container{
+
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+        
+
+    
+    .btn_container{
+        margin-top: 1rem;
+        
+        
+        .transparent_btn{
+            border: none;
+        }
+        
+    }
+    .container__header{
+        display: none;
+        
+        
+    }
+    
+}
+}
 }

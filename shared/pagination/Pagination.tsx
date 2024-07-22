@@ -56,9 +56,8 @@ const Pagination: React.FC<Props> = ({
 			<div className={styles.row}>
 				{/* Left navigation arrow */}
 				<li
-					className={`${styles.pagination_item} ${
-						currentPage === 1 && styles.disabled
-					} ${styles.container}`}
+					className={`${styles.pagination_item} ${currentPage === 1 && styles.disabled
+						} ${styles.container}`}
 					onClick={onPrevious}
 				>
 					<div className={`${styles.arrow} ${styles.left}`} />
@@ -81,9 +80,8 @@ const Pagination: React.FC<Props> = ({
 						// Render our Page Pills
 						return (
 							<li
-								className={`${styles.pagination_item} ${
-									pageNumber === currentPage && styles.selected
-								}`}
+								className={`${styles.pagination_item} ${pageNumber === currentPage && styles.selected
+									}`}
 								onClick={() => onPageChange(pageNumber)}
 								key={index}
 							>
@@ -94,9 +92,8 @@ const Pagination: React.FC<Props> = ({
 				</ul>
 				{/*  Right Navigation arrow */}
 				<li
-					className={`${styles.pagination_item} ${
-						currentPage === lastPage && styles.disabled
-					} ${styles.container}`}
+					className={`${styles.pagination_item} ${currentPage === lastPage && styles.disabled
+						} ${styles.container}`}
 					onClick={onNext}
 				>
 					<p>Next</p>
