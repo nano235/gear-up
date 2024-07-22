@@ -1,6 +1,6 @@
 'use cient';
 import React from 'react'
-import styles from './WithdrawalModal.module.scss'
+import styles from './WalletWithdrawalModal.module.scss'
 import Modal from '@/shared/modals/modal/Modal'
 import Image from 'next/image';
 import { Button, InputField } from '@/shared';
@@ -8,22 +8,26 @@ import { EditIcon } from '@/shared/svgs/dashboard';
 
 
 interface Props {
-    isWithdrawal: boolean;
-    setIsWithdrawal: React.Dispatch<React.SetStateAction<boolean>>;
+    openModal: boolean;
+    setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
     setConfirmWithdrawal: React.Dispatch<React.SetStateAction<boolean>>;
 
 }
-const WithrawalModal = ({ isWithdrawal, setIsWithdrawal, setConfirmWithdrawal }: Props) => {
+const WalletWithrawalModal = ({ openModal, setOpenModal, setConfirmWithdrawal }: Props) => {
 
     const handleSubmit = () => {
         setConfirmWithdrawal(true)
-        setIsWithdrawal(false)
+        setOpenModal(false)
+    }
+
+    const onClose = () => {
+        setOpenModal(false)
     }
 
 
 
     return (
-        <Modal title='Withdrawal' openModal={isWithdrawal} setOpenModal={setIsWithdrawal} >
+        <Modal title='Withdrawal' openModal={openModal} setOpenModal={onClose} >
             <div className={styles.container}>
                 <div className={styles.container__balance_container}>
                     <p className={styles.title}>Available balance</p>
@@ -57,4 +61,4 @@ const WithrawalModal = ({ isWithdrawal, setIsWithdrawal, setConfirmWithdrawal }:
     )
 }
 
-export default WithrawalModal
+export default WalletWithrawalModal

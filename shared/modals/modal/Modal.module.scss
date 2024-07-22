@@ -24,10 +24,20 @@
 		.header {
 			position: relative;
 			margin-bottom: 2.4rem;
-			.title {
-				h4 {
-					@extend %text-16;
-					font-weight: 600;
+
+			span{
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				.back_icon{
+					height: 3rem;
+					width: 3rem;
+				}
+				.title {
+					h4 {
+						@extend %text-16;
+						font-weight: 600;
+					}
 				}
 			}
 			.closeModal_container {
@@ -86,7 +96,7 @@
 				margin-bottom: 2.4rem;
 				.title {
 					h4 {
-						@extend %text-16;
+						font-size: 1.4rem;
 						font-weight: 600;
 					}
 				}

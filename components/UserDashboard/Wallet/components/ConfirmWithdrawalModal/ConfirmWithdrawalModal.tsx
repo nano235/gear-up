@@ -20,6 +20,7 @@ const ConfirmWithdrawalModal = ({ openModal, setOpenModal, setShowAlertModal }: 
     return (
         <Modal title='Confirm withdrawal' openModal={openModal} setOpenModal={setOpenModal} >
             <div className={styles.container}>
+                <hr />
                 <div className={styles.border_container}>
                     <p className={styles.sub_text}>A code has been sent to your Einstein***@gmail.com</p>
                     <InputField placeholder='Enter verification code ' />

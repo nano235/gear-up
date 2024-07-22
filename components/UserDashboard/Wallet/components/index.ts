@@ -1,3 +1,6 @@
 export {default as WalletTransactionsTable} from './WalletTransactionsTable/WalletTransactionsTable'
-export {default as WithdrawalModal} from './WithrawalModal/WithdrawalModal'
+export {default as WalletWithdrawalModal} from './WalletWithrawalModal/WalletWithdrawalModal'
 export {default as ConfirmWithdrawalModal} from './ConfirmWithdrawalModal/ConfirmWithdrawalModal'
+export {default as WalletDepositModal} from './WalletDepositModal/WalletDepositModal'
+export {default as XlmWithdrawalModal} from './XlmWithdrawalModal/XlmWithdrawalModal'
+export {default as XlmDepositModal} from './XlmDepositModal/XlmDepositModal'

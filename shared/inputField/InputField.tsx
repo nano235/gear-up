@@ -12,7 +12,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	className?: string;
 	iconPosition?: "prefix" | "suffix";
 	prefix?: string;
-	suffix?: string;
+	suffix?: React.ReactNode;
 	iconTitle?: string;
 	error?: string;
 	customPrefix?: React.JSX.Element;

@@ -24,11 +24,7 @@ const AdminSidebar = ({ isMobile, onClose }: Props) => {
             icon: <TransactionNavIcon />,
             link: '/user/transactions',
         },
-        {
-            name: 'Categories',
-            icon: <CategoriesNavIcon />,
-            link: '/user/categories',
-        },
+
         // {
         //     name: 'Messages',
         //     icon: <MessagesNavIcon />,
@@ -38,6 +34,11 @@ const AdminSidebar = ({ isMobile, onClose }: Props) => {
             name: 'Listings',
             icon: <ListingsNavIcon />,
             link: '/user/listings',
+        },
+        {
+            name: 'Categories',
+            icon: <CategoriesNavIcon />,
+            link: '/user/categories',
         },
         {
             name: 'Wallet',
