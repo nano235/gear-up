@@ -1,21 +1,31 @@
 @import '@/styles/imports';
 
 .container {
-    padding: 0rem 3rem;
+    padding: 2rem 3rem;
+    position: relative;
 
     &__filters_container{
         display:flex;
         justify-content:space-between;
         width: 100%;
+        align-items: flex-start;
 
         &__listings_container{
             display: flex;
             gap: 1rem;
             align-items: center;
+            padding: 1rem 0;
         }
 
         @include screenMax("mobile") {
-            flex-direction: column;
+            flex-direction: column-reverse;
+
+            &__listings_container{
+                position: absolute;
+                right: 1.6rem;
+                top: -4.5rem;
+                padding: 0;
+            }
         }
     }
 

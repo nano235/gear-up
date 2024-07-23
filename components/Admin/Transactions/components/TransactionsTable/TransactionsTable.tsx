@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./TransactionTable.module.scss";
 import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import Image from "next/image";
-import { Button, InputField, Pagination } from "@/shared";
+import { Button, InputField, MobileCardContainer, Pagination } from "@/shared";
 import { customisedTableClasses } from "@/utils/classes";
 import Link from "next/link";
 import { transactions } from "@/mock/transactions.mock";
@@ -130,12 +130,12 @@ const TransactionTable = ({ transactionType }: Props) => {
 					autoHeight
 				/>
 			</div>
-
-			<ul className={styles.container__cards_container}>
-				{paginatedTransactions.map(item => (
-					<TransactionCardMob key={item.id} item={item} />
+			<MobileCardContainer>
+				{paginatedTransactions.map((item, ind) => (
+					<TransactionCardMob key={item.id} item={item} ind={ind} lastEle={(ind + 1) === paginatedTransactions.length ? true : false} />
 				))}
-			</ul>
+			</MobileCardContainer>
+
 			<Pagination
 				currentPage={page}
 				onPageChange={handlePagination}

@@ -11,7 +11,7 @@ import "swiper/css/thumbs";
 
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { useGlobalContext } from "@/contexts/AppContext";
-import { Button } from "@/shared";
+import { Button, CustomImage } from "@/shared";
 
 const imageList = [
 	"/images/camera.png",
@@ -61,7 +61,7 @@ const ImageSlider = ({ images }: ImageProps) => {
 				{imageArr.map((image: any, index: number) => (
 					<SwiperSlide key={index}>
 						<div className={styles.slide}>
-							<Image src={image} alt="" fill sizes="100vw" />
+							<CustomImage src={image} alt="" fill sizes="100vw" />
 							<div className={styles.button_container}>
 								{/* {props.forSale && <Button className={styles.button}>Buy</Button>}
 					{props.forRent && <Button className={styles.button}>Rent</Button>} */}
@@ -83,7 +83,7 @@ const ImageSlider = ({ images }: ImageProps) => {
 				{imageArr.slice(0, slidesToShow).map((image: any, index: number) => (
 					<SwiperSlide key={index}>
 						<div className={styles.smaller_slide}>
-							<Image src={image} alt="" fill sizes="100vw" />
+							<CustomImage src={image} alt="" fill sizes="100vw" />
 							{imageArr.length !== slidesToShow &&
 								index === slidesToShow - 1 && (
 									<div

@@ -84,8 +84,18 @@
                     .right{
 
                         
-                        h2,p{
-                            font-size: 1.6rem;
+                        p{
+                            font-size: 1.4rem;
+                            color: #1B1E21;
+                            font-weight: 400;
+                        
+                            
+                        }
+                        
+                        h2{
+                            font-size: 1.4rem;
+                            color: #1B1E21;
+                            font-weight: 700;
                         }
                     }
         
@@ -139,6 +149,13 @@
 
     @include screenMax("mobile") {
         padding:  3rem 1.6rem;
+
+        .action_btns{
+
+            p{
+                display: none;
+            }
+        }
     }
 
   

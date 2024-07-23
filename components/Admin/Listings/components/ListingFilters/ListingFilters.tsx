@@ -1,6 +1,6 @@
 'use client';
+import { ReuseableFilters } from '@/components/UserDashboard';
 import React, { use, useState } from 'react'
-import ReuseableFilters from '@/components/Admin/ReuseableFilter/ReuseableFilter';
 
 const ListingFilters = () => {
     const [activeFilterId, setActiveFilterId] = useState(1)

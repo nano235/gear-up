@@ -3,7 +3,6 @@
 .container{
     margin-top: 2rem;
 
-
   
     &__action_btn{
         display: flex;
@@ -96,7 +95,7 @@
             font-weight: 400;
             font-size: 1.2rem;
             border-radius: 1rem;
-            padding: 0.1rem 0.5rem;
+            padding: 0.2rem 1rem;
             &[data-status="rented out"]{
                 background-color: #F0F9FF;
                 color: #026AA2;

@@ -54,8 +54,8 @@ const WithdrawalRequests = () => {
                                 </div>
                             </div>
                             <div className={styles.action_btns}>
-                                <p className={styles.decline_text}> <span className={styles.icon}><CloseIcon color='#FF3729' /> </span>Decline</p>
-                                <p className={styles.accept_text}> <span className={styles.icon}><CheckmarkIcon color='#40B773' /> </span>Accept</p>
+                                <div className={styles.decline_text}> <span className={styles.icon}><CloseIcon color='#FF3729' /> </span> <p>Decline</p></div>
+                                <div className={styles.accept_text}> <span className={styles.icon}><CheckmarkIcon color='#40B773' /> </span> <p>Accept</p></div>
                             </div>
                         </li>
                     ))
