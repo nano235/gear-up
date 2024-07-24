@@ -22,9 +22,9 @@ const MobileCard = ({ mainHeaderImage, mainHeaderText, subHeaderText, lastEle, i
                     <div className={styles.avatar}>
                         <CustomImage src={mainHeaderImage || "/images/admin-img.jpg"} alt={mainHeaderText || "custom-image"} width={16} height={16} />
                     </div>
-                    <div className={styles.container__header__left__name_amount}>
+                    <div className={styles.container__header__left__name_amount} data-pos={!subHeaderText ? "center" : "apart"}>
                         <p className={styles.name}>{mainHeaderText}</p>
-                        <p className={styles.amount}>{subHeaderText}</p>
+                        {!!subHeaderText && <p className={styles.amount}>{subHeaderText}</p>}
                     </div>
                 </div>
                 <span className={styles.container__header__icon} data-rotate={showDetails} onClick={() => setShowDetails((prev) => !prev)}>

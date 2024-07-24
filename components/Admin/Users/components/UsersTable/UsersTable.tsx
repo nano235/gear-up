@@ -7,7 +7,7 @@ import { MoreIcon, UserIcon } from '@/shared/svgs/dashboard';
 import { customisedTableClasses } from '@/utils/classes';
 import Link from 'next/link';
 import RecentDealsCard from '@/components/UserDashboard/Dashboard/Components/RecentDeals/components/RecentDealsCard/RecentDealsCard';
-import { Button, Pagination } from '@/shared';
+import { Button, MobileCardContainer, Pagination } from '@/shared';
 import UserCardMob from '../UserCardMob/UserCardMob';
 const sharedColDef: GridColDef = {
     field: "",
@@ -114,13 +114,14 @@ const UsersTable = ({ users, page, limit, handlePagination, url, totalCount }: P
                                 scrollbarSize={20}
                             />
                         </div>
-                        <ul className={styles.container__cards_container}>
+                        <MobileCardContainer>
                             {
-                                users?.map((item) => (
-                                    <UserCardMob key={item.id} item={item} url='users' />
+                                users?.map((item, ind) => (
+                                    <UserCardMob key={item.id} item={item} url='users' lastEle={(ind + 1) === users.length ? true : false} ind={ind} />
                                 ))
                             }
-                        </ul>
+                        </MobileCardContainer>
+
                         <Pagination currentPage={page} onPageChange={handlePagination} totalCount={totalCount || 0} pageSize={limit} />
                     </>
             }

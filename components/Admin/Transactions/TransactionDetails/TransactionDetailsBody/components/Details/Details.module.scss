@@ -61,6 +61,10 @@
             color: #1B1E21;
             margin-bottom: 1.2rem;
         }
+
+        @include screenMax("mobile"){
+            padding: 1.6rem;
+        }
     }
 
     .bottom_section{

@@ -61,6 +61,7 @@
                         width: 15rem;
                         border-radius: 50%;
                         object-fit: cover;
+                        font-size: 1.6rem;
                     }
 
                     .active_status{
@@ -77,6 +78,14 @@
                         .user_image{
                             height: 10rem;
                             width: 10rem;
+
+                        }
+                        .active_status{
+                            height: 1.6rem;
+                            width: 1.6rem;
+                            bottom: 1rem;
+                            right: 1.1rem;
+                        
                         }
                     }
                 
@@ -104,7 +113,7 @@
                 }
 
                 .faded_text{
-                    font-size: 1.6rem;
+                    font-size: 1.2rem;
                     font-weight: 400;
                     color: #7B8086;
                 }
@@ -128,7 +137,7 @@
                     }
 
                     .date_text{
-                        font-size: 1.6rem;
+                        font-size: 1.2rem;
                         font-weight: 400;
                         color: #1B1E21;
                     

@@ -2,54 +2,42 @@
 import React, { useState } from 'react'
 import styles from './TransactionCardMob.module.scss'
 import Image from 'next/image'
-import { Button } from '@/shared'
+import { Button, MobileCard } from '@/shared'
+import Link from 'next/link'
 
 interface Props {
-    item: any
+    item: any;
+    lastEle?: boolean;
+    ind?: number;
+    transactionType?: string;
 }
-const TransactionCardMob = ({ item }: Props) => {
-    const [showDetails, setShowDetails] = React.useState<boolean>(false)
-    return (
-        <div className={styles.container}>
-            <div className={styles.container__header}>
-                <div className={styles.container__header__left}>
-                    <div className={styles.avatar}>
-                        <Image src="/images/admin-img.jpg" alt={item.title} width={16} height={16} />
-                    </div>
-                    <div className={styles.container__header__left__name_amount}>
-                        <p className={styles.name}>{item.gear_name}</p>
-                        <p className={styles.amount}>{item.amount}</p>
-                    </div>
-                </div>
-                <span className={styles.container__header__icon} data-rotate={showDetails} onClick={() => setShowDetails((prev) => !prev)}>
-                    <Image src={'/svgs/chevron.svg'} alt={item.title} width={16} height={16} />
-                </span>
-            </div>
-            {
-                showDetails && (
-                    <div className={styles.container__details}>
-                        <div className={styles.container__details__detail_container}>
-                            <p className={styles.key}>Transaction date</p>
-                            <p className={styles.value}>{item.transaction_date}</p>
-                        </div>
-                        {/*      <div className={styles.container__details__detail_container}>
-                            <p className={styles.key}>Type</p>
-                            <p className={`${styles.value} ${styles.rental}`}>{item.type}</p>
-                        </div> */}
-                        <div className={styles.container__details__detail_container}>
-                            <p className={styles.key}>Status</p>
-                            <p className={`${styles.value} ${styles.status}`} data-status={item.transaction_status?.toLowerCase()}>{item.transaction_status}</p>
-                        </div>
-                        <div className={styles.container__details__btn_container}>
-                            <Button buttonType='secondary' className={styles.btn}>
-                                see details
-                            </Button>
 
-                        </div>
-                    </div>
-                )
-            }
-        </div>
+const TransactionCardMob = ({ item, ind, lastEle, transactionType }: Props) => {
+
+    return (
+        <MobileCard mainHeaderText={item.gear_name} subHeaderText={item.amount} mainHeaderImage="/images/admin-img.jpg" lastEle={lastEle} ind={ind} >
+            <div className={styles.container__details__detail_container}>
+                <p className={styles.key}>Transaction date</p>
+                <p className={styles.value}>{item.transaction_date}</p>
+            </div>
+            <div className={styles.container__details__detail_container}>
+                <p className={styles.key}>Status</p>
+                <p className={`${styles.value} ${styles.status}`} data-status={item.transaction_status?.toLowerCase()}>{item.transaction_status}</p>
+            </div>
+            <div className={styles.container__details__btn_container}>
+                <Link
+                    href={`/admin/third-party-check/${item?.id}?transaction_type=${transactionType}&user_role=${item?.user_role}&third_party=${item?.third_party_verification}&timeElapsed=${item?.timeElapsed}`}
+                    className={styles.container__action_btn}
+                >
+
+                    <Button buttonType='secondary' className={styles.btn}>
+                        see details
+                    </Button>
+                </Link>
+
+            </div>
+        </MobileCard>
+
     )
 }
 

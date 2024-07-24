@@ -3,11 +3,12 @@ import React from 'react'
 import styles from './CourseListing.module.scss'
 import HeaderSubText from '@/components/Admin/HeaderSubText/HeaderSubText'
 import { CopyIcon } from '@/shared/svgs/dashboard'
+import { CustomImage } from '@/shared'
 const CourseListing = () => {
     return (
         <div className={styles.container}>
             <div className={styles.slide}>
-                <Image src='https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZWR1Y2F0aW9uJTIwY291cnNlfGVufDB8fDB8fHww' alt="" fill sizes="100vw" />
+                <CustomImage src='https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZWR1Y2F0aW9uJTIwY291cnNlfGVufDB8fDB8fHww' alt="" fill sizes="100vw" />
             </div>
             <HeaderSubText title='The Complete Cinematography course : From Zero To Expert' variant='normal' />
             <div className={styles.container__summary_container}>

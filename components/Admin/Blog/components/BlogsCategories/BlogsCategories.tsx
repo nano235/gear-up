@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./BlogsCategories.module.scss";
 import { DataGrid, GridAddIcon, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import Image from "next/image";
-import { Button, InputField, Pagination } from "@/shared";
+import { Button, CustomImage, InputField, MobileCardContainer, Pagination } from "@/shared";
 import { customisedTableClasses } from "@/utils/classes";
 import Link from "next/link";
 import { transactions } from "@/mock/transactions.mock";
@@ -46,7 +46,9 @@ const BlogsCategories = () => {
             headerAlign: "left",
             renderCell: ({ row, value }) => (
                 <div className={styles.container__name_container}>
-                    <Image src={"https://images.unsplash.com/photo-1702423671974-b2555bbd80ad?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNhdGVnb3JpZXN8ZW58MHx8MHx8fDA%3D"} alt={value} width={16} height={16} className={styles.blogs_img} />
+                    <div className={styles.blogs_img} >
+                        <CustomImage src={"https://images.unsplash.com/photo-1702423671974-b2555bbd80ad?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNhdGVnb3JpZXN8ZW58MHx8MHx8fDA%3D"} alt={value} width={16} height={16} />
+                    </div>
                     <p className={styles.container__name} style={{ fontSize: "1.2rem" }}>
                         {value}
                     </p>
@@ -125,11 +127,12 @@ const BlogsCategories = () => {
                 />
             </div>
 
-            <ul className={styles.container__cards_container}>
-                {paginatedTransactions.map(item => (
-                    <BlogCategoryCardMob key={item.id} item={item} setOpenModal={setShowEditCategory} />
+            <MobileCardContainer>
+                {paginatedTransactions.map((item, ind) => (
+                    <BlogCategoryCardMob key={item.id} item={item} setOpenModal={setShowEditCategory} ind={ind} lastEle={(ind + 1) === paginatedTransactions.length ? true : false} />
                 ))}
-            </ul>
+            </MobileCardContainer>
+
             <AddButtonMob onClick={() => setShowAddCategory(true)} />
             <Pagination
                 currentPage={page}

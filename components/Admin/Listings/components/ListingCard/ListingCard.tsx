@@ -5,6 +5,7 @@ import styles from "./ListingCard.module.scss";
 import Image from "next/image";
 import { shortenTitle } from "@/utils";
 import { EllipseIcon } from "@/shared/svgs/dashboard";
+import { CustomImage } from "@/shared";
 
 
 interface Props {
@@ -19,7 +20,7 @@ const ListingCard = ({ props, className }: Props) => {
             className={`${styles.container} ${className}`}
         >
             <div className={styles.image}>
-                <Image src={props.image} alt={props.title} fill sizes="100vw" />
+                <CustomImage src={props.image} alt={props.title} fill sizes="100vw" />
             </div>
             <div className={styles.row} style={{ alignItems: "flex-start" }}>
                 <div className={styles.text}>

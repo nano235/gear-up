@@ -35,7 +35,7 @@ const DashboardUserHeader = () => {
                         </div>
                         <div >
                             <div className={styles.name_container}>
-                                <h3 className={styles.user_name}>Annette Black</h3>
+                                <h3 className={styles.user_name}>Annette230</h3>
                                 <span className={styles.verification_status}>Verified</span>
                             </div>
                             <p className={styles.faded_text}>annette@gmail.com</p>

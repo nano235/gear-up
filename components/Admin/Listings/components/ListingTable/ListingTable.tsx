@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./ListingTable.module.scss";
 import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import Image from "next/image";
-import { Button, InputField, ToggleSwitch } from "@/shared";
+import { Button, InputField, MobileCardContainer, ToggleSwitch } from "@/shared";
 import { MoreIcon } from "@/shared/svgs/dashboard";
 import { GridIcon, ListIcon } from "@/shared/svgs/dashboard";
 import ListingCard from "../ListingCard/ListingCard";
@@ -167,7 +167,7 @@ const ListingTable = () => {
 			),
 		},
 
-		{
+		/* {
 			...sharedColDef,
 
 			field: 'availability',
@@ -182,7 +182,7 @@ const ListingTable = () => {
 					</span>
 				</div>
 			),
-		},
+		}, */
 		{
 			...sharedColDef,
 
@@ -263,17 +263,13 @@ const ListingTable = () => {
 
 					</div>
 
-					<ul className={styles.container__cards_container}>
-						{rows.map(item => (
-							<ListingCardMob key={item.id} item={item} />
+					<MobileCardContainer>
+
+						{rows.map((item, ind) => (
+							<ListingCardMob key={item.id} item={item} ind={ind} lastEle={(ind + 1) === rows.length ? true : false} />
 						))}
-					</ul>
-					<Pagination
-						currentPage={1}
-						onPageChange={setPage}
-						totalCount={rows.length}
-						pageSize={5}
-					/>
+					</MobileCardContainer>
+
 				</>
 			) : (
 				<>
@@ -284,6 +280,12 @@ const ListingTable = () => {
 					</div>
 				</>
 			)}
+			<Pagination
+				currentPage={1}
+				onPageChange={setPage}
+				totalCount={rows.length}
+				pageSize={5}
+			/>
 		</div>
 	);
 };

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import styles from './WalletTransactionsTable.module.scss'
 import { DataGrid, GridColDef, GridRowsProp } from '@mui/x-data-grid';
 import Image from 'next/image';
-import { Button, InputField, Pagination } from '@/shared';
+import { Button, InputField, MobileCardContainer, Pagination } from '@/shared';
 import { customisedTableClasses } from '@/utils/classes';
 import Link from 'next/link';
 import { MoreIcon, TransactionNavIcon } from '@/shared/svgs/dashboard';
@@ -139,13 +139,14 @@ const WalletTransactionsTable = () => {
                                 paginationMode="server" sx={customisedTableClasses} hideFooter autoHeight />
                         </div>
 
-                        <ul className={styles.container__cards_container}>
+                        <MobileCardContainer>
                             {
-                                rows.map((item) => (
-                                    <WalletTransactionCardMob key={item.id} item={item} />
+                                rows.map((item, ind) => (
+                                    <WalletTransactionCardMob key={item.id} item={item} lastEle={(ind + 1) === rows.length ? true : false} ind={ind} />
                                 ))
                             }
-                        </ul>
+                        </MobileCardContainer>
+
                         <Pagination currentPage={1} onPageChange={setPage} totalCount={rows.length} pageSize={5} />
                     </>
             }
