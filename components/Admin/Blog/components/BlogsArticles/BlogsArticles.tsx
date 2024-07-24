@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./BlogsArticles.module.scss";
 import { DataGrid, GridAddIcon, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import Image from "next/image";
-import { Button, InputField, Pagination, ToggleSwitch } from "@/shared";
+import { Button, InputField, MobileCardContainer, Pagination, ToggleSwitch } from "@/shared";
 import { customisedTableClasses } from "@/utils/classes";
 import Link from "next/link";
 import { transactions } from "@/mock/transactions.mock";
@@ -201,12 +201,12 @@ const BlogsTable = () => {
                     autoHeight
                 />
             </div>
-
-            <ul className={styles.container__cards_container}>
-                {paginatedTransactions.map(item => (
-                    <BlogArticleCardMob key={item.id} item={item} />
+            <MobileCardContainer>
+                {paginatedTransactions.map((item, ind) => (
+                    <BlogArticleCardMob key={item.id} item={item} ind={ind} lastEle={(ind + 1) === paginatedTransactions.length ? true : false} />
                 ))}
-            </ul>
+            </MobileCardContainer>
+
             <AddButtonMob onClick={() => router.push('/admin/blog/new-blog')} />
             <Pagination
                 currentPage={page}

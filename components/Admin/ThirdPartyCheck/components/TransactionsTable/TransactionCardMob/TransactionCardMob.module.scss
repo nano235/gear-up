@@ -85,7 +85,9 @@
             font-size: 1.5rem;
             font-weight: 500;
             color: $col-grey-1;
-
+        
+            padding:0.2rem 1rem;
+            border-radius: 1.6rem;
             &[data-status="completed"]{
                 background-color: #ECFDF3;
                 color: #027A48;

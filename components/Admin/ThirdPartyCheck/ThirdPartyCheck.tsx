@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import styles from './ThirdPartyCheck.module.scss'
 import { TransactionsTable } from './components'
+import Image from 'next/image'
 const filters = [
     {
         id: 1,
@@ -33,7 +34,7 @@ const ThirdPartyCheck = () => {
                     }
                 </ul>
                 <span className={styles.container__download_filter__download_btn}>
-                    Download all as SVG
+                    <Image src='/svgs/document-download.svg' className={styles.icon} width={20} height={20} alt='download-icon' />   Download all as SVG
                 </span>
             </div>
             <TransactionsTable transactionType={"buy"} />
