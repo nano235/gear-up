@@ -39,7 +39,7 @@ const RolesPermissionTable = () => {
             renderCell: ({ row, value }) => (
                 <div className={styles.container__permissions_wrapper} >
                     <h2 className={styles.permission_title} style={{ fontWeight: 700 }}>{row.title}</h2>
-                    <ul className={styles.permissions_container} style={{ fontSize: "1.2rem", color: "#4B525A" }}>
+                    <ul className={styles.permissions_container}>
                         {row.permissions.map((permission: string) => (
                             <li style={{ fontSize: "1.2rem", color: "#4B525A", fontWeight: 400 }} key={permission}>{permission}</li>
                         ))}
@@ -111,7 +111,6 @@ const RolesPermissionTable = () => {
                                 return (
                                     <li key={index} className={styles.permission}>
                                         <CustomRadioButton
-
                                         />
                                     </li>
                                 )

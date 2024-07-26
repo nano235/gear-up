@@ -3,7 +3,8 @@
 .container{
     margin-top: 2rem;
     margin-bottom: 4rem;
-
+    width: 100%;
+    flex: 1 1 auto;
 
     &__action_btn{
         border:1px solid $col-grey-300;
@@ -66,6 +67,9 @@
         }
 
         .permissions_container{
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
 
             .permission{
                 font-size: 1.2rem;
@@ -74,16 +78,7 @@
         }
 
         .permission{
-            padding: 0.5rem 1rem;
-            border-radius: 10rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            background-color: #FFF7E7;
-            font-size: 1.2rem;
-            font-weight: 400;
-            
+          
             .icon{
                 height: 1.6rem;
                 width: 1.6rem;
@@ -102,11 +97,11 @@
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 2.5rem;
+            gap: 1rem;
             align-items: center;
             flex-direction: column;
             justify-content: flex-end;
-            margin-top: 1.6rem;
+            margin-top: 2rem;
 
             li{
                 font-size: 1.2rem;
@@ -210,7 +205,9 @@
     }
 
     &__table{
-        overflow: auto;
+        // overflow: auto;
+        width: 100%;
+        flex: 1 1 auto;
         @include screenMax("mobile") {
             display: none;
         }
